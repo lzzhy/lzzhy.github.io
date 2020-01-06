@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>面试应对流程篇</title>
+    <url>/%E9%9D%A2%E8%AF%95%E5%BA%94%E5%AF%B9%E6%B5%81%E7%A8%8B%E7%AF%87/</url>
+    <content><![CDATA[<p>在面试中大概的一个流程大概会问到什么问题及如何来应对。</p>
+<h3 id="基础技能准备"><a href="#基础技能准备" class="headerlink" title="基础技能准备"></a>基础技能准备</h3><ul>
+<li>JS 基础 / 进阶相关</li>
+<li>HTML /  CSS 相关，这方面问的真的很少了</li>
+<li>浏览器 / 性能优化 / 工程相关</li>
+<li>框架使用相关，也就是基础问题</li>
+<li>框架原理相关，就算你没看过源码，你也得知道它的原理，当下的面试基本是不会原理就寸步难行</li>
+<li>计科相关，比如算法 / 数据结构 / 网络，基本这三样，最多加个操作系统</li>
+</ul>
+<p>参考以下整理出来的面试题：<br><a href="https://lzzhy.github.io/%E9%9D%A2%E8%AF%95%E5%9F%BA%E7%A1%80%E6%8A%80%E8%83%BD%E7%AF%87-CSS,HTML,JS/">面试基础技能篇-CSS,HTML,JS</a></p>
+<h3 id="面试如何请假、如何提出辞职"><a href="#面试如何请假、如何提出辞职" class="headerlink" title="面试如何请假、如何提出辞职"></a>面试如何请假、如何提出辞职</h3><p>其实真的没必要考虑我该如何请假才能让上级觉得我不是去面试的，当然实话实说请假是去面试的肯定也不行。既然要请假，那么就直接说家里有事、自己有事就行了，一般人不会那么事逼问你到底干嘛去的。<br>开口提辞职时先要有一个借口，比如什么通勤太远啦、加班太多啦等等的一些个人原因。然后再感激一下领导和公司这一段时间的栽培给自己带来了很大的成长，最后表示在离职之前会认真交接好所有的工作，希望领导能批准自己的离职申请。<br>这时领导可能会开始挽留你，记住一点：一旦决定辞职就别犹豫，上级挽留也一定不要留下来，因为在你辞职的那一刻起公司就认为你是个不稳定的因子，即使你被挽留下来也不大可能会有什么好的发展，同时也不要因为公司曾经带给了你成长所以犹豫到底要不要走。人往高处走，水往低处流，人生没有不散的宴席。</p>
+<h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><p>自我介绍是用于让面试官快速了解你信息的一个环节，但是切记不要啰里啰嗦地说一大堆，准备以下几个环节即可：</p>
+<ul>
+<li>个人信息，就把简历里写的个人信息说一下，另外还可以附带一些个人的荣誉（社招的就不用去讲学校里获得的荣誉了，除非是有什么大赛得过奖）。</li>
+<li>介绍匹配的技术栈。</li>
+<li>挑一个个人认为最好的项目说一下，描述方式也是按照 Star 法则。这个项目如果是匹配用人方招聘需求的那就更好了。</li>
+<li>自身亮点，比如平时有写文章或者维护的 Github 等等，提升面试官对你的好感。</li>
+</ul>
+<p>按照上述几个环节，大致可以整理出这样的格式：</p>
+<blockquote>
+<p>面试官你好，我叫 XXX，就读于 XX 学校 XX 专业，拥有 XX 年前端工作经验，获得过 ACM 省级金牌（介绍自己获得过有含金量的比赛名次），曾供职于 XX 公司（介绍先前工作过的一二线企业）。我在上家公司任职 XX 岗位，主要负责 XX 工作，擅长 XX 技术栈。其中在我负责的 XX 项目中，我完成了 XX 工作，实现了性能 XX% 的提升（这里就是按照 Star 法则去介绍一个自己负责的最佳项目）。另外我还坚持写作，在 XX 平台发表了 XX 文章，共计获得了 XX 点赞/阅读（这里就是介绍自身的亮点）。以上就是我的自我介绍，谢谢！</p>
+</blockquote>
+<h3 id="怎么谈做过的项目"><a href="#怎么谈做过的项目" class="headerlink" title="怎么谈做过的项目"></a>怎么谈做过的项目</h3><p>项目考察一是为了确认这个项目是否是你做过的，二是为了了解你的技术深度，是否做过就算不太记得还是会有自己的思考。考察的问题一般分为以下几点：</p>
+<ul>
+<li>项目基础相关的内容，比如涉及到的技术栈、功能、业务相关的问题。</li>
+<li>项目具体的细节内容，比如说这个功能你是如何实现的，为什么这样做等等。</li>
+<li>考察深度问题，比如说你做这个项目的时候有没有遇到过什么问题，是如何解决的，另外也可能会与上面的面试题结合起来问</li>
+</ul>
+<p>基于以上几点，你可以这样去准备项目问答：</p>
+<blockquote>
+<p>1.这个项目涉及的技术栈相关的内容，无论是基础的还是深度的，因为这里很可能会问到框架原理。<br>2.想想做这个项目的过程中是否有遇到过一些困难，最终是如何解决的，实在想不起来的话可以看看 Git Commit。<br>3.这个项目自己是否做过一些优化，包括代码、开发效率、性能、体验等等相关的领域。<br>4.这个项目当中存在的一些问题，可能的解决思路。<br>这个项目最终达成的成果。<br>5.这个项目带给你的成长是什么，当然别说让我学会了某某 API 这种没价值的内容。</p>
+</blockquote>
+<p>另外项目这块还要结合着简历来说，因为面试官问你项目肯定是从简历上得来的问题</p>
+<h3 id="职业规划"><a href="#职业规划" class="headerlink" title="职业规划"></a>职业规划</h3><p>这个其实就是想了解你与公司发展的匹配程度如何。假如说你一个写代码的说过几年想做产品了、运营了、创业了，那么可能就有点危险了。只要你讲出符合自己职业的道路即可，比如说想晋级到高工 -&gt; 架构师等等。</p>
+<h3 id="你的缺点"><a href="#你的缺点" class="headerlink" title="你的缺点"></a>你的缺点</h3><p>这个问题切记不能回答自己的性格缺陷、能力不行、沟通不好等等，可以说一些工作中遇到的问题。比如说在某次需求评审的时候因为自己没有坚持个人的想法，导致这个需求存在的问题没有解决掉，最后这个项目结果不好没有达到预期等等。</p>
+<h3 id="为什么从上家公司离职"><a href="#为什么从上家公司离职" class="headerlink" title="为什么从上家公司离职"></a>为什么从上家公司离职</h3><p>这个问题无论如何都不能说上家公司的任何不好，不管是加班多、上下级问题、与同事之间的矛盾或者其他的情况。</p>
+<p>一般就把问题归于自身就行，可以说考虑到自身的职业发展，想去一个更加适合自己成长的公司。</p>
+<h3 id="你有什么想问我的"><a href="#你有什么想问我的" class="headerlink" title="你有什么想问我的"></a>你有什么想问我的</h3><p>这个问题确实不怎么好答，相信很多人都被这个问题困扰过,回答没什么想问的呢，可能会给面试官一个你并不想进公司的感觉,瞎问呢又怕惹得面试官不高兴了,其实这个问题问得好的话反而是一个能很好了解对方公司的一个渠道。</p>
+<p>以下是一些笔者认为不错的提问，能够很好地了解到对方公司的一些东西，包括开发流程、职业晋升、公司发展等等。大家可以选择性地提出 2 - 3 个感兴趣的问题，这样不仅能帮助到自身了解到公司的一些情况，也能给予面试官一个不错的印象，以下问题针对于技术面：</p>
+<ul>
+<li>公司常用的技术栈是什么？</li>
+<li>你们如何测试代码？</li>
+<li>你们如何解决线上故障？</li>
+<li>你们如何准备故障恢复？是否有完善的发布机制？</li>
+<li>公司是否有技术分享交流活动？有的话，多久一次呢？<br>一次迭代的流程是怎么样的？从 PRD 评审开始到发布这一整个流程。</li>
+<li>公司技术团队的架构和人员组成？</li>
+<li>有公司级别的学习资源吗？比如电子书订阅或者在线课程？</li>
+<li>你们认为和竞品相比有什么优势？</li>
+</ul>
+<h3 id="谈薪篇"><a href="#谈薪篇" class="headerlink" title="谈薪篇"></a>谈薪篇</h3><p>在面试之前首先要想好自己想要的薪资，假如说你当前薪资为 10K，那么涨幅在 3K 以上是正常的。如果只有 1K - 2K 的涨幅跳槽是没多大意义，毕竟换公司存在成本。另外很多 HR 会压低你的报价，毕竟公司都是有预算的，能省一点是一点，所以我们需要给出一个压价的空间。所以在具体报价的时候你可以给出 14 - 15K 的心理价位，如果对方接受了那么皆大欢喜，如果压价到自己的期望薪资的话也不差。</p>
+<p>最后在和 HR 讨论待遇的时候，应该问清楚以下几点：</p>
+<ul>
+<li>具体的工资（也就是合同上签订的工资），不要杂七杂八什么绩效加起来的那种</li>
+<li>五险一金缴纳的比例，这个在交满和不交满的情况下其实是很大一笔收益。交满虽然自己交的也多了，但是大头公积金是能取出来的，医疗保险看病也用得到，只有养老金稍微虚幻了一点</li>
+<li>加班是否有加班工资或者调休</li>
+<li>是否是 996，我个人很不推荐 996 的公司</li>
+<li>加薪升职的情况</li>
+<li>其他各种福利，比如餐补、房补、交通补、节假日福利、另外的保险等等，这个算是锦上添花</li>
+<li>年终奖如何发放，员工平均能拿到几个月</li>
+</ul>
+<h3 id="选择-Offer-篇"><a href="#选择-Offer-篇" class="headerlink" title="选择 Offer 篇"></a>选择 Offer 篇</h3><h4 id="校招"><a href="#校招" class="headerlink" title="校招"></a>校招</h4><p>对于校招来说，平台 &gt; 团队 &gt; 其他。在平台差不多的情况下可以去选择更好的团队，但是在平台存在差距的情况下务必要选择平台更大的，职业生涯初期就职的平台越好那么将来也会更顺，即使好的平台工资给的低也不要紧，毕竟这段校招的经历不会长。</p>
+<h4 id="社招"><a href="#社招" class="headerlink" title="社招"></a>社招</h4><p>对于社招来说，其实还是看自己缺什么去补什么的。假如说你缺钱，那么可能有更好的平台摆在你面前也会选择给更多钱的一方；假如说你想去个更大的平台，那么可能小平台开的价更高你也不想去；假如说你想通勤近点多陪陪家人，那么远的公司肯定也就不考虑了。</p>
+<p>如果你觉得几个条件自己都不缺或者把握不好的，可以参考下笔者的思路：</p>
+<ul>
+<li>按照权重先这样选择：平台 | 薪资（两者看个人选择） &gt; 团队 &gt; 加班 &amp; 通勤。</li>
+<li>钱多有时候不一定好。钱多如果加班也多，那肯定比不过薪资差点但是不加班的公司。另外 HR 和你谈的年终奖也不一定拿得到，说不到到了年终把你裁了呢~</li>
+<li>去深入了解下具体要去的团队，可以加个未来上级的微信聊聊，同时也四处询问下这个团队是否靠谱。毕竟一个团队以及直属领导的好坏，会直接影响着你的绩效和晋升空间。</li>
+<li>通勤时间，如果你已经有房了，那么通勤时间是需要考虑上的。如果每次通勤需要一小时以上外加公司还要加班的话，其实幸福感会蛮低的。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>面试基础技能篇-CSS,HTML,JS</title>
+    <url>/%E9%9D%A2%E8%AF%95%E5%9F%BA%E7%A1%80%E6%8A%80%E8%83%BD%E7%AF%87-CSS,HTML,JS/</url>
+    <content><![CDATA[<p>每次会去看红宝书，会去看人家的总结和视频…有时候觉得这些东西很重要，知道要记下来可是没多久就又忘记了。所以还是把它记录在我的博客中吧o(<em>￣︶￣</em>)o</p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>页面渲染时，dom元素所采用的<em>布局模型</em>,可通过<em>box-sizing</em>来设置，根据计算宽高的区域可分为：</p>
+<ul>
+<li>content-box (W3C 标准盒模型)</li>
+<li>border-box (IE 盒模型)</li>
+<li>padding-box</li>
+<li>margin-box (浏览器未实现)</li>
+</ul>
+<h3 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h3><p><em>块级格式化上下文</em>是一个独立的渲染区域，让处于BFC内部的和外部的元素隔离，使内外元素的定位不会受到相互影响：</p>
+<p>触发条件</p>
+<ul>
+<li>position: absolute/fixed</li>
+<li>display: inline-block / table</li>
+<li>float 元素</li>
+<li>overflow !== visible</li>
+</ul>
+<p>规则</p>
+<ul>
+<li>属于同一个 BFC 的两个相邻 Box 垂直排列</li>
+<li>属于同一个 BFC 的两个相邻 Box 的 margin 会发生重叠</li>
+<li>BFC 中子元素的 margin box 的左边， 与包含块 (BFC) border box的左边相接触 (子元素 absolute 除外)</li>
+<li>BFC 的区域不会与 float 的元素区域重叠</li>
+<li>计算 BFC 的高度时，浮动子元素也参与计算</li>
+<li>文字层不会被浮动层覆盖，环绕于周围</li>
+</ul>
+<p>应用</p>
+<ul>
+<li>阻止margin重叠</li>
+<li>可以包含浮动元素 —— 清除内部浮动(清除浮动的原理是两个div都位于同一个 BFC 区域之中)</li>
+<li>自适应两栏布局</li>
+<li>可以阻止元素被浮动元素覆盖</li>
+</ul>
+<h3 id="层叠上下文"><a href="#层叠上下文" class="headerlink" title="层叠上下文"></a>层叠上下文</h3><p>元素提升为一个比较特殊的图层，在三维空间中 <strong>(Z轴)</strong> 高出普通元素：</p>
+<p>触发条件</p>
+<ul>
+<li>html</li>
+<li>position</li>
+<li>css3属性（flex, transform, opacity, filter, overflow-scrolling）</li>
+</ul>
+<p>层叠等级：<em>在层叠上下文中</em> 层叠上下文在Z轴上的排序</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93-css%E7%AF%87/WechatIMG3.jpeg" alt="cmd-markdown-logo"></p>
+<h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><ul>
+<li>行内元素：text-align: center;</li>
+<li>块级元素：margin: 0 auto; (宽度要固定);</li>
+<li>absolute + transform: translateX(-50%)  left: 50%; (transform等是相对于元素本身;这个left right top bottom 使用百分比是相对于父元素)</li>
+<li>flex + justify-content: center;</li>
+<li>float + position (父：float + position:relative + left:50%, 子：position:relative +  left: -50%)</li>
+<li>父：display:flex + margin:auto;</li>
+</ul>
+<h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><ul>
+<li>line-height: height;</li>
+<li>absolute + transform (left：参考水平居中)；</li>
+<li>flex + align-items: center;</li>
+<li>display:table-cell + vertical-align:middle</li>
+</ul>
+<h4 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h4><ul>
+<li>absolute + transform;</li>
+<li>flex + justify-content + align-items;</li>
+<li>父：position:relative + 子：position:absolute;top:50%;left:50%;margin-top:-height/2;margin-left:-width/2;</li>
+<li>position:absolute;top:0;left:0;bottom:0;right:0;+margin:auto;</li>
+</ul>
+<h3 id="两列布局：右边自适应左边固定（左边自适应右边固定float和position都不太适用了。所以还是使用BFC和Flex吧。）"><a href="#两列布局：右边自适应左边固定（左边自适应右边固定float和position都不太适用了。所以还是使用BFC和Flex吧。）" class="headerlink" title="两列布局：右边自适应左边固定（左边自适应右边固定float和position都不太适用了。所以还是使用BFC和Flex吧。）"></a>两列布局：右边自适应左边固定（左边自适应右边固定float和position都不太适用了。所以还是使用BFC和Flex吧。）</h3><h4 id="float"><a href="#float" class="headerlink" title="float:"></a>float:</h4><ul>
+<li>子左width: 200px；float: left;</li>
+<li>子右margin-left: 210px;</li>
+</ul>
+<h4 id="position-margin"><a href="#position-margin" class="headerlink" title="position+margin"></a>position+margin</h4><ul>
+<li>父：position:relative;</li>
+<li>子左：position: absolute;width: 200px;</li>
+<li>子右：margin-left:210px;   </li>
+</ul>
+<h4 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h4><ul>
+<li>父display:flex;</li>
+<li>子左margin-right:10px;</li>
+<li>子右flex:1;  </li>
+</ul>
+<h4 id="float-BFC"><a href="#float-BFC" class="headerlink" title="float+BFC"></a>float+BFC</h4><ul>
+<li>子左margin-right: 10px;float: left;</li>
+<li>子右overflow: hidden;（因为BFC区域不会与float box重叠,所以left这里为float box，使用overflow：hidden;来触发BFC，这样right就不会与left重叠啦）</li>
+</ul>
+<h3 id="左右两边固定中间自适应"><a href="#左右两边固定中间自适应" class="headerlink" title="左右两边固定中间自适应"></a>左右两边固定中间自适应</h3><h4 id="position-margin实现"><a href="#position-margin实现" class="headerlink" title="position + margin实现"></a>position + margin实现</h4><ul>
+<li>父：position: relative;  </li>
+<li>子中：margin:0px 210px;height: 200px;    </li>
+<li>子左：width: 200px;height: 200px;position: absolute;top:0px;left:0px;   </li>
+<li>子右：width: 200px;height: 200px;position: absolute;top:0px;right: 0px; </li>
+</ul>
+<h4 id="float-margin实现"><a href="#float-margin实现" class="headerlink" title="float + margin实现"></a>float + margin实现</h4><ul>
+<li>html中：中间那一个div要放在左右两个盒子的后面      </li>
+<li>自/子左：width: 200px;height: 200px; background-color:red;float:left;   </li>
+<li>自/子右：width: 200px;height: 200px; background-color:red;float:right   </li>
+<li>自/子中：margin: 0 210px;height: 200px; background-color: green;</li>
+</ul>
+<h4 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h4><ul>
+<li>HTML：子中间的要放在左右两边的后面   </li>
+<li>父：padding: 0 230px 0 190px;   </li>
+<li>子中：float:left;width:100%;height:100px;   </li>
+<li>子左：float: left; width: 190px;margin-left: -100%;position: relative;left: -190px;height: 100px;   </li>
+<li>子右：float: left;width: 190px;margin-left: -230px;position: relative;right: -230px;background: green; height: 100px; </li>
+</ul>
+<h4 id="flex-1"><a href="#flex-1" class="headerlink" title="flex"></a>flex</h4><ul>
+<li>html:center9要放中间   </li>
+<li>父display: flex;   </li>
+<li>子中：flex:1;height:100px;background: red;   </li>
+<li>子左右width:60px;height: 100px;background: green; </li>
+</ul>
+<h4 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h4><ul>
+<li>html:中间的main-content2用一个div class=”main2”抱起来    </li>
+<li>中父：background: red;width:100%;height: 100px;float:left;    </li>
+<li>子中margin-left:150px;height: 100%;margin-right:190px;    </li>
+<li>子左：background: green;width:150px;height: 100px;float:left;margin-left:-100%;   </li>
+<li>子右：background:green;width:190px;height: 100px;float:left;margin-left:-194px;</li>
+</ul>
+<h3 id="设为-flex-属性之后，子元素的哪些属性会失效"><a href="#设为-flex-属性之后，子元素的哪些属性会失效" class="headerlink" title="设为 flex 属性之后，子元素的哪些属性会失效"></a>设为 flex 属性之后，子元素的哪些属性会失效</h3><p>float、clear 和 vertical-align</p>
+<h3 id="选择器优先级"><a href="#选择器优先级" class="headerlink" title="选择器优先级"></a>选择器优先级</h3><ul>
+<li>!important &gt; 行内样式 &gt; #id &gt; .class &gt; tag &gt; * &gt; 继承 &gt; 默认</li>
+<li>选择器 从右往左 解析</li>
+</ul>
+<h3 id="去除浮动影响，防止父级高度塌陷"><a href="#去除浮动影响，防止父级高度塌陷" class="headerlink" title="去除浮动影响，防止父级高度塌陷"></a>去除浮动影响，防止父级高度塌陷</h3><ul>
+<li>父：clearfloat:after{display:block;clear:both;content:””;} clearfloat{zoom:1}   </li>
+<li>平级添加空标签div:clear:both</li>
+<li>父级设置高度</li>
+<li>父： .div{width:98%;overflow:hidden} </li>
+<li>创建父级BFC</li>
+</ul>
+<h3 id="link-和-import-的区别"><a href="#link-和-import-的区别" class="headerlink" title="link 和 @import 的区别"></a>link 和 @import 的区别</h3><ul>
+<li>link功能较多，可以定义 RSS，定义 Rel 等作用，而@import只能用于加载 css</li>
+<li>当解析到link时，页面会同步加载所引的 css，而@import所引用的 css 会等到页面加载完才被加载</li>
+<li>@import需要 IE5 以上才能使用</li>
+<li>link可以使用 js 动态引入，@import不行</li>
+</ul>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><ul>
+<li>Boolean</li>
+<li>Number</li>
+<li>String</li>
+<li>Null</li>
+<li>Undefined</li>
+<li>Symbol (ECMAScript 6 新定义)</li>
+<li>Object</li>
+</ul>
+<p>(ES6之前)其中5种为基本类型:string,number,boolean,null,undefined,ES6出来的Symbol也是原始数据类型 ，表示独一无二的值。Object 为引用类型(范围挺大),也包括数组、函数</p>
+<h3 id="原始数据类型和引用类型的区别"><a href="#原始数据类型和引用类型的区别" class="headerlink" title="原始数据类型和引用类型的区别"></a>原始数据类型和引用类型的区别</h3><p>在内存中的存储方式不同，原始数据类型在内存中是栈存储(栈（stack）为自动分配的内存空间，它由系统自动释放)，引用类型是堆存储(堆（heap）则是动态分配的内存，大小不定也不会自动释放)</p>
+<p>在内存中存储方式的不同导致了原始数据类型不可变 原始数据类型和引用数据类型做赋值操作一个是传值一个是传址</p>
+<h3 id="面向对象的三大要素"><a href="#面向对象的三大要素" class="headerlink" title="面向对象的三大要素"></a>面向对象的三大要素</h3><p>封装、继承、多态</p>
+<h3 id="能够简单的说明面向对象和面向过程的区别吗"><a href="#能够简单的说明面向对象和面向过程的区别吗" class="headerlink" title="能够简单的说明面向对象和面向过程的区别吗"></a>能够简单的说明面向对象和面向过程的区别吗</h3><ul>
+<li><strong>面向过程</strong>：就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。（比如：例如蛋炒饭，面向过程的设计思路就是首先分析问题的步骤：1、先放油，2、把鸡蛋搅拌，3、把鸡蛋倒进锅里炒熟，4、把鸡蛋盛起来，5、在倒油在锅里，6、把饭倒进去炒，7、把炒好的鸡蛋倒进去，8、放盐等其他作料，9、盛出来放到碗里。把上面每个步骤用分别的函数来实现，问题就解决了。），每一个步骤就是一个函数。</li>
+<li><strong>面向对象</strong>：是以功能来划分问题，而不是步骤。（如：整个蛋炒饭可以分为 1、先把蛋炒好盛出来，2、把饭炒好，3、把蛋和饭放锅里搅拌。）每一个模块都可以看做是一个对象。如蛋炒饭的 炒蛋 对象，炒饭 对象，搅拌 对象。每一个对象都是为了完成一个功能，而每一个功能就是一个函数。</li>
+</ul>
+<h3 id="一句话概括什么是promise"><a href="#一句话概括什么是promise" class="headerlink" title="一句话概括什么是promise"></a>一句话概括什么是promise</h3><p>Promise对象用于异步操作，它表示一个尚未完成且预计在未来完成的异步操作。</p>
+<h3 id="原型-构造函数-实例"><a href="#原型-构造函数-实例" class="headerlink" title="原型/构造函数/实例"></a>原型/构造函数/实例</h3><ul>
+<li>原型（prototype）：我们创建的每一个函数，都可以有一个prototype属性，该属性指向一个对象。这个对象，就是原型。</li>
+<li>构造函数：可以通过new来 新建一个对象 的函数</li>
+<li>实例： 通过构造函数和new创建出来的对象，便是实例。 实例通过<strong>proto</strong>指向原型，通过constructor指向构造函数。</li>
+</ul>
+<p>以上是一个比较通俗的定义，可能有点懵逼，这里来举个栗子，以Object为例，我们常用的Object便是一个构造函数，因此我们可以通过它构建实例。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 实例</span><br><span class="line">const instance = new Object()</span><br></pre></td></tr></table></figure>
+
+<p>则此时，实例为instance, 构造函数为Object，我们知道，构造函数拥有一个prototype的属性指向原型，因此原型为:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 原型</span><br><span class="line">const prototype = Object.prototype</span><br></pre></td></tr></table></figure>
+
+<p>这里我们可以来看出三者的关系:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">实例.__proto__ === 原型</span><br><span class="line"></span><br><span class="line">原型.constructor === 构造函数</span><br><span class="line"></span><br><span class="line">构造函数.prototype === 原型</span><br><span class="line"></span><br><span class="line">// 这条线其实是是基于原型进行获取的，可以理解成一条基于原型的映射线</span><br><span class="line">// 例如: </span><br><span class="line">// const o = new Object()</span><br><span class="line">// o.constructor === Object   --&gt; true</span><br><span class="line">// o.__proto__ = null;</span><br><span class="line">// o.constructor === Object   --&gt; false</span><br><span class="line">实例.constructor === 构造函</span><br></pre></td></tr></table></figure>
+
+<p>相关关系如下图：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93-css%E7%AF%87/WechatIMG4.jpeg" alt="cmd-markdown-logo"></p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>原型链的访问跟作用域链有很大的相似之处，他们都是一次单向的查找过程：</p>
+<ul>
+<li>属性查找机制: 当查找对象的属性时，如果实例对象自身不存在该属性，则沿着原型链往上一级查找，找到时则输出，不存在时，则继续沿着原型链往上一级查找，直至最顶级的原型对象Object.prototype，如还是没找到，则输出undefined；</li>
+<li>属性修改机制: 只会修改实例对象本身的属性，如果不存在，则进行添加该属性，如果需要修改原型的属性时，则可以用: b.prototype.x = 2；但是这样会造成所有继承于该对象的实例的属性发生改变。</li>
+</ul>
+<h3 id="执行上下文：可以简单理解为一个对象"><a href="#执行上下文：可以简单理解为一个对象" class="headerlink" title="执行上下文：可以简单理解为一个对象"></a>执行上下文：可以简单理解为一个对象</h3><p>包含三个部分：</p>
+<ul>
+<li>变量对象(VO)</li>
+<li>作用域链(词法作用域)</li>
+<li>this指向</li>
+</ul>
+<p>类型：</p>
+<ul>
+<li>全局执行上下文</li>
+<li>函数执行上下文</li>
+<li>eval执行上下文</li>
+</ul>
+<p>代码执行过程：</p>
+<ul>
+<li>创建全局上下文(global EC)</li>
+<li>全局执行上下文 (caller) 逐行自上而下执行。遇到函数时，函数执行上下文被push到执行栈顶层</li>
+<li>函数执行上下文被激活，成为 active EC, 开始执行函数中的代码，caller 被挂起</li>
+<li>函数执行完后，callee 被pop移除出执行栈，控制权交还全局上下文 (caller)，继续执行</li>
+</ul>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>作用域可以理解为该上下文中声明的变量和声明的作用范围。可分为<em>块级作用域</em>和<em>函数作用域</em>。</p>
+<p>特性</p>
+<ul>
+<li>声明提前: 一个声明在函数体内都是可见的, 函数优先于变量</li>
+<li>非匿名自执行函数，函数变量为<em>只读</em>状态，无法修改</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let foo = function() &#123; console.log(1) &#125;;</span><br><span class="line">(function foo() &#123;</span><br><span class="line">    foo = 10  // 由于foo在函数中只为可读，因此赋值无效</span><br><span class="line">    console.log(foo)</span><br><span class="line">&#125;())</span><br><span class="line"></span><br><span class="line">// 结果打印：ƒ foo() &#123;</span><br><span class="line">    foo = 10  </span><br><span class="line">    console.log(foo)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到window对象即被终止，作用域链向下访问变量是不被允许的。</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。闭包本质还是函数，只不过这个函数绑定了上下文环境（函数内部引用的所有变量）</p>
+<p>产生的问题1：</p>
+<ul>
+<li>多个子函数的[[scope]]都是同时指向父级，是完全共享的。因此当父级的变量对象被修改时，所有子函数都受到影响。</li>
+</ul>
+<p>解决1：</p>
+<ul>
+<li>变量可以通过 函数参数的形式 传入，避免使用默认的[[scope]]向上查找</li>
+<li>使用setTimeout包裹，通过第三个参数传入</li>
+<li>使用 块级作用域，让变量成为自己上下文的属性，避免共享</li>
+</ul>
+<p>产生的问题2：</p>
+<ul>
+<li>常驻内存，会增大内存使用量，使用不当很容易造成内存泄露</li>
+</ul>
+<p>三个特性：</p>
+<ul>
+<li>函数嵌套函数</li>
+<li>函数内部可以引用外部的参数和变量</li>
+<li>参数和变量不会被垃圾回收机制回收</li>
+</ul>
+<h3 id="对象的拷贝"><a href="#对象的拷贝" class="headerlink" title="对象的拷贝"></a>对象的拷贝</h3><p>浅拷贝：仍指向同一个地址，修改时原对象也会受到影响。</p>
+<ul>
+<li>Object.assign</li>
+<li>展开运算符（…）</li>
+</ul>
+<p>深拷贝：完全拷贝一个新对象，修改时原对象不受到影响。</p>
+<ul>
+<li>JSON.parse(JSON.stringify(obj))(但是如果里面有 function 和 undefined 不可用)</li>
+<li>lodash</li>
+</ul>
+<h3 id="new运算符具体执行过程"><a href="#new运算符具体执行过程" class="headerlink" title="new运算符具体执行过程"></a>new运算符具体执行过程</h3><ul>
+<li>创建一个新对象</li>
+<li>链接到原型：obj.<em>proto</em>= Con.prototype</li>
+<li>绑定this: apply</li>
+<li>返回新对象（如果构造函数自己有return时，则返回该值）</li>
+</ul>
+<h3 id="代码复用"><a href="#代码复用" class="headerlink" title="代码复用"></a>代码复用</h3><p>当发现任何代码开始写第二遍时，就要开始考虑如何复用。一般有以下几种方式：</p>
+<ul>
+<li>函数封装</li>
+<li>继承</li>
+<li>复制 extend</li>
+<li>混入 mixin</li>
+<li>借用 apply/call</li>
+</ul>
+<h3 id="继承-？？？？？？"><a href="#继承-？？？？？？" class="headerlink" title="继承 ？？？？？？"></a>继承 ？？？？？？</h3><p>1.简单的原型链继承：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Super()&#123;</span><br><span class="line">	this.name = &apos;hzzly&apos;;</span><br><span class="line">&#125;</span><br><span class="line">function Sub()&#123;</span><br><span class="line">	// ...</span><br><span class="line">&#125;</span><br><span class="line">Sub.prototype = new Super();    // 核心</span><br></pre></td></tr></table></figure>
+
+<p>缺点：<br>修改sub1.name后sub2.name也变了，因为来自原型对象的引用属性是所有实例共享的。</p>
+<p>2.构造函数式继承</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Super(val)&#123;</span><br><span class="line">	this.val = val;</span><br><span class="line">	this.fun = function()&#123;  // 实例函数</span><br><span class="line">		// ...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">function Sub(val)&#123;</span><br><span class="line">	Super.call(this, val);   // 核心</span><br><span class="line">	// ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>缺点：<br>无法实现函数复用，每个子类实例都持有一个新的fun函数，太多了就会影响性能，内存爆炸。。</p>
+<h3 id="null-和-undefined-的区别"><a href="#null-和-undefined-的区别" class="headerlink" title="null 和 undefined 的区别"></a>null 和 undefined 的区别</h3><ul>
+<li>null 转为数值时为0；undefined 转为数值时为NaN;</li>
+<li>null 表示‘没有对象’，即该处不应该有值；undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义；</li>
+</ul>
+<h3 id="call、apply、bind的区别"><a href="#call、apply、bind的区别" class="headerlink" title="call、apply、bind的区别"></a>call、apply、bind的区别</h3><ul>
+<li>都是用来改变函数的this的指向的</li>
+<li>第一个参数都是this要指向的对象，也就是想指定的上下文</li>
+<li>call 传入的参数数量不固定，第二部分参数要一个一个传，用‘，’隔开</li>
+<li>apply 接受两个参数，第二个参数为一个带下标的集合，可以是数组、类数组</li>
+<li>bind 是返回了一个改变上下文的函数副本，便于稍后调用；apply,call则是立即调用</li>
+</ul>
+<h3 id="防抖与节流"><a href="#防抖与节流" class="headerlink" title="防抖与节流"></a>防抖与节流</h3><p>防抖与节流函数是一种最常用的 <strong>高频触发优化方式，对性能</strong>有较大的帮助。</p>
+<ul>
+<li>防抖 (debounce): 一直触发但只会执行一次。通常使用的场景是：用户输入，只需再输入完成后做一次输入校验即可。 </li>
+</ul>
+<p>实现方式：每次触发事件时设置一个延迟调用方法，并且取消之前的延时调用方法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function debounce(fn, wait, immediate) &#123;</span><br><span class="line">    let timer = null  // 创建一个标记用来存放定时器的返回值</span><br><span class="line"></span><br><span class="line">    return function() &#123;</span><br><span class="line">        let args = arguments</span><br><span class="line">        let context = this</span><br><span class="line"></span><br><span class="line">        if (immediate &amp;&amp; !timer) &#123;</span><br><span class="line">            fn.apply(context, args)</span><br><span class="line">        &#125;</span><br><span class="line">		// 每当用户输入的时候把前一个 setTimeout clear 掉</span><br><span class="line">        if (timer) clearTimeout(timer) </span><br><span class="line"></span><br><span class="line">		// 然后又创建一个新的 setTimeout, 这样就能保证interval 间隔内如果时间持续触发，就不会执行 fn 函</span><br><span class="line">        timer = setTimeout(() =&gt; &#123;</span><br><span class="line">            fn.apply(context, args)</span><br><span class="line">        &#125;, wait)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>节流(throttle): 一直触发但是每隔一段时间执行一次。通常使用场景: 滚动条事件或者 resize 事件，通常每隔 100~500 ms执行一次即可。</li>
+</ul>
+<p>实现方式：每次触发事件时，如果当前有等待执行的延时函数，则直接return</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function throttle(fn, wait, immediate) &#123;</span><br><span class="line">    let timer = null</span><br><span class="line">    let callNow = immediate</span><br><span class="line">    </span><br><span class="line">    return function() &#123;</span><br><span class="line">        let context = this,</span><br><span class="line">            args = arguments</span><br><span class="line"></span><br><span class="line">        if (callNow) &#123;</span><br><span class="line">            fn.apply(context, args)</span><br><span class="line">            callNow = false</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (!timer) &#123;</span><br><span class="line">            timer = setTimeout(() =&gt; &#123;</span><br><span class="line">                fn.apply(context, args)</span><br><span class="line">                timer = null</span><br><span class="line">            &#125;, wait)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h3><p>在一个函数中，首先填充几个参数，然后再返回一个新的函数的技术，称为函数的柯里化。通常可用于在不侵入函数的前提下，为函数 预置通用参数，供多次重复调用。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const add = function add(x) &#123;</span><br><span class="line">	return function (y) &#123;</span><br><span class="line">		return x + y</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const add1 = add(1)</span><br><span class="line"></span><br><span class="line">add1(2) === 3</span><br><span class="line">add1(20) === 21</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组-array"><a href="#数组-array" class="headerlink" title="数组(array)???????"></a>数组(array)???????</h3><ul>
+<li>map: 遍历数组，返回回调返回值组成的新数组</li>
+<li>forEach: 无法break，可以用try/catch中throw new Error来停止</li>
+<li>filter: 过滤</li>
+<li>some: 有一项返回true，则整体为true</li>
+<li>every: 有一项返回false，则整体为false</li>
+<li>join: 通过指定连接符生成字符串</li>
+<li>push / pop: 末尾推入和弹出，改变原数组， 返回推入/弹出项</li>
+<li>unshift / shift: 头部推入和弹出，改变原数组，返回操作项</li>
+<li>sort(fn) / reverse: 排序与反转，改变原数组</li>
+<li>concat: 连接数组，不影响原数组， 浅拷贝</li>
+<li>slice(start, end): 返回截断后的新数组，不改变原数组</li>
+<li>splice(start, number, value…): 返回删除元素组成的数组，value 为插入项，改变原数组</li>
+<li>indexOf / lastIndexOf(value, fromIndex): 查找数组项，返回对应的下标</li>
+<li>reduce / reduceRight(fn(prev, cur)， defaultPrev): 两两执行，prev 为上次化简函数的return值，cur 为当前值(从第二项开始)</li>
+</ul>
+<p>数组乱序：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];</span><br><span class="line">arr.sort(function () &#123;</span><br><span class="line">    return Math.random() - 0.5;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>数组拆解: flat: [1,[2,3]] –&gt; [1, 2, 3]:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Array.prototype.flat = function() &#123;</span><br><span class="line">    return this.toString().split(&apos;,&apos;).map(item =&gt; +item )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><h3 id="比较-HTML-XML-XHTML-和-JSON"><a href="#比较-HTML-XML-XHTML-和-JSON" class="headerlink" title="比较 HTML XML XHTML 和 JSON"></a>比较 HTML XML XHTML 和 JSON</h3><ul>
+<li>HTML（HyperText Markup Language / 超文本标记语言）：用来描述和定义 网络内容的标记语言，超文本的意思是说，除了能标记本文还能标记 图片，视频，链接 等其他内容</li>
+<li>XML（Extensible Markup Language / 可扩展标记语言）：表现就是给一堆文档加上标签，说明里面的数据是什么意思，方便存储、传输、分享数据，常用作配置文件。和 HTML 的区别是 HTML 的标签是预定义的，XML 是可扩展的 。XHTML: Extensible Hypertext Markup Language / 可扩展超文本标记语，其实就是 HTML 的严格语法形式，约定了 属性名必需小写，空元素必需关闭，元素名小写，属性名必需加引号，布尔类型必需加属性值。</li>
+<li>JSON（Javascript Object Notation）：比较轻量级的数据交换格式，由键值对组成，数据格式比较简单, 易于读写, 格式都是压缩的, 占用带宽小。用于 AJAX 传输数据</li>
+</ul>
+<h3 id="跨标签页通讯"><a href="#跨标签页通讯" class="headerlink" title="跨标签页通讯"></a>跨标签页通讯</h3><p>不同标签页间的通讯，本质原理就是去运用一些可以 共享的中间介质，因此比较常用的有以下方法:</p>
+<ul>
+<li>通过父页面window.open()和子页面postMessage</li>
+</ul>
+<blockquote>
+<p>异步下，通过 window.open(‘about: blank’) 和 tab.location.href = ‘*’</p>
+</blockquote>
+<ul>
+<li><p>设置同域下共享的localStorage与监听window.onstorage</p>
+<blockquote>
+<p>1.重复写入相同的值无法触发<br>2.会受到浏览器隐身模式等的限制</p>
+</blockquote>
+</li>
+<li><p>设置共享cookie与不断轮询脏检查(setInterval)</p>
+</li>
+<li><p>借助服务端或者中间层实现</p>
+</li>
+</ul>
+<h3 id="浏览器架构"><a href="#浏览器架构" class="headerlink" title="浏览器架构"></a>浏览器架构</h3><ul>
+<li>用户界面</li>
+<li>主进程</li>
+<li>内核<ul>
+<li>渲染引擎</li>
+<li>JS引擎<ul>
+<li>执行栈</li>
+</ul>
+</li>
+<li>事件触发线程<ul>
+<li>消息队列<ul>
+<li>微任务</li>
+<li>宏任务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>网络异步线程</li>
+<li>定时器线程</li>
+</ul>
+</li>
+</ul>
+<h3 id="浏览器下事件循环-Event-Loop"><a href="#浏览器下事件循环-Event-Loop" class="headerlink" title="浏览器下事件循环(Event Loop)"></a>浏览器下事件循环(Event Loop)</h3><p>事件循环是指: 执行一个宏任务，然后执行清空微任务列表，循环再执行宏任务，再清微任务列表</p>
+<ul>
+<li><p>微任务 microtask(jobs): promise / process.nextTick</p>
+</li>
+<li><p>宏任务 macrotask(task): setTimout / setInterval / setImmediate</p>
+</li>
+</ul>
+<h3 id="DNS-解析过程"><a href="#DNS-解析过程" class="headerlink" title="DNS 解析过程"></a>DNS 解析过程</h3><p>获取流程：DNS是应用层协议，事实上他是为其他应用层协议工作的，包括不限于HTTP和SMTP以及FTP，用于将用户提供的主机名解析为ip地址。<br>具体过程如下：</p>
+<ul>
+<li>用户主机上运行着DNS的客户端，就是我们的PC机或者手机客户端运行着DNS客户端了</li>
+<li>浏览器将接收到的url中抽取出域名字段，就是访问的主机名，比如<br><a href="http://www.baidu.com/" target="_blank" rel="noopener">http://www.baidu.com/</a><br>, 并将这个主机名传送给DNS应用的客户端</li>
+<li>DNS客户机端向DNS服务器端发送一份查询报文，报文中包含着要访问的主机名字段（中间包括一些列缓存查询以及分布式DNS集群的工作）</li>
+<li>该DNS客户机最终会收到一份回答报文，其中包含有该主机名对应的IP地址</li>
+<li>一旦该浏览器收到来自DNS的IP地址，就可以向该IP地址定位的HTTP服务器发起TCP连接</li>
+</ul>
+<h3 id="三次握手，四次挥手"><a href="#三次握手，四次挥手" class="headerlink" title="三次握手，四次挥手"></a>三次握手，四次挥手</h3><p>三次握手：建立连接前，客户端和服务端需要通过握手来确认对方:</p>
+<ul>
+<li>客户端发送 syn(同步序列编号) 请求，进入 syn_send 状态，等待确认</li>
+<li>服务端接收并确认 syn 包后发送 syn+ack 包，进入 syn_recv 状态</li>
+<li>客户端接收 syn+ack 包后，发送 ack 包，双方进入 established 状态</li>
+</ul>
+<p>四次挥手：</p>
+<ul>
+<li>客户端 – FIN –&gt; 服务端， FIN—WAIT</li>
+<li>服务端 – ACK –&gt; 客户端， CLOSE-WAIT</li>
+<li>服务端 – ACK,FIN –&gt; 客户端， LAST-ACK</li>
+<li>客户端 – ACK –&gt; 服务端，CLOSED</li>
+</ul>
+<h3 id="从输入-url-到展示的过程"><a href="#从输入-url-到展示的过程" class="headerlink" title="从输入 url 到展示的过程"></a>从输入 url 到展示的过程</h3><ul>
+<li>DNS 解析</li>
+<li>TCP三次握手</li>
+<li>发送请求，分析url，设置请求报文（头，主体）</li>
+<li>服务器返回请求的文件（html）</li>
+<li>浏览器渲染<ul>
+<li>HTML =&gt; DOM<ul>
+<li>标计划算法，进行元素状态的标记</li>
+<li>dom 树构建</li>
+</ul>
+</li>
+<li>CSS =&gt; Style tree<ul>
+<li>解析css代码，生成样式树</li>
+</ul>
+</li>
+<li>attachment =&gt; Render Tree<ul>
+<li>结合dom树和style树，生成渲染树</li>
+</ul>
+</li>
+<li>布局</li>
+<li>像素绘制页面</li>
+</ul>
+</li>
+</ul>
+<h3 id="重绘与回流"><a href="#重绘与回流" class="headerlink" title="重绘与回流"></a>重绘与回流</h3><ul>
+<li><p>重绘： 当元素样式的改变不影响布局时，浏览器将使用重绘对元素进行更新，此时只需对UI层面进行绘制更新。因此损耗较少。</p>
+</li>
+<li><p>回流： 当元素的尺寸、结构会触发某些属性时，浏览器会重新渲染页面，成为回流。此时浏览器需要进行重新计算，计算后还要重新布局页面，因此是较重的操作，会触发回流的操作：</p>
+<ul>
+<li>页面初次渲染</li>
+<li>浏览器窗口大小改变</li>
+<li>元素尺寸，位置，内容发生变化</li>
+<li>元素字体大小的变化</li>
+<li>添加或者删除可见的 dom 元素</li>
+<li>激活 CSS 伪类（例如：:hover）</li>
+<li>查询某些属性或调用某些方法（egg: clientWidth,offsetWidth,scrollWidth…）</li>
+</ul>
+</li>
+</ul>
+<p>回流必定触发重绘，重绘不一定触发回流，重绘开销少，回流代价高。</p>
+<p>最佳实践：</p>
+<ul>
+<li>CSS <ul>
+<li>避免使用table布局</li>
+<li>将动画效果应用到position属性为absolute或fixed的元素上</li>
+</ul>
+</li>
+<li>JS<ul>
+<li>避免频繁操作样式，可汇总后统一 一次修改</li>
+<li>尽量使用class进行样式修改</li>
+<li>减少dom的增删次数，可使用字符串或documentFragment一次插入</li>
+<li>极限优化时，修改样式可将其display: none后修改</li>
+<li>避免多次触发上面提到的那些会触发回流的方法，可以的话尽量用 变量存住</li>
+</ul>
+</li>
+</ul>
+<h3 id="存储（sessionStorage，localStorage，cookie）"><a href="#存储（sessionStorage，localStorage，cookie）" class="headerlink" title="存储（sessionStorage，localStorage，cookie）"></a>存储（sessionStorage，localStorage，cookie）</h3><ul>
+<li>短暂性存储： 我们只需要将数据存在内存中，只在运行时可用</li>
+<li>持久性存储： 可以分为 浏览器端 与 服务器端<ul>
+<li>浏览器： <ul>
+<li>cookie: 通常用于存储用户身份，登录状态等(http 中自动携带， 体积上限为 4K， 可自行设置过期时间)</li>
+<li>localStorage / sessionStorage: 长久储存/窗口关闭删除， 体积限制为 4~5M</li>
+<li>indexDB</li>
+</ul>
+</li>
+<li>服务端：<ul>
+<li>分布式缓存 redis</li>
+<li>数据库</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="服务端与网络"><a href="#服务端与网络" class="headerlink" title="服务端与网络"></a>服务端与网络</h2><h3 id="http-https协议"><a href="#http-https协议" class="headerlink" title="http/https协议"></a>http/https协议</h3><ul>
+<li><p>1.0 协议缺陷：</p>
+<ul>
+<li>无法复用链接完成即断开，重新慢启动和 TCP 3次握手。</li>
+<li>head of line blocking: 线头阻塞，导致请求之间互相影响</li>
+</ul>
+</li>
+<li><p>1.1改进</p>
+<ul>
+<li>长连接(默认 keep-alive)，复用</li>
+<li>host 字段指定对应的虚拟站点</li>
+<li>新增功能:<ul>
+<li>断点续传</li>
+<li>身份认证</li>
+<li>状态管理</li>
+<li>cache 缓存<ul>
+<li>Cache-Control</li>
+<li>Expires</li>
+<li>Last-Modified</li>
+<li>Etag</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>2.0</p>
+<ul>
+<li>多路复用</li>
+<li>二进制分帧层: 应用层和传输层之间</li>
+<li>首部压缩</li>
+<li>服务端推送</li>
+</ul>
+</li>
+<li><p>https: 较为安全的网络传输协议</p>
+<ul>
+<li>证书(公钥)</li>
+<li>SSL 加密</li>
+<li>端口 443</li>
+</ul>
+</li>
+<li><p>TCP:</p>
+<ul>
+<li>三次握手</li>
+<li>四次挥手</li>
+<li>滑动窗口: 流量控制</li>
+<li>拥塞处理<ul>
+<li>慢开始</li>
+<li>拥塞避免</li>
+<li>快速重传</li>
+<li>快速恢复</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>缓存策略: 可分为 强缓存 和 协商缓存</p>
+<ul>
+<li>Cache-Control/Expires: 浏览器判断缓存是否过期，未过期时，直接使用强缓存，Cache-Control的 max-age 优先级高于 Expires</li>
+<li>当缓存已经过期时，使用协商缓存<ul>
+<li>唯一标识方案: Etag(response 携带) &amp; If-None-Match(request携带，上一次返回的 Etag): 服务器判断资源是否被修改，</li>
+<li>最后一次修改时间: Last-Modified(response) &amp; If-Modified-Since (request，上一次返回的Last-Modified)<ul>
+<li>如果一致，则直接返回 304 通知浏览器使用缓存</li>
+<li>如不一致，则服务端返回新的资源</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Last-Modified 缺点：<ul>
+<li>周期性修改，但内容未变时，会导致缓存失效</li>
+<li>最小粒度只到 s， s 以内的改动无法检测到</li>
+</ul>
+</li>
+<li>Etag 的优先级高于 Last-Modified</li>
+</ul>
+</li>
+</ul>
+<h3 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h3><ul>
+<li>1xx: 接受，继续处理</li>
+<li>200: 成功，并返回数据</li>
+<li>201: 已创建</li>
+<li>202: 已接受</li>
+<li>203: 成为，但未授权</li>
+<li>204: 成功，无内容</li>
+<li>205: 成功，重置内容</li>
+<li>206: 成功，部分内容</li>
+<li>301: 永久移动，重定向</li>
+<li>302: 临时移动，可使用原有URI</li>
+<li>304: 资源未修改，可使用缓存</li>
+<li>305: 需代理访问</li>
+<li>400: 请求语法错误</li>
+<li>401: 要求身份认证</li>
+<li>403: 拒绝请求</li>
+<li>404: 资源不存在</li>
+<li>500: 服务器错误</li>
+</ul>
+<h3 id="你所接触的前端领域的通讯有哪些"><a href="#你所接触的前端领域的通讯有哪些" class="headerlink" title="你所接触的前端领域的通讯有哪些"></a>你所接触的前端领域的通讯有哪些</h3><ul>
+<li>前端和后端</li>
+<li>前端和移动端</li>
+<li>前端 父页面 和 iframe 之间</li>
+<li>浏览器各个 tab 之间</li>
+<li>web workers 线程通信</li>
+<li>路由间的通信</li>
+<li>vue 父子组件</li>
+</ul>
+<h3 id="通信的要点和目的"><a href="#通信的要点和目的" class="headerlink" title="通信的要点和目的"></a>通信的要点和目的</h3><ul>
+<li>要点：1. 发送者和接收者 2. 传输媒介 3. 传输的数据 4. 传输格式（协议）</li>
+<li>目的：1. 同步数据 2. 传递指令(执行的方法)</li>
+</ul>
+<h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><p><a href="https://lzzhy.github.io/webpack%E5%B7%A5%E7%A8%8B%E5%8C%96/">webpack 工程化</a></p>
+<p>关于 webpack ，对于初级前端，基本上只需要可以 cli 将项目起来，知道 loader 和 plugin 的区别以及常用的 loader、plugin 个人觉得就差不多了，但是对于 高级前端及以上，最好还是了解下 webpack 相关的原理</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>工作笔记-权限分配</title>
+    <url>/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E6%9D%83%E9%99%90%E5%88%86%E9%85%8D/</url>
+    <content><![CDATA[<p>基于Vue下的权限配置功能！！！fighting</p>
+<p>这是两层结构的。</p>
+<h3 id="需求：添加-编辑-查看权限功能"><a href="#需求：添加-编辑-查看权限功能" class="headerlink" title="需求：添加/编辑/查看权限功能"></a>需求：添加/编辑/查看权限功能</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E6%9D%83%E9%99%90%E9%85%8D%E7%BD%AE/WechatIMG3.png" alt="cmd-markdown-logo"></p>
+<h3 id="添加实现步骤"><a href="#添加实现步骤" class="headerlink" title="添加实现步骤"></a>添加实现步骤</h3><h4 id="请求到整个的权限数据，并对数据进行整理-将菜单名单和可选菜单分开"><a href="#请求到整个的权限数据，并对数据进行整理-将菜单名单和可选菜单分开" class="headerlink" title="请求到整个的权限数据，并对数据进行整理(将菜单名单和可选菜单分开)"></a>请求到整个的权限数据，并对数据进行整理(将菜单名单和可选菜单分开)</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 获取整个角色菜单</span><br><span class="line">listMenuInfoToRole().then((res) =&gt; &#123;</span><br><span class="line">    if (res.data.code === 1000) &#123;</span><br><span class="line">        let data = res.data.data; //获取到的是整个没有规律的数据</span><br><span class="line">        if(this.$route.query.id) &#123;</span><br><span class="line">            this.fetchSearchBackstageUser();</span><br><span class="line">        &#125; </span><br><span class="line">        //对数据进行处理，根据parent和id将数据区分开</span><br><span class="line">        var menulist = [];</span><br><span class="line">        for (let i = 0, l = data.length; i &lt; l; i++) &#123;</span><br><span class="line">            let obj = &#123;</span><br><span class="line">                parent: &apos;&apos;,</span><br><span class="line">                child: []</span><br><span class="line">            &#125;;</span><br><span class="line">            if (data[i].parentId === 0) &#123;</span><br><span class="line">                obj.parent = data[i];</span><br><span class="line">                menulist.push(obj); //menulist 已经将数据层级区分开了</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (let i = 0, l = data.length; i &lt; l; i++) &#123;</span><br><span class="line">            for (let j = 0, jl = menulist.length; j &lt; jl; j++) &#123;</span><br><span class="line">                if (data[i].parentId === menulist[j].parent.id) &#123;</span><br><span class="line">                    menulist[j].child.push(data[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        this.rolemenu = menulist; // 处理后的数据</span><br><span class="line">        this.menuList = data; //没处理过的原数据</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, (err) =&gt; &#123;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如下图:<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E6%9D%83%E9%99%90%E9%85%8D%E7%BD%AE/WechatIMG4.png" alt="cmd-markdown-logo"></p>
+<h4 id="将数据展示在页面上"><a href="#将数据展示在页面上" class="headerlink" title="将数据展示在页面上"></a>将数据展示在页面上</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 结果</span><br><span class="line">&lt;div class=&quot;rolemenu-box&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;rolemenu&quot; v-for=&quot;(item, index) in rolemenu&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;parent-name&quot;&gt;&#123;&#123;item.parent.menuName&#125;&#125;&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;list-mid&quot;&gt;</span><br><span class="line">                &lt;el-checkbox</span><br><span class="line">                    v-model=&quot;roleAuth[item.parent.id]&quot;</span><br><span class="line">                    @change=&quot;checked =&gt; handleChecked(checked, item.parent.id, &apos;all&apos;)&quot;</span><br><span class="line">                    :disabled=&quot;disableEdit&quot;</span><br><span class="line">                &gt;全选&lt;/el-checkbox&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;roleMenu-right&quot;&gt;</span><br><span class="line">                &lt;el-checkbox</span><br><span class="line">                    v-for=&quot;(role) in item.child&quot;</span><br><span class="line">                    :key=&quot;role.id&quot;</span><br><span class="line">                    :label=&quot;role.id&quot;</span><br><span class="line">                    v-model=&quot;roleAuth[role.id]&quot;</span><br><span class="line">                    @change=&quot;checked =&gt; handleChecked(checked, role.id)&quot;</span><br><span class="line">                    :disabled=&quot;disableEdit&quot;</span><br><span class="line">                &gt;&#123;&#123;role.menuName&#125;&#125;&lt;/el-checkbox&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 样式</span><br><span class="line">.rolemenu-box &#123;</span><br><span class="line">    border-bottom: 1px solid rgb(228, 232, 237);</span><br><span class="line">    border-left: 1px solid rgb(228, 232, 237);</span><br><span class="line">    border-right: 1px solid rgb(228, 232, 237);</span><br><span class="line">    .rolemenu &#123;</span><br><span class="line">        display: -webkit-box;</span><br><span class="line">        display: -ms-flexbox;</span><br><span class="line">        display: flex;</span><br><span class="line">        border: 1px solid #e4e8ed;</span><br><span class="line">        font-size: 14px;</span><br><span class="line">        color: #333;</span><br><span class="line">        background: #fafafa;</span><br><span class="line">        .el-checkbox &#123;</span><br><span class="line">            text-align: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .parent-name &#123;</span><br><span class="line">            padding-left: 40px;</span><br><span class="line">            height: 70px;</span><br><span class="line">            line-height: 70px;</span><br><span class="line">            width: 107px;</span><br><span class="line">        &#125;</span><br><span class="line">        .list-mid &#123;</span><br><span class="line">            padding-left: 30px;</span><br><span class="line">            height: 70px;</span><br><span class="line">            line-height: 70px;</span><br><span class="line">            width: 80px;</span><br><span class="line">        &#125;</span><br><span class="line">        .roleMenu-right &#123;</span><br><span class="line">            flex: 1;</span><br><span class="line">            padding-left: 30px;</span><br><span class="line">            text-align: left;</span><br><span class="line">            height: 70px;</span><br><span class="line">            line-height: 70px;</span><br><span class="line">            font-size: 14px;</span><br><span class="line">            color: rgb(153, 153, 153);</span><br><span class="line">            .el-checkbox-group &#123;</span><br><span class="line">                display: inline-block;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取选中的id"><a href="#获取选中的id" class="headerlink" title="获取选中的id"></a>获取选中的id</h4><p>1.先对原始数据<strong>this.result</strong>进行处理：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">    permissionData() &#123;</span><br><span class="line">        const result = &#123;&#125;;</span><br><span class="line">        this.menuList.forEach(item =&gt; &#123;</span><br><span class="line">            if (item.parentId === 0) &#123;</span><br><span class="line">                if (!result[item.id]) &#123;</span><br><span class="line">                    result[item.id] = [];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                if (result[item.parentId]) &#123;</span><br><span class="line">                    result[item.parentId] = [...result[item.parentId], item];</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    result[item.parentId] = [item]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>2.@change绑定的函数<strong>handleChecked</strong>函数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">handleChecked(val, checkId, allFlag) &#123;</span><br><span class="line">    const parentId = this.menuList.filter(item =&gt; item.id == checkId)[0].parentId;</span><br><span class="line">    if (allFlag) &#123;</span><br><span class="line">        if(parentId == 0) &#123;</span><br><span class="line">            this.permissionData[checkId].forEach(item =&gt; &#123;</span><br><span class="line">                this.$set(this.roleAuth, item.id, val)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            const groupArr = this.permissionData[parentId];</span><br><span class="line">            const checkGroup = groupArr.filter(item =&gt; this.roleAuth[item] &amp;&amp; !!this.roleAuth[item]);</span><br><span class="line">            if (checkGroup.length === groupArr.length) &#123;</span><br><span class="line">                this.$set(this.roleAuth, parentId, true)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                this.$set(this.roleAuth, parentId, false)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        if (parentId == 0) &#123;</span><br><span class="line">            this.permissionData[checkId].forEach(item =&gt; &#123;</span><br><span class="line">                this.$set(this.roleAuth, item.id, val)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            const checkGroup = this.permissionData[parentId].filter(item =&gt; this.roleAuth[item.id] &amp;&amp; !!this.roleAuth[item.id]);</span><br><span class="line">            if (checkGroup.length === this.permissionData[parentId].length) &#123;</span><br><span class="line">                this.$set(this.roleAuth, parentId, true)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                this.$set(this.roleAuth, parentId, false)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h4 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h4><p><strong>menuIds</strong>：选中的id,包括parentId</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let result = Object.keys(this.roleAuth).filter(item =&gt; !!this.roleAuth[item]);</span><br><span class="line">let resultId, midResultId;</span><br><span class="line">if (result.length &gt; 0) &#123;</span><br><span class="line">    let tempLength = result.length</span><br><span class="line">    for (let i = 0; i &lt; tempLength; i++) &#123;</span><br><span class="line">        resultId = this.menuList.filter((item) =&gt; item.id == result[i])</span><br><span class="line">        for (let j = 0; j &lt; resultId.length; j++) &#123;</span><br><span class="line">            resultId.length &gt; 0 &amp;&amp; result.push(resultId[j].parentId);</span><br><span class="line">        &#125;</span><br><span class="line">        // 带入用户管理层id</span><br><span class="line">        for (let m = 0; m &lt; resultId.length; m++) &#123;</span><br><span class="line">            if (resultId[m].parentId) &#123;</span><br><span class="line">                midResultId = this.menuList.filter((item) =&gt; item.id == resultId[m].parentId);  // 匹配选中的父级</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let resultNumber = [];</span><br><span class="line">for (var i = 0; i &lt; result.length; i++) &#123;</span><br><span class="line">    resultNumber.push(parseInt(result[i]));</span><br><span class="line">&#125;</span><br><span class="line">let roleNum = [];</span><br><span class="line">for (var i = 0; i &lt; resultNumber.length; i++) &#123;</span><br><span class="line">    if (resultNumber[i] !== 0) &#123;</span><br><span class="line">        roleNum.push(resultNumber[i])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let roleAuth = new Set(roleNum);</span><br><span class="line">const menuIds = Array.from(roleAuth); // menuIds就是要传给后端的所有选中的id</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><p>回填时展示页面显示的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">searchBackstageUser(&#123;userId: this.$route.query.id&#125;).then(res =&gt; &#123;</span><br><span class="line">    var ArrayMenuInfos = res.data.data.menuInfos.split(&apos;,&apos;);</span><br><span class="line">    ArrayMenuInfos.forEach(item =&gt; &#123;</span><br><span class="line">        const parentIds = Object.keys(this.permissionData);</span><br><span class="line">        if (parentIds.includes(String(item))) &#123;</span><br><span class="line">            const child = this.permissionData[item];</span><br><span class="line">            const check = child.filter(c =&gt; &#123;</span><br><span class="line">        &#125;);</span><br><span class="line">        this.$set(this.roleAuth, item, true);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        this.$set(this.roleAuth, item, true);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>zepto源码解析</title>
+    <url>/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<p>学习笔记：参考自<a href="http://www.zeptojs.cn/#download" target="_blank" rel="noopener">zepto官方文档</a>，<a href="https://www.kancloud.cn/wangfupeng/zepto-design-srouce/173691" target="_blank" rel="noopener">zepto对象思想与源码解析</a></p>
+<h3 id="为什么要看zepto源码"><a href="#为什么要看zepto源码" class="headerlink" title="为什么要看zepto源码"></a>为什么要看zepto源码</h3><p>js相当于造房子的砖头，而Vue,react…则是人家造好了的轮子。在工作中一直用的是人家造好的轮子，大家都知道的是前端中轮子变化是很快的，但js是‘不会变的’。所以只有自己会造轮子了才能在前端这条道路上走得更远。并且，个人觉得读完源码后：真正留在自己脑子里的，是框架的设计思想。<strong>总之，一直觉得js和设计思想在前端中是最最最最重要的。</strong></p>
+<h3 id="需要先了解一下原型和原型链的相关知识"><a href="#需要先了解一下原型和原型链的相关知识" class="headerlink" title="需要先了解一下原型和原型链的相关知识"></a>需要先了解一下原型和原型链的相关知识</h3><p>1.每个函数都有一个prototype属性，无论是自定义的还是系统内置的<br>2.所以通过函数new出来的东西，这个东西都有一个<strong>proto</strong>指向这个函数的prototype<br>3.当你想要使用一个对象（或一个数组）的某个功能时：如果该对象本身具有这个功能，则直接使用，如果没有就去<strong>proto</strong>中找</p>
+<h3 id="怎么读zepto源码"><a href="#怎么读zepto源码" class="headerlink" title="怎么读zepto源码"></a>怎么读zepto源码</h3><h4 id="解读zepto的设计"><a href="#解读zepto的设计" class="headerlink" title="解读zepto的设计"></a>解读zepto的设计</h4><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG3.png" alt="cmd-markdown-logo"><br>上面这张图解析：arr具有push属性，因此可以直接使用。但是arr不具备lzzhyAddName属性，因此需要通过arr._proto = {lzzhyAddName: function(){console.log(‘my name is lzzhy’)}}来添加这个属性后才能用。</p>
+<p>流程图解析：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG4%201.png" alt="cmd-markdown-logo"></p>
+<p>PS:源码在设计的时候并不像上面代码那样简单只不过原理是一样的，源码具体实现方式还是得边读边理解。</p>
+<h4 id="zepto源码结构"><a href="#zepto源码结构" class="headerlink" title="zepto源码结构"></a>zepto源码结构</h4><p>第一步，先整个悦读源码，从大到小以宏观看微观的想法。因此，先将整个大体的结构弄懂：</p>
+<p>总结来说，整个结构可以简单抽离成这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var zepto = (function()&#123;</span><br><span class="line">    var $, zepto = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // ...省略N行代码</span><br><span class="line"></span><br><span class="line">    $ = function(selector,context) &#123;</span><br><span class="line">        return zepto.init(selector,context)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // ...省略N行代码</span><br><span class="line"></span><br><span class="line">    return $</span><br><span class="line">&#125;)()</span><br><span class="line">window.zepto = zepto</span><br><span class="line">window.$ === undefined &amp;&amp; (window.$ = zepto)</span><br></pre></td></tr></table></figure>
+
+<p>在这里我们可以看到:平常我们$(‘p’)使用zepto的时候，最终会顺藤摸瓜到 $ = function(selector,context) {}这个函数中（其中内容在这一步可不深究），而p选择器也会传递给selector参数。因此经过剥离之后，我们发现下一步需要探究的是$ = function(selector,context) {return zepto.init(selector,context)} 这个函数return出来的zepto.init函数</p>
+<h4 id="zepto-init函数"><a href="#zepto-init函数" class="headerlink" title="zepto.init函数"></a>zepto.init函数</h4><p>在上一步“zepto源码结构”中我们已经剖析到zepto.init函数了。</p>
+<p>函数如下：</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG6%201.png" alt="cmd-markdown-logo"></p>
+<p>我们可以看到zepto.init函数大约有几十行，把中间那if…else…操作去掉(其中大致分为四种情况)，剩下的就是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">zepto.init = function(selector, context) &#123;</span><br><span class="line">    var dom</span><br><span class="line"></span><br><span class="line">    // ...此处省略N行...</span><br><span class="line"></span><br><span class="line">    // 分情况对dom赋值：</span><br><span class="line">    // 1.selector为空</span><br><span class="line">    // 2.selector是字符串，其中又分好几种情况</span><br><span class="line">    // 3.selector是函数</span><br><span class="line">    // 4.其他情况，如selector是数组、对象等</span><br><span class="line"></span><br><span class="line">    return zepto.Z(dom,elector)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个函数中，if…else…判断之后，最终 return到zepto.Z函数</p>
+<h4 id="zepto-Z函数"><a href="#zepto-Z函数" class="headerlink" title="zepto.Z函数"></a>zepto.Z函数</h4><p>在上一步“zepto.init函数”中我们已经剖析到zepto.Z函数了。</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG8.png" alt="cmd-markdown-logo"></p>
+<p>其中dom指的是数组,$.fn指的是一个包含很多属性的一个对象{……}<br>371行：把数组或者空数组赋值给 dom<br>372行：把$.fn赋值给dom._proto隐私原型<br>373行：把字符串或者空字符串赋值给 dom.selector</p>
+<p>下图是$.fn函数部分截图：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG9.png" alt="cmd-markdown-logo"></p>
+<ul>
+<li>其中774-779行相对应的’:’后的可以转换(如：emptyArray.forEach相当于[].forEach又相当于Array.prototype.forEach); </li>
+<li>其中map,slice,ready…函数都是重新定义的，也就是官方文档中我们用到的那些对象函数API如：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG10.png" alt="cmd-markdown-logo"></li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上整个分析过程是从大到小将一个个函数分割出来，其中解读了比较重要的几个函数。   </p>
+<p>源码分析到这里了，那么就用一个简单的代码结构对之前的做个总结。并且根据这个结构，将zepto的初始对象的过程在捋一捋。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var zepto = (function()&#123;</span><br><span class="line">    var $, zepto = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // ...省略N行代码</span><br><span class="line"></span><br><span class="line">    zepto.Z = function(dom,selector)&#123;</span><br><span class="line">        dom = dom || []</span><br><span class="line">        dom._proto = $.fn</span><br><span class="line">        dom.selector = selector || &apos;&apos;</span><br><span class="line">        return dom</span><br><span class="line">    &#125;</span><br><span class="line">    $ = function(selector,context) &#123;</span><br><span class="line">        return zepto.init(selector,context)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // ...省略N行代码</span><br><span class="line"></span><br><span class="line">    zepto.init = function(selector, context) &#123;</span><br><span class="line">        var dom </span><br><span class="line"></span><br><span class="line">        // ...针对不同情况分别赋值</span><br><span class="line"></span><br><span class="line">        return zepto.Z(dom,elector)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $.fn = &#123;</span><br><span class="line">        // 里面N个重新定义的zepto的API</span><br><span class="line">    &#125;</span><br><span class="line">    return $</span><br><span class="line">&#125;)()</span><br><span class="line">window.zepto = zepto</span><br><span class="line">window.$ === undefined &amp;&amp; (window.$ = zepto)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG11.png" alt="cmd-markdown-logo"></p>
+<p>大致就是这张图的流程，最后的dom是挂载在$.fn上。<code>dom._proto = $.fn</code></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>面向对象和面向过程的区别</title>
+    <url>/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h3 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别"></a>面向对象和面向过程的区别</h3><p><strong>面向过程</strong>：就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。（比如：例如五子棋，面向过程的设计思路就是首先分析问题的步骤：1、开始游戏，2、黑子先走，3、绘制画面，4、判断输赢，5、轮到白子，6、绘制画面，7、判断输赢，8、返回步骤2，9、输出最后结果。把上面每个步骤用分别的函数来实现，问题就解决了。）<br><strong>面向对象</strong>：是以功能来划分问题，而不是步骤。（如：整个五子棋可以分为 1、黑白双方，这两方的行为是一模一样的，2、棋盘系统，负责绘制画面，3、规则系统，负责判定诸如犯规、输赢等。第一类对象（玩家对象）负责接受用户输入，并告知第二类对象（棋盘对象）棋子布局的变化，棋盘对象接收到了棋子的i变化就要负责在屏幕上面显示出这种变化，同时利用第三类对象（规则系统）来对棋局进行判定。）每一个模块都可以看做是一个对象。如五子棋中的黑白双方对象，规则对象，棋盘系统对象。每一个对象都是为了完成一个功能。</p>
+<p>再比如我要把这个五子棋游戏改为围棋游戏，如果你是面向过程设计，那么五子棋的规则就分布在了你的程序的每一个角落，要改动还不如重写。但是如果你当初就是面向对象的设计，那么你只用改动规则对象就可以了，五子棋和围棋的区别不就是规则吗？下棋的大致步骤从面向对象的角度来看没有任何变化。</p>
+<p>初学者或者很蹩脚的程序员很可能以面向对象之虚而行面向过程之实，这样设计出来的所谓面向对象的程序很难有良好的可移植性和可扩展性。</p>
+<p>总结</p>
+<p>面向过程：</p>
+<p>优点：性能比面向对象高，因为类调用时需要实例化，开销比较大，比较消耗资源;比如单片机、嵌入式开发、Linux/Unix等一般采用面向过程开发，性能是最重要的因素。<br>缺点：没有面向对象易维护、易复用、易扩展</p>
+<p>面向对象：</p>
+<p>优点：易维护、易复用、易扩展，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统更加灵活、更加易于维护。<br>缺点：性能比面向过程低</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>如何学习js?</title>
+    <url>/%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0js/</url>
+    <content><![CDATA[<p>js是前端的核心。</p>
+<p>书也看了，视频也看了，可是一到用的时候就不知道怎么用了。js初级，想深入学习js该看什么该练什么？</p>
+<ul>
+<li>可以编写各个组件。比如轮播，下拉框，滑动条，表单验证，用原生，jquery，和mvvm框架各自写一遍，组件涉及到事件响应，基础逻辑，以及异步请求，设计模式，我觉得可以锻炼综合能力，最后还能实现一套自己的组件库，便于维护和管理</li>
+<li>搭建类似于博客或者文档共享平台系统。可以锻炼服务端基础逻辑，登录，注册，数据库存储，接口设计等等。<br>还有就是结合可视化来写一些图表，做一些好看的动画都是可以的</li>
+<li>看一些小而美的js库，看看其他人是怎么写的。</li>
+<li>构建自己的知识体系，养成做笔记的习惯。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>如何在百度和谷歌中搜索就能找到你的博客- HEXO SEO优化</title>
+    <url>/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%99%BE%E5%BA%A6%E5%92%8C%E8%B0%B7%E6%AD%8C%E4%B8%AD%E6%90%9C%E7%B4%A2%E5%B0%B1%E8%83%BD%E6%89%BE%E5%88%B0%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2-%20HEXO%20SEO%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>写了个人博客后，就希望在百度搜索引擎中能找到自己的文章，那么就需要进行SEO的优化了。这里主要对google和baidu爬虫的优化。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="什么是SEO"><a href="#什么是SEO" class="headerlink" title="什么是SEO"></a>什么是SEO</h3><p>搜索引擎优化，又称为SEO(Search Engine Optimization)，它是一种通过分析搜索引擎的排名规律，了解各种搜索引擎怎样进行搜索、怎样抓取互联网页面、怎样确定特定关键词的搜索结果排名的技术。<br>搜索引擎采用易于被搜索引用的手段，对网站进行有针对性的优化，提高网站在搜索引擎中的自然排名，吸引更多的用户访问网站，提高网站的访问量，提高网站的销售能力和宣传能力，从而提升网站的品牌效应。<br><a href="https://baike.baidu.com/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/3132?fromtitle=seo&fromid=102990&fr=aladdin" target="_blank" rel="noopener">百度百科</a></p>
+<h3 id="站点地图"><a href="#站点地图" class="headerlink" title="站点地图"></a>站点地图</h3><h4 id="给本地文章生成sitemap文件"><a href="#给本地文章生成sitemap文件" class="headerlink" title="给本地文章生成sitemap文件"></a>给本地文章生成sitemap文件</h4><p> npm install hexo-generator-sitemap –save #sitemap.xml适合提交给谷歌搜素引擎<br> npm install hexo-generator-baidu-sitemap –save #baidusitemap.xml适合提交百度搜索引擎</p>
+<h4 id="在根目录-config-yml中修改如下配置："><a href="#在根目录-config-yml中修改如下配置：" class="headerlink" title="在根目录_config.yml中修改如下配置："></a>在根目录_config.yml中修改如下配置：</h4><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG7.png" alt="cmd-markdown-logo"></p>
+<p>注意格式的缩进，之前试了很多次都报错，才发现是格式的问题。</p>
+<h4 id="在根目录-config-yml中修改如下配置：-1"><a href="#在根目录-config-yml中修改如下配置：-1" class="headerlink" title="在根目录_config.yml中修改如下配置："></a>在根目录_config.yml中修改如下配置：</h4><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG61.png" alt="cmd-markdown-logo"> </p>
+<p>配置好后，hexo g 就能在 根目录\public 中生成sitemap.xml 和 baidusitemap.xml了;其中第一个是一会要提交给google的，后面那个看名字当然就是提交给Baidu的了;</p>
+<h4 id="添加-roborts-txt文件"><a href="#添加-roborts-txt文件" class="headerlink" title="添加 roborts.txt文件"></a>添加 roborts.txt文件</h4><p>在根目录source下添加roborts.txt文件</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG8.png" alt="cmd-markdown-logo"></p>
+<p>然后hexo d -g提交一下</p>
+<h3 id="百度收录站点"><a href="#百度收录站点" class="headerlink" title="百度收录站点"></a>百度收录站点</h3><p>在<a href="https://ziyuan.baidu.com/" target="_blank" rel="noopener">百度站长平台</a>中的用户中心 =&gt; 站点管理添加你的站点网址：</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG4.png" alt="cmd-markdown-logo"></p>
+<p>在最后一步验证网站中有三种方式，我选的是<em>文件验证</em>   </p>
+<p>1.HTML标签验证（其中：content注意要换成自己的。）</p>
+<ul>
+<li>在主题的_config.yml文件中设置：baidu_site_verification: true，如果没有该字段就手动添加。</li>
+<li>在themes/MaterialFlow/layout/_partials/head.swig文件中添加下列代码<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG5.png" alt="cmd-markdown-logo"></li>
+</ul>
+<p>2.文件验证，按照百度站长的步骤就好了。（hexo根目录在项目目录resource文件夹下）<br><font face="微软雅黑" size="3" color="red">注意：可能会报如下错误</font> </p>
+<p>baidu_verify_V5nnDAPNHd.html是站点下载的文件</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG9.png" alt="cmd-markdown-logo"></p>
+<p>这是因为hexo编译文件时，会给下载的HTML文件中添加其他的内容，导致验证失败。比如下载原文件内容是</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG10.png" alt="cmd-markdown-logo"></p>
+<p>但github中baidu_verify_V5nnDAPNHd.html的文件内容却是这样的……一大堆</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG11.png" alt="cmd-markdown-logo"></p>
+<p>因此，需要在Github里手动修改验证HTML文件，将github上的HTML文件中的内容改为站长给的文件内容。</p>
+<h4 id="sitemap提交百度站长"><a href="#sitemap提交百度站长" class="headerlink" title="sitemap提交百度站长"></a>sitemap提交百度站长</h4><blockquote>
+<p>链接提交工具是网站主动向百度搜索推送数据的工具，本工具可缩短爬虫发现网站链接时间，网站时效性内容建议使用链接提交工具，实时向搜索推送数据。是轻量级链接提交组件，将自动推送的JS代码放置在站点每一个页面源代码中，当页面被访问时，页面链接会自动推送给百度，有利于新页面更快被百度发现。。    </p>
+</blockquote>
+<p>登录<a href="https://ziyuan.baidu.com/" target="_blank" rel="noopener">百度站长平台</a>，在左菜单栏<em>链接提交</em>中。也有三种方式提交方式，我使用的是sitemap验证</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG12.png" alt="cmd-markdown-logo"></p>
+<p>若是选择自动推送，则是以下配置：</p>
+<ul>
+<li>在主题配置文件将baidu_push设置为true</li>
+<li>在路径themes\MaterialFlow\layout\下创建baidu_push.swig 文件，文件内容如下<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% if theme.baidu_push %&#125;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">(function()&#123;</span><br><span class="line">    var bp = document.createElement(&apos;script&apos;);</span><br><span class="line">    var curProtocol = window.location.protocol.split(&apos;:&apos;)[0];</span><br><span class="line">    if (curProtocol === &apos;https&apos;) &#123;</span><br><span class="line">        bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;        </span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    var s = document.getElementsByTagName(&quot;script&quot;)[0];</span><br><span class="line">    s.parentNode.insertBefore(bp, s);</span><br><span class="line">&#125;)();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="谷歌收录站点"><a href="#谷歌收录站点" class="headerlink" title="谷歌收录站点"></a>谷歌收录站点</h3><p>由于没有翻墙软件就没有折腾了(<em>^▽^</em>)。。。</p>
+<p><font face="微软雅黑" size="3" color="red">最后：当然是查看有没有被收录了：<br></font>    </p>
+<p>方法：打开百度或谷歌搜索，在搜索框里输入：</p>
+<blockquote>
+<p>site:<a href="https://lzzhy.github.io/">https://lzzhy.github.io/</a> ( 注意将lzzhy替换为你自己的)   </p>
+</blockquote>
+<p>如果提示说：很抱歉，没有找到与“site:<a href="https://maxwellyue.github.io”相关的网页。说明未被收录。" target="_blank" rel="noopener">https://maxwellyue.github.io”相关的网页。说明未被收录。</a></p>
+<p>如果搜索结果中你第一眼就看到了你的博客站点，说明已被收录</p>
+<p>？正常情况下到这里就结束了，但是github屏蔽了百度爬虫，所以百度依然搜不到博客，但是谷歌可以。具体关于github屏蔽百度爬虫的解决办法网上也有很多，等以后想做的时候再去实现。</p>
+<p>？百度站点提交sitemap，升级https</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>webpack工程化</title>
+    <url>/webpack%E5%B7%A5%E7%A8%8B%E5%8C%96/</url>
+    <content><![CDATA[<h3 id="webpack是什么"><a href="#webpack是什么" class="headerlink" title="webpack是什么"></a>webpack是什么</h3><p>webpack可以看作是一个模块打包机，功能就是通过一个入口将所有的依赖关系(像.jade,.less,.png等)通过webpack打包器打包成我们所谓的前端静态资源(像js,css,png等)。(module模块 =&gt; webpack =&gt; 静态资源)</p>
+<h3 id="为什么要用它，它可以做什么"><a href="#为什么要用它，它可以做什么" class="headerlink" title="为什么要用它，它可以做什么"></a>为什么要用它，它可以做什么</h3><p>在webpack之前也有很多打包工具，如grunt,gulp…但是这些打包工具功能单一，只能完成特定任务。但一个web前端工程是复杂的，一个webapp的业务代码可能有很多，如想按需加载，首屏加载时间减少，需集成一些第三方库…<br>webpack 的出现正是为了解决这些问题，在 webpack 中，提供了一下这些功能：</p>
+<ul>
+<li>代码转换：比如将es6转化成es5,将less,sass转化成css</li>
+<li>文件优化：比如压缩代码体积</li>
+<li>代码分割：比如公共模块的分离，路由懒加载</li>
+<li>模块合并：比如按照功能将多个模块合并成一个模块</li>
+<li>自动刷新：热更新</li>
+<li>代码校验：校验代码是否符合规范</li>
+<li>自动发布</li>
+</ul>
+<h3 id="使用webpack有什么优势"><a href="#使用webpack有什么优势" class="headerlink" title="使用webpack有什么优势"></a>使用webpack有什么优势</h3><p><strong>1.万物皆模块：</strong> 在 webpack 的世界中，除了 Javascript，其他任何资源都可以当做模块的方式引用。<br><strong>2.按需加载：</strong> webapp 的优化关键在于代码体积，当应用体积增大，实现代码的按需加载是毕需，这也是 webpack 出现的根本原因。<br><strong>3.可定制化：</strong> 任何一个工具都不可能解决所有问题，提供解决方案才是最可行的，webpack 基于可定制化的理念构建，通过插件系统，配置文件，可以实现大型项目的定制需求。</p>
+<p>了解了webpack的一个大致情况后，那我们要怎么去用它呢？</p>
+<h3 id="webpack基础配置（怎么写）"><a href="#webpack基础配置（怎么写）" class="headerlink" title="webpack基础配置（怎么写）"></a>webpack基础配置（怎么写）</h3><p>在此之前你应该已经安装过node   </p>
+<p>1.安装本地webpack</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install webpack webpack-cli -g</span><br><span class="line">npm install webpack-dev-server -g</span><br></pre></td></tr></table></figure>
+
+<p>会生成node_modules,package-lock.json文件</p>
+<p>2.webpack的使用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// src =&gt; name.js</span><br><span class="line">module.exports = &apos;my name is lzzhy&apos;</span><br><span class="line"></span><br><span class="line">// src =&gt; index.js</span><br><span class="line">let str = require(&apos;./name.js&apos;)</span><br><span class="line">clg(str)</span><br></pre></td></tr></table></figure>
+
+<p>这样肯定是可以在node中运行的，如下图：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/webpack%E5%B7%A5%E7%A8%8B%E5%8C%96/WechatIMG4.png" alt="cmd-markdown-logo"><br>但是我们需要产出的结果运行在浏览器上，也就是在dist产出中得到结果，因此需要去配置文件。</p>
+<p>3.配置文件的使用</p>
+<p>在项目目录下创建 webpack.config.js如下,运行npx webpack会按照配置文件生成对应dist:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// webpack 是node写出来的 node的写法</span><br><span class="line">var webpack = require(&apos;webpack&apos;)</span><br><span class="line">let path = require(&apos;path&apos;)</span><br><span class="line">module.export = &#123;</span><br><span class="line">    mode: &apos;development&apos;, // 模式 默认两种proction development</span><br><span class="line">    entry: &apos;./src/ndex.js&apos;, //入口</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: &apos;bundle.js&apos;, //打包后的文件名</span><br><span class="line">        path: path.resolve(__dirname,&apos;dist&apos;) //路径必须是一个绝对路径, _dirname指相对该路径下</span><br><span class="line">    &#125;,</span><br><span class="line">    module: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.js[x]?$/,</span><br><span class="line">                exclude: /node_modules/,</span><br><span class="line">                loader: &apos;babel-loader&apos;,  //处理.js或.jsx文件loader</span><br><span class="line">                query: &#123;</span><br><span class="line">                    presets: [&apos;env&apos;]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.css$/,</span><br><span class="line">                loader: &quot;style-loader!css-loader&quot;   //处理.css文件loader</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.(png|jpg)$/,</span><br><span class="line">                loader: &apos;url-loader?limit=8192&apos;    //处理图片loader</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>webpack只能处理js模块，如果要处理其他类型的文件(如css)就需要使用loader进行转化，指用一段代码来替换另一端代码的webpack加载器。</p>
+<p>通过这样一个简单的配置（当然webpack的配置不止这一点），就用webpack打包机将模块转化成了静态资源。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.webpackjs.com/concepts/#%E5%87%BA%E5%8F%A3-output-" target="_blank" rel="noopener">《webpack官方文档》</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>HTTP系列之HTTPS</title>
+    <url>/HTTP%E7%B3%BB%E5%88%97%E4%B9%8BHTTPS/</url>
+    <content><![CDATA[<p>HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>HTTPS （全称：Hyper Text Transfer Protocol over SecureSocket Layer），是以安全为目标的HTTP通道，在HTTP的基础上通过传输加密和身份认证保证了传输过程的安全性。HTTPS在HTTP的基础下加入SSL层，HTTPS的安全基础是 SSL，因此加密的详细内容就需要SSL。</p>
+<h3 id="密码学基础"><a href="#密码学基础" class="headerlink" title="密码学基础"></a>密码学基础</h3><p><font face="微软雅黑" size="3" color="Green">明文</font>：未被加密过的原始数据。<br><font face="微软雅黑" size="3" color="Green">密文</font>：明文被某种加密算法加密之后，会变成密文，从而确保原始数据的安全。密文也可以被解密，得到原始的明文。<br><font face="微软雅黑" size="3" color="Green">密钥</font>：一种参数，是在明文转换为密文或将密文转换为明文的算法中输入的。分为对称密钥与非对称密钥，分别应用在对称加密和非对称加密上。 </p>
+<h3 id="HTTPS加密原理"><a href="#HTTPS加密原理" class="headerlink" title="HTTPS加密原理"></a>HTTPS加密原理</h3><p>HTTPS为了兼顾安全与效率，同时使用了对称加密和非对称加密</p>
+<h4 id="对称加密算法"><a href="#对称加密算法" class="headerlink" title="对称加密算法"></a>对称加密算法</h4><p>又叫做私钥加密，即信息的发送方和接收方使用同一个密钥去加密和解密数据。特点是算法公开、加密和解密速度快，适合于对大数据量进行加密，常见的对称加密算法有DES、3DES、TDEA、Blowfish、RC5和IDEA。<br>加密过程：明文 + 加密算法 + 私钥 =&gt; 密文<br>解密过程：密文 + 解密算法 + 私钥 =&gt; 明文<br>称之为“对称”的原因：<br>其中使用到的密钥叫做私钥，即个人所有不能被泄露。加密过程中的私钥与解密过程中用到的私钥是同一个密钥。<br>缺点：密钥安全管理困难。由于对称加密的算法是公开的，所以一旦私钥被泄露，那么密文就很容易被破解。</p>
+<h4 id="非对称加密算法："><a href="#非对称加密算法：" class="headerlink" title="非对称加密算法："></a>非对称加密算法：</h4><p>又叫公钥加密。使用一对密钥，即公钥和私钥，且二者成对出现。私钥自己保存，不能对外泄露。公钥则任何人都可以获得该密钥。用公钥或私钥中的任何一个进行加密，用另一个进行解密。<br>被公钥加密过的密文只能被私钥解密，过程如下：<br>明文 + 加密算法 + 公钥 =&gt; 密文， 密文 + 解密算法 + 私钥 =&gt; 明文<br>被私钥加密过的密文只能被公钥解密，过程如下：<br>明文 + 加密算法 + 私钥 =&gt; 密文， 密文 + 解密算法 + 公钥 =&gt; 明文<br>缺点：加密和解密花费时间长、速度慢，只适合对少量数据进行加密。 </p>
+<h3 id="HTTPS访问过程"><a href="#HTTPS访问过程" class="headerlink" title="HTTPS访问过程"></a>HTTPS访问过程</h3><p>客户端生成的随机密钥，用来进行对称加密</p>
+<p>服务器端的公钥和私钥，用来进行非对称加密</p>
+<p>1.浏览器将支持的加密信息发送给网站服务器；<br>2.服务器会选择出一套加密算法和哈希算法，将验证身份的信息以证书（证书发布CA机构、证书有效期、公钥、证书所有者、签名等）的形式发送给浏览器；<br>3.浏览器收到证书之后需要验证证书的合法性，当证书受信之后，浏览器会随机生成一串密码，并使用证书中的公钥加密。之后就是使用约定好的哈希算法握手消息，并生成随机数对消息进行加密，再将生成的信息发送给服务器；<br>4.当服务器接收到浏览器发送过来的数据后，会使用服务器本身的私钥将信息解密确定密码，然后通过密码解密浏览器发送过来的握手信息，并验证哈希是否与浏览器一致。然后服务器会使用密码加密新的握手信息，发送给浏览器；<br>5.最后浏览器解密并计算经过哈希算法加密的握手消息，如果与服务发送过来的哈希一致，则此握手过程结束后，服务器与浏览器会使用之前浏览器生成的随机密码和对称加密算法进行加密交换数据。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>HTTP系列之HTTP2</title>
+    <url>/HTTP%E7%B3%BB%E5%88%97%E4%B9%8BHTTP2/</url>
+    <content><![CDATA[<p>HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。<br>(在开放互联网上HTTP 2.0将只用于 http:// 网址，而 http:// 网址将继续使用 HTTP/1，目的是在开放互联网上增加使用加密技术，以提供强有力的保护去遏制主动攻击。)</p>
+<h3 id="HTTP-1-x存在的问题"><a href="#HTTP-1-x存在的问题" class="headerlink" title="HTTP/1.x存在的问题"></a>HTTP/1.x存在的问题</h3><ul>
+<li><font face="微软雅黑" size="3" color="Green">线头阻塞</font>：TCP连接上只能发送一个请求，前面的请求未完成前，后续的请求都在排队等待。   </li>
+<li><font face="微软雅黑" size="3" color="Green">多个TCP连接</font>：虽然HTTP/1.1管线化可以支持请求并发，但是浏览器很难实现，chrome、firefox等都禁用了管线化。所以1.1版本请求并发依赖于多个TCP连接，建立TCP连接成本很高，还会存在慢启动的问题。   </li>
+<li><font face="微软雅黑" size="3" color="Green">头部冗余，采用文本格式</font>：HTTP/1.X版本是采用文本格式，首部未压缩，而且每一个请求都会带上cookie、user-agent等完全相同的首部。   </li>
+<li><font face="微软雅黑" size="3" color="Green">客户端需要主动请求</font></li>
+</ul>
+<p>既然HTTP/2是为了解决HTTP/1的问题，那么HTTP/2到底做了哪些改变呢？</p>
+<h3 id="HTTP-2做的改变"><a href="#HTTP-2做的改变" class="headerlink" title="HTTP/2做的改变"></a>HTTP/2做的改变</h3><h4 id="二进制分帧层"><a href="#二进制分帧层" class="headerlink" title="二进制分帧层"></a>二进制分帧层</h4><ul>
+<li>帧：HTTP/2数据通信的最小单位消息（收到流量控制）：指 HTTP/2 中逻辑上的 HTTP 消息。例如请求和响应等。</li>
+<li>流：存在于连接中的一个虚拟通道。流可以承载双向消息，每个流都有一个唯一的整数ID。</li>
+<li>消息：一个完整的HTTP请求或响应，由一个或多个帧组成。特定消息的帧在同一个流上发送，这意味着一个HTTP请求或响应只能在一个流上发送。    </li>
+</ul>
+<p>HTTP/2 性能提升的核心就在于二进制分帧层。HTTP2是二进制协议，解析起来更高效。HTTP/2 将请求和响应数据分割为更小的帧，并且它们采用二进制编码。<br>HTTP/2 中，同域名下所有通信都在单个连接上完成，该连接可以承载任意数量的双向数据流。每个数据流都以消息的形式发送，而消息又由一个或多个帧组成。多个帧之间可以乱序发送，根据帧首部的流标识可以重新组装。</p>
+<h4 id="线头阻塞（多路复用的流）"><a href="#线头阻塞（多路复用的流）" class="headerlink" title="线头阻塞（多路复用的流）"></a>线头阻塞（多路复用的流）</h4><p>每个帧都关联到一个流，流是一个独立的，双向的帧序列可以通过一个http2的连接在服务端与客户端之间不断的交换数据。<br>每个单独的http2连接都可以包含多个并发的流，这些流中交错的包含着来自两端的帧。流既可以被客户端/服务器端单方面的建立和使用，也可以被双方共享，或者被任意一边关闭。在流里面，每一帧发送的顺序非常关键。接收方会按照收到帧的顺序来进行处理。<br><em>流的多路复用意味着在同一连接中来自各个流的数据包会被混合在一起。就好像两个（或者更多）独立的“数据列车”被拼凑到了一辆列车上，但它们最终会在终点站被分开。</em>   </p>
+<h4 id="头部压缩"><a href="#头部压缩" class="headerlink" title="头部压缩"></a>头部压缩</h4><p><font face="微软雅黑" size="3" color="Green">原因</font>：HTTP是一种无状态的协议。这意味着每个请求必须要携带服务器需要的所有细节，而不是让服务器保存住之前请求的元数据。(因为http2并没有改变这个范式，所以它也以同样原理工作,这也保证了HTTP可重复性)。当一个客户端从同一服务器请求了大量资源（例如页面的图片）的时候，所有这些请求看起来几乎都是一致的，而这些大量一致的东西则正好值得被压缩；<br>当每个页面资源的个数上升的时候，cookies和请求的大小都会增加。cookies需要被包含在所有请求中，且他们在多个请求中经常是一模一样的；<br>HTTP 1.1请求的大小正变得越来越大，有时甚至会大于TCP窗口的初始大小，这会严重拖累发送请求的速度。因为它们需要等待带着ACK的响应回来以后，才能继续被发送；</p>
+<p><font face="微软雅黑" size="3" color="Green">解决</font>：HTTP/2为此对消息头采用HPACK（专为HTTP/2头部设计的压缩格式）进行压缩传输，能够节省消息头占用的网络的流量。头部压缩需要在浏览器和服务器端之间：</p>
+<ul>
+<li>维护一份相同的静态字典，包含常见的头部名称，以及常见的头部名称和值的组合</li>
+<li>维护一份相同的动态字典，可以动态的添加内容</li>
+<li>通过静态Huffman编码对传输的首部字段进行编码</li>
+</ul>
+<h4 id="服务器推送"><a href="#服务器推送" class="headerlink" title="服务器推送"></a>服务器推送</h4><p>又叫缓存推送。主要的思想是：当一个客户端请求资源X，而服务器知道它很可能也需要资源Z的情况下，服务器可以在客户端发送请求前，主动将资源Z推送给客户端。这个功能帮助客户端将Z放进缓存以备将来之需。但客户端依然能自主选择是否需要中断该推送的流。如果不需要的话，客户端可以通过发送一个RST_STREAM帧来中止。</p>
+<h4 id="重置（后悔药）"><a href="#重置（后悔药）" class="headerlink" title="重置（后悔药）"></a>重置（后悔药）</h4><p>HTTP/1缺点：当一个含有确切值的Content-Length的HTTP消息被送出之后，你就很难中断它了。当然可以断开整个TCP链接（但也不总是可以这样），这样导致的代价就是需要通过三次握手来重新建立一个新的TCP连接。<br>HTTP/2改进：我们可以通过发送RST_STREAM帧来实现只终止当前传输的消息并重新发送一个新的，从而避免浪费带宽和中断已有的连接。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://ye11ow.gitbooks.io/http2-explained/content/part2.html" target="_blank" rel="noopener">《http2》</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>HTTP系列之HTTP</title>
+    <url>/HTTP%E7%B3%BB%E5%88%97%E4%B9%8BHTTP/</url>
+    <content><![CDATA[<p>前言：网络方面的知识是前端同学必不可少的了。加强基本功的修炼，才能在日常开发中快速定位到错误，和后端同学更有效率的合作。</p>
+<h3 id="HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1-0、1-1、HTTP2-现在常用版本-、HTTP3-少-，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1-1的一些缺陷-线头阻塞，二进制传输、帧和流-头部压缩，主动推送-，最主要是解决了线头阻塞的问题。"><a href="#HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1-0、1-1、HTTP2-现在常用版本-、HTTP3-少-，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1-1的一些缺陷-线头阻塞，二进制传输、帧和流-头部压缩，主动推送-，最主要是解决了线头阻塞的问题。" class="headerlink" title="HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.0、1.1、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题。"></a>HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.0、1.1、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题。</h3><h3 id="定义：-超文本传输协议，是一个应用层协议。"><a href="#定义：-超文本传输协议，是一个应用层协议。" class="headerlink" title="定义：   超文本传输协议，是一个应用层协议。"></a>定义：   超文本传输协议，是一个应用层协议。</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E6%B5%85%E8%AF%BBHTTP%E5%92%8CHTTPS/WechatIMG2.png" alt="cmd-markdown-logo"></p>
+<h3 id="HTTP的作用："><a href="#HTTP的作用：" class="headerlink" title="HTTP的作用："></a>HTTP的作用：</h3><p>认证控制，同源控制，缓存控制，传输控制，会话控制</p>
+<h3 id="HTTP的特点："><a href="#HTTP的特点：" class="headerlink" title="HTTP的特点："></a>HTTP的特点：</h3><ul>
+<li>无状态的协议。无状态就是客户端的每次请求都没有关系，它们是独立的。</li>
+<li>只能是客户端发起请求，服务器响应。服务器不能主动向客户端传递消息。</li>
+<li>底层是基于TCP实现的。</li>
+</ul>
+<h3 id="HTTP传输过程详解："><a href="#HTTP传输过程详解：" class="headerlink" title="HTTP传输过程详解："></a>HTTP传输过程详解：</h3><ul>
+<li>HTTP协议就是基于TCP/IP协议模型来传输信息的   </li>
+<li>TCP三次握手(目的是同步连接双方的序列号和确认号并交换 TCP窗口大小信息)<br>客户端发送一个SYN段，并指明客户端的初始序列号，即ISN(c) <font face="微软雅黑" size="3" color="Green">=&gt;</font> 务端发送自己的SYN段作为应答，同样指明自己的ISN(s) <font face="微软雅黑" size="3" color="Green">=&gt;</font> 为了确认服务器端的SYN，客户端将ISN(s)+1作为返回的ACK数值</li>
+<li>TCP四次挥手(当客户端和服务器通过三次握手建立了TCP连接以后，当数据传送完毕，肯定是要断开TCP连接的啊)<br><font face="微软雅黑" size="3" color="Green">第一次分手</font>：主机1（可以使客户端，也可以是服务器端），设置Sequence Number，向主机2发送一个FIN报文段；此时，主机1进入FIN_WAIT_1状态；这表示主机1没有数据要发送给主机2了；<br><font face="微软雅黑" size="3" color="Green">第二次分手</font>：主机2收到了主机1发送的FIN报文段，向主机1回一个ACK报文段，Acknowledgment Number为Sequence Number加1；主机1进入FIN_WAIT_2状态；主机2告诉主机1，我“同意”你的关闭请求；<br><font face="微软雅黑" size="3" color="Green">第三次分手</font>：主机2向主机1发送FIN报文段，请求关闭连接，同时主机2进入LAST_ACK状态；<br><font face="微软雅黑" size="3" color="Green">第四次分手</font>：主机1收到主机2发送的FIN报文段，向主机2发送ACK报文段，然后主机1进入TIME_WAIT状态；主机2收到主机1的ACK报文段以后，就关闭连接；此时，主机1等待2MSL后依然没有收到回复，则证明Server端已正常关闭，那好，主机1也可以关闭连接了。 </li>
+</ul>
+<h3 id="URL详解："><a href="#URL详解：" class="headerlink" title="URL详解："></a>URL详解：</h3><blockquote>
+<p>url大体结构如下:<a href="http://www.temas.com/myBlog/file/date.php?name=yuchao&amp;age=26#modfiled" target="_blank" rel="noopener">http://www.temas.com/myBlog/file/date.php?name=yuchao&amp;age=26#modfiled</a><br><font face="微软雅黑" size="3" color="Green">这个url分为几个部分：</font><br>http：表示底层使用的协议（如http、https、ftp）<br><a href="http://www.temas.com：表示服务器域名（或者是ip地址）" target="_blank" rel="noopener">www.temas.com：表示服务器域名（或者是ip地址）</a><br>/myBlog/file/date.php：表示资源路径<br>?name=yuchao&amp;age=26：发送给服务器数据<br>#modfiled：锚点</p>
+</blockquote>
+<h3 id="HTTP消息结构："><a href="#HTTP消息结构：" class="headerlink" title="HTTP消息结构："></a>HTTP消息结构：</h3><p>整个http消息结构分为request以及response两部分：</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E6%B5%85%E8%AF%BBHTTP%E5%92%8CHTTPS/WechatIMG4.png" alt="cmd-markdown-logo"></p>
+<p>上面第一部分是请求资源地址以及请求方式属于request部分.<br>第二部分是返回状态码，属于response部分.<br>第三部分是request部分，第四部分是response部分.<br>总体来说整个请求分为两个部分我们来分析里面主要的结构如下.   </p>
+<p><font face="微软雅黑" size="3" color="Green">request部分分析：</font>  </p>
+<ul>
+<li><font face="微软雅黑" size="3" color="Green">请求的url</font>即我们地址栏输入的url或者ajax请求的那个参数url。</li>
+<li><font face="微软雅黑" size="3" color="Green">请求方式</font>：常用的有get、post以及head请求：   </li>
+<li><font face="微软雅黑" size="3" color="Green">Accept</font>：表示浏览器可以接受的类型，一般浏览器都会发给服务器*表示通配所有类型。text/html类型就表示我们常说的html文档。</li>
+<li><font face="微软雅黑" size="3" color="Green">Accept-Encoding</font>：浏览器自身声明接受的编码方式，通常是压缩方法；</li>
+<li><font face="微软雅黑" size="3" color="Green">Accept-Language</font>：浏览器自身声明可以接受的语言例如中文：zh-CN；</li>
+<li><font face="微软雅黑" size="3" color="Green">Cache-Control</font>：浏览器缓存机制，一般会有max-age值，或者no-cache或者public、private；</li>
+<li><font face="微软雅黑" size="3" color="Green">Connection</font>：可选keep-alive、close</li>
+<li><font face="微软雅黑" size="3" color="Green">cookie</font><br>:将cookie数据发送给服务器   </li>
+<li><font face="微软雅黑" size="3" color="Green">User-Agent</font>：客户端使用的浏览器以及操作系统</li>
+<li><font face="微软雅黑" size="3" color="Green">If-Modified-Since</font>：和 last-modified 一起工作浏览器缓存内容最后修改时间;</li>
+<li><font face="微软雅黑" size="3" color="Green">if-None-Match</font><br>:和ETag一起工作，比较两者值 获取内容是否改变。</li>
+</ul>
+<p><font face="微软雅黑" size="3" color="Green">response部分分析：</font> </p>
+<ul>
+<li><font face="微软雅黑" size="3" color="Green">Keep-Alive:</font> 长连接设置的值，有timeout以及max两个值，只有当connection为keep-alive并且服务端支持时候才会生效</li>
+<li><font face="微软雅黑" size="3" color="Green">Content-Length</font> 表示返回实体内容长度大小，一般应用在返回静态页面或者一张图片并且数据量不大时候被设置；大小为bite字节</li>
+<li><font face="微软雅黑" size="3" color="Green">Transfer-Encoding</font>即服务器端不是一个已知的固定的返回实体时候，服务器会一边产生数据，一边发送给客户端，这时候服务器就需要用Transfer-Encoding。</li>
+<li><font face="微软雅黑" size="3" color="Green">Date</font>：服务器返回数据时间，我经常就用这个值来取得服务器时间</li>
+<li><font face="微软雅黑" size="3" color="Green">Etag</font>与if-none-match配合使用；</li>
+<li><font face="微软雅黑" size="3" color="Green">Last-Modified:</font>用于指示资源的最后修改日期和时间。一般都用来处理缓存，</li>
+<li><font face="微软雅黑" size="3" color="Green">Content-Type</font>WEB服务器告诉浏览器自己响应的对象的类型和字符集,例如:Content-Type: text/html; charset=UTF-8，Content-Type: image/jpeg</li>
+<li><font face="微软雅黑" size="3" color="Green">server</font>：指明服务器软件版本；</li>
+<li><font face="微软雅黑" size="3" color="Green">Referer</font>：告诉服务器该请求是在哪个链接发过来的，据此可以统计从某个页面跳转过来次数；</li>
+<li><font face="微软雅黑" size="3" color="Green">X-powered0by</font>：表示该网站开发技术<br><font face="微软雅黑" size="3" color="Green">常见状态码：</font> </li>
+<li>200：客户端请求成功。 </li>
+<li>304：使用的缓存文件  </li>
+<li>400：客户端请求有语法错误，不能被服务器所理解。   </li>
+<li>401：请求未经授权，这个状态码必须和WWW-Authntiate报头域一起使用。   </li>
+<li>403：服务器收到请求，但拒绝提供服务。   </li>
+<li>404：请求资源不存在，如：输入了错误的URL。   </li>
+<li>500：服务器报错。   </li>
+<li>503：服务器当前不能处理客户端的请求，一段时间后可恢复正常。</li>
+</ul>
+<h3 id="HTTP和HTTPS的区别："><a href="#HTTP和HTTPS的区别：" class="headerlink" title="HTTP和HTTPS的区别："></a>HTTP和HTTPS的区别：</h3><blockquote>
+<ul>
+<li><font face="微软雅黑" size="3" color="Green">开头：</font>HTTP:以http:// 开头；HTTPS: 以https:// 开头。</li>
+<li><font face="微软雅黑" size="3" color="Green">传输信息安全性不同：</font>HTTP:无法加密,信息是明文传输,不安全；HTTPS:具有SSL加密传输协议，更加安全。</li>
+<li><font face="微软雅黑" size="3" color="Green">证书申请方式不同：</font>HTTP:无需证书或者可以免费申请，HTTPS:需要CA机构wosign的颁发的SSL证书。</li>
+<li><font face="微软雅黑" size="3" color="Green">端口不同：</font>HTTP:标准端口8080，HTTPS:标准端口443。</li>
+<li><font face="微软雅黑" size="3" color="Green">连接方式不同：</font>HTTP:连接很简单，是无状态的；HTTPS:是由SSL＋HTTP协议构建的可进行加密传输、身份认证的网络协议。<br><font face="微软雅黑" size="3" color="Green">总结：</font>HTTPS=HTTP+SSL(SSL协议是在客户端与服务器端建立SSL安全通道)如下图：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E6%B5%85%E8%AF%BBHTTP%E5%92%8CHTTPS/WechatIMG1%201.png" alt="cmd-markdown-logo"></li>
+</ul>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>乌龙事件：寻人启事--哪位大佬刷了我的访问人数</title>
+    <url>/%E4%B9%8C%E9%BE%99%E4%BA%8B%E4%BB%B6--%E5%AF%BB%E4%BA%BA%E5%90%AF%E4%BA%8B/</url>
+    <content><![CDATA[<h3 id="把公司的项目写完了，本想准备看一下博客的，结果访问人数变成882513，嘴里吸的一口芋圆奶茶差点呛死o-╥﹏╥-o。早上看还是20个访问人数，虽然想要多点访问人数但是这也太假了吧。"><a href="#把公司的项目写完了，本想准备看一下博客的，结果访问人数变成882513，嘴里吸的一口芋圆奶茶差点呛死o-╥﹏╥-o。早上看还是20个访问人数，虽然想要多点访问人数但是这也太假了吧。" class="headerlink" title="把公司的项目写完了，本想准备看一下博客的，结果访问人数变成882513，嘴里吸的一口芋圆奶茶差点呛死o(╥﹏╥)o。早上看还是20个访问人数，虽然想要多点访问人数但是这也太假了吧。"></a>把公司的项目写完了，本想准备看一下博客的，结果访问人数变成<strong>882513</strong>，嘴里吸的一口芋圆奶茶差点呛死o(╥﹏╥)o。早上看还是20个访问人数，虽然想要多点访问人数但是这也太假了吧。</h3><h3 id="是不是哪位大佬用我的博客来测试刷访问量的脚本了？？？（过来，我不打你😿）"><a href="#是不是哪位大佬用我的博客来测试刷访问量的脚本了？？？（过来，我不打你😿）" class="headerlink" title="是不是哪位大佬用我的博客来测试刷访问量的脚本了？？？（过来，我不打你😿）"></a>是不是哪位大佬用我的博客来测试刷访问量的脚本了？？？（过来，我不打你😿）</h3><h3 id="但是，"><a href="#但是，" class="headerlink" title="但是，"></a>但是，</h3><h3 id="可以不可以，"><a href="#可以不可以，" class="headerlink" title="可以不可以，"></a>可以不可以，</h3><h3 id="能不能，"><a href="#能不能，" class="headerlink" title="能不能，"></a>能不能，</h3><h3 id="教教我脚本是怎么写的-▽-，"><a href="#教教我脚本是怎么写的-▽-，" class="headerlink" title="教教我脚本是怎么写的(^▽^)，"></a>教教我脚本是怎么写的(<em>^▽^</em>)，</h3><h3 id="前段时间研究刷访问量的脚本，可是只能刷到访问量，并不能刷到访问人数，度娘说是hexo进行了ip过滤。。。"><a href="#前段时间研究刷访问量的脚本，可是只能刷到访问量，并不能刷到访问人数，度娘说是hexo进行了ip过滤。。。" class="headerlink" title="前段时间研究刷访问量的脚本，可是只能刷到访问量，并不能刷到访问人数，度娘说是hexo进行了ip过滤。。。"></a>前段时间研究刷访问量的脚本，可是只能刷到访问量，并不能刷到访问人数，度娘说是hexo进行了<strong>ip</strong>过滤。。。</h3><h3 id="So-我的访问人数突然变得这么多是怎么做到的？？？"><a href="#So-我的访问人数突然变得这么多是怎么做到的？？？" class="headerlink" title="So,我的访问人数突然变得这么多是怎么做到的？？？"></a>So,我的访问人数突然变得这么多是怎么做到的？？？</h3><h3 id="还有，能不能把我的访问量和访问人数恢复原状，这么多的数据，心里虚的慌o-￣︶￣-o"><a href="#还有，能不能把我的访问量和访问人数恢复原状，这么多的数据，心里虚的慌o-￣︶￣-o" class="headerlink" title="还有，能不能把我的访问量和访问人数恢复原状，这么多的数据，心里虚的慌o(￣︶￣)o"></a>还有，能不能把我的访问量和访问人数恢复原状，这么多的数据，心里虚的慌o(<em>￣︶￣</em>)o</h3><hr>
+<h3 id="mmp。"><a href="#mmp。" class="headerlink" title="mmp。"></a>mmp。</h3><h3 id="原来是个乌龙事件，"><a href="#原来是个乌龙事件，" class="headerlink" title="原来是个乌龙事件，"></a>原来是个乌龙事件，</h3><h3 id="原因：上午看的正常数字是线上的，下午看的错误数据是本地的。"><a href="#原因：上午看的正常数字是线上的，下午看的错误数据是本地的。" class="headerlink" title="原因：上午看的正常数字是线上的，下午看的错误数据是本地的。"></a>原因：上午看的正常数字是线上的，下午看的错误数据是本地的。</h3><h3 id="使用hexo-s部署在本地预览效果的时候，uv数和pv数会过大，这是由于不蒜子用户使用一个存储空间，所以使用localhost-4000进行本地预览的时候会导致数字异常，这是正常现象，只需要将博客部署至云端即可恢复正常"><a href="#使用hexo-s部署在本地预览效果的时候，uv数和pv数会过大，这是由于不蒜子用户使用一个存储空间，所以使用localhost-4000进行本地预览的时候会导致数字异常，这是正常现象，只需要将博客部署至云端即可恢复正常" class="headerlink" title="使用hexo s部署在本地预览效果的时候，uv数和pv数会过大，这是由于不蒜子用户使用一个存储空间，所以使用localhost:4000进行本地预览的时候会导致数字异常，这是正常现象，只需要将博客部署至云端即可恢复正常"></a>使用hexo s部署在本地预览效果的时候，uv数和pv数会过大，这是由于不蒜子用户使用一个存储空间，所以使用localhost:4000进行本地预览的时候会导致数字异常，这是正常现象，只需要将博客部署至云端即可恢复正常</h3><h3 id="尴尬！！！"><a href="#尴尬！！！" class="headerlink" title="尴尬！！！"></a>尴尬！！！</h3>]]></content>
+  </entry>
+  <entry>
+    <title>Node.js刷博客访问量</title>
+    <url>/Node-js%E5%88%B7%E5%8D%9A%E5%AE%A2%E8%AE%BF%E9%97%AE%E9%87%8F/</url>
+    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>之前总是会碰到需要点赞的或者看文章会有阅读量的，就想着要是可以自动点就好了。正好上篇文章把博客的阅读量设置了，想想现在可以写个脚本让他自动刷阅读量了。。。。嘻嘻😬(有点子小开心!)</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><p>1.新建一个文件夹<strong>js</strong>,在这个文件夹下新建一个<strong>count.js</strong>文件，在这个文件中把以下代码复制进去：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const puppeteer = require(&apos;puppeteer&apos;);</span><br><span class="line"></span><br><span class="line">// 延时器</span><br><span class="line">let timeout = function (delay) &#123;</span><br><span class="line">  console.log(&apos;延迟函数：&apos;, `延迟 $&#123;delay&#125; 毫秒`)</span><br><span class="line">  return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      try &#123;</span><br><span class="line">        resolve(1)</span><br><span class="line">      &#125; catch (error) &#123;</span><br><span class="line">        reject(error)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, delay);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Traffic &#123;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    // 最大数量</span><br><span class="line">    this.maxIndex = 40</span><br><span class="line">    // 初始化</span><br><span class="line">    this.init()</span><br><span class="line">  &#125;</span><br><span class="line">  // 初始化函数</span><br><span class="line">  async init() &#123;</span><br><span class="line">    console.log(&apos;正在启动浏览器...&apos;)</span><br><span class="line">    this.browser = await puppeteer.launch(&#123;</span><br><span class="line">      // executablePath: &apos;C:\\Users\\S\\Desktop\\chrome-win32\\chrome.exe&apos;, // chromium安装路径</span><br><span class="line">      headless: false, // 是否隐藏浏览器</span><br><span class="line">    &#125;);</span><br><span class="line">    this.page = await this.browser.newPage();</span><br><span class="line">    // 顺序爬取页面</span><br><span class="line">    for (let i = 30; i &lt; this.maxIndex; i++) &#123;</span><br><span class="line">      await this.gotoPage()</span><br><span class="line">    &#125;</span><br><span class="line">    // this.closeBrowser()</span><br><span class="line">  &#125;</span><br><span class="line">  // 抓取页面内容</span><br><span class="line">  async gotoPage() &#123;</span><br><span class="line">    // 延时 1000 毫秒</span><br><span class="line">    await timeout(1000);</span><br><span class="line">    console.log(&apos;正在打开新页面...&apos;)</span><br><span class="line">    await this.page.goto(&apos;需刷的页面地址&apos;, &#123;</span><br><span class="line">      timeout: 0</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  // 关闭浏览器</span><br><span class="line">  async closeBrowser() &#123;</span><br><span class="line">    console.log(&apos;正在关闭浏览器...&apos;)</span><br><span class="line">    await this.browser.close()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 启用爬虫</span><br><span class="line">new Traffic()</span><br></pre></td></tr></table></figure>
+
+<p>记得要安装<code>puppeteer</code></p>
+<p>2.进入<code>js</code>文件夹，运行命令行<code>node count.js</code>这样就能看到一个新开的窗口在自动刷访问量了。如下图：(由于自己的博客图片出不来刷新一次需要时间太长，用脚本刷的时候会报错，因此偷偷地用老大的博客来试验一下。。。嘿嘿😝)<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/fangwen01.png" alt="cmd-markdown-logo"></p>
+<p>不过博客的本意还是为了巩固记录自己所学的东西，同时也可以分享给别人，让有同样需求的小伙伴可以少走点弯路。因此还是不建议去刷浏览量的啦！！！！</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>hexo 给博客添加不蒜子统计访问量，评论功能</title>
+    <url>/hexo%20%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E4%B8%8D%E8%92%9C%E5%AD%90%E7%BB%9F%E8%AE%A1%E8%AE%BF%E9%97%AE%E9%87%8F%EF%BC%8C%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>(不蒜子统计只会统计相应页面的数据，在首页中并不会统计。若是需要在首页中展示则需要通过三方leanCloud)。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="添加统计字数："><a href="#添加统计字数：" class="headerlink" title="添加统计字数："></a>添加统计字数：</h3><p>1.安装 hexo-wordcount：</p>
+<blockquote>
+<p>npm i –save hexo-wordcount</p>
+</blockquote>
+<p>2.文件配置   </p>
+<blockquote>
+<p>将自己所用主题中的 _config.yml 文件中的 wordcount 设置为true <code>wordcount: true</code></p>
+</blockquote>
+<p>3.重启服务就可以看到了</p>
+<h3 id="添加统计访问量："><a href="#添加统计访问量：" class="headerlink" title="添加统计访问量："></a>添加统计访问量：</h3><p>1.配置<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/bokezhuang-02.png" alt="cmd-markdown-logo">   </p>
+<p>2.问题：   </p>
+<blockquote>
+<p>通过利用不蒜子统计，发现统计数量并不能展现。   </p>
+</blockquote>
+<p>3.原因：<br><a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener">不蒜子统计官网</a>   Soga!原来就是因为不蒜子统计的域名过期了</p>
+<p>4.解决方法：<br>首先需要先找到主题MaterialFlow下引用不蒜子统计的方法。文件路径为/themes/MaterialFlow/layout/_third-party/analytics/busuanzi-counter.swig文件。修改为如下图红框部分就OK了！<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/bokezhuang-01.png" alt="cmd-markdown-logo"></p>
+<hr>
+<p>接着。。。。。。</p>
+<p>在昨天把访问量设置好后今天惊奇的发现居然有8个访问量了，开森。（不是刷的哦）！所以又想把评论和点赞功能设置一下，嘿嘿。。</p>
+<h3 id="评论："><a href="#评论：" class="headerlink" title="评论："></a>评论：</h3><p>1.注册<a href="https://leancloud.cn/" target="_blank" rel="noopener">Leancloud</a></p>
+<blockquote>
+<p>注册完之后需创建一个应用，可叫blog：然后 <strong>进入应用-&gt;设置-&gt;应用key</strong>获取你的appid 和 appkey 如图所示：</p>
+</blockquote>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/busuanzi01.png" alt="cmd-markdown-logo"></p>
+<p>2.博客主题文件找到配置文件 <strong>_config.yml</strong>，找到valine并输入appid 和 appkey：</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/busuanzi02.png" alt="cmd-markdown-logo"></p>
+<p>3.配置域名：<br>记得在Leancloud -&gt; 设置 -&gt; 安全中心 -&gt; Web 安全域名 把你的<strong>线上域名</strong>加进去</p>
+<p>🎉结束撒花～</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>那些让Vue看起来更简单的事</title>
+    <url>/%E9%82%A3%E4%BA%9B%E8%AE%A9Vue%E7%9C%8B%E8%B5%B7%E6%9D%A5%E6%9B%B4%E7%AE%80%E5%8D%95%E7%9A%84%E4%BA%8B/</url>
+    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>正如前面所提到的‘代码可读性’，在Vue中也存在着很多‘可提高代码可读性问题’，以下是学习中记录的一些问题。。。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="一：v-once"><a href="#一：v-once" class="headerlink" title="一：v-once"></a>一：v-once</h3><p>场景:有些 template 中的静态 dom 没有改变,这时就只需要渲染一次,可以降低性能开销</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span v-once&gt; 这时只需要加载一次的标签&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+
+<p>v-once 和 v-pre 的区别: v-once只渲染一次；v-pre不编译,原样输出</p>
+<h3 id="二：require-context"><a href="#二：require-context" class="headerlink" title="二：require.context"></a>二：require.context</h3><ul>
+<li><p>是什么</p>
+<blockquote>
+<p>一个webpack的api,通过执行require.context函数获取一个特定的上下文,主要用来实现自动化导入模块,在前端工程中,如果遇到从一个文件夹引入很多模块的情况,可以使用这个api,它会遍历文件夹中的指定文件,然后自动导入,使得不需要每次显式的调用import导入模块</p>
+</blockquote>
+</li>
+<li><p>场景(页面需导入多个组件),原始写法:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import titleCom from &apos;@/components/home/titleCom&apos;</span><br><span class="line">import bannerCom from &apos;@/components/home/bannerCom&apos;</span><br><span class="line">import cellCom from &apos;@/components/home/cellCom&apos;</span><br><span class="line">components:&#123;titleCom,bannerCom,cellCom&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>假如需要导入N个组件那就头疼了，并且写了大量重复的代码使得代码可读性差，但是利用 require.context 可以写成： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const path = require(&apos;path&apos;)   </span><br><span class="line">const files = require.context(&apos;@/components/home&apos;, false, /\.vue$/)   </span><br><span class="line">const modules = &#123;&#125;</span><br><span class="line">files.keys().forEach(key =&gt; &#123;</span><br><span class="line">  const name = path.basename(key, &apos;.vue&apos;)</span><br><span class="line">  modules[name] = files(key).default || files(key)</span><br><span class="line">&#125;)   </span><br><span class="line">components:modules  </span><br><span class="line"></span><br><span class="line">这样不管页面引入多少组件,都可以使用这个方法</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p>语法:<br>require.context(directory读取文件的路径, useSubdirectories = false是否遍历文件的子目录, regExp = /^.//匹配文件的正则);<br>借用webpakc官网的例子(配下图))：<br>require.context(‘./test’, false, /.test.js$/); //遍历当前目录下的test文件夹的所有.test.js结尾的文件,但是不遍历子目录<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/those-vue01.png" alt="cmd-markdown-logo"></p>
+</blockquote>
+<h3 id="三：v-cloak"><a href="#三：v-cloak" class="headerlink" title="三：v-cloak"></a>三：v-cloak</h3><p>场景:在网速慢的情况下,在使用vue绑定数据的时候，渲染页面时会出现变量闪烁<br>用法:这个指令保持在元素上直到关联实例结束编译。和 CSS 规则如 [v-cloak] { display: none } 一起用时，这个指令可以隐藏未编译的 Mustache 标签直到实例准备完毕</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// template 中</span><br><span class="line">&lt;div class=&quot;#app&quot; v-cloak&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;value.name&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">// css 中</span><br><span class="line">[v-cloak] &#123;</span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以解决闪烁,但是会出现白屏,这样可以结合骨架屏使用</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>学习笔记-代码技巧</title>
+    <url>/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BB%A3%E7%A0%81%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>每个程序员都有一个同样的学习过程：实现业务代码 -&gt; 提高代码可读性。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-indexOf"><a href="#1-indexOf" class="headerlink" title="1.indexOf"></a>1.indexOf</h3><blockquote>
+<p><font face="微软雅黑" size="3" color="Green">bad:</font><br>if (this.$route.path.indexOf(‘/reports/‘) != -1) { }<br><font face="微软雅黑" size="3" color="Green">good:</font><br>if ( ~this.$route.path.indexOf(‘/reports/‘)) {  }<br><font face="微软雅黑" size="3" color="Green"></font></p>
+</blockquote>
+<blockquote>
+<p>注:因为&gt;=0和==-1这样的写法称为“抽象渗漏”，暴露了底层的细节。而~和indexOf()一起可以将结果强制类型转换为真</p>
+</blockquote>
+<h3 id="2-字符串转数字"><a href="#2-字符串转数字" class="headerlink" title="2.字符串转数字"></a>2.字符串转数字</h3><blockquote>
+<p>var a=123.36896335<br>a=+a    //123.37<br>a=a|0  //123<br>a=~~a  //123 </p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>学习笔记-封装</title>
+    <url>/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%B0%81%E8%A3%85/</url>
+    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>封装：就是提高单一功能或模块的独立性和复用。让使用者更加便利，也让维护者更加清晰。也可以减少代码冗余提高代码可读性。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><blockquote>
+<p>在工作的这段时间中发现自己的代码冗余复用性低可读性差，但由于前期没太注意这个问题只觉得把功能写出来了就行，并没有考虑到代码的美观度。因此这两天学习了一下公司项目中的接口那部分的封装。</p>
+</blockquote>
+<h3 id="解析接口请求封装："><a href="#解析接口请求封装：" class="headerlink" title="解析接口请求封装："></a>解析接口请求封装：</h3><h4 id="一：对公司项目中封装的那段代码的理解："><a href="#一：对公司项目中封装的那段代码的理解：" class="headerlink" title="一：对公司项目中封装的那段代码的理解："></a>一：对公司项目中封装的那段代码的理解：</h4><ul>
+<li><p>前言   </p>
+<blockquote>
+<p>刚看到这段代码的时候，我的感受是里面有很多个引入，有很多个<code>export</code>,当时觉得‘妈耶，写这段代码的人真厉害！’，当时的感受就是虽然我一行一行的去读代码可以读懂，但是把这些代码合为一个整体就不理解他怎么能想到要这样去做呢！！！在httpServer.js这个文件中也很多个<code>axios</code>,于是我又去看了一遍<code>axios</code>的文档,硬着头皮看完了终于像是找到了一点灵感稍稍的能理解一点了。</p>
+</blockquote>
+</li>
+<li><p>请求接口之前进行的操作</p>
+<blockquote>
+<p>在httpServer.js文件中，有很多个<code>axios</code>方法，进行了很多个操作（见下图一）。1.这些相对应的操作不是每个项目都需要的，而是看后端需要什么则前端相对应的去配置。2.前端配置的灰显示在下图二的位置。<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/fengzhuang-01.png" alt="cmd-markdown-logo"><br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/fengzhuang-02.png" alt="cmd-markdown-logo"></p>
+</blockquote>
+</li>
+<li><p>函数封装</p>
+<blockquote>
+<p>函数封装就是尽可能的把函数细化，让一个函数只做一件事，然后将这件事抽象出来<font face="微软雅黑" size="3" color="Green">严谨（每一步可能出现的都考虑到）</font>的放到一个函数中。例如：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/fengzhuang-04.png" alt="cmd-markdown-logo"></p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>工作笔记-常用功能</title>
+    <url>/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在实际项目过程中有很多基本的功能经常会遇到，因此统一收集一下可以更好地进行理解。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="一：链接跳转传参（单页面）"><a href="#一：链接跳转传参（单页面）" class="headerlink" title="一：链接跳转传参（单页面）"></a>一：链接跳转传参（单页面）</h3><blockquote>
+<p><font face="微软雅黑" size="3" color="Green">法一（带问号的）：</font><br>传：this.$router.push({path: ‘’, query: { 参数名：参数值}})<br>收：this.$route.query.参数名<br><font face="微软雅黑" size="3" color="Green">法二（不带问号的）：</font><br>传：this.$router.push({path:’/xx/xx’ + val.vv})<br>收：this.$route.path.split(‘/‘).reverse()[0]<br>this.$router.push():跳转到不同的url，但这个方法回向history栈添加一个记录，点击后退会返回到上一个页面<br><font face="微软雅黑" size="3" color="Green">法三/四：</font><br>this.$router.replace():不会有记录<br>this.$router.go(n):n可为正数可为负数。正数返回上一个页面,类似 window.history.go(n)</p>
+</blockquote>
+<h3 id="二：登录功能时，账号密码自动填充"><a href="#二：登录功能时，账号密码自动填充" class="headerlink" title="二：登录功能时，账号密码自动填充"></a>二：登录功能时，账号密码自动填充</h3><blockquote>
+<p><font face="微软雅黑" size="3" color="Green">在同域名下，chrome会进行自动填充？</font><br>当input = “password”的时候，会自动将前一个input默认为<font face="微软雅黑" size="3" color="green">账号</font>而填充:  解决： autoComplate = “off” 或者 autoComplate = “new-password”</p>
+</blockquote>
+<h3 id="三：SessionStorage存取使用："><a href="#三：SessionStorage存取使用：" class="headerlink" title="三：SessionStorage存取使用："></a>三：SessionStorage存取使用：</h3><blockquote>
+<p>存：sessionStorage.user = Json.stringify(res)<br>取：JSON.parse(sessionStorage.getItem(‘user’))<br>清除：sessionStorage.removeItem(‘user’)<br><font face="微软雅黑" size="3" color="Green">注：其中 user是可改的，res是存的数据 </font></p>
+</blockquote>
+<h3 id="四：分页："><a href="#四：分页：" class="headerlink" title="四：分页："></a>四：分页：</h3><ul>
+<li>后端分页:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;el-pagination</span><br><span class="line">    background</span><br><span class="line">    layout=&quot;prev,pager,next&quot;</span><br><span class="line">    :total=&quot;tableList.pagination.totalRows&quot;</span><br><span class="line">    @current-change=&quot;changePage&quot;</span><br><span class="line">    :current-page=&quot;tableList.pagination.pageIndex || 0&quot;</span><br><span class="line">    :page-size=&quot;tableList.pagination.pageSize&quot;</span><br><span class="line">    :page-count= &quot;tableList.pagination.totalPage || 0&quot;</span><br><span class="line">&gt;</span><br><span class="line">&lt;/el-pagination&gt;</span><br><span class="line"></span><br><span class="line">userList(param) &#123;</span><br><span class="line">    let params = &#123;</span><br><span class="line">        &quot;pageIndex&quot;: 1,</span><br><span class="line">        &quot;pageSize&quot;: 10,</span><br><span class="line">        ...param</span><br><span class="line">    &#125;</span><br><span class="line">    userList(params).then((res) =&gt; &#123;</span><br><span class="line">        if(res.data.code === 1000) &#123;</span><br><span class="line">            const &#123; pageIndex,pageSize,startRow,totalPages,totalRows,list&#125; = res.data.data;</span><br><span class="line">            this.tableList.backStageUserList = list;</span><br><span class="line">            this.tableList.pagination = &#123; pageIndex,pageSize,startRow,totalPages,totalRows &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,(err) =&gt; &#123;</span><br><span class="line">        this.$message.error(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changePage(page) &#123;</span><br><span class="line">    this.userList(&#123;pageIndex: page&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>前端分页，后端只返回总数据:(就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。)可参考<a href="https://blog.csdn.net/Ms_alinda/article/details/99696296" target="_blank" rel="noopener">vue+ele前端处理数据做分页</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;el-table :data=&quot;newOrgListData&quot;&gt;</span><br><span class="line">&lt;/el-table&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-pagination</span><br><span class="line">    background</span><br><span class="line">    layout=&quot;prev, pager, next&quot;</span><br><span class="line">    :total=&quot;orgListData.length&quot;</span><br><span class="line">    :page-size=&quot;5&quot;</span><br><span class="line">    :current-page.sync=&quot;currentPage&quot;</span><br><span class="line">    @current-change=&quot;handleCurrentChange&quot;</span><br><span class="line">    prev-text=&quot;上一页&quot;</span><br><span class="line">    next-text=&quot;下一页&quot;</span><br><span class="line">&gt;&lt;/el-pagination&gt;</span><br><span class="line"></span><br><span class="line">data() &#123;</span><br><span class="line">    currentPage: 1,</span><br><span class="line">    newOrgListData: [],</span><br><span class="line">    orgListData: []</span><br><span class="line">&#125;</span><br><span class="line">xxx().then((res) =&gt; &#123;</span><br><span class="line">    if(res.data.code === 1000) &#123;</span><br><span class="line">        this.orgListData = res.data.data</span><br><span class="line">        this.handleCurrentChange(1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">handleCurrentChange(index) &#123;   //currentPage变动时触发，index值为当前页</span><br><span class="line">      this.currentpageOrg = index</span><br><span class="line">      this.newOrgListData = this.orgListData.slice((index - 1) * 5, index * 5) //根据每页5条将初始数据orgListData进行裁剪赋值给新数组newOrgListData</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="五：表格自定义内容："><a href="#五：表格自定义内容：" class="headerlink" title="五：表格自定义内容："></a>五：表格自定义内容：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;el-table-column label = &quot;序号&quot; fixed&gt;</span><br><span class="line">    &lt;template slot-scope = &quot;scoped&quot;&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;scope.$index + (tableList.pagination.startRow + 1)&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">&lt;/el-table-column&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-table-column label = &quot;日期&quot;&gt;</span><br><span class="line">    &lt;template slot-scope = &quot;scoped&quot;&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;scope.row.createTime&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">&lt;/el-table-column&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="六：表单提交："><a href="#六：表单提交：" class="headerlink" title="六：表单提交："></a>六：表单提交：</h3><ol>
+<li>确认添加成功时使用以下两个：清空:this.addRoleForm = Object.assign({},{})，重置必填的校验:this.$refs[‘addRoleForm’].resetFields()。写在请求成功后的里面。</li>
+<li>:label为展示在页面的数据，也是v-model对应的。</li>
+<li>获取下拉列表几个值的方法：<br> (1).filter(const roleCode = this.下拉列表数据.filter(item =&gt; item =&gt; item.xxx == this.想匹配的数据.bbb))[0]。<br> (2). 在el-select中加 @change=”xxx”&gt;<pre><code>xxx(val){
+    clg(val)
+}</code></pre></li>
+</ol>
+<h3 id="七：Tab切换："><a href="#七：Tab切换：" class="headerlink" title="七：Tab切换："></a>七：Tab切换：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;keep-alive&gt;  //减少性能消耗</span><br><span class="line">    &lt;div class=&quot;tabs&quot;&gt;</span><br><span class="line">        &lt;span v-for=&quot;(item,index) in tabItems&quot;</span><br><span class="line">            :class=&quot;&#123;&apos;on&apos;:currentTab === index&#125;&quot;</span><br><span class="line">            @click=&quot;changeTab(item,index)</span><br><span class="line">            :key=&quot;index&quot;&gt;&#123;&#123;item.name&#125;&#125;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line"></span><br><span class="line">data() &#123;</span><br><span class="line">    tabItems: [&#123;&#125;,&#123;&#125;],</span><br><span class="line">    currentTab: 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changeTab(item,index) &#123;</span><br><span class="line">    this.currentTab = index</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="默认时间为昨天"><a href="#默认时间为昨天" class="headerlink" title="默认时间为昨天"></a>默认时间为昨天</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var timestamp = (new Date()).getTime()-24*60*60*1000;</span><br><span class="line">let yesterday = dateformat(new Date(timestamp),&apos;yyyy-MM-dd&apos;);</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>学习笔记-数据处理</title>
+    <url>/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>由于现在采用的都是前后端分离的开发模式，因此在前后端联调时会出现需要数据处理的问题。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-数组去重"><a href="#1-数组去重" class="headerlink" title="1.数组去重"></a>1.数组去重</h3><blockquote>
+<p>[…new Set([2,”12”,2,12,1,2,1,6,12,13,6])]<br>//  [2, “12”, 12, 1, 6, 13]</p>
+</blockquote>
+<h3 id="2-深拷贝数组-给数组对象新增一个对象"><a href="#2-深拷贝数组-给数组对象新增一个对象" class="headerlink" title="2.深拷贝数组(给数组对象新增一个对象)"></a>2.深拷贝数组(给数组对象新增一个对象)</h3><blockquote>
+<p>法一：<br>var arr=[{a:1,b:2},{a:3,b:4}]<br>var newArr2=JSON.parse(JSON.stringify(arr));<br>console.log(arr[0]) // {a:1,b:2}<br>newArr2[3]={a:12,b:34}<br>console.log(arr[0]) // {a:1,b:2}<br>console.log(newArr2) //[{a:1,b:1},{a:3,b:4},{a:12,b:34}]<br>法二：<br>var arr1=[{a:1,b:2}],arr2=[{a:4,b:9}];<br>arr1.push.apply(arr1,arr2);<br>console.log(arr1) // [{a:1,b:2},{a:4,b:9}]   </p>
+</blockquote>
+<h3 id="3：数组对象中有多个字段-gt-但是只需要其中两个字段："><a href="#3：数组对象中有多个字段-gt-但是只需要其中两个字段：" class="headerlink" title="3：数组对象中有多个字段 =&gt; 但是只需要其中两个字段："></a>3：数组对象中有多个字段 =&gt; 但是只需要其中两个字段：</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">返回的：</span><br><span class="line">typeDistributionInfo:[</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">6</span>,   </span><br><span class="line">        mediatorProportion: <span class="number">6</span>,    </span><br><span class="line">        orgTypeCode: <span class="string">"orgTypeCode"</span>,    </span><br><span class="line">        orgTypeName: <span class="string">"人民调解机构"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">10</span>, </span><br><span class="line">        mediatorProportion: <span class="number">10</span>, </span><br><span class="line">        orgTypeCode: <span class="string">"orgTypeCode"</span>, </span><br><span class="line">        orgTypeName: <span class="string">"行政调解机构"</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">需变成：</span><br><span class="line">typeDistributionInfo:[</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">6</span>,   </span><br><span class="line">        mediatorProportion: <span class="number">6</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">10</span>, </span><br><span class="line">        mediatorProportion: <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">方法：</span><br><span class="line">var newArray2 = [];</span><br><span class="line">var newObject = &#123;&#125;;</span><br><span class="line">for (var i = 0; i &lt; typeDistributionInfo.length; i++) &#123;</span><br><span class="line">    newObject.name = typeDistributionInfo[i].orgTypeName;</span><br><span class="line">    newObject.value = typeDistributionInfo[i].orgProportion;</span><br><span class="line">    newArray2.push(newObject);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4：对象-gt-数组对象"><a href="#4：对象-gt-数组对象" class="headerlink" title="4：对象 =&gt; 数组对象"></a>4：对象 =&gt; 数组对象</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">对象中有多个字段：</span><br><span class="line">sexAndAgeDistributionInfo:&#123;</span><br><span class="line">    ageLessForty: 100,</span><br><span class="line">    ageLessSixty: 100,</span><br><span class="line">    ageLessTwenty: 20,</span><br><span class="line">    ageMoreSixty: 20,</span><br><span class="line">    femaleNun: 200,</span><br><span class="line">    maleNun: 100,</span><br><span class="line">    unknownSexNun: 50</span><br><span class="line">&#125;</span><br><span class="line">需要：</span><br><span class="line">var medSexAndAgeDistributionInfo = [</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;女&apos;,</span><br><span class="line">        value: this.sexAndAgeDistributionInfo.femaleNun</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;男&apos;,value: this.sexAndAgeDistributionInfo.maleNun</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">方法：</span><br><span class="line">var medSexAndAgeDistributionInfo = [</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;女&apos;,</span><br><span class="line">        value: this.sexAndAgeDistributionInfo.femaleNun</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;男&apos;,value: this.sexAndAgeDistributionInfo.maleNun</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="5：处理后端返回的字符串（获取h3中的内容）"><a href="#5：处理后端返回的字符串（获取h3中的内容）" class="headerlink" title="5：处理后端返回的字符串（获取h3中的内容）"></a>5：处理后端返回的字符串（获取h3中的内容）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">返回的字符串：</span><br><span class="line">&#123;</span><br><span class="line">    code:1,</span><br><span class="line">    data:&quot;&#123; &quot;codexType&quot;:&quot;法律&quot;,&quot;codexContent&quot;:&quot;嘿嘿&quot;,&quot;&lt;h3&gt;一只鸭子&lt;/h3&gt;&quot;,...&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">获取：</span><br><span class="line">getDetail(params).then((res) =&gt; &#123;</span><br><span class="line">    if(res.data.code === 1) &#123;</span><br><span class="line">        this.lowsDetails = JSON.parse(res.data.data)</span><br><span class="line">        // 获取返回的H3中的内容</span><br><span class="line">        var temp = document.createElement(&apos;div&apos;)</span><br><span class="line">        temp.innerHTML = res.data.data;</span><br><span class="line">        let arr = []</span><br><span class="line">        for(var i = 0; i&lt; temp.getElementsByTagName(&apos;h3&apos;).length; i++) &#123;</span><br><span class="line">            if(temp.getElementsByTagName(&apos;h3&apos;)[i] &amp;&amp;temp.getElementsByTagName(&apos;h3&apos;)[i].innerText) &#123;</span><br><span class="line">              temp.getElementsByTagName(&apos;h3&apos;)[i].innerText</span><br><span class="line">            &#125;</span><br><span class="line">            arr.push(temp.getElementsByTagName(&apos;h3&apos;)[i].innerText)</span><br><span class="line">        &#125;</span><br><span class="line">          this.arr =arr</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组对象中插入对象"><a href="#数组对象中插入对象" class="headerlink" title="数组对象中插入对象"></a>数组对象中插入对象</h3><p>原数据：</p>
+<p>// menulist<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/WechatIMG9.png" alt="cmd-markdown-logo"></p>
+<p>需要插入的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// dailyPermissionData</span><br><span class="line">[</span><br><span class="line">    &#123;name: &apos;lzzhy&apos;&#125;,</span><br><span class="line">    &#123;name: &apos;hzzly&apos;&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>需求： 将dailyPermissionData插入menulist[2].child末尾</p>
+<p>实现方式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for(let i = 0; i &lt; menulist.length; i ++) &#123;</span><br><span class="line">    if(menulist[i].parent.menuName == &apos;实施日报&apos;) &#123;</span><br><span class="line">        menulist[i].child = [...menulist[i].child, ...this.dailyPermissionData]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>Hexo+Github+Markdown搭建博客详解</title>
+    <url>/Hexo-Github-Markdown%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>其实之前就想搞个博客来玩但一直没有去做，今天看到一个博客里面记录了平常工作生活的事迹，突然心血来潮也想试试。说干就干，搞起来。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="一：配置环境"><a href="#一：配置环境" class="headerlink" title="一：配置环境"></a>一：配置环境</h3><p>1.安装Node(用来生成静态页面)  </p>
+<p>2.安装git(用来把本地的hexo提交到github上)   </p>
+<blockquote>
+<p><font face="微软雅黑" size="3" color="Green">首先检查是否安装了git和node.js，终端输入一下命令</font><br><code>node -v</code> #是否出现安装版本信息，出现说明已经安装了<br><code>git --version</code> #同上述情况<br><font face="微软雅黑" size="3" color="Green">如果没有安装，则进行安装,提供下载网址：</font><br>[git]: <a href="https://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener">https://sourceforge.net/projects/git-osx-installer/</a><br>[node.js]: <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
+</blockquote>
+<p>3.申请github账号(用来做博客的远程创库、域名、服务器之类的) </p>
+<blockquote>
+<p>在github注册一个账号并新建一个仓库(注意：创建仓库的名字必须为 username.github.io，我的用户名为lzzhy，因此我创建的仓库就是 lzzhy.github.io，这是很关键的一点，很重要。输入名字后直接点最下面的绿色按钮不用填其他的，新建仓库完成。)</p>
+</blockquote>
+<p>4.如果已经安装好了以上两个那么可以安装hexo了：</p>
+<blockquote>
+<p><code>npm install -g hexo-cli</code></p>
+</blockquote>
+<p>5.创建blog文件夹，并初始化建立博客框架：</p>
+<blockquote>
+<p>#在你的电脑上建立一个blog目录文件夹<br><code>mkdir blog</code><br>#进入目录<br><code>cd blog</code><br>#初始化目录<br><code>hexo init</code><br>#开启本地服务<br><code>hexo s</code></p>
+</blockquote>
+<p><font face="微软雅黑" size="3" color="#FF0000">好了，到了这在浏览器中输入生成的 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 就可以看到很丑的博客首页了。。。</font></p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/img1.png" alt="cmd-markdown-logo"></p>
+<h3 id="二：Github仓库与本地博客建立连接"><a href="#二：Github仓库与本地博客建立连接" class="headerlink" title="二：Github仓库与本地博客建立连接"></a>二：Github仓库与本地博客建立连接</h3><p>编辑<strong>根</strong>目录下的_config.yml文件，打开该文件在文件最后输入红色框中的内容，只需将自己的username替换就可以了其他无需更改。</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/img2.jpg" alt="cmd-markdown-logo"></p>
+<p>然后在目录中执行：</p>
+<blockquote>
+<p>#产生静态网页<br><code>hexo g</code><br>#部署到GitHub page上<br><code>hexo d</code></p>
+</blockquote>
+<p>？在这个过程中发现了一个<font face="微软雅黑" size="3" color="red">bug</font>：</p>
+<blockquote>
+<p>只能在本地运行看到博客首页，在github上只有代码可是不能找到博客主页：因为github的是jekyll,本地的是hexo，所以不能同步。解决：删掉github仓库，重新来一次并关联本地。。。。。。。。mmp,原来是一开始配置_config.yml的时候单词写错了（master少写了一个s），果然粗心</p>
+</blockquote>
+<h3 id="三：当然，我们还可以去装修一下我们的博客-hexo有很多配套主题-可自行百度并都有配置文档"><a href="#三：当然，我们还可以去装修一下我们的博客-hexo有很多配套主题-可自行百度并都有配置文档" class="headerlink" title="三：当然，我们还可以去装修一下我们的博客,hexo有很多配套主题,可自行百度并都有配置文档"></a>三：当然，我们还可以去装修一下我们的博客,hexo有很多配套主题,可自行百度并都有配置文档</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.主题安装：git clone https://github.com/theme-next/hexo-theme-next themes/next (以next主题为栗，改为其他主题则只需要将对应的next换掉)；</span><br><span class="line">2.在根目录下的_config.yml配置中修改对应的主题名称</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li>头像图片、作者名字、网站描述等网站基本属性都在根目录的_config.yml文件里配置  </li>
+<li>评论、搜索、统计、等功能配置都在主题文件的_config.yml文件里配置 </li>
+</ul>
+</blockquote>
+<h3 id="四：博客基本使用"><a href="#四：博客基本使用" class="headerlink" title="四：博客基本使用"></a>四：博客基本使用</h3><p>1.那肯定是写文章了：hexo new “文章名”， 在source/_posts会生成后缀名为.md的文件，支持markdown语法，里面可以设置标签名、分类名、是否开启评论功能等（markdown语法冒号后加空格）</p>
+<blockquote>
+<p>在.md文件中第二个—-下输入要写的文章，参考使用<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">markdown</a>语法</p>
+</blockquote>
+<p>文章写好后可以通过：<code>hexo g,hexo d</code>,在直接通过github链接访问：如<a href="https://lzzhy.github.io/">lzzhy.github.io</a></p>
+<p><font face="微软雅黑" size="3" color="#FF0000">这样，一个完整的搭建博客的过程就已经完成了</font></p>
+]]></content>
+  </entry>
+</search>
