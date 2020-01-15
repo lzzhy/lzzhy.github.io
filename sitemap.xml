@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lzzhy.github.io/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/</loc>
+    <loc>https://lzzhy.github.io/HTTP%E7%B3%BB%E5%88%97%E4%B9%8BHTTPS/</loc>
     
-    <lastmod>2020-01-08T07:03:53.993Z</lastmod>
+    <lastmod>2020-01-15T06:20:27.425Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://lzzhy.github.io/hexo-%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/</loc>
     
-    <lastmod>2020-01-06T07:53:40.057Z</lastmod>
+    <lastmod>2020-01-15T03:43:10.402Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lzzhy.github.io/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/</loc>
+    
+    <lastmod>2020-01-08T07:03:53.993Z</lastmod>
     
   </url>
   
@@ -96,13 +103,6 @@
     <loc>https://lzzhy.github.io/HTTP%E7%B3%BB%E5%88%97%E4%B9%8BHTTP2/</loc>
     
     <lastmod>2019-11-14T09:11:47.759Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lzzhy.github.io/HTTP%E7%B3%BB%E5%88%97%E4%B9%8BHTTPS/</loc>
-    
-    <lastmod>2019-11-14T09:06:18.205Z</lastmod>
     
   </url>
   
