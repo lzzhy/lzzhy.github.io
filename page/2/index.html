@@ -267,6 +267,179 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTP2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzzhy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzzhy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/HTTP系列之HTTP2/" itemprop="url">HTTP系列之HTTP2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-13T09:47:14+08:00">
+                2019-11-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/HTTP系列之HTTP2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/HTTP系列之HTTP2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.6k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。<br>(在开放互联网上HTTP 2.0将只用于 http:// 网址，而 http:// 网址将继续使用 HTTP/1，目的是在开放互联网上增加使用加密技术，以提供强有力的保护去遏制主动攻击。)</p>
+<h3 id="HTTP-1-x存在的问题"><a href="#HTTP-1-x存在的问题" class="headerlink" title="HTTP/1.x存在的问题"></a>HTTP/1.x存在的问题</h3><ul>
+<li><font face="微软雅黑" size="3" color="Green">线头阻塞</font>：TCP连接上只能发送一个请求，前面的请求未完成前，后续的请求都在排队等待。   </li>
+<li><font face="微软雅黑" size="3" color="Green">多个TCP连接</font>：虽然HTTP/1.1管线化可以支持请求并发，但是浏览器很难实现，chrome、firefox等都禁用了管线化。所以1.1版本请求并发依赖于多个TCP连接，建立TCP连接成本很高，还会存在慢启动的问题。   </li>
+<li><font face="微软雅黑" size="3" color="Green">头部冗余，采用文本格式</font>：HTTP/1.X版本是采用文本格式，首部未压缩，而且每一个请求都会带上cookie、user-agent等完全相同的首部。   </li>
+<li><font face="微软雅黑" size="3" color="Green">客户端需要主动请求</font></li>
+</ul>
+<p>既然HTTP/2是为了解决HTTP/1的问题，那么HTTP/2到底做了哪些改变呢？</p>
+<h3 id="HTTP-2做的改变"><a href="#HTTP-2做的改变" class="headerlink" title="HTTP/2做的改变"></a>HTTP/2做的改变</h3><h4 id="二进制分帧层"><a href="#二进制分帧层" class="headerlink" title="二进制分帧层"></a>二进制分帧层</h4><ul>
+<li>帧：HTTP/2数据通信的最小单位消息（收到流量控制）：指 HTTP/2 中逻辑上的 HTTP 消息。例如请求和响应等。</li>
+<li>流：存在于连接中的一个虚拟通道。流可以承载双向消息，每个流都有一个唯一的整数ID。</li>
+<li>消息：一个完整的HTTP请求或响应，由一个或多个帧组成。特定消息的帧在同一个流上发送，这意味着一个HTTP请求或响应只能在一个流上发送。    </li>
+</ul>
+<p>HTTP/2 性能提升的核心就在于二进制分帧层。HTTP2是二进制协议，解析起来更高效。HTTP/2 将请求和响应数据分割为更小的帧，并且它们采用二进制编码。<br>HTTP/2 中，同域名下所有通信都在单个连接上完成，该连接可以承载任意数量的双向数据流。每个数据流都以消息的形式发送，而消息又由一个或多个帧组成。多个帧之间可以乱序发送，根据帧首部的流标识可以重新组装。</p>
+<h4 id="线头阻塞（多路复用的流）"><a href="#线头阻塞（多路复用的流）" class="headerlink" title="线头阻塞（多路复用的流）"></a>线头阻塞（多路复用的流）</h4><p>每个帧都关联到一个流，流是一个独立的，双向的帧序列可以通过一个http2的连接在服务端与客户端之间不断的交换数据。<br>每个单独的http2连接都可以包含多个并发的流，这些流中交错的包含着来自两端的帧。流既可以被客户端/服务器端单方面的建立和使用，也可以被双方共享，或者被任意一边关闭。在流里面，每一帧发送的顺序非常关键。接收方会按照收到帧的顺序来进行处理。<br><em>流的多路复用意味着在同一连接中来自各个流的数据包会被混合在一起。就好像两个（或者更多）独立的“数据列车”被拼凑到了一辆列车上，但它们最终会在终点站被分开。</em>   </p>
+<h4 id="头部压缩"><a href="#头部压缩" class="headerlink" title="头部压缩"></a>头部压缩</h4><p><font face="微软雅黑" size="3" color="Green">原因</font>：HTTP是一种无状态的协议。这意味着每个请求必须要携带服务器需要的所有细节，而不是让服务器保存住之前请求的元数据。(因为http2并没有改变这个范式，所以它也以同样原理工作,这也保证了HTTP可重复性)。当一个客户端从同一服务器请求了大量资源（例如页面的图片）的时候，所有这些请求看起来几乎都是一致的，而这些大量一致的东西则正好值得被压缩；<br>当每个页面资源的个数上升的时候，cookies和请求的大小都会增加。cookies需要被包含在所有请求中，且他们在多个请求中经常是一模一样的；<br>HTTP 1.1请求的大小正变得越来越大，有时甚至会大于TCP窗口的初始大小，这会严重拖累发送请求的速度。因为它们需要等待带着ACK的响应回来以后，才能继续被发送；</p>
+<p><font face="微软雅黑" size="3" color="Green">解决</font>：HTTP/2为此对消息头采用HPACK（专为HTTP/2头部设计的压缩格式）进行压缩传输，能够节省消息头占用的网络的流量。头部压缩需要在浏览器和服务器端之间：</p>
+<ul>
+<li>维护一份相同的静态字典，包含常见的头部名称，以及常见的头部名称和值的组合</li>
+<li>维护一份相同的动态字典，可以动态的添加内容</li>
+<li>通过静态Huffman编码对传输的首部字段进行编码</li>
+</ul>
+<h4 id="服务器推送"><a href="#服务器推送" class="headerlink" title="服务器推送"></a>服务器推送</h4><p>又叫缓存推送。主要的思想是：当一个客户端请求资源X，而服务器知道它很可能也需要资源Z的情况下，服务器可以在客户端发送请求前，主动将资源Z推送给客户端。这个功能帮助客户端将Z放进缓存以备将来之需。但客户端依然能自主选择是否需要中断该推送的流。如果不需要的话，客户端可以通过发送一个RST_STREAM帧来中止。</p>
+<h4 id="重置（后悔药）"><a href="#重置（后悔药）" class="headerlink" title="重置（后悔药）"></a>重置（后悔药）</h4><p>HTTP/1缺点：当一个含有确切值的Content-Length的HTTP消息被送出之后，你就很难中断它了。当然可以断开整个TCP链接（但也不总是可以这样），这样导致的代价就是需要通过三次握手来重新建立一个新的TCP连接。<br>HTTP/2改进：我们可以通过发送RST_STREAM帧来实现只终止当前传输的消息并重新发送一个新的，从而避免浪费带宽和中断已有的连接。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://ye11ow.gitbooks.io/http2-explained/content/part2.html" target="_blank" rel="noopener">《http2》</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1798,203 +1971,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/Hexo-Github-Markdown搭建博客详解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lzzhy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lzzhy Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Hexo-Github-Markdown搭建博客详解/" itemprop="url">Hexo+Github+Markdown搭建博客详解</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-12T10:45:42+08:00">
-                2019-10-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/Hexo-Github-Markdown搭建博客详解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/Hexo-Github-Markdown搭建博客详解/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  882
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>其实之前就想搞个博客来玩但一直没有去做，今天看到一个博客里面记录了平常工作生活的事迹，突然心血来潮也想试试。说干就干，搞起来。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="一：配置环境"><a href="#一：配置环境" class="headerlink" title="一：配置环境"></a>一：配置环境</h3><p>1.安装Node(用来生成静态页面)  </p>
-<p>2.安装git(用来把本地的hexo提交到github上)   </p>
-<blockquote>
-<p><font face="微软雅黑" size="3" color="Green">首先检查是否安装了git和node.js，终端输入一下命令</font><br><code>node -v</code> #是否出现安装版本信息，出现说明已经安装了<br><code>git --version</code> #同上述情况<br><font face="微软雅黑" size="3" color="Green">如果没有安装，则进行安装,提供下载网址：</font><br>[git]: <a href="https://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener">https://sourceforge.net/projects/git-osx-installer/</a><br>[node.js]: <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
-</blockquote>
-<p>3.申请github账号(用来做博客的远程创库、域名、服务器之类的) </p>
-<blockquote>
-<p>在github注册一个账号并新建一个仓库(注意：创建仓库的名字必须为 username.github.io，我的用户名为lzzhy，因此我创建的仓库就是 lzzhy.github.io，这是很关键的一点，很重要。输入名字后直接点最下面的绿色按钮不用填其他的，新建仓库完成。)</p>
-</blockquote>
-<p>4.如果已经安装好了以上两个那么可以安装hexo了：</p>
-<blockquote>
-<p><code>npm install -g hexo-cli</code></p>
-</blockquote>
-<p>5.创建blog文件夹，并初始化建立博客框架：</p>
-<blockquote>
-<p>#在你的电脑上建立一个blog目录文件夹<br><code>mkdir blog</code><br>#进入目录<br><code>cd blog</code><br>#初始化目录<br><code>hexo init</code><br>#开启本地服务<br><code>hexo s</code></p>
-</blockquote>
-<p><font face="微软雅黑" size="3" color="#FF0000">好了，到了这在浏览器中输入生成的 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 就可以看到很丑的博客首页了。。。</font></p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/img1.png" alt="cmd-markdown-logo"></p>
-<h3 id="二：Github仓库与本地博客建立连接"><a href="#二：Github仓库与本地博客建立连接" class="headerlink" title="二：Github仓库与本地博客建立连接"></a>二：Github仓库与本地博客建立连接</h3><p>编辑<strong>根</strong>目录下的_config.yml文件，打开该文件在文件最后输入红色框中的内容，只需将自己的username替换就可以了其他无需更改。</p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/img2.jpg" alt="cmd-markdown-logo"></p>
-<p>然后在目录中执行：</p>
-<blockquote>
-<p>#产生静态网页<br><code>hexo g</code><br>#部署到GitHub page上<br><code>hexo d</code></p>
-</blockquote>
-<p>？在这个过程中发现了一个<font face="微软雅黑" size="3" color="red">bug</font>：</p>
-<blockquote>
-<p>只能在本地运行看到博客首页，在github上只有代码可是不能找到博客主页：因为github的是jekyll,本地的是hexo，所以不能同步。解决：删掉github仓库，重新来一次并关联本地。。。。。。。。mmp,原来是一开始配置_config.yml的时候单词写错了（master少写了一个s），果然粗心</p>
-</blockquote>
-<h3 id="三：当然，我们还可以去装修一下我们的博客-hexo有很多配套主题-可自行百度并都有配置文档"><a href="#三：当然，我们还可以去装修一下我们的博客-hexo有很多配套主题-可自行百度并都有配置文档" class="headerlink" title="三：当然，我们还可以去装修一下我们的博客,hexo有很多配套主题,可自行百度并都有配置文档"></a>三：当然，我们还可以去装修一下我们的博客,hexo有很多配套主题,可自行百度并都有配置文档</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.主题安装：git clone https://github.com/theme-next/hexo-theme-next themes/next (以next主题为栗，改为其他主题则只需要将对应的next换掉)；</span><br><span class="line">2.在根目录下的_config.yml配置中修改对应的主题名称</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<ul>
-<li>头像图片、作者名字、网站描述等网站基本属性都在根目录的_config.yml文件里配置  </li>
-<li>评论、搜索、统计、等功能配置都在主题文件的_config.yml文件里配置 </li>
-</ul>
-</blockquote>
-<h3 id="四：博客基本使用"><a href="#四：博客基本使用" class="headerlink" title="四：博客基本使用"></a>四：博客基本使用</h3><p>1.那肯定是写文章了：hexo new “文章名”， 在source/_posts会生成后缀名为.md的文件，支持markdown语法，里面可以设置标签名、分类名、是否开启评论功能等（markdown语法冒号后加空格）</p>
-<blockquote>
-<p>在.md文件中第二个—-下输入要写的文章，参考使用<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">markdown</a>语法</p>
-</blockquote>
-<p>文章写好后可以通过：<code>hexo g,hexo d</code>,在直接通过github链接访问：如<a href="https://lzzhy.github.io/">lzzhy.github.io</a></p>
-<p><font face="微软雅黑" size="3" color="#FF0000">这样，一个完整的搭建博客的过程就已经完成了</font></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2042,7 +2023,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
