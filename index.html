@@ -267,6 +267,252 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/前端规范：命名规范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzzhy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzzhy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/前端规范：命名规范/" itemprop="url">前端规范：命名规范</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-15T16:29:05+08:00">
+                2020-01-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/前端规范：命名规范/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/前端规范：命名规范/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  599
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在一个团队开发中代码规范是很有必要的，有时候一个好的代码规范可以省略很多的备注，可以让自己或其他小伙伴很快地了解你是怎么样写的。。。</p>
+<h3 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h3><h4 id="驼峰式命名"><a href="#驼峰式命名" class="headerlink" title="驼峰式命名"></a>驼峰式命名</h4><ul>
+<li>Pascal Case 大驼峰式命名法：首字母大写。eg：StudentInfo、UserInfo</li>
+<li>Camel Case 小驼峰式命名法：首字母小写。eg：studentInfo、userInfo</li>
+</ul>
+<h4 id="文件资源名称"><a href="#文件资源名称" class="headerlink" title="文件资源名称"></a>文件资源名称</h4><ul>
+<li>文件名不含有空格</li>
+<li>文件名小写，不使用大写字母（除非：某些说明文件的文件名，可以使用大写字母，比如README、LICENSE )</li>
+<li>文件名包含多个单词时，单词之间使用半角的连词线 ( - ) 分隔</li>
+</ul>
+<h4 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h4><p>命名方式：使用小驼峰命名</p>
+<p>命名规范：类型+对象描述，如果没有明确的类型，就可以使前缀为名词</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="right">小写字母</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>array</td>
+<td align="right">a</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td align="right">b</td>
+</tr>
+<tr>
+<td>function</td>
+<td align="right">fn</td>
+</tr>
+<tr>
+<td>int</td>
+<td align="right">i</td>
+</tr>
+<tr>
+<td>object</td>
+<td align="right">o</td>
+</tr>
+<tr>
+<td>string</td>
+<td align="right">s</td>
+</tr>
+</tbody></table>
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var tableTitle = &apos;titleTable&apos;</span><br></pre></td></tr></table></figure>
+
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><p>命名方式： 小驼峰方式 ( 构造函数使用大驼峰命名法 )</p>
+<p>命名规范： 前缀为动词</p>
+<table>
+<thead>
+<tr>
+<th>动词</th>
+<th align="right">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>can</td>
+<td align="right">判断是否可执行某个动作 ( 权限 )</td>
+</tr>
+<tr>
+<td>has</td>
+<td align="right">判断是否含有某个值</td>
+</tr>
+<tr>
+<td>is</td>
+<td align="right">判断是否为某个值</td>
+</tr>
+<tr>
+<td>get</td>
+<td align="right">获取某个值</td>
+</tr>
+<tr>
+<td>set</td>
+<td align="right">设置某个值</td>
+</tr>
+</tbody></table>
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 是否可阅读</span><br><span class="line">function canRead() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 获取姓名</span><br><span class="line">function getName() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><p>命名方法 : 全部大写</p>
+<p>命名规范 : 使用大写字母和下划线来组合命名，下划线用以分割单词。</p>
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var MAX_COUNT = 10;</span><br><span class="line">var URL = &apos;http://www.baidu.com&apos;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="注释规范"><a href="#注释规范" class="headerlink" title="注释规范"></a>注释规范</h4><h5 id="单行"><a href="#单行" class="headerlink" title="单行"></a>单行</h5><ul>
+<li>单独一行：//(双斜线)与注释文字之间保留一个空格</li>
+<li>在代码后面添加注释：//(双斜线)与代码之间保留一个空格，并且//(双斜线)与注释文字之间保留一个空格。</li>
+<li>注释代码：//(双斜线)与代码之间保留一个空格。</li>
+</ul>
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 调用了一个函数；1)单独在一行</span><br><span class="line">setTitle();</span><br><span class="line"></span><br><span class="line">var maxCount = 10; // 设置最大量；2)在代码后面注释</span><br><span class="line"></span><br><span class="line">// setName(); // 3)注释代码</span><br></pre></td></tr></table></figure>
+
+<h5 id="多行"><a href="#多行" class="headerlink" title="多行"></a>多行</h5><ul>
+<li>若开始(/<em>和结束(</em>/)都在一行，推荐采用单行注释</li>
+<li>若至少三行注释时，第一行为/<em>，最后行为</em>/，其他行以<em>开始，并且注释文字与</em>保留一个空格。</li>
+</ul>
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* 代码执行到这里后会调用setTitle()函数</span><br><span class="line">* setTitle()：设置title的值</span><br><span class="line">*/</span><br><span class="line">setTitle();</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/hexo-博客踩坑大合集/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -340,7 +586,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  78
+                  86
                 </span>
               
 
@@ -368,7 +614,7 @@
         
           
             <p>遇到坑的时候都心情暴躁啊，血压升高。完全静不下心来解决问题。其实很多时候报错都会提示的，按照提示去解决就可以了</p>
-<h3 id="邮箱验证"><a href="#邮箱验证" class="headerlink" title="邮箱验证"></a>邮箱验证</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG1.png" alt="cmd-markdown-logo"></p>
+<h2 id="hexo-博客踩坑大合集"><a href="#hexo-博客踩坑大合集" class="headerlink" title="hexo 博客踩坑大合集"></a>hexo 博客踩坑大合集</h2><h3 id="邮箱验证"><a href="#邮箱验证" class="headerlink" title="邮箱验证"></a>邮箱验证</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG1.png" alt="cmd-markdown-logo"></p>
 <p>解决：登录邮箱进行验证</p>
 <h3 id="commit-报错"><a href="#commit-报错" class="headerlink" title="commit 报错"></a>commit 报错</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG2%201.png" alt="cmd-markdown-logo"></p>
 <p>解决：</p>
@@ -1761,7 +2007,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  715
+                  714
                 </span>
               
 
@@ -1788,7 +2034,29 @@
       
         
           
-            <h3 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别"></a>面向对象和面向过程的区别</h3><p><strong>面向过程</strong>：就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。（比如：例如五子棋，面向过程的设计思路就是首先分析问题的步骤：1、开始游戏，2、黑子先走，3、绘制画面，4、判断输赢，5、轮到白子，6、绘制画面，7、判断输赢，8、返回步骤2，9、输出最后结果。把上面每个步骤用分别的函数来实现，问题就解决了。）<br><strong>面向对象</strong>：是以功能来划分问题，而不是步骤。（如：整个五子棋可以分为 1、黑白双方，这两方的行为是一模一样的，2、棋盘系统，负责绘制画面，3、规则系统，负责判定诸如犯规、输赢等。第一类对象（玩家对象）负责接受用户输入，并告知第二类对象（棋盘对象）棋子布局的变化，棋盘对象接收到了棋子的i变化就要负责在屏幕上面显示出这种变化，同时利用第三类对象（规则系统）来对棋局进行判定。）每一个模块都可以看做是一个对象。如五子棋中的黑白双方对象，规则对象，棋盘系统对象。每一个对象都是为了完成一个功能。</p>
+            <h3 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别"></a>面向对象和面向过程的区别</h3><p><strong>面向过程</strong>：就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。</p>
+<p>比如：例如五子棋，面向过程的设计思路就是首先分析问题的步骤：</p>
+<ul>
+<li>1、开始游戏</li>
+<li>2、黑子先走</li>
+<li>3、绘制画面</li>
+<li>4、判断输赢</li>
+<li>5、轮到白子</li>
+<li>6、绘制画面</li>
+<li>7、判断输赢</li>
+<li>8、返回步骤2</li>
+<li>9、输出最后结果</li>
+</ul>
+<p>把上面每个步骤用分别的函数来实现，问题就解决了。</p>
+<p><strong>面向对象</strong>：是以功能来划分问题，而不是步骤。</p>
+<p>如：整个五子棋可以分为 </p>
+<ul>
+<li>1、黑白双方，这两方的行为是一模一样的</li>
+<li>2、棋盘系统，负责绘制画面</li>
+<li>3、规则系统，负责判定诸如犯规、输赢等</li>
+</ul>
+<p>第一类对象（玩家对象）负责接受用户输入，并告知第二类对象（棋盘对象）棋子布局的变化，棋盘对象接收到了棋子的变化就要负责在屏幕上面显示出这种变化，同时利用第三类对象（规则系统）来对棋局进行判定。</p>
+<p>每一个模块都可以看做是一个对象。如五子棋中的黑白双方对象，规则对象，棋盘系统对象。每一个对象都是为了完成一个功能。</p>
 <p>再比如我要把这个五子棋游戏改为围棋游戏，如果你是面向过程设计，那么五子棋的规则就分布在了你的程序的每一个角落，要改动还不如重写。但是如果你当初就是面向对象的设计，那么你只用改动规则对象就可以了，五子棋和围棋的区别不就是规则吗？下棋的大致步骤从面向对象的角度来看没有任何变化。</p>
 <p>初学者或者很蹩脚的程序员很可能以面向对象之虚而行面向过程之实，这样设计出来的所谓面向对象的程序很难有良好的可移植性和可扩展性。</p>
 <p>总结</p>
@@ -2073,7 +2341,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k
+                  1.1k
                 </span>
               
 
@@ -2101,7 +2369,7 @@
         
           
             <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>写了个人博客后，就希望在百度搜索引擎中能找到自己的文章，那么就需要进行SEO的优化了。这里主要对google和baidu爬虫的优化。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="什么是SEO"><a href="#什么是SEO" class="headerlink" title="什么是SEO"></a>什么是SEO</h3><p>搜索引擎优化，又称为SEO(Search Engine Optimization)，它是一种通过分析搜索引擎的排名规律，了解各种搜索引擎怎样进行搜索、怎样抓取互联网页面、怎样确定特定关键词的搜索结果排名的技术。<br>搜索引擎采用易于被搜索引用的手段，对网站进行有针对性的优化，提高网站在搜索引擎中的自然排名，吸引更多的用户访问网站，提高网站的访问量，提高网站的销售能力和宣传能力，从而提升网站的品牌效应。<br><a href="https://baike.baidu.com/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/3132?fromtitle=seo&fromid=102990&fr=aladdin" target="_blank" rel="noopener">百度百科</a></p>
+<h2 id="如何在百度和谷歌中搜索就能找到你的博客-HEXO-SEO优化"><a href="#如何在百度和谷歌中搜索就能找到你的博客-HEXO-SEO优化" class="headerlink" title="如何在百度和谷歌中搜索就能找到你的博客- HEXO SEO优化"></a>如何在百度和谷歌中搜索就能找到你的博客- HEXO SEO优化</h2><h3 id="什么是SEO"><a href="#什么是SEO" class="headerlink" title="什么是SEO"></a>什么是SEO</h3><p>搜索引擎优化，又称为SEO(Search Engine Optimization)，它是一种通过分析搜索引擎的排名规律，了解各种搜索引擎怎样进行搜索、怎样抓取互联网页面、怎样确定特定关键词的搜索结果排名的技术。<br>搜索引擎采用易于被搜索引用的手段，对网站进行有针对性的优化，提高网站在搜索引擎中的自然排名，吸引更多的用户访问网站，提高网站的访问量，提高网站的销售能力和宣传能力，从而提升网站的品牌效应。<br><a href="https://baike.baidu.com/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/3132?fromtitle=seo&fromid=102990&fr=aladdin" target="_blank" rel="noopener">百度百科</a></p>
 <h3 id="站点地图"><a href="#站点地图" class="headerlink" title="站点地图"></a>站点地图</h3><h4 id="给本地文章生成sitemap文件"><a href="#给本地文章生成sitemap文件" class="headerlink" title="给本地文章生成sitemap文件"></a>给本地文章生成sitemap文件</h4><p> npm install hexo-generator-sitemap –save #sitemap.xml适合提交给谷歌搜素引擎<br> npm install hexo-generator-baidu-sitemap –save #baidusitemap.xml适合提交百度搜索引擎</p>
 <h4 id="在根目录-config-yml中修改如下配置："><a href="#在根目录-config-yml中修改如下配置：" class="headerlink" title="在根目录_config.yml中修改如下配置："></a>在根目录_config.yml中修改如下配置：</h4><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG7.png" alt="cmd-markdown-logo"></p>
 <p>注意格式的缩进，之前试了很多次都报错，才发现是格式的问题。</p>
@@ -2142,11 +2410,10 @@
 <p><font face="微软雅黑" size="3" color="red">最后：当然是查看有没有被收录了：<br></font>    </p>
 <p>方法：打开百度或谷歌搜索，在搜索框里输入：</p>
 <blockquote>
-<p>site:<a href="https://lzzhy.github.io/">https://lzzhy.github.io/</a> ( 注意将lzzhy替换为你自己的)   </p>
+<p>site:&lt;域名&gt;  如：site:lzzhy.github.io/</p>
 </blockquote>
 <p>如果提示说：很抱歉，没有找到与“site:<a href="https://maxwellyue.github.io”相关的网页。说明未被收录。" target="_blank" rel="noopener">https://maxwellyue.github.io”相关的网页。说明未被收录。</a></p>
 <p>如果搜索结果中你第一眼就看到了你的博客站点，说明已被收录</p>
-<p>？正常情况下到这里就结束了，但是github屏蔽了百度爬虫，所以百度依然搜不到博客，但是谷歌可以。具体关于github屏蔽百度爬虫的解决办法网上也有很多，等以后想做的时候再去实现。</p>
 <p>？百度站点提交sitemap，升级https</p>
 
           
@@ -2325,167 +2592,6 @@
 <p>webpack只能处理js模块，如果要处理其他类型的文件(如css)就需要使用loader进行转化，指用一段代码来替换另一端代码的webpack加载器。</p>
 <p>通过这样一个简单的配置（当然webpack的配置不止这一点），就用webpack打包机将模块转化成了静态资源。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.webpackjs.com/concepts/#%E5%87%BA%E5%8F%A3-output-" target="_blank" rel="noopener">《webpack官方文档》</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTPS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lzzhy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lzzhy Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/HTTP系列之HTTPS/" itemprop="url">HTTP系列之HTTPS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-14T15:16:45+08:00">
-                2019-11-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/HTTP系列之HTTPS/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/HTTP系列之HTTPS/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.4k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。</p>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>HTTPS （全称：Hyper Text Transfer Protocol over SecureSocket Layer），是以安全为目标的HTTP通道，在HTTP的基础上通过传输加密和身份认证保证了传输过程的安全性。HTTPS在HTTP的基础下加入SSL层，HTTPS的安全基础是 SSL，因此加密的详细内容就需要SSL。</p>
-<h3 id="密码学基础"><a href="#密码学基础" class="headerlink" title="密码学基础"></a>密码学基础</h3><p><font face="微软雅黑" size="3" color="Green">明文</font>：未被加密过的原始数据。<br><font face="微软雅黑" size="3" color="Green">密文</font>：明文被某种加密算法加密之后，会变成密文，从而确保原始数据的安全。密文也可以被解密，得到原始的明文。<br><font face="微软雅黑" size="3" color="Green">密钥</font>：一种参数，是在明文转换为密文或将密文转换为明文的算法中输入的。分为对称密钥与非对称密钥，分别应用在对称加密和非对称加密上。 </p>
-<h3 id="HTTPS加密原理"><a href="#HTTPS加密原理" class="headerlink" title="HTTPS加密原理"></a>HTTPS加密原理</h3><p>HTTPS为了兼顾安全与效率，同时使用了对称加密和非对称加密</p>
-<h4 id="对称加密算法"><a href="#对称加密算法" class="headerlink" title="对称加密算法"></a>对称加密算法</h4><p>又叫做私钥加密，即信息的发送方和接收方使用同一个密钥去加密和解密数据。特点是算法公开、加密和解密速度快，适合于对大数据量进行加密，常见的对称加密算法有DES、3DES、TDEA、Blowfish、RC5和IDEA。<br>加密过程：明文 + 加密算法 + 私钥 =&gt; 密文<br>解密过程：密文 + 解密算法 + 私钥 =&gt; 明文<br>称之为“对称”的原因：<br>其中使用到的密钥叫做私钥，即个人所有不能被泄露。加密过程中的私钥与解密过程中用到的私钥是同一个密钥。<br>缺点：密钥安全管理困难。由于对称加密的算法是公开的，所以一旦私钥被泄露，那么密文就很容易被破解。</p>
-<h4 id="非对称加密算法："><a href="#非对称加密算法：" class="headerlink" title="非对称加密算法："></a>非对称加密算法：</h4><p>又叫公钥加密。使用一对密钥，即公钥和私钥，且二者成对出现。私钥自己保存，不能对外泄露。公钥则任何人都可以获得该密钥。用公钥或私钥中的任何一个进行加密，用另一个进行解密。<br>被公钥加密过的密文只能被私钥解密，过程如下：<br>明文 + 加密算法 + 公钥 =&gt; 密文， 密文 + 解密算法 + 私钥 =&gt; 明文<br>被私钥加密过的密文只能被公钥解密，过程如下：<br>明文 + 加密算法 + 私钥 =&gt; 密文， 密文 + 解密算法 + 公钥 =&gt; 明文<br>缺点：加密和解密花费时间长、速度慢，只适合对少量数据进行加密。 </p>
-<h4 id="确认身份-——-数字证书"><a href="#确认身份-——-数字证书" class="headerlink" title="确认身份 —— 数字证书"></a>确认身份 —— 数字证书</h4><p>在<em>非对称加密时</em>，首先需要将 A 的公钥给 B ，那么在这个过程中，安全是没有保障的，中间人可以拦截到 A 的公钥，就可以对拦截到的公钥进行篡改（如，本来 A 应该给 B 传：110，但是被中间人拦截了，所以 B 最后收到的可能不是110）。</p>
-<p>那怎么确认 A 给 B 的公钥确实是正确的没有被修改的呢？</p>
-<p>这个时候就需要数字签名了（数字签名也就是相当于公证处在公证书上盖章），数字签名和原始信息合在一起称为<em>数字证书</em>。</p>
-<p>在拿到数字证书之后，就用 Hash 算法，再次生成消息摘要。然后用 CA 的公钥对数字签名解密，得到CA创建的消息摘要。两者一比，就知道有没有人篡改了！</p>
-<h3 id="HTTPS访问过程"><a href="#HTTPS访问过程" class="headerlink" title="HTTPS访问过程"></a>HTTPS访问过程</h3><p>客户端生成的随机密钥，用来进行对称加密</p>
-<p>服务器端的公钥和私钥，用来进行非对称加密</p>
-<p>1.浏览器将支持的加密信息发送给网站服务器；<br>2.服务器会选择出一套加密算法和哈希算法，将验证身份的信息以证书（证书发布CA机构、证书有效期、公钥、证书所有者、签名等）的形式发送给浏览器；<br>3.浏览器收到证书之后需要验证证书的合法性，当证书受信之后，浏览器会随机生成一串密码，并使用证书中的公钥加密。之后就是使用约定好的哈希算法握手消息，并生成随机数对消息进行加密，再将生成的信息发送给服务器；<br>4.当服务器接收到浏览器发送过来的数据后，会使用服务器本身的私钥将信息解密确定密码，然后通过密码解密浏览器发送过来的握手信息，并验证哈希是否与浏览器一致。然后服务器会使用密码加密新的握手信息，发送给浏览器；<br>5.最后浏览器解密并计算经过哈希算法加密的握手消息，如果与服务发送过来的哈希一致，则此握手过程结束后，服务器与浏览器会使用之前浏览器生成的随机密码和对称加密算法进行加密交换数据。</p>
 
           
         

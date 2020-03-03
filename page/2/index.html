@@ -267,6 +267,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTPS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzzhy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzzhy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/HTTP系列之HTTPS/" itemprop="url">HTTP系列之HTTPS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-14T15:16:45+08:00">
+                2019-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/HTTP系列之HTTPS/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/HTTP系列之HTTPS/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>HTTPS （全称：Hyper Text Transfer Protocol over SecureSocket Layer），是以安全为目标的HTTP通道，在HTTP的基础上通过传输加密和身份认证保证了传输过程的安全性。HTTPS在HTTP的基础下加入SSL层，HTTPS的安全基础是 SSL，因此加密的详细内容就需要SSL。</p>
+<h3 id="密码学基础"><a href="#密码学基础" class="headerlink" title="密码学基础"></a>密码学基础</h3><p><font face="微软雅黑" size="3" color="Green">明文</font>：未被加密过的原始数据。<br><font face="微软雅黑" size="3" color="Green">密文</font>：明文被某种加密算法加密之后，会变成密文，从而确保原始数据的安全。密文也可以被解密，得到原始的明文。<br><font face="微软雅黑" size="3" color="Green">密钥</font>：一种参数，是在明文转换为密文或将密文转换为明文的算法中输入的。分为对称密钥与非对称密钥，分别应用在对称加密和非对称加密上。 </p>
+<h3 id="HTTPS加密原理"><a href="#HTTPS加密原理" class="headerlink" title="HTTPS加密原理"></a>HTTPS加密原理</h3><p>HTTPS为了兼顾安全与效率，同时使用了对称加密和非对称加密</p>
+<h4 id="对称加密算法"><a href="#对称加密算法" class="headerlink" title="对称加密算法"></a>对称加密算法</h4><p>又叫做私钥加密，即信息的发送方和接收方使用同一个密钥去加密和解密数据。特点是算法公开、加密和解密速度快，适合于对大数据量进行加密，常见的对称加密算法有DES、3DES、TDEA、Blowfish、RC5和IDEA。<br>加密过程：明文 + 加密算法 + 私钥 =&gt; 密文<br>解密过程：密文 + 解密算法 + 私钥 =&gt; 明文<br>称之为“对称”的原因：<br>其中使用到的密钥叫做私钥，即个人所有不能被泄露。加密过程中的私钥与解密过程中用到的私钥是同一个密钥。<br>缺点：密钥安全管理困难。由于对称加密的算法是公开的，所以一旦私钥被泄露，那么密文就很容易被破解。</p>
+<h4 id="非对称加密算法："><a href="#非对称加密算法：" class="headerlink" title="非对称加密算法："></a>非对称加密算法：</h4><p>又叫公钥加密。使用一对密钥，即公钥和私钥，且二者成对出现。私钥自己保存，不能对外泄露。公钥则任何人都可以获得该密钥。用公钥或私钥中的任何一个进行加密，用另一个进行解密。<br>被公钥加密过的密文只能被私钥解密，过程如下：<br>明文 + 加密算法 + 公钥 =&gt; 密文， 密文 + 解密算法 + 私钥 =&gt; 明文<br>被私钥加密过的密文只能被公钥解密，过程如下：<br>明文 + 加密算法 + 私钥 =&gt; 密文， 密文 + 解密算法 + 公钥 =&gt; 明文<br>缺点：加密和解密花费时间长、速度慢，只适合对少量数据进行加密。 </p>
+<h4 id="确认身份-——-数字证书"><a href="#确认身份-——-数字证书" class="headerlink" title="确认身份 —— 数字证书"></a>确认身份 —— 数字证书</h4><p>在<em>非对称加密时</em>，首先需要将 A 的公钥给 B ，那么在这个过程中，安全是没有保障的，中间人可以拦截到 A 的公钥，就可以对拦截到的公钥进行篡改（如，本来 A 应该给 B 传：110，但是被中间人拦截了，所以 B 最后收到的可能不是110）。</p>
+<p>那怎么确认 A 给 B 的公钥确实是正确的没有被修改的呢？</p>
+<p>这个时候就需要数字签名了（数字签名也就是相当于公证处在公证书上盖章），数字签名和原始信息合在一起称为<em>数字证书</em>。</p>
+<p>在拿到数字证书之后，就用 Hash 算法，再次生成消息摘要。然后用 CA 的公钥对数字签名解密，得到CA创建的消息摘要。两者一比，就知道有没有人篡改了！</p>
+<h3 id="HTTPS访问过程"><a href="#HTTPS访问过程" class="headerlink" title="HTTPS访问过程"></a>HTTPS访问过程</h3><p>客户端生成的随机密钥，用来进行对称加密</p>
+<p>服务器端的公钥和私钥，用来进行非对称加密</p>
+<p>1.浏览器将支持的加密信息发送给网站服务器；<br>2.服务器会选择出一套加密算法和哈希算法，将验证身份的信息以证书（证书发布CA机构、证书有效期、公钥、证书所有者、签名等）的形式发送给浏览器；<br>3.浏览器收到证书之后需要验证证书的合法性，当证书受信之后，浏览器会随机生成一串密码，并使用证书中的公钥加密。之后就是使用约定好的哈希算法握手消息，并生成随机数对消息进行加密，再将生成的信息发送给服务器；<br>4.当服务器接收到浏览器发送过来的数据后，会使用服务器本身的私钥将信息解密确定密码，然后通过密码解密浏览器发送过来的握手信息，并验证哈希是否与浏览器一致。然后服务器会使用密码加密新的握手信息，发送给浏览器；<br>5.最后浏览器解密并计算经过哈希算法加密的握手消息，如果与服务发送过来的哈希一致，则此握手过程结束后，服务器与浏览器会使用之前浏览器生成的随机密码和对称加密算法进行加密交换数据。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTP2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -651,155 +812,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/乌龙事件--寻人启事/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lzzhy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lzzhy Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/乌龙事件--寻人启事/" itemprop="url">乌龙事件：寻人启事--哪位大佬刷了我的访问人数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-11T16:19:59+08:00">
-                2019-11-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/乌龙事件--寻人启事/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/乌龙事件--寻人启事/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  338
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="把公司的项目写完了，本想准备看一下博客的，结果访问人数变成882513，嘴里吸的一口芋圆奶茶差点呛死o-╥﹏╥-o。早上看还是20个访问人数，虽然想要多点访问人数但是这也太假了吧。"><a href="#把公司的项目写完了，本想准备看一下博客的，结果访问人数变成882513，嘴里吸的一口芋圆奶茶差点呛死o-╥﹏╥-o。早上看还是20个访问人数，虽然想要多点访问人数但是这也太假了吧。" class="headerlink" title="把公司的项目写完了，本想准备看一下博客的，结果访问人数变成882513，嘴里吸的一口芋圆奶茶差点呛死o(╥﹏╥)o。早上看还是20个访问人数，虽然想要多点访问人数但是这也太假了吧。"></a>把公司的项目写完了，本想准备看一下博客的，结果访问人数变成<strong>882513</strong>，嘴里吸的一口芋圆奶茶差点呛死o(╥﹏╥)o。早上看还是20个访问人数，虽然想要多点访问人数但是这也太假了吧。</h3><h3 id="是不是哪位大佬用我的博客来测试刷访问量的脚本了？？？（过来，我不打你😿）"><a href="#是不是哪位大佬用我的博客来测试刷访问量的脚本了？？？（过来，我不打你😿）" class="headerlink" title="是不是哪位大佬用我的博客来测试刷访问量的脚本了？？？（过来，我不打你😿）"></a>是不是哪位大佬用我的博客来测试刷访问量的脚本了？？？（过来，我不打你😿）</h3><h3 id="但是，"><a href="#但是，" class="headerlink" title="但是，"></a>但是，</h3><h3 id="可以不可以，"><a href="#可以不可以，" class="headerlink" title="可以不可以，"></a>可以不可以，</h3><h3 id="能不能，"><a href="#能不能，" class="headerlink" title="能不能，"></a>能不能，</h3><h3 id="教教我脚本是怎么写的-▽-，"><a href="#教教我脚本是怎么写的-▽-，" class="headerlink" title="教教我脚本是怎么写的(^▽^)，"></a>教教我脚本是怎么写的(<em>^▽^</em>)，</h3><h3 id="前段时间研究刷访问量的脚本，可是只能刷到访问量，并不能刷到访问人数，度娘说是hexo进行了ip过滤。。。"><a href="#前段时间研究刷访问量的脚本，可是只能刷到访问量，并不能刷到访问人数，度娘说是hexo进行了ip过滤。。。" class="headerlink" title="前段时间研究刷访问量的脚本，可是只能刷到访问量，并不能刷到访问人数，度娘说是hexo进行了ip过滤。。。"></a>前段时间研究刷访问量的脚本，可是只能刷到访问量，并不能刷到访问人数，度娘说是hexo进行了<strong>ip</strong>过滤。。。</h3><h3 id="So-我的访问人数突然变得这么多是怎么做到的？？？"><a href="#So-我的访问人数突然变得这么多是怎么做到的？？？" class="headerlink" title="So,我的访问人数突然变得这么多是怎么做到的？？？"></a>So,我的访问人数突然变得这么多是怎么做到的？？？</h3><h3 id="还有，能不能把我的访问量和访问人数恢复原状，这么多的数据，心里虚的慌o-￣︶￣-o"><a href="#还有，能不能把我的访问量和访问人数恢复原状，这么多的数据，心里虚的慌o-￣︶￣-o" class="headerlink" title="还有，能不能把我的访问量和访问人数恢复原状，这么多的数据，心里虚的慌o(￣︶￣)o"></a>还有，能不能把我的访问量和访问人数恢复原状，这么多的数据，心里虚的慌o(<em>￣︶￣</em>)o</h3><hr>
-<h3 id="mmp。"><a href="#mmp。" class="headerlink" title="mmp。"></a>mmp。</h3><h3 id="原来是个乌龙事件，"><a href="#原来是个乌龙事件，" class="headerlink" title="原来是个乌龙事件，"></a>原来是个乌龙事件，</h3><h3 id="原因：上午看的正常数字是线上的，下午看的错误数据是本地的。"><a href="#原因：上午看的正常数字是线上的，下午看的错误数据是本地的。" class="headerlink" title="原因：上午看的正常数字是线上的，下午看的错误数据是本地的。"></a>原因：上午看的正常数字是线上的，下午看的错误数据是本地的。</h3><h3 id="使用hexo-s部署在本地预览效果的时候，uv数和pv数会过大，这是由于不蒜子用户使用一个存储空间，所以使用localhost-4000进行本地预览的时候会导致数字异常，这是正常现象，只需要将博客部署至云端即可恢复正常"><a href="#使用hexo-s部署在本地预览效果的时候，uv数和pv数会过大，这是由于不蒜子用户使用一个存储空间，所以使用localhost-4000进行本地预览的时候会导致数字异常，这是正常现象，只需要将博客部署至云端即可恢复正常" class="headerlink" title="使用hexo s部署在本地预览效果的时候，uv数和pv数会过大，这是由于不蒜子用户使用一个存储空间，所以使用localhost:4000进行本地预览的时候会导致数字异常，这是正常现象，只需要将博客部署至云端即可恢复正常"></a>使用hexo s部署在本地预览效果的时候，uv数和pv数会过大，这是由于不蒜子用户使用一个存储空间，所以使用localhost:4000进行本地预览的时候会导致数字异常，这是正常现象，只需要将博客部署至云端即可恢复正常</h3><h3 id="尴尬！！！"><a href="#尴尬！！！" class="headerlink" title="尴尬！！！"></a>尴尬！！！</h3>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/Node-js刷博客访问量/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1028,7 +1040,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  375
+                  391
                 </span>
               
 
@@ -1056,7 +1068,7 @@
         
           
             <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>(不蒜子统计只会统计相应页面的数据，在首页中并不会统计。若是需要在首页中展示则需要通过三方leanCloud)。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="添加统计字数："><a href="#添加统计字数：" class="headerlink" title="添加统计字数："></a>添加统计字数：</h3><p>1.安装 hexo-wordcount：</p>
+<h2 id="hexo-给博客添加不蒜子统计访问量，评论功能"><a href="#hexo-给博客添加不蒜子统计访问量，评论功能" class="headerlink" title="hexo 给博客添加不蒜子统计访问量，评论功能"></a>hexo 给博客添加不蒜子统计访问量，评论功能</h2><h3 id="添加统计字数："><a href="#添加统计字数：" class="headerlink" title="添加统计字数："></a>添加统计字数：</h3><p>1.安装 hexo-wordcount：</p>
 <blockquote>
 <p>npm i –save hexo-wordcount</p>
 </blockquote>
@@ -1706,7 +1718,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  935
+                  1.1k
                 </span>
               
 
@@ -1733,38 +1745,38 @@
       
         
           
-            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在实际项目过程中有很多基本的功能经常会遇到，因此统一收集一下可以更好地进行理解。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="一：链接跳转传参（单页面）"><a href="#一：链接跳转传参（单页面）" class="headerlink" title="一：链接跳转传参（单页面）"></a>一：链接跳转传参（单页面）</h3><blockquote>
+            <p>在实际项目过程中有很多基本的功能经常会遇到，因此统一收集一下可以更好地进行理解。</p>
+<h2 id="常用功能"><a href="#常用功能" class="headerlink" title="常用功能"></a>常用功能</h2><h3 id="链接跳转传参（单页面）"><a href="#链接跳转传参（单页面）" class="headerlink" title="链接跳转传参（单页面）"></a>链接跳转传参（单页面）</h3><blockquote>
 <p><font face="微软雅黑" size="3" color="Green">法一（带问号的）：</font><br>传：this.$router.push({path: ‘’, query: { 参数名：参数值}})<br>收：this.$route.query.参数名<br><font face="微软雅黑" size="3" color="Green">法二（不带问号的）：</font><br>传：this.$router.push({path:’/xx/xx’ + val.vv})<br>收：this.$route.path.split(‘/‘).reverse()[0]<br>this.$router.push():跳转到不同的url，但这个方法回向history栈添加一个记录，点击后退会返回到上一个页面<br><font face="微软雅黑" size="3" color="Green">法三/四：</font><br>this.$router.replace():不会有记录<br>this.$router.go(n):n可为正数可为负数。正数返回上一个页面,类似 window.history.go(n)</p>
 </blockquote>
-<h3 id="二：登录功能时，账号密码自动填充"><a href="#二：登录功能时，账号密码自动填充" class="headerlink" title="二：登录功能时，账号密码自动填充"></a>二：登录功能时，账号密码自动填充</h3><blockquote>
+<h3 id="登录功能时，账号密码自动填充"><a href="#登录功能时，账号密码自动填充" class="headerlink" title="登录功能时，账号密码自动填充"></a>登录功能时，账号密码自动填充</h3><blockquote>
 <p><font face="微软雅黑" size="3" color="Green">在同域名下，chrome会进行自动填充？</font><br>当input = “password”的时候，会自动将前一个input默认为<font face="微软雅黑" size="3" color="green">账号</font>而填充:  解决： autoComplate = “off” 或者 autoComplate = “new-password”</p>
 </blockquote>
-<h3 id="三：SessionStorage存取使用："><a href="#三：SessionStorage存取使用：" class="headerlink" title="三：SessionStorage存取使用："></a>三：SessionStorage存取使用：</h3><blockquote>
+<h3 id="SessionStorage存取使用："><a href="#SessionStorage存取使用：" class="headerlink" title="SessionStorage存取使用："></a>SessionStorage存取使用：</h3><blockquote>
 <p>存：sessionStorage.user = Json.stringify(res)<br>取：JSON.parse(sessionStorage.getItem(‘user’))<br>清除：sessionStorage.removeItem(‘user’)<br><font face="微软雅黑" size="3" color="Green">注：其中 user是可改的，res是存的数据 </font></p>
 </blockquote>
-<h3 id="四：分页："><a href="#四：分页：" class="headerlink" title="四：分页："></a>四：分页：</h3><ul>
-<li>后端分页:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-pagination</span><br><span class="line">    background</span><br><span class="line">    layout=&quot;prev,pager,next&quot;</span><br><span class="line">    :total=&quot;tableList.pagination.totalRows&quot;</span><br><span class="line">    @current-change=&quot;changePage&quot;</span><br><span class="line">    :current-page=&quot;tableList.pagination.pageIndex || 0&quot;</span><br><span class="line">    :page-size=&quot;tableList.pagination.pageSize&quot;</span><br><span class="line">    :page-count= &quot;tableList.pagination.totalPage || 0&quot;</span><br><span class="line">&gt;</span><br><span class="line">&lt;/el-pagination&gt;</span><br><span class="line"></span><br><span class="line">userList(param) &#123;</span><br><span class="line">    let params = &#123;</span><br><span class="line">        &quot;pageIndex&quot;: 1,</span><br><span class="line">        &quot;pageSize&quot;: 10,</span><br><span class="line">        ...param</span><br><span class="line">    &#125;</span><br><span class="line">    userList(params).then((res) =&gt; &#123;</span><br><span class="line">        if(res.data.code === 1000) &#123;</span><br><span class="line">            const &#123; pageIndex,pageSize,startRow,totalPages,totalRows,list&#125; = res.data.data;</span><br><span class="line">            this.tableList.backStageUserList = list;</span><br><span class="line">            this.tableList.pagination = &#123; pageIndex,pageSize,startRow,totalPages,totalRows &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,(err) =&gt; &#123;</span><br><span class="line">        this.$message.error(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changePage(page) &#123;</span><br><span class="line">    this.userList(&#123;pageIndex: page&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Tab切换："><a href="#Tab切换：" class="headerlink" title="Tab切换："></a>Tab切换：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;  //减少性能消耗</span><br><span class="line">    &lt;div class=&quot;tabs&quot;&gt;</span><br><span class="line">        &lt;span v-for=&quot;(item,index) in tabItems&quot;</span><br><span class="line">            :class=&quot;&#123;&apos;on&apos;:currentTab === index&#125;&quot;</span><br><span class="line">            @click=&quot;changeTab(item,index)</span><br><span class="line">            :key=&quot;index&quot;&gt;&#123;&#123;item.name&#125;&#125;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line"></span><br><span class="line">data() &#123;</span><br><span class="line">    tabItems: [&#123;&#125;,&#123;&#125;],</span><br><span class="line">    currentTab: 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changeTab(item,index) &#123;</span><br><span class="line">    this.currentTab = index</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>前端分页，后端只返回总数据:(就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。)可参考<a href="https://blog.csdn.net/Ms_alinda/article/details/99696296" target="_blank" rel="noopener">vue+ele前端处理数据做分页</a></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table :data=&quot;newOrgListData&quot;&gt;</span><br><span class="line">&lt;/el-table&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-pagination</span><br><span class="line">    background</span><br><span class="line">    layout=&quot;prev, pager, next&quot;</span><br><span class="line">    :total=&quot;orgListData.length&quot;</span><br><span class="line">    :page-size=&quot;5&quot;</span><br><span class="line">    :current-page.sync=&quot;currentPage&quot;</span><br><span class="line">    @current-change=&quot;handleCurrentChange&quot;</span><br><span class="line">    prev-text=&quot;上一页&quot;</span><br><span class="line">    next-text=&quot;下一页&quot;</span><br><span class="line">&gt;&lt;/el-pagination&gt;</span><br><span class="line"></span><br><span class="line">data() &#123;</span><br><span class="line">    currentPage: 1,</span><br><span class="line">    newOrgListData: [],</span><br><span class="line">    orgListData: []</span><br><span class="line">&#125;</span><br><span class="line">xxx().then((res) =&gt; &#123;</span><br><span class="line">    if(res.data.code === 1000) &#123;</span><br><span class="line">        this.orgListData = res.data.data</span><br><span class="line">        this.handleCurrentChange(1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">handleCurrentChange(index) &#123;   //currentPage变动时触发，index值为当前页</span><br><span class="line">      this.currentpageOrg = index</span><br><span class="line">      this.newOrgListData = this.orgListData.slice((index - 1) * 5, index * 5) //根据每页5条将初始数据orgListData进行裁剪赋值给新数组newOrgListData</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="默认时间为昨天"><a href="#默认时间为昨天" class="headerlink" title="默认时间为昨天"></a>默认时间为昨天</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var timestamp = (new Date()).getTime()-24*60*60*1000;</span><br><span class="line">let yesterday = dateformat(new Date(timestamp),&apos;yyyy-MM-dd&apos;);</span><br></pre></td></tr></table></figure>
 
-<h3 id="五：表格自定义内容："><a href="#五：表格自定义内容：" class="headerlink" title="五：表格自定义内容："></a>五：表格自定义内容：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table-column label = &quot;序号&quot; fixed&gt;</span><br><span class="line">    &lt;template slot-scope = &quot;scoped&quot;&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;scope.$index + (tableList.pagination.startRow + 1)&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">&lt;/el-table-column&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-table-column label = &quot;日期&quot;&gt;</span><br><span class="line">    &lt;template slot-scope = &quot;scoped&quot;&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;scope.row.createTime&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">&lt;/el-table-column&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="与表单相关"><a href="#与表单相关" class="headerlink" title="与表单相关"></a>与表单相关</h2><h3 id="当el-radio使用v-for循环时，要使其中一个el-radio不可点击"><a href="#当el-radio使用v-for循环时，要使其中一个el-radio不可点击" class="headerlink" title="当el-radio使用v-for循环时，要使其中一个el-radio不可点击"></a>当el-radio使用v-for循环时，要使其中一个el-radio不可点击</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-radio-group v-model=&quot;typeform.type&quot;&gt;</span><br><span class="line">    &lt;el-radio</span><br><span class="line">        v-for=&quot;(item, index) in typeList&quot;</span><br><span class="line">        :key=&quot;index&quot;</span><br><span class="line">        :label=&quot;item.code&quot;</span><br><span class="line">        :disabled=&quot;item.dis&quot;&gt;</span><br><span class="line">            &#123;&#123;item.name&#125;&#125;</span><br><span class="line">    &lt;/el-radio&gt;</span><br><span class="line">&lt;/el-radio-group&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="六：表单提交："><a href="#六：表单提交：" class="headerlink" title="六：表单提交："></a>六：表单提交：</h3><ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">typeList:[</span><br><span class="line">    &#123;</span><br><span class="line">        name:&quot;联席会议&quot;,</span><br><span class="line">        code:&quot;MEETING_JOINT&quot;,</span><br><span class="line">        dis: false</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name:&quot;磋商会议&quot;,</span><br><span class="line">        code:&quot;MEETING_ONLINE&quot;,</span><br><span class="line">        dis: false</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name:&quot;在线庭审&quot;,</span><br><span class="line">        code:&quot;MEETING_COURT&quot;,</span><br><span class="line">        dis: this.$route.query.activeName == &apos;first&apos; ? true : false  // 判断为MEETING_COURT时这个不可点</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="表单提交："><a href="#表单提交：" class="headerlink" title="表单提交："></a>表单提交：</h3><ol>
 <li>确认添加成功时使用以下两个：清空:this.addRoleForm = Object.assign({},{})，重置必填的校验:this.$refs[‘addRoleForm’].resetFields()。写在请求成功后的里面。</li>
 <li>:label为展示在页面的数据，也是v-model对应的。</li>
 <li>获取下拉列表几个值的方法：<br> (1).filter(const roleCode = this.下拉列表数据.filter(item =&gt; item =&gt; item.xxx == this.想匹配的数据.bbb))[0]。<br> (2). 在el-select中加 @change=”xxx”&gt;<pre><code>xxx(val){
     clg(val)
 }</code></pre></li>
 </ol>
-<h3 id="七：Tab切换："><a href="#七：Tab切换：" class="headerlink" title="七：Tab切换："></a>七：Tab切换：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;  //减少性能消耗</span><br><span class="line">    &lt;div class=&quot;tabs&quot;&gt;</span><br><span class="line">        &lt;span v-for=&quot;(item,index) in tabItems&quot;</span><br><span class="line">            :class=&quot;&#123;&apos;on&apos;:currentTab === index&#125;&quot;</span><br><span class="line">            @click=&quot;changeTab(item,index)</span><br><span class="line">            :key=&quot;index&quot;&gt;&#123;&#123;item.name&#125;&#125;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line"></span><br><span class="line">data() &#123;</span><br><span class="line">    tabItems: [&#123;&#125;,&#123;&#125;],</span><br><span class="line">    currentTab: 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changeTab(item,index) &#123;</span><br><span class="line">    this.currentTab = index</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="与表格相关"><a href="#与表格相关" class="headerlink" title="与表格相关"></a>与表格相关</h2><h3 id="表格自定义内容："><a href="#表格自定义内容：" class="headerlink" title="表格自定义内容："></a>表格自定义内容：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table-column label = &quot;序号&quot; fixed&gt;</span><br><span class="line">    &lt;template slot-scope = &quot;scoped&quot;&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;scope.$index + (tableList.pagination.startRow + 1)&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">&lt;/el-table-column&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-table-column label = &quot;日期&quot;&gt;</span><br><span class="line">    &lt;template slot-scope = &quot;scoped&quot;&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;scope.row.createTime&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">&lt;/el-table-column&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="默认时间为昨天"><a href="#默认时间为昨天" class="headerlink" title="默认时间为昨天"></a>默认时间为昨天</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var timestamp = (new Date()).getTime()-24*60*60*1000;</span><br><span class="line">let yesterday = dateformat(new Date(timestamp),&apos;yyyy-MM-dd&apos;);</span><br></pre></td></tr></table></figure>
+<h3 id="分页："><a href="#分页：" class="headerlink" title="分页："></a>分页：</h3><h4 id="后端分页"><a href="#后端分页" class="headerlink" title="后端分页:"></a>后端分页:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-pagination</span><br><span class="line">    background</span><br><span class="line">    layout=&quot;prev,pager,next&quot;</span><br><span class="line">    :total=&quot;tableList.pagination.totalRows&quot;</span><br><span class="line">    @current-change=&quot;changePage&quot;</span><br><span class="line">    :current-page=&quot;tableList.pagination.pageIndex || 0&quot;</span><br><span class="line">    :page-size=&quot;tableList.pagination.pageSize&quot;</span><br><span class="line">    :page-count= &quot;tableList.pagination.totalPage || 0&quot;</span><br><span class="line">&gt;</span><br><span class="line">&lt;/el-pagination&gt;</span><br><span class="line"></span><br><span class="line">userList(param) &#123;</span><br><span class="line">    let params = &#123;</span><br><span class="line">        &quot;pageIndex&quot;: 1,</span><br><span class="line">        &quot;pageSize&quot;: 10,</span><br><span class="line">        ...param</span><br><span class="line">    &#125;</span><br><span class="line">    userList(params).then((res) =&gt; &#123;</span><br><span class="line">        if(res.data.code === 1000) &#123;</span><br><span class="line">            const &#123; pageIndex,pageSize,startRow,totalPages,totalRows,list&#125; = res.data.data;</span><br><span class="line">            this.tableList.backStageUserList = list;</span><br><span class="line">            this.tableList.pagination = &#123; pageIndex,pageSize,startRow,totalPages,totalRows &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,(err) =&gt; &#123;</span><br><span class="line">        this.$message.error(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changePage(page) &#123;</span><br><span class="line">    this.userList(&#123;pageIndex: page&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="前端分页，后端只返回总数据-就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。-可参考vue-ele前端处理数据做分页"><a href="#前端分页，后端只返回总数据-就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。-可参考vue-ele前端处理数据做分页" class="headerlink" title="前端分页，后端只返回总数据:(就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。)可参考vue+ele前端处理数据做分页"></a>前端分页，后端只返回总数据:(就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。)可参考<a href="https://blog.csdn.net/Ms_alinda/article/details/99696296" target="_blank" rel="noopener">vue+ele前端处理数据做分页</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table :data=&quot;newOrgListData&quot;&gt;</span><br><span class="line">&lt;/el-table&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-pagination</span><br><span class="line">    background</span><br><span class="line">    layout=&quot;prev, pager, next&quot;</span><br><span class="line">    :total=&quot;orgListData.length&quot;</span><br><span class="line">    :page-size=&quot;5&quot;</span><br><span class="line">    :current-page.sync=&quot;currentPage&quot;</span><br><span class="line">    @current-change=&quot;handleCurrentChange&quot;</span><br><span class="line">    prev-text=&quot;上一页&quot;</span><br><span class="line">    next-text=&quot;下一页&quot;</span><br><span class="line">&gt;&lt;/el-pagination&gt;</span><br><span class="line"></span><br><span class="line">data() &#123;</span><br><span class="line">    currentPage: 1,</span><br><span class="line">    newOrgListData: [],</span><br><span class="line">    orgListData: []</span><br><span class="line">&#125;</span><br><span class="line">xxx().then((res) =&gt; &#123;</span><br><span class="line">    if(res.data.code === 1000) &#123;</span><br><span class="line">        this.orgListData = res.data.data</span><br><span class="line">        this.handleCurrentChange(1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">handleCurrentChange(index) &#123;   //currentPage变动时触发，index值为当前页</span><br><span class="line">      this.currentpageOrg = index</span><br><span class="line">      this.newOrgListData = this.orgListData.slice((index - 1) * 5, index * 5) //根据每页5条将初始数据orgListData进行裁剪赋值给新数组newOrgListData</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+
           
         
       
@@ -1885,7 +1897,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  597
+                  592
                 </span>
               
 
@@ -1913,21 +1925,21 @@
         
           
             <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>由于现在采用的都是前后端分离的开发模式，因此在前后端联调时会出现需要数据处理的问题。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-数组去重"><a href="#1-数组去重" class="headerlink" title="1.数组去重"></a>1.数组去重</h3><blockquote>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h3><blockquote>
 <p>[…new Set([2,”12”,2,12,1,2,1,6,12,13,6])]<br>//  [2, “12”, 12, 1, 6, 13]</p>
 </blockquote>
-<h3 id="2-深拷贝数组-给数组对象新增一个对象"><a href="#2-深拷贝数组-给数组对象新增一个对象" class="headerlink" title="2.深拷贝数组(给数组对象新增一个对象)"></a>2.深拷贝数组(给数组对象新增一个对象)</h3><blockquote>
+<h3 id="深拷贝数组-给数组对象新增一个对象"><a href="#深拷贝数组-给数组对象新增一个对象" class="headerlink" title="深拷贝数组(给数组对象新增一个对象)"></a>深拷贝数组(给数组对象新增一个对象)</h3><blockquote>
 <p>法一：<br>var arr=[{a:1,b:2},{a:3,b:4}]<br>var newArr2=JSON.parse(JSON.stringify(arr));<br>console.log(arr[0]) // {a:1,b:2}<br>newArr2[3]={a:12,b:34}<br>console.log(arr[0]) // {a:1,b:2}<br>console.log(newArr2) //[{a:1,b:1},{a:3,b:4},{a:12,b:34}]<br>法二：<br>var arr1=[{a:1,b:2}],arr2=[{a:4,b:9}];<br>arr1.push.apply(arr1,arr2);<br>console.log(arr1) // [{a:1,b:2},{a:4,b:9}]   </p>
 </blockquote>
-<h3 id="3：数组对象中有多个字段-gt-但是只需要其中两个字段："><a href="#3：数组对象中有多个字段-gt-但是只需要其中两个字段：" class="headerlink" title="3：数组对象中有多个字段 =&gt; 但是只需要其中两个字段："></a>3：数组对象中有多个字段 =&gt; 但是只需要其中两个字段：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">返回的：</span><br><span class="line">typeDistributionInfo:[</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">6</span>,   </span><br><span class="line">        mediatorProportion: <span class="number">6</span>,    </span><br><span class="line">        orgTypeCode: <span class="string">"orgTypeCode"</span>,    </span><br><span class="line">        orgTypeName: <span class="string">"人民调解机构"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">10</span>, </span><br><span class="line">        mediatorProportion: <span class="number">10</span>, </span><br><span class="line">        orgTypeCode: <span class="string">"orgTypeCode"</span>, </span><br><span class="line">        orgTypeName: <span class="string">"行政调解机构"</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">需变成：</span><br><span class="line">typeDistributionInfo:[</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">6</span>,   </span><br><span class="line">        mediatorProportion: <span class="number">6</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">10</span>, </span><br><span class="line">        mediatorProportion: <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="数组对象中有多个字段-gt-但是只需要其中两个字段："><a href="#数组对象中有多个字段-gt-但是只需要其中两个字段：" class="headerlink" title="数组对象中有多个字段 =&gt; 但是只需要其中两个字段："></a>数组对象中有多个字段 =&gt; 但是只需要其中两个字段：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">返回的：</span><br><span class="line">typeDistributionInfo:[</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">6</span>,   </span><br><span class="line">        mediatorProportion: <span class="number">6</span>,    </span><br><span class="line">        orgTypeCode: <span class="string">"orgTypeCode"</span>,    </span><br><span class="line">        orgTypeName: <span class="string">"人民调解机构"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">10</span>, </span><br><span class="line">        mediatorProportion: <span class="number">10</span>, </span><br><span class="line">        orgTypeCode: <span class="string">"orgTypeCode"</span>, </span><br><span class="line">        orgTypeName: <span class="string">"行政调解机构"</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">需变成：</span><br><span class="line">typeDistributionInfo:[</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">6</span>,   </span><br><span class="line">        mediatorProportion: <span class="number">6</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">10</span>, </span><br><span class="line">        mediatorProportion: <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">方法：</span><br><span class="line">var newArray2 = [];</span><br><span class="line">var newObject = &#123;&#125;;</span><br><span class="line">for (var i = 0; i &lt; typeDistributionInfo.length; i++) &#123;</span><br><span class="line">    newObject.name = typeDistributionInfo[i].orgTypeName;</span><br><span class="line">    newObject.value = typeDistributionInfo[i].orgProportion;</span><br><span class="line">    newArray2.push(newObject);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="4：对象-gt-数组对象"><a href="#4：对象-gt-数组对象" class="headerlink" title="4：对象 =&gt; 数组对象"></a>4：对象 =&gt; 数组对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">对象中有多个字段：</span><br><span class="line">sexAndAgeDistributionInfo:&#123;</span><br><span class="line">    ageLessForty: 100,</span><br><span class="line">    ageLessSixty: 100,</span><br><span class="line">    ageLessTwenty: 20,</span><br><span class="line">    ageMoreSixty: 20,</span><br><span class="line">    femaleNun: 200,</span><br><span class="line">    maleNun: 100,</span><br><span class="line">    unknownSexNun: 50</span><br><span class="line">&#125;</span><br><span class="line">需要：</span><br><span class="line">var medSexAndAgeDistributionInfo = [</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;女&apos;,</span><br><span class="line">        value: this.sexAndAgeDistributionInfo.femaleNun</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;男&apos;,value: this.sexAndAgeDistributionInfo.maleNun</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="对象-gt-数组对象"><a href="#对象-gt-数组对象" class="headerlink" title="对象 =&gt; 数组对象"></a>对象 =&gt; 数组对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">对象中有多个字段：</span><br><span class="line">sexAndAgeDistributionInfo:&#123;</span><br><span class="line">    ageLessForty: 100,</span><br><span class="line">    ageLessSixty: 100,</span><br><span class="line">    ageLessTwenty: 20,</span><br><span class="line">    ageMoreSixty: 20,</span><br><span class="line">    femaleNun: 200,</span><br><span class="line">    maleNun: 100,</span><br><span class="line">    unknownSexNun: 50</span><br><span class="line">&#125;</span><br><span class="line">需要：</span><br><span class="line">var medSexAndAgeDistributionInfo = [</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;女&apos;,</span><br><span class="line">        value: this.sexAndAgeDistributionInfo.femaleNun</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;男&apos;,value: this.sexAndAgeDistributionInfo.maleNun</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">方法：</span><br><span class="line">var medSexAndAgeDistributionInfo = [</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;女&apos;,</span><br><span class="line">        value: this.sexAndAgeDistributionInfo.femaleNun</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;男&apos;,value: this.sexAndAgeDistributionInfo.maleNun</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
-<h3 id="5：处理后端返回的字符串（获取h3中的内容）"><a href="#5：处理后端返回的字符串（获取h3中的内容）" class="headerlink" title="5：处理后端返回的字符串（获取h3中的内容）"></a>5：处理后端返回的字符串（获取h3中的内容）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">返回的字符串：</span><br><span class="line">&#123;</span><br><span class="line">    code:1,</span><br><span class="line">    data:&quot;&#123; &quot;codexType&quot;:&quot;法律&quot;,&quot;codexContent&quot;:&quot;嘿嘿&quot;,&quot;&lt;h3&gt;一只鸭子&lt;/h3&gt;&quot;,...&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">获取：</span><br><span class="line">getDetail(params).then((res) =&gt; &#123;</span><br><span class="line">    if(res.data.code === 1) &#123;</span><br><span class="line">        this.lowsDetails = JSON.parse(res.data.data)</span><br><span class="line">        // 获取返回的H3中的内容</span><br><span class="line">        var temp = document.createElement(&apos;div&apos;)</span><br><span class="line">        temp.innerHTML = res.data.data;</span><br><span class="line">        let arr = []</span><br><span class="line">        for(var i = 0; i&lt; temp.getElementsByTagName(&apos;h3&apos;).length; i++) &#123;</span><br><span class="line">            if(temp.getElementsByTagName(&apos;h3&apos;)[i] &amp;&amp;temp.getElementsByTagName(&apos;h3&apos;)[i].innerText) &#123;</span><br><span class="line">              temp.getElementsByTagName(&apos;h3&apos;)[i].innerText</span><br><span class="line">            &#125;</span><br><span class="line">            arr.push(temp.getElementsByTagName(&apos;h3&apos;)[i].innerText)</span><br><span class="line">        &#125;</span><br><span class="line">          this.arr =arr</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="处理后端返回的字符串（获取h3中的内容）"><a href="#处理后端返回的字符串（获取h3中的内容）" class="headerlink" title="处理后端返回的字符串（获取h3中的内容）"></a>处理后端返回的字符串（获取h3中的内容）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">返回的字符串：</span><br><span class="line">&#123;</span><br><span class="line">    code:1,</span><br><span class="line">    data:&quot;&#123; &quot;codexType&quot;:&quot;法律&quot;,&quot;codexContent&quot;:&quot;嘿嘿&quot;,&quot;&lt;h3&gt;一只鸭子&lt;/h3&gt;&quot;,...&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">获取：</span><br><span class="line">getDetail(params).then((res) =&gt; &#123;</span><br><span class="line">    if(res.data.code === 1) &#123;</span><br><span class="line">        this.lowsDetails = JSON.parse(res.data.data)</span><br><span class="line">        // 获取返回的H3中的内容</span><br><span class="line">        var temp = document.createElement(&apos;div&apos;)</span><br><span class="line">        temp.innerHTML = res.data.data;</span><br><span class="line">        let arr = []</span><br><span class="line">        for(var i = 0; i&lt; temp.getElementsByTagName(&apos;h3&apos;).length; i++) &#123;</span><br><span class="line">            if(temp.getElementsByTagName(&apos;h3&apos;)[i] &amp;&amp;temp.getElementsByTagName(&apos;h3&apos;)[i].innerText) &#123;</span><br><span class="line">              temp.getElementsByTagName(&apos;h3&apos;)[i].innerText</span><br><span class="line">            &#125;</span><br><span class="line">            arr.push(temp.getElementsByTagName(&apos;h3&apos;)[i].innerText)</span><br><span class="line">        &#125;</span><br><span class="line">          this.arr =arr</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <h3 id="数组对象中插入对象"><a href="#数组对象中插入对象" class="headerlink" title="数组对象中插入对象"></a>数组对象中插入对象</h3><p>原数据：</p>
 <p>// menulist<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/WechatIMG9.png" alt="cmd-markdown-logo"></p>

@@ -1,10 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>前端规范：命名规范</title>
+    <url>/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83%EF%BC%9A%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/</url>
+    <content><![CDATA[<p>在一个团队开发中代码规范是很有必要的，有时候一个好的代码规范可以省略很多的备注，可以让自己或其他小伙伴很快地了解你是怎么样写的。。。</p>
+<h3 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h3><h4 id="驼峰式命名"><a href="#驼峰式命名" class="headerlink" title="驼峰式命名"></a>驼峰式命名</h4><ul>
+<li>Pascal Case 大驼峰式命名法：首字母大写。eg：StudentInfo、UserInfo</li>
+<li>Camel Case 小驼峰式命名法：首字母小写。eg：studentInfo、userInfo</li>
+</ul>
+<h4 id="文件资源名称"><a href="#文件资源名称" class="headerlink" title="文件资源名称"></a>文件资源名称</h4><ul>
+<li>文件名不含有空格</li>
+<li>文件名小写，不使用大写字母（除非：某些说明文件的文件名，可以使用大写字母，比如README、LICENSE )</li>
+<li>文件名包含多个单词时，单词之间使用半角的连词线 ( - ) 分隔</li>
+</ul>
+<h4 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h4><p>命名方式：使用小驼峰命名</p>
+<p>命名规范：类型+对象描述，如果没有明确的类型，就可以使前缀为名词</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="right">小写字母</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>array</td>
+<td align="right">a</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td align="right">b</td>
+</tr>
+<tr>
+<td>function</td>
+<td align="right">fn</td>
+</tr>
+<tr>
+<td>int</td>
+<td align="right">i</td>
+</tr>
+<tr>
+<td>object</td>
+<td align="right">o</td>
+</tr>
+<tr>
+<td>string</td>
+<td align="right">s</td>
+</tr>
+</tbody></table>
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var tableTitle = &apos;titleTable&apos;</span><br></pre></td></tr></table></figure>
+
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><p>命名方式： 小驼峰方式 ( 构造函数使用大驼峰命名法 )</p>
+<p>命名规范： 前缀为动词</p>
+<table>
+<thead>
+<tr>
+<th>动词</th>
+<th align="right">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>can</td>
+<td align="right">判断是否可执行某个动作 ( 权限 )</td>
+</tr>
+<tr>
+<td>has</td>
+<td align="right">判断是否含有某个值</td>
+</tr>
+<tr>
+<td>is</td>
+<td align="right">判断是否为某个值</td>
+</tr>
+<tr>
+<td>get</td>
+<td align="right">获取某个值</td>
+</tr>
+<tr>
+<td>set</td>
+<td align="right">设置某个值</td>
+</tr>
+</tbody></table>
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 是否可阅读</span><br><span class="line">function canRead() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 获取姓名</span><br><span class="line">function getName() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><p>命名方法 : 全部大写</p>
+<p>命名规范 : 使用大写字母和下划线来组合命名，下划线用以分割单词。</p>
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var MAX_COUNT = 10;</span><br><span class="line">var URL = &apos;http://www.baidu.com&apos;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="注释规范"><a href="#注释规范" class="headerlink" title="注释规范"></a>注释规范</h4><h5 id="单行"><a href="#单行" class="headerlink" title="单行"></a>单行</h5><ul>
+<li>单独一行：//(双斜线)与注释文字之间保留一个空格</li>
+<li>在代码后面添加注释：//(双斜线)与代码之间保留一个空格，并且//(双斜线)与注释文字之间保留一个空格。</li>
+<li>注释代码：//(双斜线)与代码之间保留一个空格。</li>
+</ul>
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 调用了一个函数；1)单独在一行</span><br><span class="line">setTitle();</span><br><span class="line"></span><br><span class="line">var maxCount = 10; // 设置最大量；2)在代码后面注释</span><br><span class="line"></span><br><span class="line">// setName(); // 3)注释代码</span><br></pre></td></tr></table></figure>
+
+<h5 id="多行"><a href="#多行" class="headerlink" title="多行"></a>多行</h5><ul>
+<li>若开始(/<em>和结束(</em>/)都在一行，推荐采用单行注释</li>
+<li>若至少三行注释时，第一行为/<em>，最后行为</em>/，其他行以<em>开始，并且注释文字与</em>保留一个空格。</li>
+</ul>
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line">* 代码执行到这里后会调用setTitle()函数</span><br><span class="line">* setTitle()：设置title的值</span><br><span class="line">*/</span><br><span class="line">setTitle();</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>hexo 博客踩坑大合集</title>
     <url>/hexo-%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/</url>
     <content><![CDATA[<p>遇到坑的时候都心情暴躁啊，血压升高。完全静不下心来解决问题。其实很多时候报错都会提示的，按照提示去解决就可以了</p>
-<h3 id="邮箱验证"><a href="#邮箱验证" class="headerlink" title="邮箱验证"></a>邮箱验证</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG1.png" alt="cmd-markdown-logo"></p>
+<h2 id="hexo-博客踩坑大合集"><a href="#hexo-博客踩坑大合集" class="headerlink" title="hexo 博客踩坑大合集"></a>hexo 博客踩坑大合集</h2><h3 id="邮箱验证"><a href="#邮箱验证" class="headerlink" title="邮箱验证"></a>邮箱验证</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG1.png" alt="cmd-markdown-logo"></p>
 <p>解决：登录邮箱进行验证</p>
 <h3 id="commit-报错"><a href="#commit-报错" class="headerlink" title="commit 报错"></a>commit 报错</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG2%201.png" alt="cmd-markdown-logo"></p>
 <p>解决：</p>
@@ -709,7 +812,29 @@
   <entry>
     <title>面向对象和面向过程的区别</title>
     <url>/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<h3 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别"></a>面向对象和面向过程的区别</h3><p><strong>面向过程</strong>：就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。（比如：例如五子棋，面向过程的设计思路就是首先分析问题的步骤：1、开始游戏，2、黑子先走，3、绘制画面，4、判断输赢，5、轮到白子，6、绘制画面，7、判断输赢，8、返回步骤2，9、输出最后结果。把上面每个步骤用分别的函数来实现，问题就解决了。）<br><strong>面向对象</strong>：是以功能来划分问题，而不是步骤。（如：整个五子棋可以分为 1、黑白双方，这两方的行为是一模一样的，2、棋盘系统，负责绘制画面，3、规则系统，负责判定诸如犯规、输赢等。第一类对象（玩家对象）负责接受用户输入，并告知第二类对象（棋盘对象）棋子布局的变化，棋盘对象接收到了棋子的i变化就要负责在屏幕上面显示出这种变化，同时利用第三类对象（规则系统）来对棋局进行判定。）每一个模块都可以看做是一个对象。如五子棋中的黑白双方对象，规则对象，棋盘系统对象。每一个对象都是为了完成一个功能。</p>
+    <content><![CDATA[<h3 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别"></a>面向对象和面向过程的区别</h3><p><strong>面向过程</strong>：就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。</p>
+<p>比如：例如五子棋，面向过程的设计思路就是首先分析问题的步骤：</p>
+<ul>
+<li>1、开始游戏</li>
+<li>2、黑子先走</li>
+<li>3、绘制画面</li>
+<li>4、判断输赢</li>
+<li>5、轮到白子</li>
+<li>6、绘制画面</li>
+<li>7、判断输赢</li>
+<li>8、返回步骤2</li>
+<li>9、输出最后结果</li>
+</ul>
+<p>把上面每个步骤用分别的函数来实现，问题就解决了。</p>
+<p><strong>面向对象</strong>：是以功能来划分问题，而不是步骤。</p>
+<p>如：整个五子棋可以分为 </p>
+<ul>
+<li>1、黑白双方，这两方的行为是一模一样的</li>
+<li>2、棋盘系统，负责绘制画面</li>
+<li>3、规则系统，负责判定诸如犯规、输赢等</li>
+</ul>
+<p>第一类对象（玩家对象）负责接受用户输入，并告知第二类对象（棋盘对象）棋子布局的变化，棋盘对象接收到了棋子的变化就要负责在屏幕上面显示出这种变化，同时利用第三类对象（规则系统）来对棋局进行判定。</p>
+<p>每一个模块都可以看做是一个对象。如五子棋中的黑白双方对象，规则对象，棋盘系统对象。每一个对象都是为了完成一个功能。</p>
 <p>再比如我要把这个五子棋游戏改为围棋游戏，如果你是面向过程设计，那么五子棋的规则就分布在了你的程序的每一个角落，要改动还不如重写。但是如果你当初就是面向对象的设计，那么你只用改动规则对象就可以了，五子棋和围棋的区别不就是规则吗？下棋的大致步骤从面向对象的角度来看没有任何变化。</p>
 <p>初学者或者很蹩脚的程序员很可能以面向对象之虚而行面向过程之实，这样设计出来的所谓面向对象的程序很难有良好的可移植性和可扩展性。</p>
 <p>总结</p>
@@ -736,7 +861,7 @@
     <title>如何在百度和谷歌中搜索就能找到你的博客- HEXO SEO优化</title>
     <url>/%E5%A6%82%E4%BD%95%E5%9C%A8%E7%99%BE%E5%BA%A6%E5%92%8C%E8%B0%B7%E6%AD%8C%E4%B8%AD%E6%90%9C%E7%B4%A2%E5%B0%B1%E8%83%BD%E6%89%BE%E5%88%B0%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2-%20HEXO%20SEO%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>写了个人博客后，就希望在百度搜索引擎中能找到自己的文章，那么就需要进行SEO的优化了。这里主要对google和baidu爬虫的优化。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="什么是SEO"><a href="#什么是SEO" class="headerlink" title="什么是SEO"></a>什么是SEO</h3><p>搜索引擎优化，又称为SEO(Search Engine Optimization)，它是一种通过分析搜索引擎的排名规律，了解各种搜索引擎怎样进行搜索、怎样抓取互联网页面、怎样确定特定关键词的搜索结果排名的技术。<br>搜索引擎采用易于被搜索引用的手段，对网站进行有针对性的优化，提高网站在搜索引擎中的自然排名，吸引更多的用户访问网站，提高网站的访问量，提高网站的销售能力和宣传能力，从而提升网站的品牌效应。<br><a href="https://baike.baidu.com/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/3132?fromtitle=seo&fromid=102990&fr=aladdin" target="_blank" rel="noopener">百度百科</a></p>
+<h2 id="如何在百度和谷歌中搜索就能找到你的博客-HEXO-SEO优化"><a href="#如何在百度和谷歌中搜索就能找到你的博客-HEXO-SEO优化" class="headerlink" title="如何在百度和谷歌中搜索就能找到你的博客- HEXO SEO优化"></a>如何在百度和谷歌中搜索就能找到你的博客- HEXO SEO优化</h2><h3 id="什么是SEO"><a href="#什么是SEO" class="headerlink" title="什么是SEO"></a>什么是SEO</h3><p>搜索引擎优化，又称为SEO(Search Engine Optimization)，它是一种通过分析搜索引擎的排名规律，了解各种搜索引擎怎样进行搜索、怎样抓取互联网页面、怎样确定特定关键词的搜索结果排名的技术。<br>搜索引擎采用易于被搜索引用的手段，对网站进行有针对性的优化，提高网站在搜索引擎中的自然排名，吸引更多的用户访问网站，提高网站的访问量，提高网站的销售能力和宣传能力，从而提升网站的品牌效应。<br><a href="https://baike.baidu.com/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/3132?fromtitle=seo&fromid=102990&fr=aladdin" target="_blank" rel="noopener">百度百科</a></p>
 <h3 id="站点地图"><a href="#站点地图" class="headerlink" title="站点地图"></a>站点地图</h3><h4 id="给本地文章生成sitemap文件"><a href="#给本地文章生成sitemap文件" class="headerlink" title="给本地文章生成sitemap文件"></a>给本地文章生成sitemap文件</h4><p> npm install hexo-generator-sitemap –save #sitemap.xml适合提交给谷歌搜素引擎<br> npm install hexo-generator-baidu-sitemap –save #baidusitemap.xml适合提交百度搜索引擎</p>
 <h4 id="在根目录-config-yml中修改如下配置："><a href="#在根目录-config-yml中修改如下配置：" class="headerlink" title="在根目录_config.yml中修改如下配置："></a>在根目录_config.yml中修改如下配置：</h4><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG7.png" alt="cmd-markdown-logo"></p>
 <p>注意格式的缩进，之前试了很多次都报错，才发现是格式的问题。</p>
@@ -777,11 +902,10 @@
 <p><font face="微软雅黑" size="3" color="red">最后：当然是查看有没有被收录了：<br></font>    </p>
 <p>方法：打开百度或谷歌搜索，在搜索框里输入：</p>
 <blockquote>
-<p>site:<a href="https://lzzhy.github.io/">https://lzzhy.github.io/</a> ( 注意将lzzhy替换为你自己的)   </p>
+<p>site:&lt;域名&gt;  如：site:lzzhy.github.io/</p>
 </blockquote>
 <p>如果提示说：很抱歉，没有找到与“site:<a href="https://maxwellyue.github.io”相关的网页。说明未被收录。" target="_blank" rel="noopener">https://maxwellyue.github.io”相关的网页。说明未被收录。</a></p>
 <p>如果搜索结果中你第一眼就看到了你的博客站点，说明已被收录</p>
-<p>？正常情况下到这里就结束了，但是github屏蔽了百度爬虫，所以百度依然搜不到博客，但是谷歌可以。具体关于github屏蔽百度爬虫的解决办法网上也有很多，等以后想做的时候再去实现。</p>
 <p>？百度站点提交sitemap，升级https</p>
 ]]></content>
   </entry>
@@ -936,12 +1060,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>乌龙事件：寻人启事--哪位大佬刷了我的访问人数</title>
-    <url>/%E4%B9%8C%E9%BE%99%E4%BA%8B%E4%BB%B6--%E5%AF%BB%E4%BA%BA%E5%90%AF%E4%BA%8B/</url>
-    <content><![CDATA[<h3 id="把公司的项目写完了，本想准备看一下博客的，结果访问人数变成882513，嘴里吸的一口芋圆奶茶差点呛死o-╥﹏╥-o。早上看还是20个访问人数，虽然想要多点访问人数但是这也太假了吧。"><a href="#把公司的项目写完了，本想准备看一下博客的，结果访问人数变成882513，嘴里吸的一口芋圆奶茶差点呛死o-╥﹏╥-o。早上看还是20个访问人数，虽然想要多点访问人数但是这也太假了吧。" class="headerlink" title="把公司的项目写完了，本想准备看一下博客的，结果访问人数变成882513，嘴里吸的一口芋圆奶茶差点呛死o(╥﹏╥)o。早上看还是20个访问人数，虽然想要多点访问人数但是这也太假了吧。"></a>把公司的项目写完了，本想准备看一下博客的，结果访问人数变成<strong>882513</strong>，嘴里吸的一口芋圆奶茶差点呛死o(╥﹏╥)o。早上看还是20个访问人数，虽然想要多点访问人数但是这也太假了吧。</h3><h3 id="是不是哪位大佬用我的博客来测试刷访问量的脚本了？？？（过来，我不打你😿）"><a href="#是不是哪位大佬用我的博客来测试刷访问量的脚本了？？？（过来，我不打你😿）" class="headerlink" title="是不是哪位大佬用我的博客来测试刷访问量的脚本了？？？（过来，我不打你😿）"></a>是不是哪位大佬用我的博客来测试刷访问量的脚本了？？？（过来，我不打你😿）</h3><h3 id="但是，"><a href="#但是，" class="headerlink" title="但是，"></a>但是，</h3><h3 id="可以不可以，"><a href="#可以不可以，" class="headerlink" title="可以不可以，"></a>可以不可以，</h3><h3 id="能不能，"><a href="#能不能，" class="headerlink" title="能不能，"></a>能不能，</h3><h3 id="教教我脚本是怎么写的-▽-，"><a href="#教教我脚本是怎么写的-▽-，" class="headerlink" title="教教我脚本是怎么写的(^▽^)，"></a>教教我脚本是怎么写的(<em>^▽^</em>)，</h3><h3 id="前段时间研究刷访问量的脚本，可是只能刷到访问量，并不能刷到访问人数，度娘说是hexo进行了ip过滤。。。"><a href="#前段时间研究刷访问量的脚本，可是只能刷到访问量，并不能刷到访问人数，度娘说是hexo进行了ip过滤。。。" class="headerlink" title="前段时间研究刷访问量的脚本，可是只能刷到访问量，并不能刷到访问人数，度娘说是hexo进行了ip过滤。。。"></a>前段时间研究刷访问量的脚本，可是只能刷到访问量，并不能刷到访问人数，度娘说是hexo进行了<strong>ip</strong>过滤。。。</h3><h3 id="So-我的访问人数突然变得这么多是怎么做到的？？？"><a href="#So-我的访问人数突然变得这么多是怎么做到的？？？" class="headerlink" title="So,我的访问人数突然变得这么多是怎么做到的？？？"></a>So,我的访问人数突然变得这么多是怎么做到的？？？</h3><h3 id="还有，能不能把我的访问量和访问人数恢复原状，这么多的数据，心里虚的慌o-￣︶￣-o"><a href="#还有，能不能把我的访问量和访问人数恢复原状，这么多的数据，心里虚的慌o-￣︶￣-o" class="headerlink" title="还有，能不能把我的访问量和访问人数恢复原状，这么多的数据，心里虚的慌o(￣︶￣)o"></a>还有，能不能把我的访问量和访问人数恢复原状，这么多的数据，心里虚的慌o(<em>￣︶￣</em>)o</h3><hr>
-<h3 id="mmp。"><a href="#mmp。" class="headerlink" title="mmp。"></a>mmp。</h3><h3 id="原来是个乌龙事件，"><a href="#原来是个乌龙事件，" class="headerlink" title="原来是个乌龙事件，"></a>原来是个乌龙事件，</h3><h3 id="原因：上午看的正常数字是线上的，下午看的错误数据是本地的。"><a href="#原因：上午看的正常数字是线上的，下午看的错误数据是本地的。" class="headerlink" title="原因：上午看的正常数字是线上的，下午看的错误数据是本地的。"></a>原因：上午看的正常数字是线上的，下午看的错误数据是本地的。</h3><h3 id="使用hexo-s部署在本地预览效果的时候，uv数和pv数会过大，这是由于不蒜子用户使用一个存储空间，所以使用localhost-4000进行本地预览的时候会导致数字异常，这是正常现象，只需要将博客部署至云端即可恢复正常"><a href="#使用hexo-s部署在本地预览效果的时候，uv数和pv数会过大，这是由于不蒜子用户使用一个存储空间，所以使用localhost-4000进行本地预览的时候会导致数字异常，这是正常现象，只需要将博客部署至云端即可恢复正常" class="headerlink" title="使用hexo s部署在本地预览效果的时候，uv数和pv数会过大，这是由于不蒜子用户使用一个存储空间，所以使用localhost:4000进行本地预览的时候会导致数字异常，这是正常现象，只需要将博客部署至云端即可恢复正常"></a>使用hexo s部署在本地预览效果的时候，uv数和pv数会过大，这是由于不蒜子用户使用一个存储空间，所以使用localhost:4000进行本地预览的时候会导致数字异常，这是正常现象，只需要将博客部署至云端即可恢复正常</h3><h3 id="尴尬！！！"><a href="#尴尬！！！" class="headerlink" title="尴尬！！！"></a>尴尬！！！</h3>]]></content>
-  </entry>
-  <entry>
     <title>Node.js刷博客访问量</title>
     <url>/Node-js%E5%88%B7%E5%8D%9A%E5%AE%A2%E8%AE%BF%E9%97%AE%E9%87%8F/</url>
     <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>之前总是会碰到需要点赞的或者看文章会有阅读量的，就想着要是可以自动点就好了。正好上篇文章把博客的阅读量设置了，想想现在可以写个脚本让他自动刷阅读量了。。。。嘻嘻😬(有点子小开心!)</p>
@@ -957,7 +1075,7 @@
     <title>hexo 给博客添加不蒜子统计访问量，评论功能</title>
     <url>/hexo%20%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E4%B8%8D%E8%92%9C%E5%AD%90%E7%BB%9F%E8%AE%A1%E8%AE%BF%E9%97%AE%E9%87%8F%EF%BC%8C%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</url>
     <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>(不蒜子统计只会统计相应页面的数据，在首页中并不会统计。若是需要在首页中展示则需要通过三方leanCloud)。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="添加统计字数："><a href="#添加统计字数：" class="headerlink" title="添加统计字数："></a>添加统计字数：</h3><p>1.安装 hexo-wordcount：</p>
+<h2 id="hexo-给博客添加不蒜子统计访问量，评论功能"><a href="#hexo-给博客添加不蒜子统计访问量，评论功能" class="headerlink" title="hexo 给博客添加不蒜子统计访问量，评论功能"></a>hexo 给博客添加不蒜子统计访问量，评论功能</h2><h3 id="添加统计字数："><a href="#添加统计字数：" class="headerlink" title="添加统计字数："></a>添加统计字数：</h3><p>1.安装 hexo-wordcount：</p>
 <blockquote>
 <p>npm i –save hexo-wordcount</p>
 </blockquote>
@@ -1062,58 +1180,58 @@
   <entry>
     <title>工作笔记-常用功能</title>
     <url>/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD/</url>
-    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在实际项目过程中有很多基本的功能经常会遇到，因此统一收集一下可以更好地进行理解。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="一：链接跳转传参（单页面）"><a href="#一：链接跳转传参（单页面）" class="headerlink" title="一：链接跳转传参（单页面）"></a>一：链接跳转传参（单页面）</h3><blockquote>
+    <content><![CDATA[<p>在实际项目过程中有很多基本的功能经常会遇到，因此统一收集一下可以更好地进行理解。</p>
+<h2 id="常用功能"><a href="#常用功能" class="headerlink" title="常用功能"></a>常用功能</h2><h3 id="链接跳转传参（单页面）"><a href="#链接跳转传参（单页面）" class="headerlink" title="链接跳转传参（单页面）"></a>链接跳转传参（单页面）</h3><blockquote>
 <p><font face="微软雅黑" size="3" color="Green">法一（带问号的）：</font><br>传：this.$router.push({path: ‘’, query: { 参数名：参数值}})<br>收：this.$route.query.参数名<br><font face="微软雅黑" size="3" color="Green">法二（不带问号的）：</font><br>传：this.$router.push({path:’/xx/xx’ + val.vv})<br>收：this.$route.path.split(‘/‘).reverse()[0]<br>this.$router.push():跳转到不同的url，但这个方法回向history栈添加一个记录，点击后退会返回到上一个页面<br><font face="微软雅黑" size="3" color="Green">法三/四：</font><br>this.$router.replace():不会有记录<br>this.$router.go(n):n可为正数可为负数。正数返回上一个页面,类似 window.history.go(n)</p>
 </blockquote>
-<h3 id="二：登录功能时，账号密码自动填充"><a href="#二：登录功能时，账号密码自动填充" class="headerlink" title="二：登录功能时，账号密码自动填充"></a>二：登录功能时，账号密码自动填充</h3><blockquote>
+<h3 id="登录功能时，账号密码自动填充"><a href="#登录功能时，账号密码自动填充" class="headerlink" title="登录功能时，账号密码自动填充"></a>登录功能时，账号密码自动填充</h3><blockquote>
 <p><font face="微软雅黑" size="3" color="Green">在同域名下，chrome会进行自动填充？</font><br>当input = “password”的时候，会自动将前一个input默认为<font face="微软雅黑" size="3" color="green">账号</font>而填充:  解决： autoComplate = “off” 或者 autoComplate = “new-password”</p>
 </blockquote>
-<h3 id="三：SessionStorage存取使用："><a href="#三：SessionStorage存取使用：" class="headerlink" title="三：SessionStorage存取使用："></a>三：SessionStorage存取使用：</h3><blockquote>
+<h3 id="SessionStorage存取使用："><a href="#SessionStorage存取使用：" class="headerlink" title="SessionStorage存取使用："></a>SessionStorage存取使用：</h3><blockquote>
 <p>存：sessionStorage.user = Json.stringify(res)<br>取：JSON.parse(sessionStorage.getItem(‘user’))<br>清除：sessionStorage.removeItem(‘user’)<br><font face="微软雅黑" size="3" color="Green">注：其中 user是可改的，res是存的数据 </font></p>
 </blockquote>
-<h3 id="四：分页："><a href="#四：分页：" class="headerlink" title="四：分页："></a>四：分页：</h3><ul>
-<li>后端分页:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;el-pagination</span><br><span class="line">    background</span><br><span class="line">    layout=&quot;prev,pager,next&quot;</span><br><span class="line">    :total=&quot;tableList.pagination.totalRows&quot;</span><br><span class="line">    @current-change=&quot;changePage&quot;</span><br><span class="line">    :current-page=&quot;tableList.pagination.pageIndex || 0&quot;</span><br><span class="line">    :page-size=&quot;tableList.pagination.pageSize&quot;</span><br><span class="line">    :page-count= &quot;tableList.pagination.totalPage || 0&quot;</span><br><span class="line">&gt;</span><br><span class="line">&lt;/el-pagination&gt;</span><br><span class="line"></span><br><span class="line">userList(param) &#123;</span><br><span class="line">    let params = &#123;</span><br><span class="line">        &quot;pageIndex&quot;: 1,</span><br><span class="line">        &quot;pageSize&quot;: 10,</span><br><span class="line">        ...param</span><br><span class="line">    &#125;</span><br><span class="line">    userList(params).then((res) =&gt; &#123;</span><br><span class="line">        if(res.data.code === 1000) &#123;</span><br><span class="line">            const &#123; pageIndex,pageSize,startRow,totalPages,totalRows,list&#125; = res.data.data;</span><br><span class="line">            this.tableList.backStageUserList = list;</span><br><span class="line">            this.tableList.pagination = &#123; pageIndex,pageSize,startRow,totalPages,totalRows &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,(err) =&gt; &#123;</span><br><span class="line">        this.$message.error(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changePage(page) &#123;</span><br><span class="line">    this.userList(&#123;pageIndex: page&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Tab切换："><a href="#Tab切换：" class="headerlink" title="Tab切换："></a>Tab切换：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;keep-alive&gt;  //减少性能消耗</span><br><span class="line">    &lt;div class=&quot;tabs&quot;&gt;</span><br><span class="line">        &lt;span v-for=&quot;(item,index) in tabItems&quot;</span><br><span class="line">            :class=&quot;&#123;&apos;on&apos;:currentTab === index&#125;&quot;</span><br><span class="line">            @click=&quot;changeTab(item,index)</span><br><span class="line">            :key=&quot;index&quot;&gt;&#123;&#123;item.name&#125;&#125;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line"></span><br><span class="line">data() &#123;</span><br><span class="line">    tabItems: [&#123;&#125;,&#123;&#125;],</span><br><span class="line">    currentTab: 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changeTab(item,index) &#123;</span><br><span class="line">    this.currentTab = index</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>前端分页，后端只返回总数据:(就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。)可参考<a href="https://blog.csdn.net/Ms_alinda/article/details/99696296" target="_blank" rel="noopener">vue+ele前端处理数据做分页</a></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;el-table :data=&quot;newOrgListData&quot;&gt;</span><br><span class="line">&lt;/el-table&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-pagination</span><br><span class="line">    background</span><br><span class="line">    layout=&quot;prev, pager, next&quot;</span><br><span class="line">    :total=&quot;orgListData.length&quot;</span><br><span class="line">    :page-size=&quot;5&quot;</span><br><span class="line">    :current-page.sync=&quot;currentPage&quot;</span><br><span class="line">    @current-change=&quot;handleCurrentChange&quot;</span><br><span class="line">    prev-text=&quot;上一页&quot;</span><br><span class="line">    next-text=&quot;下一页&quot;</span><br><span class="line">&gt;&lt;/el-pagination&gt;</span><br><span class="line"></span><br><span class="line">data() &#123;</span><br><span class="line">    currentPage: 1,</span><br><span class="line">    newOrgListData: [],</span><br><span class="line">    orgListData: []</span><br><span class="line">&#125;</span><br><span class="line">xxx().then((res) =&gt; &#123;</span><br><span class="line">    if(res.data.code === 1000) &#123;</span><br><span class="line">        this.orgListData = res.data.data</span><br><span class="line">        this.handleCurrentChange(1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">handleCurrentChange(index) &#123;   //currentPage变动时触发，index值为当前页</span><br><span class="line">      this.currentpageOrg = index</span><br><span class="line">      this.newOrgListData = this.orgListData.slice((index - 1) * 5, index * 5) //根据每页5条将初始数据orgListData进行裁剪赋值给新数组newOrgListData</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="默认时间为昨天"><a href="#默认时间为昨天" class="headerlink" title="默认时间为昨天"></a>默认时间为昨天</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var timestamp = (new Date()).getTime()-24*60*60*1000;</span><br><span class="line">let yesterday = dateformat(new Date(timestamp),&apos;yyyy-MM-dd&apos;);</span><br></pre></td></tr></table></figure>
 
-<h3 id="五：表格自定义内容："><a href="#五：表格自定义内容：" class="headerlink" title="五：表格自定义内容："></a>五：表格自定义内容：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;el-table-column label = &quot;序号&quot; fixed&gt;</span><br><span class="line">    &lt;template slot-scope = &quot;scoped&quot;&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;scope.$index + (tableList.pagination.startRow + 1)&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">&lt;/el-table-column&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-table-column label = &quot;日期&quot;&gt;</span><br><span class="line">    &lt;template slot-scope = &quot;scoped&quot;&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;scope.row.createTime&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">&lt;/el-table-column&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="与表单相关"><a href="#与表单相关" class="headerlink" title="与表单相关"></a>与表单相关</h2><h3 id="当el-radio使用v-for循环时，要使其中一个el-radio不可点击"><a href="#当el-radio使用v-for循环时，要使其中一个el-radio不可点击" class="headerlink" title="当el-radio使用v-for循环时，要使其中一个el-radio不可点击"></a>当el-radio使用v-for循环时，要使其中一个el-radio不可点击</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;el-radio-group v-model=&quot;typeform.type&quot;&gt;</span><br><span class="line">    &lt;el-radio</span><br><span class="line">        v-for=&quot;(item, index) in typeList&quot;</span><br><span class="line">        :key=&quot;index&quot;</span><br><span class="line">        :label=&quot;item.code&quot;</span><br><span class="line">        :disabled=&quot;item.dis&quot;&gt;</span><br><span class="line">            &#123;&#123;item.name&#125;&#125;</span><br><span class="line">    &lt;/el-radio&gt;</span><br><span class="line">&lt;/el-radio-group&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="六：表单提交："><a href="#六：表单提交：" class="headerlink" title="六：表单提交："></a>六：表单提交：</h3><ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">typeList:[</span><br><span class="line">    &#123;</span><br><span class="line">        name:&quot;联席会议&quot;,</span><br><span class="line">        code:&quot;MEETING_JOINT&quot;,</span><br><span class="line">        dis: false</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name:&quot;磋商会议&quot;,</span><br><span class="line">        code:&quot;MEETING_ONLINE&quot;,</span><br><span class="line">        dis: false</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name:&quot;在线庭审&quot;,</span><br><span class="line">        code:&quot;MEETING_COURT&quot;,</span><br><span class="line">        dis: this.$route.query.activeName == &apos;first&apos; ? true : false  // 判断为MEETING_COURT时这个不可点</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="表单提交："><a href="#表单提交：" class="headerlink" title="表单提交："></a>表单提交：</h3><ol>
 <li>确认添加成功时使用以下两个：清空:this.addRoleForm = Object.assign({},{})，重置必填的校验:this.$refs[‘addRoleForm’].resetFields()。写在请求成功后的里面。</li>
 <li>:label为展示在页面的数据，也是v-model对应的。</li>
 <li>获取下拉列表几个值的方法：<br> (1).filter(const roleCode = this.下拉列表数据.filter(item =&gt; item =&gt; item.xxx == this.想匹配的数据.bbb))[0]。<br> (2). 在el-select中加 @change=”xxx”&gt;<pre><code>xxx(val){
     clg(val)
 }</code></pre></li>
 </ol>
-<h3 id="七：Tab切换："><a href="#七：Tab切换：" class="headerlink" title="七：Tab切换："></a>七：Tab切换：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;keep-alive&gt;  //减少性能消耗</span><br><span class="line">    &lt;div class=&quot;tabs&quot;&gt;</span><br><span class="line">        &lt;span v-for=&quot;(item,index) in tabItems&quot;</span><br><span class="line">            :class=&quot;&#123;&apos;on&apos;:currentTab === index&#125;&quot;</span><br><span class="line">            @click=&quot;changeTab(item,index)</span><br><span class="line">            :key=&quot;index&quot;&gt;&#123;&#123;item.name&#125;&#125;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line"></span><br><span class="line">data() &#123;</span><br><span class="line">    tabItems: [&#123;&#125;,&#123;&#125;],</span><br><span class="line">    currentTab: 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changeTab(item,index) &#123;</span><br><span class="line">    this.currentTab = index</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="与表格相关"><a href="#与表格相关" class="headerlink" title="与表格相关"></a>与表格相关</h2><h3 id="表格自定义内容："><a href="#表格自定义内容：" class="headerlink" title="表格自定义内容："></a>表格自定义内容：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;el-table-column label = &quot;序号&quot; fixed&gt;</span><br><span class="line">    &lt;template slot-scope = &quot;scoped&quot;&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;scope.$index + (tableList.pagination.startRow + 1)&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">&lt;/el-table-column&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-table-column label = &quot;日期&quot;&gt;</span><br><span class="line">    &lt;template slot-scope = &quot;scoped&quot;&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;scope.row.createTime&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">&lt;/el-table-column&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="默认时间为昨天"><a href="#默认时间为昨天" class="headerlink" title="默认时间为昨天"></a>默认时间为昨天</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var timestamp = (new Date()).getTime()-24*60*60*1000;</span><br><span class="line">let yesterday = dateformat(new Date(timestamp),&apos;yyyy-MM-dd&apos;);</span><br></pre></td></tr></table></figure>]]></content>
+<h3 id="分页："><a href="#分页：" class="headerlink" title="分页："></a>分页：</h3><h4 id="后端分页"><a href="#后端分页" class="headerlink" title="后端分页:"></a>后端分页:</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;el-pagination</span><br><span class="line">    background</span><br><span class="line">    layout=&quot;prev,pager,next&quot;</span><br><span class="line">    :total=&quot;tableList.pagination.totalRows&quot;</span><br><span class="line">    @current-change=&quot;changePage&quot;</span><br><span class="line">    :current-page=&quot;tableList.pagination.pageIndex || 0&quot;</span><br><span class="line">    :page-size=&quot;tableList.pagination.pageSize&quot;</span><br><span class="line">    :page-count= &quot;tableList.pagination.totalPage || 0&quot;</span><br><span class="line">&gt;</span><br><span class="line">&lt;/el-pagination&gt;</span><br><span class="line"></span><br><span class="line">userList(param) &#123;</span><br><span class="line">    let params = &#123;</span><br><span class="line">        &quot;pageIndex&quot;: 1,</span><br><span class="line">        &quot;pageSize&quot;: 10,</span><br><span class="line">        ...param</span><br><span class="line">    &#125;</span><br><span class="line">    userList(params).then((res) =&gt; &#123;</span><br><span class="line">        if(res.data.code === 1000) &#123;</span><br><span class="line">            const &#123; pageIndex,pageSize,startRow,totalPages,totalRows,list&#125; = res.data.data;</span><br><span class="line">            this.tableList.backStageUserList = list;</span><br><span class="line">            this.tableList.pagination = &#123; pageIndex,pageSize,startRow,totalPages,totalRows &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,(err) =&gt; &#123;</span><br><span class="line">        this.$message.error(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changePage(page) &#123;</span><br><span class="line">    this.userList(&#123;pageIndex: page&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="前端分页，后端只返回总数据-就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。-可参考vue-ele前端处理数据做分页"><a href="#前端分页，后端只返回总数据-就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。-可参考vue-ele前端处理数据做分页" class="headerlink" title="前端分页，后端只返回总数据:(就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。)可参考vue+ele前端处理数据做分页"></a>前端分页，后端只返回总数据:(就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。)可参考<a href="https://blog.csdn.net/Ms_alinda/article/details/99696296" target="_blank" rel="noopener">vue+ele前端处理数据做分页</a></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;el-table :data=&quot;newOrgListData&quot;&gt;</span><br><span class="line">&lt;/el-table&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-pagination</span><br><span class="line">    background</span><br><span class="line">    layout=&quot;prev, pager, next&quot;</span><br><span class="line">    :total=&quot;orgListData.length&quot;</span><br><span class="line">    :page-size=&quot;5&quot;</span><br><span class="line">    :current-page.sync=&quot;currentPage&quot;</span><br><span class="line">    @current-change=&quot;handleCurrentChange&quot;</span><br><span class="line">    prev-text=&quot;上一页&quot;</span><br><span class="line">    next-text=&quot;下一页&quot;</span><br><span class="line">&gt;&lt;/el-pagination&gt;</span><br><span class="line"></span><br><span class="line">data() &#123;</span><br><span class="line">    currentPage: 1,</span><br><span class="line">    newOrgListData: [],</span><br><span class="line">    orgListData: []</span><br><span class="line">&#125;</span><br><span class="line">xxx().then((res) =&gt; &#123;</span><br><span class="line">    if(res.data.code === 1000) &#123;</span><br><span class="line">        this.orgListData = res.data.data</span><br><span class="line">        this.handleCurrentChange(1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">handleCurrentChange(index) &#123;   //currentPage变动时触发，index值为当前页</span><br><span class="line">      this.currentpageOrg = index</span><br><span class="line">      this.newOrgListData = this.orgListData.slice((index - 1) * 5, index * 5) //根据每页5条将初始数据orgListData进行裁剪赋值给新数组newOrgListData</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+]]></content>
   </entry>
   <entry>
     <title>学习笔记-数据处理</title>
     <url>/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>由于现在采用的都是前后端分离的开发模式，因此在前后端联调时会出现需要数据处理的问题。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-数组去重"><a href="#1-数组去重" class="headerlink" title="1.数组去重"></a>1.数组去重</h3><blockquote>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h3><blockquote>
 <p>[…new Set([2,”12”,2,12,1,2,1,6,12,13,6])]<br>//  [2, “12”, 12, 1, 6, 13]</p>
 </blockquote>
-<h3 id="2-深拷贝数组-给数组对象新增一个对象"><a href="#2-深拷贝数组-给数组对象新增一个对象" class="headerlink" title="2.深拷贝数组(给数组对象新增一个对象)"></a>2.深拷贝数组(给数组对象新增一个对象)</h3><blockquote>
+<h3 id="深拷贝数组-给数组对象新增一个对象"><a href="#深拷贝数组-给数组对象新增一个对象" class="headerlink" title="深拷贝数组(给数组对象新增一个对象)"></a>深拷贝数组(给数组对象新增一个对象)</h3><blockquote>
 <p>法一：<br>var arr=[{a:1,b:2},{a:3,b:4}]<br>var newArr2=JSON.parse(JSON.stringify(arr));<br>console.log(arr[0]) // {a:1,b:2}<br>newArr2[3]={a:12,b:34}<br>console.log(arr[0]) // {a:1,b:2}<br>console.log(newArr2) //[{a:1,b:1},{a:3,b:4},{a:12,b:34}]<br>法二：<br>var arr1=[{a:1,b:2}],arr2=[{a:4,b:9}];<br>arr1.push.apply(arr1,arr2);<br>console.log(arr1) // [{a:1,b:2},{a:4,b:9}]   </p>
 </blockquote>
-<h3 id="3：数组对象中有多个字段-gt-但是只需要其中两个字段："><a href="#3：数组对象中有多个字段-gt-但是只需要其中两个字段：" class="headerlink" title="3：数组对象中有多个字段 =&gt; 但是只需要其中两个字段："></a>3：数组对象中有多个字段 =&gt; 但是只需要其中两个字段：</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">返回的：</span><br><span class="line">typeDistributionInfo:[</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">6</span>,   </span><br><span class="line">        mediatorProportion: <span class="number">6</span>,    </span><br><span class="line">        orgTypeCode: <span class="string">"orgTypeCode"</span>,    </span><br><span class="line">        orgTypeName: <span class="string">"人民调解机构"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">10</span>, </span><br><span class="line">        mediatorProportion: <span class="number">10</span>, </span><br><span class="line">        orgTypeCode: <span class="string">"orgTypeCode"</span>, </span><br><span class="line">        orgTypeName: <span class="string">"行政调解机构"</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">需变成：</span><br><span class="line">typeDistributionInfo:[</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">6</span>,   </span><br><span class="line">        mediatorProportion: <span class="number">6</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">10</span>, </span><br><span class="line">        mediatorProportion: <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="数组对象中有多个字段-gt-但是只需要其中两个字段："><a href="#数组对象中有多个字段-gt-但是只需要其中两个字段：" class="headerlink" title="数组对象中有多个字段 =&gt; 但是只需要其中两个字段："></a>数组对象中有多个字段 =&gt; 但是只需要其中两个字段：</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">返回的：</span><br><span class="line">typeDistributionInfo:[</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">6</span>,   </span><br><span class="line">        mediatorProportion: <span class="number">6</span>,    </span><br><span class="line">        orgTypeCode: <span class="string">"orgTypeCode"</span>,    </span><br><span class="line">        orgTypeName: <span class="string">"人民调解机构"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">10</span>, </span><br><span class="line">        mediatorProportion: <span class="number">10</span>, </span><br><span class="line">        orgTypeCode: <span class="string">"orgTypeCode"</span>, </span><br><span class="line">        orgTypeName: <span class="string">"行政调解机构"</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">需变成：</span><br><span class="line">typeDistributionInfo:[</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">6</span>,   </span><br><span class="line">        mediatorProportion: <span class="number">6</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">10</span>, </span><br><span class="line">        mediatorProportion: <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">方法：</span><br><span class="line">var newArray2 = [];</span><br><span class="line">var newObject = &#123;&#125;;</span><br><span class="line">for (var i = 0; i &lt; typeDistributionInfo.length; i++) &#123;</span><br><span class="line">    newObject.name = typeDistributionInfo[i].orgTypeName;</span><br><span class="line">    newObject.value = typeDistributionInfo[i].orgProportion;</span><br><span class="line">    newArray2.push(newObject);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="4：对象-gt-数组对象"><a href="#4：对象-gt-数组对象" class="headerlink" title="4：对象 =&gt; 数组对象"></a>4：对象 =&gt; 数组对象</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">对象中有多个字段：</span><br><span class="line">sexAndAgeDistributionInfo:&#123;</span><br><span class="line">    ageLessForty: 100,</span><br><span class="line">    ageLessSixty: 100,</span><br><span class="line">    ageLessTwenty: 20,</span><br><span class="line">    ageMoreSixty: 20,</span><br><span class="line">    femaleNun: 200,</span><br><span class="line">    maleNun: 100,</span><br><span class="line">    unknownSexNun: 50</span><br><span class="line">&#125;</span><br><span class="line">需要：</span><br><span class="line">var medSexAndAgeDistributionInfo = [</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;女&apos;,</span><br><span class="line">        value: this.sexAndAgeDistributionInfo.femaleNun</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;男&apos;,value: this.sexAndAgeDistributionInfo.maleNun</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="对象-gt-数组对象"><a href="#对象-gt-数组对象" class="headerlink" title="对象 =&gt; 数组对象"></a>对象 =&gt; 数组对象</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">对象中有多个字段：</span><br><span class="line">sexAndAgeDistributionInfo:&#123;</span><br><span class="line">    ageLessForty: 100,</span><br><span class="line">    ageLessSixty: 100,</span><br><span class="line">    ageLessTwenty: 20,</span><br><span class="line">    ageMoreSixty: 20,</span><br><span class="line">    femaleNun: 200,</span><br><span class="line">    maleNun: 100,</span><br><span class="line">    unknownSexNun: 50</span><br><span class="line">&#125;</span><br><span class="line">需要：</span><br><span class="line">var medSexAndAgeDistributionInfo = [</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;女&apos;,</span><br><span class="line">        value: this.sexAndAgeDistributionInfo.femaleNun</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;男&apos;,value: this.sexAndAgeDistributionInfo.maleNun</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">方法：</span><br><span class="line">var medSexAndAgeDistributionInfo = [</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;女&apos;,</span><br><span class="line">        value: this.sexAndAgeDistributionInfo.femaleNun</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;男&apos;,value: this.sexAndAgeDistributionInfo.maleNun</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
-<h3 id="5：处理后端返回的字符串（获取h3中的内容）"><a href="#5：处理后端返回的字符串（获取h3中的内容）" class="headerlink" title="5：处理后端返回的字符串（获取h3中的内容）"></a>5：处理后端返回的字符串（获取h3中的内容）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">返回的字符串：</span><br><span class="line">&#123;</span><br><span class="line">    code:1,</span><br><span class="line">    data:&quot;&#123; &quot;codexType&quot;:&quot;法律&quot;,&quot;codexContent&quot;:&quot;嘿嘿&quot;,&quot;&lt;h3&gt;一只鸭子&lt;/h3&gt;&quot;,...&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">获取：</span><br><span class="line">getDetail(params).then((res) =&gt; &#123;</span><br><span class="line">    if(res.data.code === 1) &#123;</span><br><span class="line">        this.lowsDetails = JSON.parse(res.data.data)</span><br><span class="line">        // 获取返回的H3中的内容</span><br><span class="line">        var temp = document.createElement(&apos;div&apos;)</span><br><span class="line">        temp.innerHTML = res.data.data;</span><br><span class="line">        let arr = []</span><br><span class="line">        for(var i = 0; i&lt; temp.getElementsByTagName(&apos;h3&apos;).length; i++) &#123;</span><br><span class="line">            if(temp.getElementsByTagName(&apos;h3&apos;)[i] &amp;&amp;temp.getElementsByTagName(&apos;h3&apos;)[i].innerText) &#123;</span><br><span class="line">              temp.getElementsByTagName(&apos;h3&apos;)[i].innerText</span><br><span class="line">            &#125;</span><br><span class="line">            arr.push(temp.getElementsByTagName(&apos;h3&apos;)[i].innerText)</span><br><span class="line">        &#125;</span><br><span class="line">          this.arr =arr</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="处理后端返回的字符串（获取h3中的内容）"><a href="#处理后端返回的字符串（获取h3中的内容）" class="headerlink" title="处理后端返回的字符串（获取h3中的内容）"></a>处理后端返回的字符串（获取h3中的内容）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">返回的字符串：</span><br><span class="line">&#123;</span><br><span class="line">    code:1,</span><br><span class="line">    data:&quot;&#123; &quot;codexType&quot;:&quot;法律&quot;,&quot;codexContent&quot;:&quot;嘿嘿&quot;,&quot;&lt;h3&gt;一只鸭子&lt;/h3&gt;&quot;,...&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">获取：</span><br><span class="line">getDetail(params).then((res) =&gt; &#123;</span><br><span class="line">    if(res.data.code === 1) &#123;</span><br><span class="line">        this.lowsDetails = JSON.parse(res.data.data)</span><br><span class="line">        // 获取返回的H3中的内容</span><br><span class="line">        var temp = document.createElement(&apos;div&apos;)</span><br><span class="line">        temp.innerHTML = res.data.data;</span><br><span class="line">        let arr = []</span><br><span class="line">        for(var i = 0; i&lt; temp.getElementsByTagName(&apos;h3&apos;).length; i++) &#123;</span><br><span class="line">            if(temp.getElementsByTagName(&apos;h3&apos;)[i] &amp;&amp;temp.getElementsByTagName(&apos;h3&apos;)[i].innerText) &#123;</span><br><span class="line">              temp.getElementsByTagName(&apos;h3&apos;)[i].innerText</span><br><span class="line">            &#125;</span><br><span class="line">            arr.push(temp.getElementsByTagName(&apos;h3&apos;)[i].innerText)</span><br><span class="line">        &#125;</span><br><span class="line">          this.arr =arr</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <h3 id="数组对象中插入对象"><a href="#数组对象中插入对象" class="headerlink" title="数组对象中插入对象"></a>数组对象中插入对象</h3><p>原数据：</p>
 <p>// menulist<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/WechatIMG9.png" alt="cmd-markdown-logo"></p>
@@ -1125,10 +1243,10 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for(let i = 0; i &lt; menulist.length; i ++) &#123;</span><br><span class="line">    if(menulist[i].parent.menuName == &apos;实施日报&apos;) &#123;</span><br><span class="line">        menulist[i].child = [...menulist[i].child, ...this.dailyPermissionData]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
-    <title>Hexo+Github+Markdown搭建博客详解</title>
-    <url>/Hexo-Github-Markdown%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>其实之前就想搞个博客来玩但一直没有去做，今天看到一个博客里面记录了平常工作生活的事迹，突然心血来潮也想试试。说干就干，搞起来。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="一：配置环境"><a href="#一：配置环境" class="headerlink" title="一：配置环境"></a>一：配置环境</h3><p>1.安装Node(用来生成静态页面)  </p>
+    <title>Hexo-Github-Markdown搭建博客、装饰博客、踩过的坑.md</title>
+    <url>/Hexo-Github-Markdown%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E3%80%81%E8%A3%85%E9%A5%B0%E5%8D%9A%E5%AE%A2%E3%80%81%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/</url>
+    <content><![CDATA[<p>其实之前就想搞个博客来玩但一直没有去做，今天看到一个博客里面记录了平常工作生活的事迹，突然心血来潮也想试试。说干就干，搞起来。这篇文章是从搭建一个简单的博客到添加评论访问统计等功能、到如何可以在百度谷歌中也可以找到自己的博客…最后总结</p>
+<h2 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h2><h3 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h3><p>1.安装Node(用来生成静态页面)  </p>
 <p>2.安装git(用来把本地的hexo提交到github上)   </p>
 <blockquote>
 <p><font face="微软雅黑" size="3" color="Green">首先检查是否安装了git和node.js，终端输入一下命令</font><br><code>node -v</code> #是否出现安装版本信息，出现说明已经安装了<br><code>git --version</code> #同上述情况<br><font face="微软雅黑" size="3" color="Green">如果没有安装，则进行安装,提供下载网址：</font><br>[git]: <a href="https://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener">https://sourceforge.net/projects/git-osx-installer/</a><br>[node.js]: <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
@@ -1147,7 +1265,7 @@
 </blockquote>
 <p><font face="微软雅黑" size="3" color="#FF0000">好了，到了这在浏览器中输入生成的 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 就可以看到很丑的博客首页了。。。</font></p>
 <p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/img1.png" alt="cmd-markdown-logo"></p>
-<h3 id="二：Github仓库与本地博客建立连接"><a href="#二：Github仓库与本地博客建立连接" class="headerlink" title="二：Github仓库与本地博客建立连接"></a>二：Github仓库与本地博客建立连接</h3><p>编辑<strong>根</strong>目录下的_config.yml文件，打开该文件在文件最后输入红色框中的内容，只需将自己的username替换就可以了其他无需更改。</p>
+<h3 id="Github仓库与本地博客建立连接"><a href="#Github仓库与本地博客建立连接" class="headerlink" title="Github仓库与本地博客建立连接"></a>Github仓库与本地博客建立连接</h3><p>编辑<strong>根</strong>目录下的_config.yml文件，打开该文件在文件最后输入红色框中的内容，只需将自己的username替换就可以了其他无需更改。</p>
 <p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/img2.jpg" alt="cmd-markdown-logo"></p>
 <p>然后在目录中执行：</p>
 <blockquote>
@@ -1157,7 +1275,7 @@
 <blockquote>
 <p>只能在本地运行看到博客首页，在github上只有代码可是不能找到博客主页：因为github的是jekyll,本地的是hexo，所以不能同步。解决：删掉github仓库，重新来一次并关联本地。。。。。。。。mmp,原来是一开始配置_config.yml的时候单词写错了（master少写了一个s），果然粗心</p>
 </blockquote>
-<h3 id="三：当然，我们还可以去装修一下我们的博客-hexo有很多配套主题-可自行百度并都有配置文档"><a href="#三：当然，我们还可以去装修一下我们的博客-hexo有很多配套主题-可自行百度并都有配置文档" class="headerlink" title="三：当然，我们还可以去装修一下我们的博客,hexo有很多配套主题,可自行百度并都有配置文档"></a>三：当然，我们还可以去装修一下我们的博客,hexo有很多配套主题,可自行百度并都有配置文档</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.主题安装：git clone https://github.com/theme-next/hexo-theme-next themes/next (以next主题为栗，改为其他主题则只需要将对应的next换掉)；</span><br><span class="line">2.在根目录下的_config.yml配置中修改对应的主题名称</span><br></pre></td></tr></table></figure>
+<h3 id="当然，我们还可以去装修一下我们的博客-hexo有很多配套主题-可自行百度并都有配置文档"><a href="#当然，我们还可以去装修一下我们的博客-hexo有很多配套主题-可自行百度并都有配置文档" class="headerlink" title="当然，我们还可以去装修一下我们的博客,hexo有很多配套主题,可自行百度并都有配置文档"></a>当然，我们还可以去装修一下我们的博客,hexo有很多配套主题,可自行百度并都有配置文档</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.主题安装：git clone https://github.com/theme-next/hexo-theme-next themes/next (以next主题为栗，改为其他主题则只需要将对应的next换掉)；</span><br><span class="line">2.在根目录下的_config.yml配置中修改对应的主题名称</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <ul>
@@ -1165,12 +1283,92 @@
 <li>评论、搜索、统计、等功能配置都在主题文件的_config.yml文件里配置 </li>
 </ul>
 </blockquote>
-<h3 id="四：博客基本使用"><a href="#四：博客基本使用" class="headerlink" title="四：博客基本使用"></a>四：博客基本使用</h3><p>1.那肯定是写文章了：hexo new “文章名”， 在source/_posts会生成后缀名为.md的文件，支持markdown语法，里面可以设置标签名、分类名、是否开启评论功能等（markdown语法冒号后加空格）</p>
+<h3 id="博客基本使用"><a href="#博客基本使用" class="headerlink" title="博客基本使用"></a>博客基本使用</h3><p>1.那肯定是写文章了：hexo new “文章名”， 在source/_posts会生成后缀名为.md的文件，支持markdown语法，里面可以设置标签名、分类名、是否开启评论功能等（markdown语法冒号后加空格）</p>
 <blockquote>
 <p>在.md文件中第二个—-下输入要写的文章，参考使用<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">markdown</a>语法</p>
 </blockquote>
 <p>文章写好后可以通过：<code>hexo g,hexo d</code>,在直接通过github链接访问：如<a href="https://lzzhy.github.io/">lzzhy.github.io</a></p>
 <p><font face="微软雅黑" size="3" color="#FF0000">这样，一个完整的搭建博客的过程就已经完成了</font></p>
+<p>(不蒜子统计只会统计相应页面的数据，在首页中并不会统计。若是需要在首页中展示则需要通过三方leanCloud)。</p>
+<h2 id="hexo-给博客添加不蒜子统计访问量，评论功能"><a href="#hexo-给博客添加不蒜子统计访问量，评论功能" class="headerlink" title="hexo 给博客添加不蒜子统计访问量，评论功能"></a>hexo 给博客添加不蒜子统计访问量，评论功能</h2><h3 id="添加统计字数："><a href="#添加统计字数：" class="headerlink" title="添加统计字数："></a>添加统计字数：</h3><p>1.安装 hexo-wordcount：</p>
+<blockquote>
+<p>npm i –save hexo-wordcount</p>
+</blockquote>
+<p>2.文件配置   </p>
+<blockquote>
+<p>将自己所用主题中的 _config.yml 文件中的 wordcount 设置为true wordcount: true</p>
+</blockquote>
+<p>3.重启服务就可以看到了</p>
+<h3 id="添加统计访问量："><a href="#添加统计访问量：" class="headerlink" title="添加统计访问量："></a>添加统计访问量：</h3><p>1.配置<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/bokezhuang-02.png" alt="cmd-markdown-logo">   </p>
+<p>2.问题：   </p>
+<blockquote>
+<p>通过利用不蒜子统计，发现统计数量并不能展现。   </p>
+</blockquote>
+<p>3.原因：<br><a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener">不蒜子统计官网</a>   Soga!原来就是因为不蒜子统计的域名过期了</p>
+<p>4.解决方法：<br>首先需要先找到主题MaterialFlow下引用不蒜子统计的方法。文件路径为/themes/MaterialFlow/layout/_third-party/analytics/busuanzi-counter.swig文件。修改为如下图红框部分就OK了！<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/bokezhuang-01.png" alt="cmd-markdown-logo"></p>
+<hr>
+<p>接着。。。。。。</p>
+<p>在昨天把访问量设置好后今天惊奇的发现居然有8个访问量了，开森。（不是刷的哦）！所以又想把评论和点赞功能设置一下，嘿嘿。。</p>
+<h3 id="评论："><a href="#评论：" class="headerlink" title="评论："></a>评论：</h3><p>1.注册<a href="https://leancloud.cn/" target="_blank" rel="noopener">Leancloud</a></p>
+<blockquote>
+<p>注册完之后需创建一个应用，可叫blog：然后 <strong>进入应用-&gt;设置-&gt;应用key</strong>获取你的appid 和 appkey 如图所示：</p>
+</blockquote>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/busuanzi01.png" alt="cmd-markdown-logo"></p>
+<p>2.博客主题文件找到配置文件 <strong>_config.yml</strong>，找到valine并输入appid 和 appkey：</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/busuanzi02.png" alt="cmd-markdown-logo"></p>
+<p>3.配置域名：<br>记得在Leancloud -&gt; 设置 -&gt; 安全中心 -&gt; Web 安全域名 把你的<strong>线上域名</strong>加进去</p>
+<p>🎉结束撒花～</p>
+<p>写了个人博客后，就希望在百度搜索引擎中能找到自己的文章，那么就需要进行SEO的优化了。这里主要对google和baidu爬虫的优化。</p>
+<h2 id="如何在百度和谷歌中搜索就能找到你的博客-HEXO-SEO优化"><a href="#如何在百度和谷歌中搜索就能找到你的博客-HEXO-SEO优化" class="headerlink" title="如何在百度和谷歌中搜索就能找到你的博客- HEXO SEO优化"></a>如何在百度和谷歌中搜索就能找到你的博客- HEXO SEO优化</h2><h3 id="什么是SEO"><a href="#什么是SEO" class="headerlink" title="什么是SEO"></a>什么是SEO</h3><p>搜索引擎优化，又称为SEO(Search Engine Optimization)，它是一种通过分析搜索引擎的排名规律，了解各种搜索引擎怎样进行搜索、怎样抓取互联网页面、怎样确定特定关键词的搜索结果排名的技术。<br>搜索引擎采用易于被搜索引用的手段，对网站进行有针对性的优化，提高网站在搜索引擎中的自然排名，吸引更多的用户访问网站，提高网站的访问量，提高网站的销售能力和宣传能力，从而提升网站的品牌效应。<br><a href="https://baike.baidu.com/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/3132?fromtitle=seo&fromid=102990&fr=aladdin" target="_blank" rel="noopener">百度百科</a></p>
+<h3 id="站点地图"><a href="#站点地图" class="headerlink" title="站点地图"></a>站点地图</h3><h4 id="给本地文章生成sitemap文件"><a href="#给本地文章生成sitemap文件" class="headerlink" title="给本地文章生成sitemap文件"></a>给本地文章生成sitemap文件</h4><p> npm install hexo-generator-sitemap –save #sitemap.xml适合提交给谷歌搜素引擎<br> npm install hexo-generator-baidu-sitemap –save #baidusitemap.xml适合提交百度搜索引擎</p>
+<h4 id="在根目录-config-yml中修改如下配置："><a href="#在根目录-config-yml中修改如下配置：" class="headerlink" title="在根目录_config.yml中修改如下配置："></a>在根目录_config.yml中修改如下配置：</h4><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG7.png" alt="cmd-markdown-logo"></p>
+<p>注意格式的缩进，之前试了很多次都报错，才发现是格式的问题。</p>
+<h4 id="在根目录-config-yml中修改如下配置：-1"><a href="#在根目录-config-yml中修改如下配置：-1" class="headerlink" title="在根目录_config.yml中修改如下配置："></a>在根目录_config.yml中修改如下配置：</h4><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG61.png" alt="cmd-markdown-logo"> </p>
+<p>配置好后，hexo g 就能在 根目录\public 中生成sitemap.xml 和 baidusitemap.xml了;其中第一个是一会要提交给google的，后面那个看名字当然就是提交给Baidu的了;</p>
+<h4 id="添加-roborts-txt文件"><a href="#添加-roborts-txt文件" class="headerlink" title="添加 roborts.txt文件"></a>添加 roborts.txt文件</h4><p>在根目录source下添加roborts.txt文件</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG8.png" alt="cmd-markdown-logo"></p>
+<p>然后hexo d -g提交一下</p>
+<h3 id="百度收录站点"><a href="#百度收录站点" class="headerlink" title="百度收录站点"></a>百度收录站点</h3><p>在<a href="https://ziyuan.baidu.com/" target="_blank" rel="noopener">百度站长平台</a>中的用户中心 =&gt; 站点管理添加你的站点网址：</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG4.png" alt="cmd-markdown-logo"></p>
+<p>在最后一步验证网站中有三种方式，我选的是<em>文件验证</em>   </p>
+<p>1.HTML标签验证（其中：content注意要换成自己的。）</p>
+<ul>
+<li>在主题的_config.yml文件中设置：baidu_site_verification: true，如果没有该字段就手动添加。</li>
+<li>在themes/MaterialFlow/layout/_partials/head.swig文件中添加下列代码<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG5.png" alt="cmd-markdown-logo"></li>
+</ul>
+<p>2.文件验证，按照百度站长的步骤就好了。（hexo根目录在项目目录resource文件夹下）<br><font face="微软雅黑" size="3" color="red">注意：可能会报如下错误</font> </p>
+<p>baidu_verify_V5nnDAPNHd.html是站点下载的文件</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG9.png" alt="cmd-markdown-logo"></p>
+<p>这是因为hexo编译文件时，会给下载的HTML文件中添加其他的内容，导致验证失败。比如下载原文件内容是<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG10.png" alt="cmd-markdown-logo"></p>
+<p>但github中baidu_verify_V5nnDAPNHd.html的文件内容却是这样的……一大堆</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG11.png" alt="cmd-markdown-logo"></p>
+<p>因此，需要在Github里手动修改验证HTML文件，将github上的HTML文件中的内容改为站长给的文件内容。</p>
+<h4 id="sitemap提交百度站长"><a href="#sitemap提交百度站长" class="headerlink" title="sitemap提交百度站长"></a>sitemap提交百度站长</h4><blockquote>
+<p>链接提交工具是网站主动向百度搜索推送数据的工具，本工具可缩短爬虫发现网站链接时间，网站时效性内容建议使用链接提交工具，实时向搜索推送数据。是轻量级链接提交组件，将自动推送的JS代码放置在站点每一个页面源代码中，当页面被访问时，页面链接会自动推送给百度，有利于新页面更快被百度发现。。    </p>
+</blockquote>
+<p>登录<a href="https://ziyuan.baidu.com/" target="_blank" rel="noopener">百度站长平台</a>，在左菜单栏<em>链接提交</em>中。也有三种方式提交方式，我使用的是sitemap验证</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG12.png" alt="cmd-markdown-logo"></p>
+<p>若是选择自动推送，则是以下配置：</p>
+<ul>
+<li>在主题配置文件将baidu_push设置为true</li>
+<li>在路径themes =&gt; MaterialFlow =&gt; layout 下创建baidu_push.swig 文件，文件内容如下：</li>
+</ul>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG5.png" alt="cmd-markdown-logo"></p>
+<h3 id="谷歌收录站点"><a href="#谷歌收录站点" class="headerlink" title="谷歌收录站点"></a>谷歌收录站点</h3><p>由于没有翻墙软件就没有折腾了(<em>^▽^</em>)。。。</p>
+<p><font face="微软雅黑" size="3" color="red">最后：当然是查看有没有被收录了：<br></font>    </p>
+<p>方法：打开百度或谷歌搜索，在搜索框里输入：</p>
+<blockquote>
+<p>site:&lt;域名&gt;  如：site:lzzhy.github.io/</p>
+</blockquote>
+<p>如果提示说：很抱歉，没有找到与“site:<a href="https://maxwellyue.github.io”相关的网页。说明未被收录。" target="_blank" rel="noopener">https://maxwellyue.github.io”相关的网页。说明未被收录。</a></p>
+<p>如果搜索结果中你第一眼就看到了你的博客站点，说明已被收录</p>
+<p>？百度站点提交sitemap，升级https</p>
+<p>遇到坑的时候都心情暴躁啊，血压升高。完全静不下心来解决问题。其实很多时候报错都会提示的，按照提示去解决就可以了</p>
+<h2 id="hexo-博客踩坑大合集"><a href="#hexo-博客踩坑大合集" class="headerlink" title="hexo 博客踩坑大合集"></a>hexo 博客踩坑大合集</h2><h3 id="邮箱验证"><a href="#邮箱验证" class="headerlink" title="邮箱验证"></a>邮箱验证</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG1.png" alt="cmd-markdown-logo"></p>
+<p>解决：登录邮箱进行验证</p>
+<h3 id="commit-报错"><a href="#commit-报错" class="headerlink" title="commit 报错"></a>commit 报错</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG2%201.png" alt="cmd-markdown-logo"></p>
+<p>解决：</p>
+<p>hexo deploy –message “feat: 内容”</p>
 ]]></content>
   </entry>
 </search>
