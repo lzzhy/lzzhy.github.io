@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="引言每个程序员都有一个同样的学习过程：实现业务代码 -&amp;gt; 提高代码可读性。 正文1.indexOf bad:if (this.$route.path.indexOf(‘/reports/‘) != -1) { }good:if ( ~this.$route.path.indexOf(‘/reports/‘)) {  }   注:因为&amp;gt;=0和==-1这样的写法称为“抽象渗漏”，暴露了底层">
+<meta name="description" content="每个程序员都有一个同样的学习过程：实现业务代码 -&amp;gt; 提高代码可读性。 强制类型转换indexOf1。 可返回某个指定的字符串值在字符串中首次出现的位置stringObject.indexOf(‘规定需检索的字符串值’,’规定在字符串中开始检索的位置,合法取值 0 到 stringObject.length - 1’) 12var aaa = &amp;apos;hello lzzhy&amp;apos;;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学习笔记-代码技巧">
 <meta property="og:url" content="https://lzzhy.github.io/学习笔记-代码技巧/index.html">
 <meta property="og:site_name" content="lzzhy Blog">
-<meta property="og:description" content="引言每个程序员都有一个同样的学习过程：实现业务代码 -&amp;gt; 提高代码可读性。 正文1.indexOf bad:if (this.$route.path.indexOf(‘/reports/‘) != -1) { }good:if ( ~this.$route.path.indexOf(‘/reports/‘)) {  }   注:因为&amp;gt;=0和==-1这样的写法称为“抽象渗漏”，暴露了底层">
+<meta property="og:description" content="每个程序员都有一个同样的学习过程：实现业务代码 -&amp;gt; 提高代码可读性。 强制类型转换indexOf1。 可返回某个指定的字符串值在字符串中首次出现的位置stringObject.indexOf(‘规定需检索的字符串值’,’规定在字符串中开始检索的位置,合法取值 0 到 stringObject.length - 1’) 12var aaa = &amp;apos;hello lzzhy&amp;apos;;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-01T03:29:39.358Z">
+<meta property="og:updated_time" content="2020-03-04T10:07:49.428Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习笔记-代码技巧">
-<meta name="twitter:description" content="引言每个程序员都有一个同样的学习过程：实现业务代码 -&amp;gt; 提高代码可读性。 正文1.indexOf bad:if (this.$route.path.indexOf(‘/reports/‘) != -1) { }good:if ( ~this.$route.path.indexOf(‘/reports/‘)) {  }   注:因为&amp;gt;=0和==-1这样的写法称为“抽象渗漏”，暴露了底层">
+<meta name="twitter:description" content="每个程序员都有一个同样的学习过程：实现业务代码 -&amp;gt; 提高代码可读性。 强制类型转换indexOf1。 可返回某个指定的字符串值在字符串中首次出现的位置stringObject.indexOf(‘规定需检索的字符串值’,’规定在字符串中开始检索的位置,合法取值 0 到 stringObject.length - 1’) 12var aaa = &amp;apos;hello lzzhy&amp;apos;;">
 
 
 
@@ -346,7 +346,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  114
+                  376
                 </span>
               
 
@@ -371,17 +371,26 @@
       
 
       
-        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>每个程序员都有一个同样的学习过程：实现业务代码 -&gt; 提高代码可读性。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-indexOf"><a href="#1-indexOf" class="headerlink" title="1.indexOf"></a>1.indexOf</h3><blockquote>
-<p><font face="微软雅黑" size="3" color="Green">bad:</font><br>if (this.$route.path.indexOf(‘/reports/‘) != -1) { }<br><font face="微软雅黑" size="3" color="Green">good:</font><br>if ( ~this.$route.path.indexOf(‘/reports/‘)) {  }<br><font face="微软雅黑" size="3" color="Green"></font></p>
-</blockquote>
-<blockquote>
-<p>注:因为&gt;=0和==-1这样的写法称为“抽象渗漏”，暴露了底层的细节。而~和indexOf()一起可以将结果强制类型转换为真</p>
-</blockquote>
-<h3 id="2-字符串转数字"><a href="#2-字符串转数字" class="headerlink" title="2.字符串转数字"></a>2.字符串转数字</h3><blockquote>
-<p>var a=123.36896335<br>a=+a    //123.37<br>a=a|0  //123<br>a=~~a  //123 </p>
-</blockquote>
+        <p>每个程序员都有一个同样的学习过程：实现业务代码 -&gt; 提高代码可读性。</p>
+<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><h3 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a>indexOf</h3><p>1。 可返回某个指定的字符串值在字符串中首次出现的位置<br>stringObject.indexOf(‘规定需检索的字符串值’,’规定在字符串中开始检索的位置,合法取值 0 到 stringObject.length - 1’)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var aaa = &apos;hello lzzhy&apos;;</span><br><span class="line">aaa.indexOf(&apos;o&apos;); // 4</span><br></pre></td></tr></table></figure>
 
+<p>2。 检查字符串中是否包含指定的子字符串,没找到 该值 则返回 -1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bad:</span><br><span class="line">if (this.$route.path.indexOf(&apos;/reports/&apos;) != -1) &#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为 &gt;=0 和 ==-1 这样的写法称为“抽象渗漏”，暴露了底层的细节。而~和indexOf()一起可以将结果强制类型转换为真/假</p>
+<h3 id><a href="#" class="headerlink" title="~"></a>~</h3><p>1。 一个 ~ 是强制转化为布尔值。跟 !! 很像。</p>
+<p>~ 的用处：~ 和 indexOf() 一起可以将结果强制类型转换为真/假</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">good: </span><br><span class="line">if ( ~this.$route.path.indexOf(&apos;/reports/&apos;)) &#123;  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果 indexOf(..) 返回 -1 ，~ 将值转化为假值 0，其他情况一律转为真</p>
+<p>2。 2个 ~ 是强制转换为数字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a=123.36896335 或 var a=‘123.36896335’</span><br><span class="line">~~a;  //123</span><br></pre></td></tr></table></figure>
+
+<h3 id="显式强制转化为布尔值"><a href="#显式强制转化为布尔值" class="headerlink" title="!! 显式强制转化为布尔值"></a>!! 显式强制转化为布尔值</h3><p>一元运算符 ! 显式的将值强制类型转化为布尔值(真 转 假，或 假 转 真)。因此最常用的是 !! ,因为第二个 ! 会将结果转化为原值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = &quot;0&quot;;</span><br><span class="line">Boolean(a);  // true</span><br><span class="line">!a;  // false</span><br><span class="line">!!a;  // true</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串转数字"><a href="#字符串转数字" class="headerlink" title="字符串转数字"></a>字符串转数字</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a=123.36896335 或 var a=‘123.36896335’</span><br><span class="line">+a;    //123.37   </span><br><span class="line">a|0;  //123    </span><br><span class="line">~~a;  //123</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -499,7 +508,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -546,7 +555,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-indexOf"><span class="nav-number">2.1.</span> <span class="nav-text">1.indexOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-字符串转数字"><span class="nav-number">2.2.</span> <span class="nav-text">2.字符串转数字</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#强制类型转换"><span class="nav-number">1.</span> <span class="nav-text">强制类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#indexOf"><span class="nav-number">1.1.</span> <span class="nav-text">indexOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">~</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显式强制转化为布尔值"><span class="nav-number">1.3.</span> <span class="nav-text">!! 显式强制转化为布尔值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串转数字"><span class="nav-number">1.4.</span> <span class="nav-text">字符串转数字</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -267,6 +267,179 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTP2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzzhy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzzhy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/HTTP系列之HTTP2/" itemprop="url">HTTP系列之HTTP2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-13T09:47:14+08:00">
+                2019-11-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/HTTP系列之HTTP2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/HTTP系列之HTTP2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.6k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。<br>(在开放互联网上HTTP 2.0将只用于 http:// 网址，而 http:// 网址将继续使用 HTTP/1，目的是在开放互联网上增加使用加密技术，以提供强有力的保护去遏制主动攻击。)</p>
+<h3 id="HTTP-1-x存在的问题"><a href="#HTTP-1-x存在的问题" class="headerlink" title="HTTP/1.x存在的问题"></a>HTTP/1.x存在的问题</h3><ul>
+<li><font face="微软雅黑" size="3" color="Green">线头阻塞</font>：TCP连接上只能发送一个请求，前面的请求未完成前，后续的请求都在排队等待。   </li>
+<li><font face="微软雅黑" size="3" color="Green">多个TCP连接</font>：虽然HTTP/1.1管线化可以支持请求并发，但是浏览器很难实现，chrome、firefox等都禁用了管线化。所以1.1版本请求并发依赖于多个TCP连接，建立TCP连接成本很高，还会存在慢启动的问题。   </li>
+<li><font face="微软雅黑" size="3" color="Green">头部冗余，采用文本格式</font>：HTTP/1.X版本是采用文本格式，首部未压缩，而且每一个请求都会带上cookie、user-agent等完全相同的首部。   </li>
+<li><font face="微软雅黑" size="3" color="Green">客户端需要主动请求</font></li>
+</ul>
+<p>既然HTTP/2是为了解决HTTP/1的问题，那么HTTP/2到底做了哪些改变呢？</p>
+<h3 id="HTTP-2做的改变"><a href="#HTTP-2做的改变" class="headerlink" title="HTTP/2做的改变"></a>HTTP/2做的改变</h3><h4 id="二进制分帧层"><a href="#二进制分帧层" class="headerlink" title="二进制分帧层"></a>二进制分帧层</h4><ul>
+<li>帧：HTTP/2数据通信的最小单位消息（收到流量控制）：指 HTTP/2 中逻辑上的 HTTP 消息。例如请求和响应等。</li>
+<li>流：存在于连接中的一个虚拟通道。流可以承载双向消息，每个流都有一个唯一的整数ID。</li>
+<li>消息：一个完整的HTTP请求或响应，由一个或多个帧组成。特定消息的帧在同一个流上发送，这意味着一个HTTP请求或响应只能在一个流上发送。    </li>
+</ul>
+<p>HTTP/2 性能提升的核心就在于二进制分帧层。HTTP2是二进制协议，解析起来更高效。HTTP/2 将请求和响应数据分割为更小的帧，并且它们采用二进制编码。<br>HTTP/2 中，同域名下所有通信都在单个连接上完成，该连接可以承载任意数量的双向数据流。每个数据流都以消息的形式发送，而消息又由一个或多个帧组成。多个帧之间可以乱序发送，根据帧首部的流标识可以重新组装。</p>
+<h4 id="线头阻塞（多路复用的流）"><a href="#线头阻塞（多路复用的流）" class="headerlink" title="线头阻塞（多路复用的流）"></a>线头阻塞（多路复用的流）</h4><p>每个帧都关联到一个流，流是一个独立的，双向的帧序列可以通过一个http2的连接在服务端与客户端之间不断的交换数据。<br>每个单独的http2连接都可以包含多个并发的流，这些流中交错的包含着来自两端的帧。流既可以被客户端/服务器端单方面的建立和使用，也可以被双方共享，或者被任意一边关闭。在流里面，每一帧发送的顺序非常关键。接收方会按照收到帧的顺序来进行处理。<br><em>流的多路复用意味着在同一连接中来自各个流的数据包会被混合在一起。就好像两个（或者更多）独立的“数据列车”被拼凑到了一辆列车上，但它们最终会在终点站被分开。</em>   </p>
+<h4 id="头部压缩"><a href="#头部压缩" class="headerlink" title="头部压缩"></a>头部压缩</h4><p><font face="微软雅黑" size="3" color="Green">原因</font>：HTTP是一种无状态的协议。这意味着每个请求必须要携带服务器需要的所有细节，而不是让服务器保存住之前请求的元数据。(因为http2并没有改变这个范式，所以它也以同样原理工作,这也保证了HTTP可重复性)。当一个客户端从同一服务器请求了大量资源（例如页面的图片）的时候，所有这些请求看起来几乎都是一致的，而这些大量一致的东西则正好值得被压缩；<br>当每个页面资源的个数上升的时候，cookies和请求的大小都会增加。cookies需要被包含在所有请求中，且他们在多个请求中经常是一模一样的；<br>HTTP 1.1请求的大小正变得越来越大，有时甚至会大于TCP窗口的初始大小，这会严重拖累发送请求的速度。因为它们需要等待带着ACK的响应回来以后，才能继续被发送；</p>
+<p><font face="微软雅黑" size="3" color="Green">解决</font>：HTTP/2为此对消息头采用HPACK（专为HTTP/2头部设计的压缩格式）进行压缩传输，能够节省消息头占用的网络的流量。头部压缩需要在浏览器和服务器端之间：</p>
+<ul>
+<li>维护一份相同的静态字典，包含常见的头部名称，以及常见的头部名称和值的组合</li>
+<li>维护一份相同的动态字典，可以动态的添加内容</li>
+<li>通过静态Huffman编码对传输的首部字段进行编码</li>
+</ul>
+<h4 id="服务器推送"><a href="#服务器推送" class="headerlink" title="服务器推送"></a>服务器推送</h4><p>又叫缓存推送。主要的思想是：当一个客户端请求资源X，而服务器知道它很可能也需要资源Z的情况下，服务器可以在客户端发送请求前，主动将资源Z推送给客户端。这个功能帮助客户端将Z放进缓存以备将来之需。但客户端依然能自主选择是否需要中断该推送的流。如果不需要的话，客户端可以通过发送一个RST_STREAM帧来中止。</p>
+<h4 id="重置（后悔药）"><a href="#重置（后悔药）" class="headerlink" title="重置（后悔药）"></a>重置（后悔药）</h4><p>HTTP/1缺点：当一个含有确切值的Content-Length的HTTP消息被送出之后，你就很难中断它了。当然可以断开整个TCP链接（但也不总是可以这样），这样导致的代价就是需要通过三次握手来重新建立一个新的TCP连接。<br>HTTP/2改进：我们可以通过发送RST_STREAM帧来实现只终止当前传输的消息并重新发送一个新的，从而避免浪费带宽和中断已有的连接。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://ye11ow.gitbooks.io/http2-explained/content/part2.html" target="_blank" rel="noopener">《http2》</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -880,7 +1053,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  114
+                  376
                 </span>
               
 
@@ -907,17 +1080,26 @@
       
         
           
-            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>每个程序员都有一个同样的学习过程：实现业务代码 -&gt; 提高代码可读性。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-indexOf"><a href="#1-indexOf" class="headerlink" title="1.indexOf"></a>1.indexOf</h3><blockquote>
-<p><font face="微软雅黑" size="3" color="Green">bad:</font><br>if (this.$route.path.indexOf(‘/reports/‘) != -1) { }<br><font face="微软雅黑" size="3" color="Green">good:</font><br>if ( ~this.$route.path.indexOf(‘/reports/‘)) {  }<br><font face="微软雅黑" size="3" color="Green"></font></p>
-</blockquote>
-<blockquote>
-<p>注:因为&gt;=0和==-1这样的写法称为“抽象渗漏”，暴露了底层的细节。而~和indexOf()一起可以将结果强制类型转换为真</p>
-</blockquote>
-<h3 id="2-字符串转数字"><a href="#2-字符串转数字" class="headerlink" title="2.字符串转数字"></a>2.字符串转数字</h3><blockquote>
-<p>var a=123.36896335<br>a=+a    //123.37<br>a=a|0  //123<br>a=~~a  //123 </p>
-</blockquote>
+            <p>每个程序员都有一个同样的学习过程：实现业务代码 -&gt; 提高代码可读性。</p>
+<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><h3 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a>indexOf</h3><p>1。 可返回某个指定的字符串值在字符串中首次出现的位置<br>stringObject.indexOf(‘规定需检索的字符串值’,’规定在字符串中开始检索的位置,合法取值 0 到 stringObject.length - 1’)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var aaa = &apos;hello lzzhy&apos;;</span><br><span class="line">aaa.indexOf(&apos;o&apos;); // 4</span><br></pre></td></tr></table></figure>
 
+<p>2。 检查字符串中是否包含指定的子字符串,没找到 该值 则返回 -1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bad:</span><br><span class="line">if (this.$route.path.indexOf(&apos;/reports/&apos;) != -1) &#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为 &gt;=0 和 ==-1 这样的写法称为“抽象渗漏”，暴露了底层的细节。而~和indexOf()一起可以将结果强制类型转换为真/假</p>
+<h3 id><a href="#" class="headerlink" title="~"></a>~</h3><p>1。 一个 ~ 是强制转化为布尔值。跟 !! 很像。</p>
+<p>~ 的用处：~ 和 indexOf() 一起可以将结果强制类型转换为真/假</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">good: </span><br><span class="line">if ( ~this.$route.path.indexOf(&apos;/reports/&apos;)) &#123;  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果 indexOf(..) 返回 -1 ，~ 将值转化为假值 0，其他情况一律转为真</p>
+<p>2。 2个 ~ 是强制转换为数字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a=123.36896335 或 var a=‘123.36896335’</span><br><span class="line">~~a;  //123</span><br></pre></td></tr></table></figure>
+
+<h3 id="显式强制转化为布尔值"><a href="#显式强制转化为布尔值" class="headerlink" title="!! 显式强制转化为布尔值"></a>!! 显式强制转化为布尔值</h3><p>一元运算符 ! 显式的将值强制类型转化为布尔值(真 转 假，或 假 转 真)。因此最常用的是 !! ,因为第二个 ! 会将结果转化为原值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = &quot;0&quot;;</span><br><span class="line">Boolean(a);  // true</span><br><span class="line">!a;  // false</span><br><span class="line">!!a;  // true</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串转数字"><a href="#字符串转数字" class="headerlink" title="字符串转数字"></a>字符串转数字</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a=123.36896335 或 var a=‘123.36896335’</span><br><span class="line">+a;    //123.37   </span><br><span class="line">a|0;  //123    </span><br><span class="line">~~a;  //123</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1207,7 +1389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  1.2k
                 </span>
               
 
@@ -1248,6 +1430,29 @@
 
 <h3 id="默认时间为昨天"><a href="#默认时间为昨天" class="headerlink" title="默认时间为昨天"></a>默认时间为昨天</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var timestamp = (new Date()).getTime()-24*60*60*1000;</span><br><span class="line">let yesterday = dateformat(new Date(timestamp),&apos;yyyy-MM-dd&apos;);</span><br></pre></td></tr></table></figure>
 
+<h2 id="EChart"><a href="#EChart" class="headerlink" title="EChart"></a>EChart</h2><p>过程：</p>
+<ul>
+<li><p>cnpm install echarts –save</p>
+</li>
+<li><p>cnpm install –save resize -detector (这个是控制伸缩的，没有这个需求可以不安装)</p>
+</li>
+<li><p>import Echarts from ‘./ECharts’ =&gt; 要去复制ECharts这里的东西，路径要根据具体的位置修改</p>
+</li>
+<li><p>import ‘echarts/lib/chart/bar’</p>
+</li>
+<li><p>import ‘echarts/lib/component/tooltip’  //柱状</p>
+</li>
+<li><p>import ‘echarts/lib/chart/pie’</p>
+</li>
+<li><p>import ‘echarts/lib/component/legend’</p>
+</li>
+<li><p>import ‘echarts/lib/chart/line’</p>
+</li>
+<li><p>import ‘echarts/lib/chart/bar’</p>
+</li>
+<li><p>再根据不同的echart图去配置不同的，具体参考 环资:resourceCerter =&gt; plateformStatistics</p>
+</li>
+</ul>
 <h2 id="与表单相关"><a href="#与表单相关" class="headerlink" title="与表单相关"></a>与表单相关</h2><h3 id="当el-radio使用v-for循环时，要使其中一个el-radio不可点击"><a href="#当el-radio使用v-for循环时，要使其中一个el-radio不可点击" class="headerlink" title="当el-radio使用v-for循环时，要使其中一个el-radio不可点击"></a>当el-radio使用v-for循环时，要使其中一个el-radio不可点击</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-radio-group v-model=&quot;typeform.type&quot;&gt;</span><br><span class="line">    &lt;el-radio</span><br><span class="line">        v-for=&quot;(item, index) in typeList&quot;</span><br><span class="line">        :key=&quot;index&quot;</span><br><span class="line">        :label=&quot;item.code&quot;</span><br><span class="line">        :disabled=&quot;item.dis&quot;&gt;</span><br><span class="line">            &#123;&#123;item.name&#125;&#125;</span><br><span class="line">    &lt;/el-radio&gt;</span><br><span class="line">&lt;/el-radio-group&gt;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">typeList:[</span><br><span class="line">    &#123;</span><br><span class="line">        name:&quot;联席会议&quot;,</span><br><span class="line">        code:&quot;MEETING_JOINT&quot;,</span><br><span class="line">        dis: false</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name:&quot;磋商会议&quot;,</span><br><span class="line">        code:&quot;MEETING_ONLINE&quot;,</span><br><span class="line">        dis: false</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        name:&quot;在线庭审&quot;,</span><br><span class="line">        code:&quot;MEETING_COURT&quot;,</span><br><span class="line">        dis: this.$route.query.activeName == &apos;first&apos; ? true : false  // 判断为MEETING_COURT时这个不可点</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
@@ -1259,9 +1464,9 @@
     clg(val)
 }</code></pre></li>
 </ol>
-<h2 id="与表格相关"><a href="#与表格相关" class="headerlink" title="与表格相关"></a>与表格相关</h2><h3 id="表格自定义内容："><a href="#表格自定义内容：" class="headerlink" title="表格自定义内容："></a>表格自定义内容：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table-column label = &quot;序号&quot; fixed&gt;</span><br><span class="line">    &lt;template slot-scope = &quot;scoped&quot;&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;scope.$index + (tableList.pagination.startRow + 1)&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">&lt;/el-table-column&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-table-column label = &quot;日期&quot;&gt;</span><br><span class="line">    &lt;template slot-scope = &quot;scoped&quot;&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;scope.row.createTime&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">&lt;/el-table-column&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="与表格相关"><a href="#与表格相关" class="headerlink" title="与表格相关"></a>与表格相关</h2><h3 id="表格自定义内容："><a href="#表格自定义内容：" class="headerlink" title="表格自定义内容："></a>表格自定义内容：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table </span><br><span class="line">  :header-cell-style=&quot;&#123;background:&apos;#f2f4f6&apos;, color:&apos;#333333&apos;, &apos;text-align&apos;:&apos;center&apos;,&apos;font-size&apos;:&apos;14px&apos;&#125;&quot;</span><br><span class="line">  v-loading=&quot;loading&quot;</span><br><span class="line">&gt;</span><br><span class="line">    &lt;el-table-column label = &quot;序号&quot; fixed&gt;</span><br><span class="line">        &lt;template slot-scope = &quot;scoped&quot;&gt;</span><br><span class="line">            &lt;span&gt;&#123;&#123;scope.$index + (tableList.pagination.startRow + 1)&#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">    &lt;/el-table-column&gt;</span><br><span class="line"></span><br><span class="line">    &lt;el-table-column label = &quot;日期&quot;&gt;</span><br><span class="line">        &lt;template slot-scope = &quot;scoped&quot;&gt;</span><br><span class="line">            &lt;span&gt;&#123;&#123;scope.row.createTime&#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">    &lt;/el-table-column&gt;</span><br><span class="line">&lt;/el-table&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="分页："><a href="#分页：" class="headerlink" title="分页："></a>分页：</h3><h4 id="后端分页"><a href="#后端分页" class="headerlink" title="后端分页:"></a>后端分页:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-pagination</span><br><span class="line">    background</span><br><span class="line">    layout=&quot;prev,pager,next&quot;</span><br><span class="line">    :total=&quot;tableList.pagination.totalRows&quot;</span><br><span class="line">    @current-change=&quot;changePage&quot;</span><br><span class="line">    :current-page=&quot;tableList.pagination.pageIndex || 0&quot;</span><br><span class="line">    :page-size=&quot;tableList.pagination.pageSize&quot;</span><br><span class="line">    :page-count= &quot;tableList.pagination.totalPage || 0&quot;</span><br><span class="line">&gt;</span><br><span class="line">&lt;/el-pagination&gt;</span><br><span class="line"></span><br><span class="line">userList(param) &#123;</span><br><span class="line">    let params = &#123;</span><br><span class="line">        &quot;pageIndex&quot;: 1,</span><br><span class="line">        &quot;pageSize&quot;: 10,</span><br><span class="line">        ...param</span><br><span class="line">    &#125;</span><br><span class="line">    userList(params).then((res) =&gt; &#123;</span><br><span class="line">        if(res.data.code === 1000) &#123;</span><br><span class="line">            const &#123; pageIndex,pageSize,startRow,totalPages,totalRows,list&#125; = res.data.data;</span><br><span class="line">            this.tableList.backStageUserList = list;</span><br><span class="line">            this.tableList.pagination = &#123; pageIndex,pageSize,startRow,totalPages,totalRows &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,(err) =&gt; &#123;</span><br><span class="line">        this.$message.error(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changePage(page) &#123;</span><br><span class="line">    this.userList(&#123;pageIndex: page&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分页："><a href="#分页：" class="headerlink" title="分页："></a>分页：</h3><h4 id="后端分页"><a href="#后端分页" class="headerlink" title="后端分页:"></a>后端分页:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-pagination</span><br><span class="line">    background</span><br><span class="line">    layout=&quot;prev,pager,next&quot;</span><br><span class="line">    :total=&quot;tableList.pagination.totalRows&quot;</span><br><span class="line">    @current-change=&quot;changePage&quot;</span><br><span class="line">    :current-page=&quot;tableList.pagination.pageIndex || 0&quot;</span><br><span class="line">    :page-size=&quot;tableList.pagination.pageSize&quot;</span><br><span class="line">    :page-count= &quot;tableList.pagination.totalPage || 0&quot;</span><br><span class="line">&gt;</span><br><span class="line">&lt;/el-pagination&gt;</span><br><span class="line"></span><br><span class="line">tableList:&#123;</span><br><span class="line">    backStageUserList: [],</span><br><span class="line">    pagination:&#123;&#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">userList(param) &#123;</span><br><span class="line">    let params = &#123;</span><br><span class="line">        &quot;pageIndex&quot;: 1,</span><br><span class="line">        &quot;pageSize&quot;: 10,</span><br><span class="line">        ...param</span><br><span class="line">    &#125;</span><br><span class="line">    userList(params).then((res) =&gt; &#123;</span><br><span class="line">        if(res.data.code === 1000) &#123;</span><br><span class="line">            const &#123; pageIndex,pageSize,startRow,totalPages,totalRows,list&#125; = res.data.data;</span><br><span class="line">            this.tableList.backStageUserList = list;</span><br><span class="line">            this.tableList.pagination = &#123; pageIndex,pageSize,startRow,totalPages,totalRows &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,(err) =&gt; &#123;</span><br><span class="line">        this.$message.error(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">changePage(page) &#123;</span><br><span class="line">    this.userList(&#123;pageIndex: page&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="前端分页，后端只返回总数据-就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。-可参考vue-ele前端处理数据做分页"><a href="#前端分页，后端只返回总数据-就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。-可参考vue-ele前端处理数据做分页" class="headerlink" title="前端分页，后端只返回总数据:(就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。)可参考vue+ele前端处理数据做分页"></a>前端分页，后端只返回总数据:(就是拿到后端返回的所有数据通过分页将数据进行分割，再将分割好了之后的数据放入表格中通过表格展示。)可参考<a href="https://blog.csdn.net/Ms_alinda/article/details/99696296" target="_blank" rel="noopener">vue+ele前端处理数据做分页</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table :data=&quot;newOrgListData&quot;&gt;</span><br><span class="line">&lt;/el-table&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-pagination</span><br><span class="line">    background</span><br><span class="line">    layout=&quot;prev, pager, next&quot;</span><br><span class="line">    :total=&quot;orgListData.length&quot;</span><br><span class="line">    :page-size=&quot;5&quot;</span><br><span class="line">    :current-page.sync=&quot;currentPage&quot;</span><br><span class="line">    @current-change=&quot;handleCurrentChange&quot;</span><br><span class="line">    prev-text=&quot;上一页&quot;</span><br><span class="line">    next-text=&quot;下一页&quot;</span><br><span class="line">&gt;&lt;/el-pagination&gt;</span><br><span class="line"></span><br><span class="line">data() &#123;</span><br><span class="line">    currentPage: 1,</span><br><span class="line">    newOrgListData: [],</span><br><span class="line">    orgListData: []</span><br><span class="line">&#125;</span><br><span class="line">xxx().then((res) =&gt; &#123;</span><br><span class="line">    if(res.data.code === 1000) &#123;</span><br><span class="line">        this.orgListData = res.data.data</span><br><span class="line">        this.handleCurrentChange(1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">handleCurrentChange(index) &#123;   //currentPage变动时触发，index值为当前页</span><br><span class="line">      this.currentpageOrg = index</span><br><span class="line">      this.newOrgListData = this.orgListData.slice((index - 1) * 5, index * 5) //根据每页5条将初始数据orgListData进行裁剪赋值给新数组newOrgListData</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
 
@@ -1386,7 +1591,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  592
+                  635
                 </span>
               
 
@@ -1417,12 +1622,13 @@
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h3><blockquote>
 <p>[…new Set([2,”12”,2,12,1,2,1,6,12,13,6])]<br>//  [2, “12”, 12, 1, 6, 13]</p>
 </blockquote>
+<h3 id="数组对象平摊-多层数组平摊成一层"><a href="#数组对象平摊-多层数组平摊成一层" class="headerlink" title="数组对象平摊 / 多层数组平摊成一层"></a>数组对象平摊 / 多层数组平摊成一层</h3><p>var arr = [{name:’11’},[{name:’11’}]]<br>arr.flat(Infinity)</p>
 <h3 id="深拷贝数组-给数组对象新增一个对象"><a href="#深拷贝数组-给数组对象新增一个对象" class="headerlink" title="深拷贝数组(给数组对象新增一个对象)"></a>深拷贝数组(给数组对象新增一个对象)</h3><blockquote>
 <p>法一：<br>var arr=[{a:1,b:2},{a:3,b:4}]<br>var newArr2=JSON.parse(JSON.stringify(arr));<br>console.log(arr[0]) // {a:1,b:2}<br>newArr2[3]={a:12,b:34}<br>console.log(arr[0]) // {a:1,b:2}<br>console.log(newArr2) //[{a:1,b:1},{a:3,b:4},{a:12,b:34}]<br>法二：<br>var arr1=[{a:1,b:2}],arr2=[{a:4,b:9}];<br>arr1.push.apply(arr1,arr2);<br>console.log(arr1) // [{a:1,b:2},{a:4,b:9}]   </p>
 </blockquote>
 <h3 id="数组对象中有多个字段-gt-但是只需要其中两个字段："><a href="#数组对象中有多个字段-gt-但是只需要其中两个字段：" class="headerlink" title="数组对象中有多个字段 =&gt; 但是只需要其中两个字段："></a>数组对象中有多个字段 =&gt; 但是只需要其中两个字段：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">返回的：</span><br><span class="line">typeDistributionInfo:[</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">6</span>,   </span><br><span class="line">        mediatorProportion: <span class="number">6</span>,    </span><br><span class="line">        orgTypeCode: <span class="string">"orgTypeCode"</span>,    </span><br><span class="line">        orgTypeName: <span class="string">"人民调解机构"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">10</span>, </span><br><span class="line">        mediatorProportion: <span class="number">10</span>, </span><br><span class="line">        orgTypeCode: <span class="string">"orgTypeCode"</span>, </span><br><span class="line">        orgTypeName: <span class="string">"行政调解机构"</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">需变成：</span><br><span class="line">typeDistributionInfo:[</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">6</span>,   </span><br><span class="line">        mediatorProportion: <span class="number">6</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        orgProportion: <span class="number">10</span>, </span><br><span class="line">        mediatorProportion: <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">方法：</span><br><span class="line">var newArray2 = [];</span><br><span class="line">var newObject = &#123;&#125;;</span><br><span class="line">for (var i = 0; i &lt; typeDistributionInfo.length; i++) &#123;</span><br><span class="line">    newObject.name = typeDistributionInfo[i].orgTypeName;</span><br><span class="line">    newObject.value = typeDistributionInfo[i].orgProportion;</span><br><span class="line">    newArray2.push(newObject);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">方法1：</span><br><span class="line">var newArray2 = [];</span><br><span class="line">for (var i = 0; i &lt; typeDistributionInfo.length; i++) &#123;</span><br><span class="line">    newObject.name = typeDistributionInfo[i].orgTypeName;</span><br><span class="line">    newObject.value = typeDistributionInfo[i].orgProportion;</span><br><span class="line">    newArray2.push(newObject);</span><br><span class="line">&#125;</span><br><span class="line">方法2：</span><br><span class="line">const newArray2 = []</span><br><span class="line">typeDistributionInfo.forEach(element =&gt; &#123;</span><br><span class="line">    const &#123; name, code &#125; = element;</span><br><span class="line">    newArray2.push(&#123; name, code &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h3 id="对象-gt-数组对象"><a href="#对象-gt-数组对象" class="headerlink" title="对象 =&gt; 数组对象"></a>对象 =&gt; 数组对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">对象中有多个字段：</span><br><span class="line">sexAndAgeDistributionInfo:&#123;</span><br><span class="line">    ageLessForty: 100,</span><br><span class="line">    ageLessSixty: 100,</span><br><span class="line">    ageLessTwenty: 20,</span><br><span class="line">    ageMoreSixty: 20,</span><br><span class="line">    femaleNun: 200,</span><br><span class="line">    maleNun: 100,</span><br><span class="line">    unknownSexNun: 50</span><br><span class="line">&#125;</span><br><span class="line">需要：</span><br><span class="line">var medSexAndAgeDistributionInfo = [</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;女&apos;,</span><br><span class="line">        value: this.sexAndAgeDistributionInfo.femaleNun</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        sex:&apos;男&apos;,value: this.sexAndAgeDistributionInfo.maleNun</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
@@ -1796,7 +2002,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
