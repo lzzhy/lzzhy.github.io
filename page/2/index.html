@@ -1094,7 +1094,7 @@
 
 <p>如果 indexOf(..) 返回 -1 ，~ 将值转化为假值 0，其他情况一律转为真</p>
 <p>2。 2个 ~ 是强制转换为数字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a=123.36896335 或 var a=‘123.36896335’</span><br><span class="line">~~a;  //123</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a=123.36896335 或 var a=‘123.368’</span><br><span class="line">~~a;  //123</span><br></pre></td></tr></table></figure>
 
 <h3 id="显式强制转化为布尔值"><a href="#显式强制转化为布尔值" class="headerlink" title="!! 显式强制转化为布尔值"></a>!! 显式强制转化为布尔值</h3><p>一元运算符 ! 显式的将值强制类型转化为布尔值(真 转 假，或 假 转 真)。因此最常用的是 !! ,因为第二个 ! 会将结果转化为原值：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = &quot;0&quot;;</span><br><span class="line">Boolean(a);  // true</span><br><span class="line">!a;  // false</span><br><span class="line">!!a;  // true</span><br></pre></td></tr></table></figure>
