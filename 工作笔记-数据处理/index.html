@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="引言由于现在采用的都是前后端分离的开发模式，因此在前后端联调时会出现需要数据处理的问题。 正文数组去重 […new Set([2,”12”,2,12,1,2,1,6,12,13,6])]//  [2, “12”, 12, 1, 6, 13]  数组对象平摊 / 多层数组平摊成一层var arr = [{name:’11’},[{name:’11’}]]arr.flat(Infinity) 深拷贝数">
+<meta name="description" content="引言由于现在采用的都是前后端分离的开发模式，因此在前后端联调时会出现需要数据处理的问题。 正文数组去重 […new Set([2,”12”,2,12,1,2,1,6,12,13,6])]//  [2, “12”, 12, 1, 6, 13]  数组对象平摊 / 多层数组平摊成一层var arr = [{name:’11’},[{name:’11’}]]arr.flat(Infinity) 往数组中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学习笔记-数据处理">
 <meta property="og:url" content="https://lzzhy.github.io/工作笔记-数据处理/index.html">
 <meta property="og:site_name" content="lzzhy Blog">
-<meta property="og:description" content="引言由于现在采用的都是前后端分离的开发模式，因此在前后端联调时会出现需要数据处理的问题。 正文数组去重 […new Set([2,”12”,2,12,1,2,1,6,12,13,6])]//  [2, “12”, 12, 1, 6, 13]  数组对象平摊 / 多层数组平摊成一层var arr = [{name:’11’},[{name:’11’}]]arr.flat(Infinity) 深拷贝数">
+<meta property="og:description" content="引言由于现在采用的都是前后端分离的开发模式，因此在前后端联调时会出现需要数据处理的问题。 正文数组去重 […new Set([2,”12”,2,12,1,2,1,6,12,13,6])]//  [2, “12”, 12, 1, 6, 13]  数组对象平摊 / 多层数组平摊成一层var arr = [{name:’11’},[{name:’11’}]]arr.flat(Infinity) 往数组中">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/WechatIMG9.png">
-<meta property="og:updated_time" content="2020-03-11T05:21:14.162Z">
+<meta property="og:updated_time" content="2020-04-07T07:26:46.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习笔记-数据处理">
-<meta name="twitter:description" content="引言由于现在采用的都是前后端分离的开发模式，因此在前后端联调时会出现需要数据处理的问题。 正文数组去重 […new Set([2,”12”,2,12,1,2,1,6,12,13,6])]//  [2, “12”, 12, 1, 6, 13]  数组对象平摊 / 多层数组平摊成一层var arr = [{name:’11’},[{name:’11’}]]arr.flat(Infinity) 深拷贝数">
+<meta name="twitter:description" content="引言由于现在采用的都是前后端分离的开发模式，因此在前后端联调时会出现需要数据处理的问题。 正文数组去重 […new Set([2,”12”,2,12,1,2,1,6,12,13,6])]//  [2, “12”, 12, 1, 6, 13]  数组对象平摊 / 多层数组平摊成一层var arr = [{name:’11’},[{name:’11’}]]arr.flat(Infinity) 往数组中">
 <meta name="twitter:image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/WechatIMG9.png">
 
 
@@ -348,7 +348,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  635
+                  698
                 </span>
               
 
@@ -378,6 +378,10 @@
 <p>[…new Set([2,”12”,2,12,1,2,1,6,12,13,6])]<br>//  [2, “12”, 12, 1, 6, 13]</p>
 </blockquote>
 <h3 id="数组对象平摊-多层数组平摊成一层"><a href="#数组对象平摊-多层数组平摊成一层" class="headerlink" title="数组对象平摊 / 多层数组平摊成一层"></a>数组对象平摊 / 多层数组平摊成一层</h3><p>var arr = [{name:’11’},[{name:’11’}]]<br>arr.flat(Infinity)</p>
+<h3 id="往数组中添加对象"><a href="#往数组中添加对象" class="headerlink" title="往数组中添加对象"></a>往数组中添加对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">bad:</span><br><span class="line"></span><br><span class="line">const lzzhyArr = [];</span><br><span class="line">const lzzhyObj = &#123;&#125;;</span><br><span class="line">this.xxx.forEach(element =&gt; &#123;</span><br><span class="line">    lzzhyObj.name = element.name;</span><br><span class="line">    lzzhyObj.sex = element.sex;</span><br><span class="line">&#125;)</span><br><span class="line">lzzhyArr.push(lzzhyObj) // 不确定是不是放这</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">good:</span><br><span class="line"></span><br><span class="line">let lzzhyArr = [];</span><br><span class="line">this.xxx.forEach(element =&gt; &#123;</span><br><span class="line">    lzzhyArr.push(&#123;</span><br><span class="line">        fileName: element.name,</span><br><span class="line">        fileId: element.response.data.fileId</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <h3 id="深拷贝数组-给数组对象新增一个对象"><a href="#深拷贝数组-给数组对象新增一个对象" class="headerlink" title="深拷贝数组(给数组对象新增一个对象)"></a>深拷贝数组(给数组对象新增一个对象)</h3><blockquote>
 <p>法一：<br>var arr=[{a:1,b:2},{a:3,b:4}]<br>var newArr2=JSON.parse(JSON.stringify(arr));<br>console.log(arr[0]) // {a:1,b:2}<br>newArr2[3]={a:12,b:34}<br>console.log(arr[0]) // {a:1,b:2}<br>console.log(newArr2) //[{a:1,b:1},{a:3,b:4},{a:12,b:34}]<br>法二：<br>var arr1=[{a:1,b:2}],arr2=[{a:4,b:9}];<br>arr1.push.apply(arr1,arr2);<br>console.log(arr1) // [{a:1,b:2},{a:4,b:9}]   </p>
 </blockquote>
@@ -563,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组去重"><span class="nav-number">2.1.</span> <span class="nav-text">数组去重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组对象平摊-多层数组平摊成一层"><span class="nav-number">2.2.</span> <span class="nav-text">数组对象平摊 / 多层数组平摊成一层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深拷贝数组-给数组对象新增一个对象"><span class="nav-number">2.3.</span> <span class="nav-text">深拷贝数组(给数组对象新增一个对象)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组对象中有多个字段-gt-但是只需要其中两个字段："><span class="nav-number">2.4.</span> <span class="nav-text">数组对象中有多个字段 =&gt; 但是只需要其中两个字段：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象-gt-数组对象"><span class="nav-number">2.5.</span> <span class="nav-text">对象 =&gt; 数组对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理后端返回的字符串（获取h3中的内容）"><span class="nav-number">2.6.</span> <span class="nav-text">处理后端返回的字符串（获取h3中的内容）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组对象中插入对象"><span class="nav-number">2.7.</span> <span class="nav-text">数组对象中插入对象</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组去重"><span class="nav-number">2.1.</span> <span class="nav-text">数组去重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组对象平摊-多层数组平摊成一层"><span class="nav-number">2.2.</span> <span class="nav-text">数组对象平摊 / 多层数组平摊成一层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#往数组中添加对象"><span class="nav-number">2.3.</span> <span class="nav-text">往数组中添加对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深拷贝数组-给数组对象新增一个对象"><span class="nav-number">2.4.</span> <span class="nav-text">深拷贝数组(给数组对象新增一个对象)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组对象中有多个字段-gt-但是只需要其中两个字段："><span class="nav-number">2.5.</span> <span class="nav-text">数组对象中有多个字段 =&gt; 但是只需要其中两个字段：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象-gt-数组对象"><span class="nav-number">2.6.</span> <span class="nav-text">对象 =&gt; 数组对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理后端返回的字符串（获取h3中的内容）"><span class="nav-number">2.7.</span> <span class="nav-text">处理后端返回的字符串（获取h3中的内容）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组对象中插入对象"><span class="nav-number">2.8.</span> <span class="nav-text">数组对象中插入对象</span></a></li></ol></li></ol></div>
             
 
           </div>
