@@ -1047,34 +1047,23 @@
 ]]></content>
   </entry>
   <entry>
-    <title>那些让Vue看起来更简单的事</title>
-    <url>/%E9%82%A3%E4%BA%9B%E8%AE%A9Vue%E7%9C%8B%E8%B5%B7%E6%9D%A5%E6%9B%B4%E7%AE%80%E5%8D%95%E7%9A%84%E4%BA%8B/</url>
-    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>正如前面所提到的‘代码可读性’，在Vue中也存在着很多‘可提高代码可读性问题’，以下是学习中记录的一些问题。。。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="一：v-once"><a href="#一：v-once" class="headerlink" title="一：v-once"></a>一：v-once</h3><p>场景:有些 template 中的静态 dom 没有改变,这时就只需要渲染一次,可以降低性能开销</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span v-once&gt; 这时只需要加载一次的标签&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+    <title>关于 Vue 的那些事</title>
+    <url>/%E5%85%B3%E4%BA%8E%20Vue%20%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
+    <content><![CDATA[<h2 id="父子组件通信"><a href="#父子组件通信" class="headerlink" title="父子组件通信"></a>父子组件通信</h2><h3 id="refs"><a href="#refs" class="headerlink" title="$refs"></a>$refs</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">父：</span><br><span class="line"></span><br><span class="line">&lt;child $ref=&apos;lzzhyChild&apos;&gt;&lt;/child&gt;</span><br><span class="line"></span><br><span class="line">methods里面，可以通过操作this.$refs.lzzhyChild.xxx来操作子组件</span><br></pre></td></tr></table></figure>
 
-<p>v-once 和 v-pre 的区别: v-once只渲染一次；v-pre不编译,原样输出</p>
-<h3 id="二：require-context"><a href="#二：require-context" class="headerlink" title="二：require.context"></a>二：require.context</h3><ul>
-<li><p>是什么</p>
-<blockquote>
-<p>一个webpack的api,通过执行require.context函数获取一个特定的上下文,主要用来实现自动化导入模块,在前端工程中,如果遇到从一个文件夹引入很多模块的情况,可以使用这个api,它会遍历文件夹中的指定文件,然后自动导入,使得不需要每次显式的调用import导入模块</p>
-</blockquote>
-</li>
-<li><p>场景(页面需导入多个组件),原始写法:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import titleCom from &apos;@/components/home/titleCom&apos;</span><br><span class="line">import bannerCom from &apos;@/components/home/bannerCom&apos;</span><br><span class="line">import cellCom from &apos;@/components/home/cellCom&apos;</span><br><span class="line">components:&#123;titleCom,bannerCom,cellCom&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>假如需要导入N个组件那就头疼了，并且写了大量重复的代码使得代码可读性差，但是利用 require.context 可以写成： </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const path = require(&apos;path&apos;)   </span><br><span class="line">const files = require.context(&apos;@/components/home&apos;, false, /\.vue$/)   </span><br><span class="line">const modules = &#123;&#125;</span><br><span class="line">files.keys().forEach(key =&gt; &#123;</span><br><span class="line">  const name = path.basename(key, &apos;.vue&apos;)</span><br><span class="line">  modules[name] = files(key).default || files(key)</span><br><span class="line">&#125;)   </span><br><span class="line">components:modules  </span><br><span class="line"></span><br><span class="line">这样不管页面引入多少组件,都可以使用这个方法</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">子：</span><br><span class="line">methods里面，可以通过操作this.$parent.xxx来操作父组件</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<blockquote>
-<p>语法:<br>require.context(directory读取文件的路径, useSubdirectories = false是否遍历文件的子目录, regExp = /^.//匹配文件的正则);<br>借用webpakc官网的例子(配下图))：<br>require.context(‘./test’, false, /.test.js$/); //遍历当前目录下的test文件夹的所有.test.js结尾的文件,但是不遍历子目录<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/those-vue01.png" alt="cmd-markdown-logo"></p>
-</blockquote>
-<h3 id="三：v-cloak"><a href="#三：v-cloak" class="headerlink" title="三：v-cloak"></a>三：v-cloak</h3><p>场景:在网速慢的情况下,在使用vue绑定数据的时候，渲染页面时会出现变量闪烁<br>用法:这个指令保持在元素上直到关联实例结束编译。和 CSS 规则如 [v-cloak] { display: none } 一起用时，这个指令可以隐藏未编译的 Mustache 标签直到实例准备完毕</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// template 中</span><br><span class="line">&lt;div class=&quot;#app&quot; v-cloak&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;value.name&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">// css 中</span><br><span class="line">[v-cloak] &#123;</span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总结：通过this.$refs.lzzhyChild.xxx和this.$parent.xxx可以分别操作父子中的任何东西(比如方法：this.$refs.lzzhyChild.xxx(),弹框flagDialog：this.$refs.lzzhyChild.xxx) ，就跟在本页面一样操作,调用方法需要()。</p>
+<h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><p>props: 父 =&gt; 子</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">父：</span><br><span class="line"></span><br><span class="line">&lt;child :message=&quot;‘需要传的东西’&quot;&gt;</span><br></pre></td></tr></table></figure>
 
-<p>这样就可以解决闪烁,但是会出现白屏,这样可以结合骨架屏使用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">子：</span><br><span class="line"></span><br><span class="line">props: &#123;</span><br><span class="line">    message: &#123;</span><br><span class="line">        type: string</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$emit: 子 =&gt; 父</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">父：</span><br><span class="line"></span><br><span class="line">&lt;child @HHH=&apos;hhh&apos;&gt;&lt;/child&gt;</span><br><span class="line"></span><br><span class="line">hhh(val)&#123;</span><br><span class="line">    console.log(val) // 123</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">子：</span><br><span class="line"></span><br><span class="line">&lt;div @click=childClick()&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">childClick()&#123;</span><br><span class="line">    this.$emit(&apos;HHH&apos;,123)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
   </entry>
   <entry>
@@ -1233,7 +1222,7 @@
     <title>学习笔记-数据处理</title>
     <url>/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>由于现在采用的都是前后端分离的开发模式，因此在前后端联调时会出现需要数据处理的问题。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="Object-kays-Object-values"><a href="#Object-kays-Object-values" class="headerlink" title="Object.kays || Object.values"></a>Object.kays || Object.values</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fileMap: &#123;</span><br><span class="line">    335: [</span><br><span class="line">        &#123;</span><br><span class="line">            fileId: &quot;aGViZWlvZHJfYjM0ODMwZTg2NGUwNDg2M2FlMWJkOTNhZGMwMzBmNTU=.jpeg&quot;</span><br><span class="line">            fileName: &quot;5.26-2.jpeg&quot;</span><br><span class="line">            previewUrl: &quot;.jpeg&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            fileId: &quot;aGViZWlvZHJfYjM0ODMwZTg2NGUwNDg2M2FlMWJkOTNhZGMwMzBmNTU=.jpeg&quot;</span><br><span class="line">            fileName: &quot;5.26-2.jpeg&quot;</span><br><span class="line">            previewUrl: &quot;.jpeg&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    337: [</span><br><span class="line">        &#123;</span><br><span class="line">            fileId: &quot;aGViZWlvZHJfYjM0ODMwZTg2NGUwNDg2M2FlMWJkOTNhZGMwMzBmNTU=.jpeg&quot;</span><br><span class="line">            fileName: &quot;5.26-2.jpeg&quot;</span><br><span class="line">            previewUrl: &quot;.jpeg&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="Object-kays-Object-values"><a href="#Object-kays-Object-values" class="headerlink" title="Object.kays || Object.values"></a>Object.kays || Object.values</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fileMap: &#123;</span><br><span class="line">    335: [</span><br><span class="line">        &#123;</span><br><span class="line">            fileId: &quot;=.jpeg&quot;</span><br><span class="line">            fileName: &quot;5.26-2.jpeg&quot;</span><br><span class="line">            previewUrl: &quot;.jpeg&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            fileId: &quot;=.jpeg&quot;</span><br><span class="line">            fileName: &quot;5.26-2.jpeg&quot;</span><br><span class="line">            previewUrl: &quot;.jpeg&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    337: [</span><br><span class="line">        &#123;</span><br><span class="line">            fileId: &quot;=.jpeg&quot;</span><br><span class="line">            fileName: &quot;5.26-2.jpeg&quot;</span><br><span class="line">            previewUrl: &quot;.jpeg&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Object.kays(fileMap)  // fileMap:[“335”,”337”]<br>Object.values(fileMap)  // fileMap:[{335的数据}],[{337的数据}]</p>
 <h3 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h3><blockquote>
