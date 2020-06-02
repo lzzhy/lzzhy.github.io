@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="父子组件通信$refs12345父：&amp;lt;child $ref=&amp;apos;lzzhyChild&amp;apos;&amp;gt;&amp;lt;/child&amp;gt;methods里面，可以通过操作this.$refs.lzzhyChild.xxx来操作子组件  12子：methods里面，可以通过操作this.$parent.xxx来操作父组件  总结：通过this.$refs.lzzhyChild.xxx和thi">
+<meta name="description" content="父子组件通信props 和 $emitprops: 父 =&amp;gt; 子 123父：&amp;lt;child :message=&amp;quot;‘需要传的东西’&amp;quot;&amp;gt;  1234567子：props: &amp;#123;    message: &amp;#123;        type: string    &amp;#125;&amp;#125;  $emit: 子 =&amp;gt; 父 1234567父：&amp;lt;child">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于 Vue 的那些事">
 <meta property="og:url" content="https://lzzhy.github.io/关于 Vue 的那些事/index.html">
 <meta property="og:site_name" content="lzzhy Blog">
-<meta property="og:description" content="父子组件通信$refs12345父：&amp;lt;child $ref=&amp;apos;lzzhyChild&amp;apos;&amp;gt;&amp;lt;/child&amp;gt;methods里面，可以通过操作this.$refs.lzzhyChild.xxx来操作子组件  12子：methods里面，可以通过操作this.$parent.xxx来操作父组件  总结：通过this.$refs.lzzhyChild.xxx和thi">
+<meta property="og:description" content="父子组件通信props 和 $emitprops: 父 =&amp;gt; 子 123父：&amp;lt;child :message=&amp;quot;‘需要传的东西’&amp;quot;&amp;gt;  1234567子：props: &amp;#123;    message: &amp;#123;        type: string    &amp;#125;&amp;#125;  $emit: 子 =&amp;gt; 父 1234567父：&amp;lt;child">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-02T09:36:22.770Z">
+<meta property="og:updated_time" content="2020-06-02T09:41:27.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 Vue 的那些事">
-<meta name="twitter:description" content="父子组件通信$refs12345父：&amp;lt;child $ref=&amp;apos;lzzhyChild&amp;apos;&amp;gt;&amp;lt;/child&amp;gt;methods里面，可以通过操作this.$refs.lzzhyChild.xxx来操作子组件  12子：methods里面，可以通过操作this.$parent.xxx来操作父组件  总结：通过this.$refs.lzzhyChild.xxx和thi">
+<meta name="twitter:description" content="父子组件通信props 和 $emitprops: 父 =&amp;gt; 子 123父：&amp;lt;child :message=&amp;quot;‘需要传的东西’&amp;quot;&amp;gt;  1234567子：props: &amp;#123;    message: &amp;#123;        type: string    &amp;#125;&amp;#125;  $emit: 子 =&amp;gt; 父 1234567父：&amp;lt;child">
 
 
 
@@ -346,7 +346,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  184
+                  189
                 </span>
               
 
@@ -371,12 +371,7 @@
       
 
       
-        <h2 id="父子组件通信"><a href="#父子组件通信" class="headerlink" title="父子组件通信"></a>父子组件通信</h2><h3 id="refs"><a href="#refs" class="headerlink" title="$refs"></a>$refs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">父：</span><br><span class="line"></span><br><span class="line">&lt;child $ref=&apos;lzzhyChild&apos;&gt;&lt;/child&gt;</span><br><span class="line"></span><br><span class="line">methods里面，可以通过操作this.$refs.lzzhyChild.xxx来操作子组件</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">子：</span><br><span class="line">methods里面，可以通过操作this.$parent.xxx来操作父组件</span><br></pre></td></tr></table></figure>
-
-<p>总结：通过this.$refs.lzzhyChild.xxx和this.$parent.xxx可以分别操作父子中的任何东西(比如方法：this.$refs.lzzhyChild.xxx(),弹框flagDialog：this.$refs.lzzhyChild.xxx) ，就跟在本页面一样操作,调用方法需要()。</p>
-<h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><p>props: 父 =&gt; 子</p>
+        <h2 id="父子组件通信"><a href="#父子组件通信" class="headerlink" title="父子组件通信"></a>父子组件通信</h2><h3 id="props-和-emit"><a href="#props-和-emit" class="headerlink" title="props 和 $emit"></a>props 和 $emit</h3><p>props: 父 =&gt; 子</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">父：</span><br><span class="line"></span><br><span class="line">&lt;child :message=&quot;‘需要传的东西’&quot;&gt;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">子：</span><br><span class="line"></span><br><span class="line">props: &#123;</span><br><span class="line">    message: &#123;</span><br><span class="line">        type: string</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -386,6 +381,11 @@
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">子：</span><br><span class="line"></span><br><span class="line">&lt;div @click=childClick()&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">childClick()&#123;</span><br><span class="line">    this.$emit(&apos;HHH&apos;,123)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="refs-和-this-parent"><a href="#refs-和-this-parent" class="headerlink" title="$refs 和 this.$parent"></a>$refs 和 this.$parent</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">父：</span><br><span class="line"></span><br><span class="line">&lt;child $ref=&apos;lzzhyChild&apos;&gt;&lt;/child&gt;</span><br><span class="line"></span><br><span class="line">methods里面，可以通过操作this.$refs.lzzhyChild.xxx来操作子组件</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">子：</span><br><span class="line"></span><br><span class="line">methods里面，可以通过操作this.$parent.xxx来操作父组件</span><br></pre></td></tr></table></figure>
+
+<p>总结：通过this.$refs.lzzhyChild.xxx和this.$parent.xxx可以分别操作父子中的任何东西(比如方法：this.$refs.lzzhyChild.xxx(),弹框flagDialog：this.$refs.lzzhyChild.xxx) ，就跟在本页面一样操作,调用方法需要()。</p>
 
       
     </div>
@@ -551,7 +551,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#父子组件通信"><span class="nav-number">1.</span> <span class="nav-text">父子组件通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#refs"><span class="nav-number">1.1.</span> <span class="nav-text">$refs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#props"><span class="nav-number">1.2.</span> <span class="nav-text">props</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#父子组件通信"><span class="nav-number">1.</span> <span class="nav-text">父子组件通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#props-和-emit"><span class="nav-number">1.1.</span> <span class="nav-text">props 和 $emit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#refs-和-this-parent"><span class="nav-number">1.2.</span> <span class="nav-text">$refs 和 this.$parent</span></a></li></ol></li></ol></div>
             
 
           </div>

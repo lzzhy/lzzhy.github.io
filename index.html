@@ -987,7 +987,11 @@
         
           
             <p>每次会去看红宝书，会去看人家的总结和视频…有时候觉得这些东西很重要，知道要记下来可是没多久就又忘记了。所以还是把它记录在我的博客中吧o(<em>￣︶￣</em>)o</p>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>页面渲染时，dom元素所采用的<em>布局模型</em>,可通过<em>box-sizing</em>来设置，根据计算宽高的区域可分为：</p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="超出则隐藏并显示省略号"><a href="#超出则隐藏并显示省略号" class="headerlink" title="超出则隐藏并显示省略号"></a>超出则隐藏并显示省略号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">一行：</span><br><span class="line">overflow: hidden;</span><br><span class="line">text-overflow: ellipsis;</span><br><span class="line">white-space: nowrap;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">多行：</span><br><span class="line">overflow: hidden;</span><br><span class="line">text-overflow: ellipsis;</span><br><span class="line">display: -webkit-box;</span><br><span class="line">-webkit-line-clamp: 3;</span><br><span class="line">-webkit-box-orient: vertical;</span><br></pre></td></tr></table></figure>
+
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>页面渲染时，dom元素所采用的<em>布局模型</em>,可通过<em>box-sizing</em>来设置，根据计算宽高的区域可分为：</p>
 <ul>
 <li>content-box (W3C 标准盒模型)</li>
 <li>border-box (IE 盒模型)</li>
