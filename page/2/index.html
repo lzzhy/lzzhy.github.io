@@ -1045,7 +1045,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  222
+                  297
                 </span>
               
 
@@ -1082,11 +1082,12 @@
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">子：</span><br><span class="line"></span><br><span class="line">&lt;div @click=childClick()&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">childClick()&#123;</span><br><span class="line">    this.$emit(&apos;HHH&apos;,123)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>父 =&gt; 子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">父：</span><br><span class="line"></span><br><span class="line">@click1=&quot;fn&quot;</span><br><span class="line">fn() &#123;</span><br><span class="line">    console.log(&apos;123&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="子组件要修改父组件-sync"><a href="#子组件要修改父组件-sync" class="headerlink" title="子组件要修改父组件 sync"></a>子组件要修改父组件 sync</h3><p>sync 是一个语法糖。其实就是 $emit 中使用的一个简写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">子：</span><br><span class="line"></span><br><span class="line">fn() &#123;</span><br><span class="line">    this.$emit(&apos;updata:money&apos;,100)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">子： </span><br><span class="line">@click=&quot;handleClick()&quot;</span><br><span class="line">handleClick(e) &#123;</span><br><span class="line">    this.$emit(&apos;click1&apos;,e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">父：</span><br><span class="line"></span><br><span class="line">&lt;demo :money=&quot;money&quot; @updata:money=&quot;fn&quot;&gt; // 原本的写法</span><br><span class="line"></span><br><span class="line">&lt;demo :money.sync=&quot;money&quot;&gt;  // sync的写法</span><br></pre></td></tr></table></figure>
 
+<p>总结： 当父组件中有类似 :money=”money” @updata:money=”fn” 这种写法的时候，就可以直接改成 :money.sync=”money” 这种写法</p>
 <h3 id="refs-和-this-parent"><a href="#refs-和-this-parent" class="headerlink" title="$refs 和 this.$parent"></a>$refs 和 this.$parent</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">父：</span><br><span class="line"></span><br><span class="line">&lt;child $ref=&apos;lzzhyChild&apos;&gt;&lt;/child&gt;</span><br><span class="line"></span><br><span class="line">methods里面，可以通过操作this.$refs.lzzhyChild.xxx来操作子组件</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">子：</span><br><span class="line"></span><br><span class="line">methods里面，可以通过操作this.$parent.xxx来操作父组件</span><br></pre></td></tr></table></figure>
@@ -1978,7 +1979,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.5k
+                  2.6k
                 </span>
               
 
@@ -2135,6 +2136,11 @@
 <li>Command + Shift + .    //来快速（在 Finder 中）显示 和 隐藏 隐藏文件</li>
 <li>在 blog 项目目录下找到 .deploy_git =&gt; .git =&gt; hooks, 删除 hooks 里面的commit-msg文件</li>
 </ul>
+<h2 id="github-上的博客仓库不小心被删"><a href="#github-上的博客仓库不小心被删" class="headerlink" title="github 上的博客仓库不小心被删"></a>github 上的博客仓库不小心被删</h2><h3 id="先还原github上的仓库"><a href="#先还原github上的仓库" class="headerlink" title="先还原github上的仓库"></a>先还原github上的仓库</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG2.png" alt="cmd-markdown-logo"></p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG3.png" alt="cmd-markdown-logo"></p>
+<p>再去自己仓库确认下是否已找回</p>
+<h3 id="github上的仓库已被还原，可是访问博客地址还是404"><a href="#github上的仓库已被还原，可是访问博客地址还是404" class="headerlink" title="github上的仓库已被还原，可是访问博客地址还是404"></a>github上的仓库已被还原，可是访问博客地址还是404</h3><p>进入 github 上的博客仓库，在 setting =&gt; github pages =&gt; choose themes(类似这种点进去) =&gt; 选择一个主题 就好了</p>
+<p>现在在访问博客地址就可以了</p>
 
           
         
