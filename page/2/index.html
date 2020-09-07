@@ -1799,7 +1799,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  775
+                  806
                 </span>
               
 
@@ -1834,6 +1834,7 @@
 <p>[…new Set([2,”12”,2,12,1,2,1,6,12,13,6])]<br>//  [2, “12”, 12, 1, 6, 13]</p>
 </blockquote>
 <h3 id="数组对象平摊-多层数组平摊成一层"><a href="#数组对象平摊-多层数组平摊成一层" class="headerlink" title="数组对象平摊 / 多层数组平摊成一层"></a>数组对象平摊 / 多层数组平摊成一层</h3><p>var arr = [{name:’11’},[{name:’11’}]]<br>arr.flat(Infinity)</p>
+<h3 id="数组对象过滤掉不符合条件的那个对象"><a href="#数组对象过滤掉不符合条件的那个对象" class="headerlink" title="数组对象过滤掉不符合条件的那个对象"></a>数组对象过滤掉不符合条件的那个对象</h3><p>this.xxx = 对象数组.filter(item =&gt; {<br>    return item.name !== ‘行政’<br>})</p>
 <h3 id="往数组中添加对象"><a href="#往数组中添加对象" class="headerlink" title="往数组中添加对象"></a>往数组中添加对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">bad:</span><br><span class="line"></span><br><span class="line">const lzzhyArr = [];</span><br><span class="line">const lzzhyObj = &#123;&#125;;</span><br><span class="line">this.xxx.forEach(element =&gt; &#123;</span><br><span class="line">    lzzhyObj.name = element.name;</span><br><span class="line">    lzzhyObj.sex = element.sex;</span><br><span class="line">&#125;)</span><br><span class="line">lzzhyArr.push(lzzhyObj) // 不确定是不是放这</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">good:</span><br><span class="line"></span><br><span class="line">let lzzhyArr = [];</span><br><span class="line">this.xxx.forEach(element =&gt; &#123;</span><br><span class="line">    lzzhyArr.push(&#123;</span><br><span class="line">        fileName: element.name,</span><br><span class="line">        fileId: element.response.data.fileId</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
