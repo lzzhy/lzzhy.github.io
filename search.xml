@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>初探 babel</title>
-    <url>/%E5%88%9D%E6%8E%A2-babel/</url>
+    <url>/%E5%88%9D%E6%8E%A2babel/</url>
     <content><![CDATA[<p>情况呢是这样一个情况，在自己写的一个 <a href="https://github.com/lzzhy/photoAlbum/tree/master/photoalbum-web" target="_blank" rel="noopener">相册</a> 的项目中 <a href="https://element.eleme.cn/2.13/#/zh-CN/component/quickstart" target="_blank" rel="noopener">局部引入 Element-UI</a> 时碰到报错</p>
 <h2 id="报错过程"><a href="#报错过程" class="headerlink" title="报错过程"></a>报错过程</h2><p>在项目中局部安装 elem 时：</p>
 <ul>
