@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。 定义HTTPS （全称：Hyper Tex">
+<meta name="description" content="本文主要介绍 npm 脚本(npm scripts) 什么是 npm 脚本定义在 package.json（npm init -y） 里面的脚本，就称之为 npm 脚本。使用 scripts 字段定义脚本命令。如： 12345&amp;quot;scripts&amp;quot;: &amp;#123;    &amp;quot;serve&amp;quot;: &amp;quot;node build.js&amp;quot;&amp;#125;,//  :">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP系列之HTTPS">
-<meta property="og:url" content="https://lzzhy.github.io/HTTP系列之HTTPS/index.html">
+<meta property="og:title" content="package.json 中的 npm 脚本(npm scripts)使用指南">
+<meta property="og:url" content="https://lzzhy.github.io/package.json 中的 npm 脚本(npm scripts)使用指南/index.html">
 <meta property="og:site_name" content="lzzhy Blog">
-<meta property="og:description" content="HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。 定义HTTPS （全称：Hyper Tex">
+<meta property="og:description" content="本文主要介绍 npm 脚本(npm scripts) 什么是 npm 脚本定义在 package.json（npm init -y） 里面的脚本，就称之为 npm 脚本。使用 scripts 字段定义脚本命令。如： 12345&amp;quot;scripts&amp;quot;: &amp;#123;    &amp;quot;serve&amp;quot;: &amp;quot;node build.js&amp;quot;&amp;#125;,//  :">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-15T06:20:27.425Z">
+<meta property="og:updated_time" content="2020-10-14T07:56:36.597Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP系列之HTTPS">
-<meta name="twitter:description" content="HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。 定义HTTPS （全称：Hyper Tex">
+<meta name="twitter:title" content="package.json 中的 npm 脚本(npm scripts)使用指南">
+<meta name="twitter:description" content="本文主要介绍 npm 脚本(npm scripts) 什么是 npm 脚本定义在 package.json（npm init -y） 里面的脚本，就称之为 npm 脚本。使用 scripts 字段定义脚本命令。如： 12345&amp;quot;scripts&amp;quot;: &amp;#123;    &amp;quot;serve&amp;quot;: &amp;quot;node build.js&amp;quot;&amp;#125;,//  :">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://lzzhy.github.io/HTTP系列之HTTPS/">
+  <link rel="canonical" href="https://lzzhy.github.io/package.json 中的 npm 脚本(npm scripts)使用指南/">
 
 
 
 
 
-  <title>HTTP系列之HTTPS | lzzhy Blog</title>
+  <title>package.json 中的 npm 脚本(npm scripts)使用指南 | lzzhy Blog</title>
   
 
 
@@ -270,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTPS/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/package.json 中的 npm 脚本(npm scripts)使用指南/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -287,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTTP系列之HTTPS</h1>
+          <h1 class="post-title" itemprop="name headline">package.json 中的 npm 脚本(npm scripts)使用指南</h1>
         
 
         <div class="post-meta">
@@ -299,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-14T15:16:45+08:00">
-                2019-11-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-14T15:05:35+08:00">
+                2020-10-14
               </time>
             
 
@@ -318,8 +318,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/HTTP系列之HTTPS/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/HTTP系列之HTTPS/" itemprop="commentCount"></span>
+                <a href="/package.json 中的 npm 脚本(npm scripts)使用指南/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/package.json 中的 npm 脚本(npm scripts)使用指南/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -346,7 +346,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  837
                 </span>
               
 
@@ -371,20 +371,45 @@
       
 
       
-        <p>HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。</p>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>HTTPS （全称：Hyper Text Transfer Protocol over SecureSocket Layer），是以安全为目标的HTTP通道，在HTTP的基础上通过传输加密和身份认证保证了传输过程的安全性。HTTPS在HTTP的基础下加入SSL层，HTTPS的安全基础是 SSL，因此加密的详细内容就需要SSL。</p>
-<h3 id="密码学基础"><a href="#密码学基础" class="headerlink" title="密码学基础"></a>密码学基础</h3><p><font face="微软雅黑" size="3" color="Green">明文</font>：未被加密过的原始数据。<br><font face="微软雅黑" size="3" color="Green">密文</font>：明文被某种加密算法加密之后，会变成密文，从而确保原始数据的安全。密文也可以被解密，得到原始的明文。<br><font face="微软雅黑" size="3" color="Green">密钥</font>：一种参数，是在明文转换为密文或将密文转换为明文的算法中输入的。分为对称密钥与非对称密钥，分别应用在对称加密和非对称加密上。 </p>
-<h3 id="HTTPS加密原理"><a href="#HTTPS加密原理" class="headerlink" title="HTTPS加密原理"></a>HTTPS加密原理</h3><p>HTTPS为了兼顾安全与效率，同时使用了对称加密和非对称加密</p>
-<h4 id="对称加密算法"><a href="#对称加密算法" class="headerlink" title="对称加密算法"></a>对称加密算法</h4><p>又叫做私钥加密，即信息的发送方和接收方使用同一个密钥去加密和解密数据。特点是算法公开、加密和解密速度快，适合于对大数据量进行加密，常见的对称加密算法有DES、3DES、TDEA、Blowfish、RC5和IDEA。<br>加密过程：明文 + 加密算法 + 私钥 =&gt; 密文<br>解密过程：密文 + 解密算法 + 私钥 =&gt; 明文<br>称之为“对称”的原因：<br>其中使用到的密钥叫做私钥，即个人所有不能被泄露。加密过程中的私钥与解密过程中用到的私钥是同一个密钥。<br>缺点：密钥安全管理困难。由于对称加密的算法是公开的，所以一旦私钥被泄露，那么密文就很容易被破解。</p>
-<h4 id="非对称加密算法："><a href="#非对称加密算法：" class="headerlink" title="非对称加密算法："></a>非对称加密算法：</h4><p>又叫公钥加密。使用一对密钥，即公钥和私钥，且二者成对出现。私钥自己保存，不能对外泄露。公钥则任何人都可以获得该密钥。用公钥或私钥中的任何一个进行加密，用另一个进行解密。<br>被公钥加密过的密文只能被私钥解密，过程如下：<br>明文 + 加密算法 + 公钥 =&gt; 密文， 密文 + 解密算法 + 私钥 =&gt; 明文<br>被私钥加密过的密文只能被公钥解密，过程如下：<br>明文 + 加密算法 + 私钥 =&gt; 密文， 密文 + 解密算法 + 公钥 =&gt; 明文<br>缺点：加密和解密花费时间长、速度慢，只适合对少量数据进行加密。 </p>
-<h4 id="确认身份-——-数字证书"><a href="#确认身份-——-数字证书" class="headerlink" title="确认身份 —— 数字证书"></a>确认身份 —— 数字证书</h4><p>在<em>非对称加密时</em>，首先需要将 A 的公钥给 B ，那么在这个过程中，安全是没有保障的，中间人可以拦截到 A 的公钥，就可以对拦截到的公钥进行篡改（如，本来 A 应该给 B 传：110，但是被中间人拦截了，所以 B 最后收到的可能不是110）。</p>
-<p>那怎么确认 A 给 B 的公钥确实是正确的没有被修改的呢？</p>
-<p>这个时候就需要数字签名了（数字签名也就是相当于公证处在公证书上盖章），数字签名和原始信息合在一起称为<em>数字证书</em>。</p>
-<p>在拿到数字证书之后，就用 Hash 算法，再次生成消息摘要。然后用 CA 的公钥对数字签名解密，得到CA创建的消息摘要。两者一比，就知道有没有人篡改了！</p>
-<h3 id="HTTPS访问过程"><a href="#HTTPS访问过程" class="headerlink" title="HTTPS访问过程"></a>HTTPS访问过程</h3><p>客户端生成的随机密钥，用来进行对称加密</p>
-<p>服务器端的公钥和私钥，用来进行非对称加密</p>
-<p>1.浏览器将支持的加密信息发送给网站服务器；<br>2.服务器会选择出一套加密算法和哈希算法，将验证身份的信息以证书（证书发布CA机构、证书有效期、公钥、证书所有者、签名等）的形式发送给浏览器；<br>3.浏览器收到证书之后需要验证证书的合法性，当证书受信之后，浏览器会随机生成一串密码，并使用证书中的公钥加密。之后就是使用约定好的哈希算法握手消息，并生成随机数对消息进行加密，再将生成的信息发送给服务器；<br>4.当服务器接收到浏览器发送过来的数据后，会使用服务器本身的私钥将信息解密确定密码，然后通过密码解密浏览器发送过来的握手信息，并验证哈希是否与浏览器一致。然后服务器会使用密码加密新的握手信息，发送给浏览器；<br>5.最后浏览器解密并计算经过哈希算法加密的握手消息，如果与服务发送过来的哈希一致，则此握手过程结束后，服务器与浏览器会使用之前浏览器生成的随机密码和对称加密算法进行加密交换数据。</p>
+        <p>本文主要介绍 npm 脚本(npm scripts)</p>
+<h3 id="什么是-npm-脚本"><a href="#什么是-npm-脚本" class="headerlink" title="什么是 npm 脚本"></a>什么是 npm 脚本</h3><p>定义在 package.json（npm init -y） 里面的脚本，就称之为 npm 脚本。使用 scripts 字段定义脚本命令。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;serve&quot;: &quot;node build.js&quot;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">//  : 前面的是自己定义的，: 后面的是一些框架，库的语法，因此执行 npm run serve === node build.js</span><br></pre></td></tr></table></figure>
 
+<p>npm 脚本的优点有很多：</p>
+<ul>
+<li>项目相关脚本，可以集中在一起</li>
+<li>不同项目的脚本命令，只要功能相同，就可以有同样的对外接口。用户不需要知道怎么测试你的项目，只要运行npm run test即可</li>
+<li>可以利用 npm 提供的很多辅助功能</li>
+</ul>
+<p>查看当前项目的所有 npm 脚本命令，可以使用不带任何参数的 npm run 命令</p>
+<h3 id="npm-脚本原理"><a href="#npm-脚本原理" class="headerlink" title="npm 脚本原理"></a>npm 脚本原理</h3><p>每当执行 npm run，就会自动新建一个 Shell，在这个 Shell 里面执行脚本命令。因此，只要是 Shell(或者 Bash)可以执行的命令，都可以写在脚本中</p>
+<p>比较特别的是，npm run 新建的 Shell，会将当前目录 node_modules/.bin 的子目录加入 PATH 变量，执行结束后，再把 PATH 恢复原样。<br>这就意味着，当前目录的node_modules/.bin子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径。比如，当前项目的依赖里面有 Babel，只要直接写 Babel test就可以了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;test&quot;: &quot;Babel test&quot;</span><br></pre></td></tr></table></figure>
+
+<p>而不用写成下面这样:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;test&quot;: &quot;./node_modules/.bin/Babel test&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="npm-脚本使用通配符"><a href="#npm-脚本使用通配符" class="headerlink" title="npm 脚本使用通配符"></a>npm 脚本使用通配符</h3><p>由于 npm 脚本就是 Shell 脚本，因此可以使用 Shell 通配符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- * 表示任意文件名，** 表示任意一层子目录 --&gt;</span><br><span class="line"></span><br><span class="line">&quot;lint&quot;: &quot;jshint *.js&quot;</span><br><span class="line">&quot;lint&quot;: &quot;jshint **/*.js&quot;</span><br></pre></td></tr></table></figure>
+
+<p>如果要将通配符传入原始命令，防止被 Shell 转义，要将星号转义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;test&quot;: &quot;tap test/\*.js&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="npm-脚本传参"><a href="#npm-脚本传参" class="headerlink" title="npm 脚本传参"></a>npm 脚本传参</h3><p>向 npm 脚本传参，要使用 – 标明，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;lint&quot;: &quot;jshint **.js&quot;</span><br><span class="line"></span><br><span class="line">&lt;!-- 向上面这句传参 --&gt;</span><br><span class="line"></span><br><span class="line">npm run lint --  --reporter checkstyle &gt; checkstyle.xml</span><br></pre></td></tr></table></figure>
+
+<p>也可以在 package.json 中封装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;lint&quot;: &quot;jshint **.js&quot;,</span><br><span class="line">&quot;lint:checkstyle&quot;: &quot;npm run lint -- --reporter checkstyle &gt; checkstyle.xml&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这两个是同一个意思</p>
+<h3 id="npm-脚本执行顺序"><a href="#npm-脚本执行顺序" class="headerlink" title="npm 脚本执行顺序"></a>npm 脚本执行顺序</h3><p>如果在 npm 脚本中执行多个任务，那么需要明确他们的执行任务</p>
+<p>如果是同时执行，可以用 &amp;：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run script1.js &amp; npm run script2.js</span><br></pre></td></tr></table></figure>
+
+<p>如果是一个执行完才能执行下一个任务的话，就用 &amp;&amp;：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run script1.js &amp;&amp; npm run script2.js</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用脚本示栗："><a href="#常用脚本示栗：" class="headerlink" title="常用脚本示栗："></a>常用脚本示栗：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 删除目录</span><br><span class="line">&quot;clean&quot;: &quot;rimraf dist/*&quot;,</span><br><span class="line"></span><br><span class="line">// 本地搭建一个 HTTP 服务</span><br><span class="line">&quot;serve&quot;: &quot;http-server -p 9090 dist/&quot;,</span><br><span class="line"></span><br><span class="line">// 打开浏览器</span><br><span class="line">&quot;open:dev&quot;: &quot;opener http://localhost:9090&quot;,</span><br><span class="line"></span><br><span class="line">// 实时刷新</span><br><span class="line"> &quot;livereload&quot;: &quot;live-reload --port 9091 dist/&quot;,</span><br><span class="line"></span><br><span class="line">// 构建 HTML 文件</span><br><span class="line">&quot;build:html&quot;: &quot;jade index.jade &gt; dist/index.html&quot;,</span><br><span class="line"></span><br><span class="line">// 只要 CSS 文件有变动，就重新执行构建</span><br><span class="line">&quot;watch:css&quot;: &quot;watch &apos;npm run build:css&apos; assets/styles/&quot;,</span><br><span class="line"></span><br><span class="line">// 只要 HTML 文件有变动，就重新执行构建</span><br><span class="line">&quot;watch:html&quot;: &quot;watch &apos;npm run build:html&apos; assets/html&quot;,</span><br><span class="line"></span><br><span class="line">// 部署到 Amazon S3</span><br><span class="line">&quot;deploy:prod&quot;: &quot;s3-cli sync ./dist/ s3://example-com/prod-site/&quot;,</span><br><span class="line"></span><br><span class="line">// 构建 favicon</span><br><span class="line">&quot;build:favicon&quot;: &quot;node scripts/favicon.js&quot;,</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -408,8 +433,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/HTTP系列之HTTP2/" rel="next" title="HTTP系列之HTTP2">
-                <i class="fa fa-chevron-left"></i> HTTP系列之HTTP2
+              <a href="/初探babel/" rel="next" title="初探 babel">
+                <i class="fa fa-chevron-left"></i> 初探 babel
               </a>
             
           </div>
@@ -417,10 +442,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/webpack工程化/" rel="prev" title="webpack工程化">
-                webpack工程化 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -549,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#密码学基础"><span class="nav-number">2.</span> <span class="nav-text">密码学基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS加密原理"><span class="nav-number">3.</span> <span class="nav-text">HTTPS加密原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对称加密算法"><span class="nav-number">3.1.</span> <span class="nav-text">对称加密算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非对称加密算法："><span class="nav-number">3.2.</span> <span class="nav-text">非对称加密算法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确认身份-——-数字证书"><span class="nav-number">3.3.</span> <span class="nav-text">确认身份 —— 数字证书</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS访问过程"><span class="nav-number">4.</span> <span class="nav-text">HTTPS访问过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是-npm-脚本"><span class="nav-number">1.</span> <span class="nav-text">什么是 npm 脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm-脚本原理"><span class="nav-number">2.</span> <span class="nav-text">npm 脚本原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm-脚本使用通配符"><span class="nav-number">3.</span> <span class="nav-text">npm 脚本使用通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm-脚本传参"><span class="nav-number">4.</span> <span class="nav-text">npm 脚本传参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm-脚本执行顺序"><span class="nav-number">5.</span> <span class="nav-text">npm 脚本执行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用脚本示栗："><span class="nav-number">6.</span> <span class="nav-text">常用脚本示栗：</span></a></li></ol></div>
             
 
           </div>
