@@ -526,7 +526,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  847
+                  1.4k
                 </span>
               
 
@@ -569,31 +569,49 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [&quot;@babel/preset-env&quot;],</span><br><span class="line">    &quot;plugins&quot;: [</span><br><span class="line">      [</span><br><span class="line">        &quot;component&quot;,</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;libraryName&quot;: &quot;element-ui&quot;,</span><br><span class="line">          &quot;styleLibraryName&quot;: &quot;theme-chalk&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>原因： 应该是因为版本问题。当前使用的 .babel 版本是7.8.0，而 elem 的 .babelrc 配置 中还是之前版本的”presets”: [[“es2015”, { “modules”: false }]]</p>
-<h2 id="初探-babel-（babel-常用知识点整合）"><a href="#初探-babel-（babel-常用知识点整合）" class="headerlink" title="初探 babel （babel 常用知识点整合）"></a>初探 babel （babel 常用知识点整合）</h2><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E6%8E%A2%20babel/WechatIMG8.png" alt="cmd-markdown-logo"><br><a href="https://www.babeljs.cn/docs/usage" target="_blank" rel="noopener">Babel</a> 是一个 js 编译器。主要功能：</p>
+<h2 id="初探-babel-（babel-常用知识点整合）"><a href="#初探-babel-（babel-常用知识点整合）" class="headerlink" title="初探 babel （babel 常用知识点整合）"></a>初探 babel （babel 常用知识点整合）</h2><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E6%8E%A2%20babel/WechatIMG8.png" alt="cmd-markdown-logo"><br><a href="https://www.babeljs.cn/docs/usage" target="_blank" rel="noopener">Babel</a> 是一个广泛使用的转码器，主要功能：</p>
 <ul>
-<li>语法转换（将 es5 转换成 es6，能适应大部分浏览器）</li>
+<li>语法转换（将 ES5 转换成 ES6，从而可以在现有环境执行）</li>
 <li>通过 Polyfill 方式在目标环境中添加缺失的特性 (通过 @babel/polyfill 模块)</li>
 <li>源码转换 (codemods)</li>
 </ul>
-<h3 id="环境构建-基础使用-demo"><a href="#环境构建-基础使用-demo" class="headerlink" title="环境构建 基础使用 demo:"></a>环境构建 基础使用 demo:</h3><ul>
-<li><p>安装 <a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">Node.js 环境</a>  </p>
-</li>
-<li><p>进入项目，初始化 package.json：npm init -y</p>
-</li>
-<li><p>安装：npm install –save-dev babel-preset-env babel-cli</p>
-</li>
-<li><p>创建文件并配置：.babelrc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [&quot;env&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>文件转化命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 将 src/index.js 文件转化成 dist/index.js --&gt;</span><br><span class="line">babel src/index.js -o dist/index.js</span><br><span class="line"></span><br><span class="line">&lt;!-- 文件夹转化 --&gt;</span><br><span class="line">babel src -d dist</span><br><span class="line"></span><br><span class="line">&lt;!-- 实时监控 --&gt;</span><br><span class="line">babel src -w -d dist</span><br></pre></td></tr></table></figure>
+<h3 id="babel【配置】详解"><a href="#babel【配置】详解" class="headerlink" title="babel【配置】详解"></a>babel【配置】详解</h3><p>对于前端来说 babel 主要使用的就是如何配置了。<a href="https://www.babeljs.cn/docs/configuration" target="_blank" rel="noopener">Babel</a> 左菜单中【指南】=&gt; 【使用指南】/【配置babel】，这两个菜单中是babel的基础配置，主要就是围绕 babel.config.js 和 .babelrc 这两个文件</p>
+<h4 id="配置文件-babelrc"><a href="#配置文件-babelrc" class="headerlink" title="配置文件 .babelrc"></a>配置文件 .babelrc</h4><p>Babel 的配置文件是 .babelrc 和 babel.config.js。使用Babel 的第一步就是配置这个文件（二选一）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- .babelrc 该文件用来设置转码规则和插件，基本格式如下 --&gt;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [],</span><br><span class="line">  &quot;plugins&quot;: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<blockquote>
+<p>presets字段设定转码规则，官方提供的规则集(如：ES2015转码规则：npm install –save-dev babel-preset-es2015)，具体的可以在<a href="https://www.babeljs.cn/docs/plugins" target="_blank" rel="noopener">Babel插件</a> 中查询根据需要安装。</p>
+<p>然后，将这些规则加入 .babelrc:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [</span><br><span class="line">      &quot;es2015&quot;,</span><br><span class="line">      &quot;react&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;plugins&quot;: []</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
 <p>注：babel.config.js 和 .babelrc 的区别： Babel 的两种并行的配置文件格式；babel.config.js 是针对项目范围的配置，针对第三方和自己的代码；而 .babelrc 是针对文件的配置；一般有了 babel.config.js 就不会去执行 .babelrc，并且要保留 .babelrc 的话就要把 babel.config.js 删除</p>
-</blockquote>
-<h3 id="babel-主要作用"><a href="#babel-主要作用" class="headerlink" title="babel 主要作用"></a>babel 主要作用</h3><p>babel 主要在配置。<a href="https://www.babeljs.cn/docs/configuration" target="_blank" rel="noopener">Babel</a> 左菜单中【指南】=&gt; 【使用指南】/【配置babel】，这两个菜单中是babel的基础配置，主要就是围绕 babel.config.js 和 .babelrc 这两个文件</p>
+<h4 id="命令行转码-babel-cli"><a href="#命令行转码-babel-cli" class="headerlink" title="命令行转码 babel-cli"></a>命令行转码 babel-cli</h4><p>Babel 提供 babel-cli 工具，用于命令行转码。如果项目要运行，全局环境必须要有Babel,也就是说项目产生了对环境的依赖。因此要用Babel的话先得安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev babel-cli</span><br></pre></td></tr></table></figure>
+
+<p>然后，改写 package.json: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;babel-cli&quot;: &quot;^6.0.0&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;build&quot;: &quot;babel src -d lib&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>转码的时候，就执行 npm run build</p>
+<h4 id="babel-register"><a href="#babel-register" class="headerlink" title="babel-register"></a>babel-register</h4><p>babel-register模块改写require命令，为它加上一个钩子。此后，每当使用require加载.js、.jsx、.es和.es6后缀名的文件，就会先用Babel进行转码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save-dev babel-register</span><br></pre></td></tr></table></figure>
+
+<p>使用时，必须首先加载babel-register:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">require(&quot;babel-register&quot;);</span><br><span class="line">require(&quot;./index.js&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>然后，就不需要手动对index.js转码了。</p>
+<p>需要注意的是，babel-register只会对require命令加载的文件转码，而不会对当前文件转码。另外，由于它是实时转码，所以只适合在开发环境使用。</p>
+<h4 id="babel-core"><a href="#babel-core" class="headerlink" title="babel-core"></a>babel-core</h4><p>babel-core 和 babel-cli 一样，也是使用 Babel 时必须要装的一个东西：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install babel-core --save</span><br></pre></td></tr></table></figure>
+
+<p>使用示栗：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var es6Code = &apos;let x = n =&gt; n + 1&apos;;</span><br><span class="line">var es5Code = require(&apos;babel-core&apos;)</span><br><span class="line">  .transform(es6Code, &#123;</span><br><span class="line">    presets: [&apos;es2015&apos;]</span><br><span class="line">  &#125;)</span><br><span class="line">  .code;</span><br><span class="line">// &apos;&quot;use strict&quot;;\n\nvar x = function x(n) &#123;\n  return n + 1;\n&#125;;&apos;</span><br></pre></td></tr></table></figure>
+
+<h4 id="babel-polyfill"><a href="#babel-polyfill" class="headerlink" title="babel-polyfill"></a>babel-polyfill</h4><p>babel-polyfill 是 Babel 的一个垫片。Babel 默认只转化新的 js 语法，而不转换新的API(如：Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法比如Object.assign）)</p>
+<p>举例来说，比如ES6在Array对象上新增了Array.from方法。Babel就不会转码这个方法。如果想让这个方法运行，必须使用babel-polyfill，为当前环境提供一个垫片。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save babel-polyfill</span><br></pre></td></tr></table></figure>
+
+<p>然后，在脚本头部，加入如下一行代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &apos;babel-polyfill&apos;;</span><br><span class="line">// 或者</span><br><span class="line">require(&apos;babel-polyfill&apos;);</span><br></pre></td></tr></table></figure>
+
 <h3 id="插件-Plugins-的使用"><a href="#插件-Plugins-的使用" class="headerlink" title="插件 Plugins 的使用"></a>插件 Plugins 的使用</h3><p>在官方文档中：babel 插件的使用流程都是差不多的。下面用插件 @babel/plugin-transform-arrow-functions(这个插件是转化函数的) 来举个栗子：</p>
 <ul>
 <li><p>安装 babel 环境：yarn add -D @babel/core @babel/cli</p>
@@ -613,7 +631,21 @@
 <ul>
 <li>直接执行 npm run build:test-arrow-function 就可以了，dist 下文件就是插件的效果</li>
 </ul>
-<h3 id="框架使用-babel"><a href="#框架使用-babel" class="headerlink" title="框架使用 babel"></a>框架使用 babel</h3><p>由于 babel 的功能是将 es5 转化成 es6。因此在我们使用的很多框架中其实都有使用到 babel，只是因为框架内部对 babel 做了处理，所以我们自己没有感觉到</p>
+<h3 id="环境构建-举例使用-demo"><a href="#环境构建-举例使用-demo" class="headerlink" title="环境构建 举例使用 demo:"></a>环境构建 举例使用 demo:</h3><ul>
+<li><p>安装 <a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">Node.js 环境</a>  </p>
+</li>
+<li><p>进入项目，初始化 package.json：npm init -y</p>
+</li>
+<li><p>安装：npm install –save-dev babel-preset-env babel-cli</p>
+</li>
+<li><p>创建文件并配置：.babelrc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [&quot;env&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文件转化命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 将 src/index.js 文件转化成 dist/index.js --&gt;</span><br><span class="line">babel src/index.js -o dist/index.js</span><br><span class="line"></span><br><span class="line">&lt;!-- 文件夹转化 --&gt;</span><br><span class="line">babel src -d dist</span><br><span class="line"></span><br><span class="line">&lt;!-- 实时监控 --&gt;</span><br><span class="line">babel src -w -d dist</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
 
           
         
