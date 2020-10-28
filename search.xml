@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>TypeScript 学习笔记</title>
+    <url>/TypeScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="理解-ES5、ES6、JavaScript、TypeScript-的概念和关系"><a href="#理解-ES5、ES6、JavaScript、TypeScript-的概念和关系" class="headerlink" title="理解 ES5、ES6、JavaScript、TypeScript 的概念和关系"></a>理解 ES5、ES6、JavaScript、TypeScript 的概念和关系</h2><p>ES 是客户端脚本语言的规范，ES5、ES6 是这个规范下的不同版本，TypeScript 和 JavaScript 是两种客户端脚本语言，JavaScript 实现了 ES5 规范，TypeScript实现了 ES6 规范。</p>
+<p>TypeScript 是 JavaScript 的超集(：包含了js的东西同时又拥有js没有的东西)，遵循最新的 ES6 的语法规范，TypeScript 扩展了 JavaScript 的语法。任何已经存在的JavaScript 的程序可以不加改动的在  TypeScript 环境下运行，TypeScript 只是在JavaScript 里加了一些遵循 ES6 的语法以及基于类的面向对象的一些特性。（Angular框架就是基于 TypeScript 上开发的），如今的TypeScript 是由微软和谷歌两大公司支持，基于此有理由认为在未来一段时间内 TypeScript 会成为前端主流开发。</p>
+<h2 id="TypeScript-的优势"><a href="#TypeScript-的优势" class="headerlink" title="TypeScript 的优势"></a>TypeScript 的优势</h2><ul>
+<li>是一门支持 ES6 规范的语言</li>
+<li>有强大的 IDE 支持：体现在三个特性上：类型检查(静态类型)、语法提示、重构</li>
+<li>是 Angular2 的开发语言</li>
+</ul>
+<h2 id="搭建-TypeScript-开发环境"><a href="#搭建-TypeScript-开发环境" class="headerlink" title="搭建 TypeScript 开发环境"></a>搭建 TypeScript 开发环境</h2><p>在线： <a href="https://www.typescriptlang.org/play?ts=4.0.2#code/G4QwTgBAtgngdiKBTAXBAzgFzASzgcwgF4IAiAGxwkz31IG4AoWBZCYiARgGYg" target="_blank" rel="noopener">TypeScript</a></p>
+<p>本地：</p>
+<ul>
+<li>安装 TypeScript：cnpm install -g typescript</li>
+<li>验证是否安装成功：tsc –version</li>
+</ul>
+<p>boolean,string,number,null,symbol,undefined<br>void</p>
+]]></content>
+  </entry>
+  <entry>
     <title>全方位入门git</title>
     <url>/%E5%85%A8%E6%96%B9%E4%BD%8D%E5%85%A5%E9%97%A8git/</url>
     <content><![CDATA[<h2 id="git-gitLab-gitHub-的区别"><a href="#git-gitLab-gitHub-的区别" class="headerlink" title="git,gitLab,gitHub 的区别"></a>git,gitLab,gitHub 的区别</h2><p>git 是一个版本控制工具，通过git 命令实现。</p>
@@ -38,6 +57,8 @@
 
 <p>将本地仓库的代码提交到远程仓库：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h3 id="取消在本地修改了很多的文件"><a href="#取消在本地修改了很多的文件" class="headerlink" title="取消在本地修改了很多的文件"></a>取消在本地修改了很多的文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout .</span><br></pre></td></tr></table></figure>
 
 <h3 id="文件已经进入到git版本管理中了怎么撤回"><a href="#文件已经进入到git版本管理中了怎么撤回" class="headerlink" title="文件已经进入到git版本管理中了怎么撤回"></a>文件已经进入到git版本管理中了怎么撤回</h3><p>文件已经提交到暂存区或者其他区怎么撤销git的版本管理：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- 退出git版本管理回到本地 --&gt;</span><br><span class="line"></span><br><span class="line">git reset HEAD 文件名  // git reset HEAD src/index.vue</span><br></pre></td></tr></table></figure>
@@ -1309,8 +1330,8 @@
 ]]></content>
   </entry>
   <entry>
-    <title>关于 Vue 的那些事</title>
-    <url>/%E5%85%B3%E4%BA%8E%20Vue%20%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
+    <title>Vue 组件通信</title>
+    <url>/Vue%20%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/</url>
     <content><![CDATA[<h2 id="父子组件通信"><a href="#父子组件通信" class="headerlink" title="父子组件通信"></a>父子组件通信</h2><h3 id="props-和-emit"><a href="#props-和-emit" class="headerlink" title="props 和 $emit"></a>props 和 $emit</h3><p>props: 父 =&gt; 子</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">父：</span><br><span class="line"></span><br><span class="line">&lt;child :message=&quot;‘需要传的东西’&quot;&gt;</span><br></pre></td></tr></table></figure>
 
