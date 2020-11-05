@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lzzhy.github.io/%E5%85%A8%E6%96%B9%E4%BD%8D%E5%85%A5%E9%97%A8git/</loc>
-    <lastmod>2020-10-27</lastmod>
+    <lastmod>2020-11-05</lastmod>
   </url>  <url>
     <loc>https://lzzhy.github.io/TypeScript%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2020-10-23</lastmod>
+    <lastmod>2020-11-05</lastmod>
+  </url>  <url>
+    <loc>https://lzzhy.github.io/%E4%BA%8C%E6%AC%A1%E5%B0%81%E8%A3%85DatePicker%E7%BB%84%E4%BB%B6/</loc>
+    <lastmod>2020-11-05</lastmod>
   </url>  <url>
     <loc>https://lzzhy.github.io/Vue%20%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/</loc>
     <lastmod>2020-10-16</lastmod>

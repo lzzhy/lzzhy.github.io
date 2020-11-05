@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。 定义HTTPS （全称：Hyper Tex">
+<meta name="description" content="由于河北项目中原本使用的elem DatePicker的一个日期选择范围用户体验不太好，因此改成自己二次封装DatePicker组件(选一个日期 =&amp;gt; 选两个日期) 一开始自己写的时候就写了个最简单的$emit，以及对两个时间选择的规则的一个判断，没有去想其他的东西。 后面让老大给CodeReview了一下，妈耶，突然发现自己写的好low，明明已经工作一年多了，封装出来的还跟刚接触vue时候">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP系列之HTTPS">
-<meta property="og:url" content="https://lzzhy.github.io/HTTP系列之HTTPS/index.html">
+<meta property="og:title" content="反思二次封装DatePicker组件">
+<meta property="og:url" content="https://lzzhy.github.io/二次封装DatePicker组件/index.html">
 <meta property="og:site_name" content="lzzhy Blog">
-<meta property="og:description" content="HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。 定义HTTPS （全称：Hyper Tex">
+<meta property="og:description" content="由于河北项目中原本使用的elem DatePicker的一个日期选择范围用户体验不太好，因此改成自己二次封装DatePicker组件(选一个日期 =&amp;gt; 选两个日期) 一开始自己写的时候就写了个最简单的$emit，以及对两个时间选择的规则的一个判断，没有去想其他的东西。 后面让老大给CodeReview了一下，妈耶，突然发现自己写的好low，明明已经工作一年多了，封装出来的还跟刚接触vue时候">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-15T06:20:27.425Z">
+<meta property="og:updated_time" content="2020-11-05T09:31:36.796Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP系列之HTTPS">
-<meta name="twitter:description" content="HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。 定义HTTPS （全称：Hyper Tex">
+<meta name="twitter:title" content="反思二次封装DatePicker组件">
+<meta name="twitter:description" content="由于河北项目中原本使用的elem DatePicker的一个日期选择范围用户体验不太好，因此改成自己二次封装DatePicker组件(选一个日期 =&amp;gt; 选两个日期) 一开始自己写的时候就写了个最简单的$emit，以及对两个时间选择的规则的一个判断，没有去想其他的东西。 后面让老大给CodeReview了一下，妈耶，突然发现自己写的好low，明明已经工作一年多了，封装出来的还跟刚接触vue时候">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://lzzhy.github.io/HTTP系列之HTTPS/">
+  <link rel="canonical" href="https://lzzhy.github.io/二次封装DatePicker组件/">
 
 
 
 
 
-  <title>HTTP系列之HTTPS | lzzhy Blog</title>
+  <title>反思二次封装DatePicker组件 | lzzhy Blog</title>
   
 
 
@@ -270,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTPS/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/二次封装DatePicker组件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -287,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTTP系列之HTTPS</h1>
+          <h1 class="post-title" itemprop="name headline">反思二次封装DatePicker组件</h1>
         
 
         <div class="post-meta">
@@ -299,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-14T15:16:45+08:00">
-                2019-11-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-11-03T14:43:15+08:00">
+                2020-11-03
               </time>
             
 
@@ -318,8 +318,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/HTTP系列之HTTPS/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/HTTP系列之HTTPS/" itemprop="commentCount"></span>
+                <a href="/二次封装DatePicker组件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/二次封装DatePicker组件/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -346,7 +346,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  1.3k
                 </span>
               
 
@@ -371,20 +371,42 @@
       
 
       
-        <p>HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。</p>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>HTTPS （全称：Hyper Text Transfer Protocol over SecureSocket Layer），是以安全为目标的HTTP通道，在HTTP的基础上通过传输加密和身份认证保证了传输过程的安全性。HTTPS在HTTP的基础下加入SSL层，HTTPS的安全基础是 SSL，因此加密的详细内容就需要SSL。</p>
-<h3 id="密码学基础"><a href="#密码学基础" class="headerlink" title="密码学基础"></a>密码学基础</h3><p><font face="微软雅黑" size="3" color="Green">明文</font>：未被加密过的原始数据。<br><font face="微软雅黑" size="3" color="Green">密文</font>：明文被某种加密算法加密之后，会变成密文，从而确保原始数据的安全。密文也可以被解密，得到原始的明文。<br><font face="微软雅黑" size="3" color="Green">密钥</font>：一种参数，是在明文转换为密文或将密文转换为明文的算法中输入的。分为对称密钥与非对称密钥，分别应用在对称加密和非对称加密上。 </p>
-<h3 id="HTTPS加密原理"><a href="#HTTPS加密原理" class="headerlink" title="HTTPS加密原理"></a>HTTPS加密原理</h3><p>HTTPS为了兼顾安全与效率，同时使用了对称加密和非对称加密</p>
-<h4 id="对称加密算法"><a href="#对称加密算法" class="headerlink" title="对称加密算法"></a>对称加密算法</h4><p>又叫做私钥加密，即信息的发送方和接收方使用同一个密钥去加密和解密数据。特点是算法公开、加密和解密速度快，适合于对大数据量进行加密，常见的对称加密算法有DES、3DES、TDEA、Blowfish、RC5和IDEA。<br>加密过程：明文 + 加密算法 + 私钥 =&gt; 密文<br>解密过程：密文 + 解密算法 + 私钥 =&gt; 明文<br>称之为“对称”的原因：<br>其中使用到的密钥叫做私钥，即个人所有不能被泄露。加密过程中的私钥与解密过程中用到的私钥是同一个密钥。<br>缺点：密钥安全管理困难。由于对称加密的算法是公开的，所以一旦私钥被泄露，那么密文就很容易被破解。</p>
-<h4 id="非对称加密算法："><a href="#非对称加密算法：" class="headerlink" title="非对称加密算法："></a>非对称加密算法：</h4><p>又叫公钥加密。使用一对密钥，即公钥和私钥，且二者成对出现。私钥自己保存，不能对外泄露。公钥则任何人都可以获得该密钥。用公钥或私钥中的任何一个进行加密，用另一个进行解密。<br>被公钥加密过的密文只能被私钥解密，过程如下：<br>明文 + 加密算法 + 公钥 =&gt; 密文， 密文 + 解密算法 + 私钥 =&gt; 明文<br>被私钥加密过的密文只能被公钥解密，过程如下：<br>明文 + 加密算法 + 私钥 =&gt; 密文， 密文 + 解密算法 + 公钥 =&gt; 明文<br>缺点：加密和解密花费时间长、速度慢，只适合对少量数据进行加密。 </p>
-<h4 id="确认身份-——-数字证书"><a href="#确认身份-——-数字证书" class="headerlink" title="确认身份 —— 数字证书"></a>确认身份 —— 数字证书</h4><p>在<em>非对称加密时</em>，首先需要将 A 的公钥给 B ，那么在这个过程中，安全是没有保障的，中间人可以拦截到 A 的公钥，就可以对拦截到的公钥进行篡改（如，本来 A 应该给 B 传：110，但是被中间人拦截了，所以 B 最后收到的可能不是110）。</p>
-<p>那怎么确认 A 给 B 的公钥确实是正确的没有被修改的呢？</p>
-<p>这个时候就需要数字签名了（数字签名也就是相当于公证处在公证书上盖章），数字签名和原始信息合在一起称为<em>数字证书</em>。</p>
-<p>在拿到数字证书之后，就用 Hash 算法，再次生成消息摘要。然后用 CA 的公钥对数字签名解密，得到CA创建的消息摘要。两者一比，就知道有没有人篡改了！</p>
-<h3 id="HTTPS访问过程"><a href="#HTTPS访问过程" class="headerlink" title="HTTPS访问过程"></a>HTTPS访问过程</h3><p>客户端生成的随机密钥，用来进行对称加密</p>
-<p>服务器端的公钥和私钥，用来进行非对称加密</p>
-<p>1.浏览器将支持的加密信息发送给网站服务器；<br>2.服务器会选择出一套加密算法和哈希算法，将验证身份的信息以证书（证书发布CA机构、证书有效期、公钥、证书所有者、签名等）的形式发送给浏览器；<br>3.浏览器收到证书之后需要验证证书的合法性，当证书受信之后，浏览器会随机生成一串密码，并使用证书中的公钥加密。之后就是使用约定好的哈希算法握手消息，并生成随机数对消息进行加密，再将生成的信息发送给服务器；<br>4.当服务器接收到浏览器发送过来的数据后，会使用服务器本身的私钥将信息解密确定密码，然后通过密码解密浏览器发送过来的握手信息，并验证哈希是否与浏览器一致。然后服务器会使用密码加密新的握手信息，发送给浏览器；<br>5.最后浏览器解密并计算经过哈希算法加密的握手消息，如果与服务发送过来的哈希一致，则此握手过程结束后，服务器与浏览器会使用之前浏览器生成的随机密码和对称加密算法进行加密交换数据。</p>
+        <p>由于河北项目中原本使用的elem DatePicker的一个日期选择范围用户体验不太好，因此改成自己二次封装DatePicker组件(选一个日期 =&gt; 选两个日期)</p>
+<p>一开始自己写的时候就写了个最简单的$emit，以及对两个时间选择的规则的一个判断，没有去想其他的东西。</p>
+<p>后面让老大给CodeReview了一下，妈耶，突然发现自己写的好low，明明已经工作一年多了，封装出来的还跟刚接触vue时候写的一样。真的是服了自己了….</p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>拿到封装需求之前先多想想这几个方面：</p>
+<ul>
+<li>如何封装可以让其他地方改动最少(修改二次封装时)</li>
+<li>注意组件文件、html结构，函数命名</li>
+<li>想清楚哪些应该要做成动态接收的</li>
+</ul>
+<p>组件无非就是动态传人数据，父子之间函数触发</p>
+<h2 id="全局注册和局部引入"><a href="#全局注册和局部引入" class="headerlink" title="全局注册和局部引入"></a>全局注册和局部引入</h2><p>当项目中很多地方用到同一个组件时可以选择全局注册：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// main.js</span><br><span class="line"></span><br><span class="line">import rangeDatePicker from &apos;./components/rangeDatePicke&apos;</span><br><span class="line">Vue.component(&apos;rangeDatePicker&apos;,rangeDatePicker)  // 逗号前的是自己取的名字，用在需要用的文件中</span><br></pre></td></tr></table></figure>
 
+<p>局部引入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//  需要用到这个组件的文件</span><br><span class="line"></span><br><span class="line">import topbar from &apos;@/publicResource/components/topbar.vue&apos;</span><br><span class="line">components: &#123;</span><br><span class="line">    &apos;v-topbar&apos;: topbar</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vue-自定义组件通过-v-model-通信"><a href="#Vue-自定义组件通过-v-model-通信" class="headerlink" title="Vue 自定义组件通过 v-model 通信"></a>Vue 自定义组件通过 v-model 通信</h2><p>model:{ prop?: string, event?: string }</p>
+<p>详细：允许一个自定义组件在使用 v-model 时定制 prop 和 event。默认情况下，一个组件上的 v-model 会把 value 用作 prop 且把 input 用作 event，但是一些输入类型比如单选框和复选框按钮可能想使用 value prop 来达到不同的目的。使用 model 选项可以回避这些情况产生的冲突。</p>
+<h3 id="默认情况下，v-model-就是一个语法糖-等价于-value-””-input-””"><a href="#默认情况下，v-model-就是一个语法糖-等价于-value-””-input-””" class="headerlink" title="默认情况下，v-model 就是一个语法糖 等价于 :value=”” @input=””"></a>默认情况下，v-model 就是一个语法糖 等价于 :value=”” @input=””</h3><p>v-model 就是一个语法糖： v-model=”username”等价于 :value=”usernema” @input=”username=$event.target.value”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 父组件 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;input v-model=&quot;username&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line">&lt;input :value=&quot;value&quot; @input=&quot;handleinput&quot;&gt;&lt;/input&gt;</span><br><span class="line">props: &#123;</span><br><span class="line">    value: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        default: &apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">handleinput(e) &#123;</span><br><span class="line">    this.$emit(&apos;input&apos;,e.target.value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="但也可以通过修改prop-event来达到不同的目的。使用-model-选项可以回避这些情况产生的冲突。"><a href="#但也可以通过修改prop-event来达到不同的目的。使用-model-选项可以回避这些情况产生的冲突。" class="headerlink" title="但也可以通过修改prop event来达到不同的目的。使用 model 选项可以回避这些情况产生的冲突。"></a>但也可以通过修改prop event来达到不同的目的。使用 model 选项可以回避这些情况产生的冲突。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 子组件使用model对象,定义它的两个属性,就可以在父组件通过v-model实现父子组件双向数据绑定</span><br><span class="line"></span><br><span class="line">model: &#123;</span><br><span class="line">    model: &#123;</span><br><span class="line">        prop: &apos;rangeDate&apos;,  // prop说:我要将rangeDate作为该组件被使用(被父组件调用)时,v-model能取到的值</span><br><span class="line">        event: &apos;change&apos;  // event说:我emit(触发)change的时候，参数的值就是父组件v-model收到的值</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果在子组件中这样写了，那么在props就必须接收的属性是rangeDate，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line"></span><br><span class="line">prop: &#123;</span><br><span class="line">    rangeDate: &#123;</span><br><span class="line">        default: []</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用这个组件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;range-date-picker</span><br><span class="line">    v-model=&quot;selectForm.rangedate&quot;</span><br><span class="line">    @change=&quot;getQuerySysOplog&quot;&gt;</span><br><span class="line">&lt;/range-date-picker&gt;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码相当于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;range-date-picker</span><br><span class="line">    :rangeDate=&quot;selectForm.rangedate&quot;</span><br><span class="line">    @change=&quot;val =&gt; (foo = val)&quot;</span><br><span class="line">    @change=&quot;getQuerySysOplog&quot;&gt;</span><br><span class="line">&lt;/range-date-picker&gt;</span><br></pre></td></tr></table></figure>
+
+<p>总结：自定义元素上使用 v-model=”selectForm.rangedate”， 同时，组件里使用 model {prop:xxx, event:xxx}<br>可以把 model 里面定义的 prop 和event 自动绑定在 “selectForm.rangedate” 这个自定义事件上</p>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;range-date-picker&quot;&gt;</span><br><span class="line">        &lt;el-date-picker</span><br><span class="line">            v-model=&quot;startDate&quot;</span><br><span class="line">            type=&quot;date&quot;</span><br><span class="line">            @change=&quot;changeStart&quot;</span><br><span class="line">            :picker-options=&quot;startOptions&quot;</span><br><span class="line">            :value-formate=&quot;valueFormat&quot;</span><br><span class="line">            :placeholder=&quot;startPlaceholder&quot;&gt;  // startPlaceholder是动态获取所以前面要加上&apos;:&apos;</span><br><span class="line">        &lt;/el-date-picker&gt;</span><br><span class="line">        &lt;el-date-picker</span><br><span class="line">            v-model=&quot;endDate&quot;</span><br><span class="line">            type=&quot;date&quot;</span><br><span class="line">            @change=&quot;changeEnd&quot;</span><br><span class="line">            :value-formate=&quot;valueFormat&quot;</span><br><span class="line">            :picker-options=&quot;endOptions&quot;</span><br><span class="line">            :placeholder=&quot;endPlaceholder&quot;&gt;</span><br><span class="line">        &lt;/el-date-picker&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    import &#123;dateformat&#125; from &apos;@/publicResource/utils/utils.js&apos;</span><br><span class="line">    export default &#123;</span><br><span class="line">        model: &#123;</span><br><span class="line">            prop: &apos;rangeDate&apos;,</span><br><span class="line">            event: &apos;change&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        props: &#123;</span><br><span class="line">            rangeDate: &#123;</span><br><span class="line">                default: [],</span><br><span class="line">            &#125;,</span><br><span class="line">            startPlaceholder: &#123;</span><br><span class="line">                default: &apos;开始日期&apos;,</span><br><span class="line">                type: String</span><br><span class="line">            &#125;,</span><br><span class="line">            endPlaceholder: &#123;</span><br><span class="line">                default: &apos;结束日期&apos;,</span><br><span class="line">                type: String</span><br><span class="line">            &#125;,</span><br><span class="line">            valueFormat: &#123;</span><br><span class="line">                default: &apos;yyyy-MM-dd&apos;,</span><br><span class="line">                type: String</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        data() &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                startDate: &apos;&apos;,</span><br><span class="line">                endDate: &apos;&apos;,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        watch: &#123;</span><br><span class="line">            rangeDate(newValue, oldValue) &#123;</span><br><span class="line">                if (newValue.length &gt; 0) &#123;</span><br><span class="line">                    this.startDate = newValue[0]</span><br><span class="line">                    this.endDate = newValue[1]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        computed: &#123;</span><br><span class="line">            startOptions()&#123;   // 校验日期规则：开始日期不能必须小于等于结束日期</span><br><span class="line">                let _this = this</span><br><span class="line">                return &#123;</span><br><span class="line">                    disabledDate(time) &#123;</span><br><span class="line">                        return time.getTime() &gt; Math.min(Date.now(), +new Date(_this.endDate))</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            endOptions() &#123;</span><br><span class="line">                let _this = this</span><br><span class="line">                return &#123;</span><br><span class="line">                    disabledDate(time) &#123;</span><br><span class="line">                        return time.getTime() &gt; Date.now() || time.getTime() &lt; +new Date(_this.startDate)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            changeStart(value) &#123;</span><br><span class="line">                let start;</span><br><span class="line">                if (!value) &#123;</span><br><span class="line">                    start = &apos;&apos;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    start = dateformat(value, &apos;yyyy-MM-dd&apos;)</span><br><span class="line">                &#125;</span><br><span class="line">                this.startDate = start</span><br><span class="line">                this.$emit(&apos;change&apos;, [start, this.endDate])  // 这样写父组件@change函数中就可以把参数写成param,这样子基于之前的代码@change函数中就不用修改代码</span><br><span class="line">            &#125;,</span><br><span class="line">            changeEnd(value) &#123;</span><br><span class="line">                let end;</span><br><span class="line">                if (!value) &#123;</span><br><span class="line">                    end = &apos;&apos;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    end = dateformat(value, &apos;yyyy-MM-dd&apos;)</span><br><span class="line">                &#125;</span><br><span class="line">                this.endDate = end</span><br><span class="line">                this.$emit(&apos;change&apos;, [this.startDate, end])</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        mounted() &#123;</span><br><span class="line">            if (this.rangeDate.length &gt; 0) &#123;</span><br><span class="line">                this.startDate = this.rangeDate[0]</span><br><span class="line">                this.endDate = this.rangeDate[1]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -408,8 +430,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/HTTP系列之HTTP2/" rel="next" title="HTTP系列之HTTP2">
-                <i class="fa fa-chevron-left"></i> HTTP系列之HTTP2
+              <a href="/TypeScript 学习笔记/" rel="next" title="TypeScript 学习笔记">
+                <i class="fa fa-chevron-left"></i> TypeScript 学习笔记
               </a>
             
           </div>
@@ -417,10 +439,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/webpack工程化/" rel="prev" title="webpack工程化">
-                webpack工程化 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -549,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#密码学基础"><span class="nav-number">2.</span> <span class="nav-text">密码学基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS加密原理"><span class="nav-number">3.</span> <span class="nav-text">HTTPS加密原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对称加密算法"><span class="nav-number">3.1.</span> <span class="nav-text">对称加密算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非对称加密算法："><span class="nav-number">3.2.</span> <span class="nav-text">非对称加密算法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确认身份-——-数字证书"><span class="nav-number">3.3.</span> <span class="nav-text">确认身份 —— 数字证书</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS访问过程"><span class="nav-number">4.</span> <span class="nav-text">HTTPS访问过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局注册和局部引入"><span class="nav-number">2.</span> <span class="nav-text">全局注册和局部引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-自定义组件通过-v-model-通信"><span class="nav-number">3.</span> <span class="nav-text">Vue 自定义组件通过 v-model 通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认情况下，v-model-就是一个语法糖-等价于-value-””-input-””"><span class="nav-number">3.1.</span> <span class="nav-text">默认情况下，v-model 就是一个语法糖 等价于 :value=”” @input=””</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#但也可以通过修改prop-event来达到不同的目的。使用-model-选项可以回避这些情况产生的冲突。"><span class="nav-number">3.2.</span> <span class="nav-text">但也可以通过修改prop event来达到不同的目的。使用 model 选项可以回避这些情况产生的冲突。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完整代码"><span class="nav-number">4.</span> <span class="nav-text">完整代码</span></a></li></ol></div>
             
 
           </div>

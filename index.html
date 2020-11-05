@@ -267,6 +267,189 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/二次封装DatePicker组件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzzhy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzzhy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/二次封装DatePicker组件/" itemprop="url">反思二次封装DatePicker组件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-11-03T14:43:15+08:00">
+                2020-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/二次封装DatePicker组件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/二次封装DatePicker组件/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>由于河北项目中原本使用的elem DatePicker的一个日期选择范围用户体验不太好，因此改成自己二次封装DatePicker组件(选一个日期 =&gt; 选两个日期)</p>
+<p>一开始自己写的时候就写了个最简单的$emit，以及对两个时间选择的规则的一个判断，没有去想其他的东西。</p>
+<p>后面让老大给CodeReview了一下，妈耶，突然发现自己写的好low，明明已经工作一年多了，封装出来的还跟刚接触vue时候写的一样。真的是服了自己了….</p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>拿到封装需求之前先多想想这几个方面：</p>
+<ul>
+<li>如何封装可以让其他地方改动最少(修改二次封装时)</li>
+<li>注意组件文件、html结构，函数命名</li>
+<li>想清楚哪些应该要做成动态接收的</li>
+</ul>
+<p>组件无非就是动态传人数据，父子之间函数触发</p>
+<h2 id="全局注册和局部引入"><a href="#全局注册和局部引入" class="headerlink" title="全局注册和局部引入"></a>全局注册和局部引入</h2><p>当项目中很多地方用到同一个组件时可以选择全局注册：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// main.js</span><br><span class="line"></span><br><span class="line">import rangeDatePicker from &apos;./components/rangeDatePicke&apos;</span><br><span class="line">Vue.component(&apos;rangeDatePicker&apos;,rangeDatePicker)  // 逗号前的是自己取的名字，用在需要用的文件中</span><br></pre></td></tr></table></figure>
+
+<p>局部引入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//  需要用到这个组件的文件</span><br><span class="line"></span><br><span class="line">import topbar from &apos;@/publicResource/components/topbar.vue&apos;</span><br><span class="line">components: &#123;</span><br><span class="line">    &apos;v-topbar&apos;: topbar</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vue-自定义组件通过-v-model-通信"><a href="#Vue-自定义组件通过-v-model-通信" class="headerlink" title="Vue 自定义组件通过 v-model 通信"></a>Vue 自定义组件通过 v-model 通信</h2><p>model:{ prop?: string, event?: string }</p>
+<p>详细：允许一个自定义组件在使用 v-model 时定制 prop 和 event。默认情况下，一个组件上的 v-model 会把 value 用作 prop 且把 input 用作 event，但是一些输入类型比如单选框和复选框按钮可能想使用 value prop 来达到不同的目的。使用 model 选项可以回避这些情况产生的冲突。</p>
+<h3 id="默认情况下，v-model-就是一个语法糖-等价于-value-””-input-””"><a href="#默认情况下，v-model-就是一个语法糖-等价于-value-””-input-””" class="headerlink" title="默认情况下，v-model 就是一个语法糖 等价于 :value=”” @input=””"></a>默认情况下，v-model 就是一个语法糖 等价于 :value=”” @input=””</h3><p>v-model 就是一个语法糖： v-model=”username”等价于 :value=”usernema” @input=”username=$event.target.value”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 父组件 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;input v-model=&quot;username&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line">&lt;input :value=&quot;value&quot; @input=&quot;handleinput&quot;&gt;&lt;/input&gt;</span><br><span class="line">props: &#123;</span><br><span class="line">    value: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        default: &apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">handleinput(e) &#123;</span><br><span class="line">    this.$emit(&apos;input&apos;,e.target.value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="但也可以通过修改prop-event来达到不同的目的。使用-model-选项可以回避这些情况产生的冲突。"><a href="#但也可以通过修改prop-event来达到不同的目的。使用-model-选项可以回避这些情况产生的冲突。" class="headerlink" title="但也可以通过修改prop event来达到不同的目的。使用 model 选项可以回避这些情况产生的冲突。"></a>但也可以通过修改prop event来达到不同的目的。使用 model 选项可以回避这些情况产生的冲突。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 子组件使用model对象,定义它的两个属性,就可以在父组件通过v-model实现父子组件双向数据绑定</span><br><span class="line"></span><br><span class="line">model: &#123;</span><br><span class="line">    model: &#123;</span><br><span class="line">        prop: &apos;rangeDate&apos;,  // prop说:我要将rangeDate作为该组件被使用(被父组件调用)时,v-model能取到的值</span><br><span class="line">        event: &apos;change&apos;  // event说:我emit(触发)change的时候，参数的值就是父组件v-model收到的值</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果在子组件中这样写了，那么在props就必须接收的属性是rangeDate，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line"></span><br><span class="line">prop: &#123;</span><br><span class="line">    rangeDate: &#123;</span><br><span class="line">        default: []</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用这个组件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;range-date-picker</span><br><span class="line">    v-model=&quot;selectForm.rangedate&quot;</span><br><span class="line">    @change=&quot;getQuerySysOplog&quot;&gt;</span><br><span class="line">&lt;/range-date-picker&gt;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码相当于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;range-date-picker</span><br><span class="line">    :rangeDate=&quot;selectForm.rangedate&quot;</span><br><span class="line">    @change=&quot;val =&gt; (foo = val)&quot;</span><br><span class="line">    @change=&quot;getQuerySysOplog&quot;&gt;</span><br><span class="line">&lt;/range-date-picker&gt;</span><br></pre></td></tr></table></figure>
+
+<p>总结：自定义元素上使用 v-model=”selectForm.rangedate”， 同时，组件里使用 model {prop:xxx, event:xxx}<br>可以把 model 里面定义的 prop 和event 自动绑定在 “selectForm.rangedate” 这个自定义事件上</p>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;range-date-picker&quot;&gt;</span><br><span class="line">        &lt;el-date-picker</span><br><span class="line">            v-model=&quot;startDate&quot;</span><br><span class="line">            type=&quot;date&quot;</span><br><span class="line">            @change=&quot;changeStart&quot;</span><br><span class="line">            :picker-options=&quot;startOptions&quot;</span><br><span class="line">            :value-formate=&quot;valueFormat&quot;</span><br><span class="line">            :placeholder=&quot;startPlaceholder&quot;&gt;  // startPlaceholder是动态获取所以前面要加上&apos;:&apos;</span><br><span class="line">        &lt;/el-date-picker&gt;</span><br><span class="line">        &lt;el-date-picker</span><br><span class="line">            v-model=&quot;endDate&quot;</span><br><span class="line">            type=&quot;date&quot;</span><br><span class="line">            @change=&quot;changeEnd&quot;</span><br><span class="line">            :value-formate=&quot;valueFormat&quot;</span><br><span class="line">            :picker-options=&quot;endOptions&quot;</span><br><span class="line">            :placeholder=&quot;endPlaceholder&quot;&gt;</span><br><span class="line">        &lt;/el-date-picker&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    import &#123;dateformat&#125; from &apos;@/publicResource/utils/utils.js&apos;</span><br><span class="line">    export default &#123;</span><br><span class="line">        model: &#123;</span><br><span class="line">            prop: &apos;rangeDate&apos;,</span><br><span class="line">            event: &apos;change&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        props: &#123;</span><br><span class="line">            rangeDate: &#123;</span><br><span class="line">                default: [],</span><br><span class="line">            &#125;,</span><br><span class="line">            startPlaceholder: &#123;</span><br><span class="line">                default: &apos;开始日期&apos;,</span><br><span class="line">                type: String</span><br><span class="line">            &#125;,</span><br><span class="line">            endPlaceholder: &#123;</span><br><span class="line">                default: &apos;结束日期&apos;,</span><br><span class="line">                type: String</span><br><span class="line">            &#125;,</span><br><span class="line">            valueFormat: &#123;</span><br><span class="line">                default: &apos;yyyy-MM-dd&apos;,</span><br><span class="line">                type: String</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        data() &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                startDate: &apos;&apos;,</span><br><span class="line">                endDate: &apos;&apos;,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        watch: &#123;</span><br><span class="line">            rangeDate(newValue, oldValue) &#123;</span><br><span class="line">                if (newValue.length &gt; 0) &#123;</span><br><span class="line">                    this.startDate = newValue[0]</span><br><span class="line">                    this.endDate = newValue[1]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        computed: &#123;</span><br><span class="line">            startOptions()&#123;   // 校验日期规则：开始日期不能必须小于等于结束日期</span><br><span class="line">                let _this = this</span><br><span class="line">                return &#123;</span><br><span class="line">                    disabledDate(time) &#123;</span><br><span class="line">                        return time.getTime() &gt; Math.min(Date.now(), +new Date(_this.endDate))</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            endOptions() &#123;</span><br><span class="line">                let _this = this</span><br><span class="line">                return &#123;</span><br><span class="line">                    disabledDate(time) &#123;</span><br><span class="line">                        return time.getTime() &gt; Date.now() || time.getTime() &lt; +new Date(_this.startDate)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            changeStart(value) &#123;</span><br><span class="line">                let start;</span><br><span class="line">                if (!value) &#123;</span><br><span class="line">                    start = &apos;&apos;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    start = dateformat(value, &apos;yyyy-MM-dd&apos;)</span><br><span class="line">                &#125;</span><br><span class="line">                this.startDate = start</span><br><span class="line">                this.$emit(&apos;change&apos;, [start, this.endDate])  // 这样写父组件@change函数中就可以把参数写成param,这样子基于之前的代码@change函数中就不用修改代码</span><br><span class="line">            &#125;,</span><br><span class="line">            changeEnd(value) &#123;</span><br><span class="line">                let end;</span><br><span class="line">                if (!value) &#123;</span><br><span class="line">                    end = &apos;&apos;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    end = dateformat(value, &apos;yyyy-MM-dd&apos;)</span><br><span class="line">                &#125;</span><br><span class="line">                this.endDate = end</span><br><span class="line">                this.$emit(&apos;change&apos;, [this.startDate, end])</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        mounted() &#123;</span><br><span class="line">            if (this.rangeDate.length &gt; 0) &#123;</span><br><span class="line">                this.startDate = this.rangeDate[0]</span><br><span class="line">                this.endDate = this.rangeDate[1]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/TypeScript 学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -340,7 +523,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  303
+                  297
                 </span>
               
 
@@ -380,7 +563,6 @@
 <li>安装 TypeScript：cnpm install -g typescript</li>
 <li>验证是否安装成功：tsc –version</li>
 </ul>
-<p>boolean,string,number,null,symbol,undefined<br>void</p>
 
           
         
@@ -532,13 +714,10 @@
             <h2 id="git-gitLab-gitHub-的区别"><a href="#git-gitLab-gitHub-的区别" class="headerlink" title="git,gitLab,gitHub 的区别"></a>git,gitLab,gitHub 的区别</h2><p>git 是一个版本控制工具，通过git 命令实现。</p>
 <p>gitHub 是一个基于git实现的在线代码仓库，包含一个网站界面，向互联网开放</p>
 <p>gitLab 是一个基于git实现的在线代码仓库软件，你可以自己用gitLab搭建一个类似gitHub的一个系统，一般企业等内部网络搭建git私服</p>
-<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>windows：</p>
-<p>下载<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a>安装包 =&gt; 按照提示的步骤完成后 =&gt; 在桌面空白区右键看下有没有Git GUI Here 和 Git Bush Here，有就成功了</p>
-<p>mac：</p>
-<p>第一种方式：直接下载dmg文件，然后把SourceTree拖到Applications，这样就完成安装了。</p>
-<p>第二种方式：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a> =&gt; 选择mac版本进去如下图</p>
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>windows：下载<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a>安装包 =&gt; 按照提示的步骤完成后 =&gt; 在桌面空白区右键看下有没有Git GUI Here 和 Git Bush Here，有就成功了</p>
+<p>mac：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a> =&gt; 选择mac版本进去如下图</p>
 <p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%85%A8%E6%96%B9%E4%BD%8D%E5%85%A5%E9%97%A8Git/WechatIMG11.png" alt="cmd-markdown-logo"></p>
-<p>选择第一种方式 brew install git 安装 =&gt; 要先去下载 brew =&gt; 然后执行 brew install git</p>
+<p>选择第一种方式 brew install git 安装 =&gt; 要先去安装 brew =&gt; 然后执行 brew install git</p>
 <p>查看版本，确认是否安装 git 成功：$ git –version</p>
 <h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><p>克隆远程版本库：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone url  // url 是仓库地址</span><br></pre></td></tr></table></figure>
@@ -2618,186 +2797,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/zepto源码解析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lzzhy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lzzhy Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/zepto源码解析/" itemprop="url">zepto源码解析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-02T16:26:23+08:00">
-                2019-12-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/zepto源码解析/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/zepto源码解析/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.1k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>学习笔记：参考自<a href="http://www.zeptojs.cn/#download" target="_blank" rel="noopener">zepto官方文档</a>，<a href="https://www.kancloud.cn/wangfupeng/zepto-design-srouce/173691" target="_blank" rel="noopener">zepto对象思想与源码解析</a></p>
-<h3 id="为什么要看zepto源码"><a href="#为什么要看zepto源码" class="headerlink" title="为什么要看zepto源码"></a>为什么要看zepto源码</h3><p>js相当于造房子的砖头，而Vue,react…则是人家造好了的轮子。在工作中一直用的是人家造好的轮子，大家都知道的是前端中轮子变化是很快的，但js是‘不会变的’。所以只有自己会造轮子了才能在前端这条道路上走得更远。并且，个人觉得读完源码后：真正留在自己脑子里的，是框架的设计思想。<strong>总之，一直觉得js和设计思想在前端中是最最最最重要的。</strong></p>
-<h3 id="需要先了解一下原型和原型链的相关知识"><a href="#需要先了解一下原型和原型链的相关知识" class="headerlink" title="需要先了解一下原型和原型链的相关知识"></a>需要先了解一下原型和原型链的相关知识</h3><p>1.每个函数都有一个prototype属性，无论是自定义的还是系统内置的<br>2.所以通过函数new出来的东西，这个东西都有一个<strong>proto</strong>指向这个函数的prototype<br>3.当你想要使用一个对象（或一个数组）的某个功能时：如果该对象本身具有这个功能，则直接使用，如果没有就去<strong>proto</strong>中找</p>
-<h3 id="怎么读zepto源码"><a href="#怎么读zepto源码" class="headerlink" title="怎么读zepto源码"></a>怎么读zepto源码</h3><h4 id="解读zepto的设计"><a href="#解读zepto的设计" class="headerlink" title="解读zepto的设计"></a>解读zepto的设计</h4><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG3.png" alt="cmd-markdown-logo"><br>上面这张图解析：arr具有push属性，因此可以直接使用。但是arr不具备lzzhyAddName属性，因此需要通过arr._proto = {lzzhyAddName: function(){console.log(‘my name is lzzhy’)}}来添加这个属性后才能用。</p>
-<p>流程图解析：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG4%201.png" alt="cmd-markdown-logo"></p>
-<p>PS:源码在设计的时候并不像上面代码那样简单只不过原理是一样的，源码具体实现方式还是得边读边理解。</p>
-<h4 id="zepto源码结构"><a href="#zepto源码结构" class="headerlink" title="zepto源码结构"></a>zepto源码结构</h4><p>第一步，先整个悦读源码，从大到小以宏观看微观的想法。因此，先将整个大体的结构弄懂：</p>
-<p>总结来说，整个结构可以简单抽离成这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var zepto = (function()&#123;</span><br><span class="line">    var $, zepto = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // ...省略N行代码</span><br><span class="line"></span><br><span class="line">    $ = function(selector,context) &#123;</span><br><span class="line">        return zepto.init(selector,context)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // ...省略N行代码</span><br><span class="line"></span><br><span class="line">    return $</span><br><span class="line">&#125;)()</span><br><span class="line">window.zepto = zepto</span><br><span class="line">window.$ === undefined &amp;&amp; (window.$ = zepto)</span><br></pre></td></tr></table></figure>
-
-<p>在这里我们可以看到:平常我们$(‘p’)使用zepto的时候，最终会顺藤摸瓜到 $ = function(selector,context) {}这个函数中（其中内容在这一步可不深究），而p选择器也会传递给selector参数。因此经过剥离之后，我们发现下一步需要探究的是$ = function(selector,context) {return zepto.init(selector,context)} 这个函数return出来的zepto.init函数</p>
-<h4 id="zepto-init函数"><a href="#zepto-init函数" class="headerlink" title="zepto.init函数"></a>zepto.init函数</h4><p>在上一步“zepto源码结构”中我们已经剖析到zepto.init函数了。</p>
-<p>函数如下：</p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG6%201.png" alt="cmd-markdown-logo"></p>
-<p>我们可以看到zepto.init函数大约有几十行，把中间那if…else…操作去掉(其中大致分为四种情况)，剩下的就是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">zepto.init = function(selector, context) &#123;</span><br><span class="line">    var dom</span><br><span class="line"></span><br><span class="line">    // ...此处省略N行...</span><br><span class="line"></span><br><span class="line">    // 分情况对dom赋值：</span><br><span class="line">    // 1.selector为空</span><br><span class="line">    // 2.selector是字符串，其中又分好几种情况</span><br><span class="line">    // 3.selector是函数</span><br><span class="line">    // 4.其他情况，如selector是数组、对象等</span><br><span class="line"></span><br><span class="line">    return zepto.Z(dom,elector)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在这个函数中，if…else…判断之后，最终 return到zepto.Z函数</p>
-<h4 id="zepto-Z函数"><a href="#zepto-Z函数" class="headerlink" title="zepto.Z函数"></a>zepto.Z函数</h4><p>在上一步“zepto.init函数”中我们已经剖析到zepto.Z函数了。</p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG8.png" alt="cmd-markdown-logo"></p>
-<p>其中dom指的是数组,$.fn指的是一个包含很多属性的一个对象{……}<br>371行：把数组或者空数组赋值给 dom<br>372行：把$.fn赋值给dom._proto隐私原型<br>373行：把字符串或者空字符串赋值给 dom.selector</p>
-<p>下图是$.fn函数部分截图：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG9.png" alt="cmd-markdown-logo"></p>
-<ul>
-<li>其中774-779行相对应的’:’后的可以转换(如：emptyArray.forEach相当于[].forEach又相当于Array.prototype.forEach); </li>
-<li>其中map,slice,ready…函数都是重新定义的，也就是官方文档中我们用到的那些对象函数API如：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG10.png" alt="cmd-markdown-logo"></li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上整个分析过程是从大到小将一个个函数分割出来，其中解读了比较重要的几个函数。   </p>
-<p>源码分析到这里了，那么就用一个简单的代码结构对之前的做个总结。并且根据这个结构，将zepto的初始对象的过程在捋一捋。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">var zepto = (function()&#123;</span><br><span class="line">    var $, zepto = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // ...省略N行代码</span><br><span class="line"></span><br><span class="line">    zepto.Z = function(dom,selector)&#123;</span><br><span class="line">        dom = dom || []</span><br><span class="line">        dom._proto = $.fn</span><br><span class="line">        dom.selector = selector || &apos;&apos;</span><br><span class="line">        return dom</span><br><span class="line">    &#125;</span><br><span class="line">    $ = function(selector,context) &#123;</span><br><span class="line">        return zepto.init(selector,context)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // ...省略N行代码</span><br><span class="line"></span><br><span class="line">    zepto.init = function(selector, context) &#123;</span><br><span class="line">        var dom </span><br><span class="line"></span><br><span class="line">        // ...针对不同情况分别赋值</span><br><span class="line"></span><br><span class="line">        return zepto.Z(dom,elector)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $.fn = &#123;</span><br><span class="line">        // 里面N个重新定义的zepto的API</span><br><span class="line">    &#125;</span><br><span class="line">    return $</span><br><span class="line">&#125;)()</span><br><span class="line">window.zepto = zepto</span><br><span class="line">window.$ === undefined &amp;&amp; (window.$ = zepto)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG11.png" alt="cmd-markdown-logo"></p>
-<p>大致就是这张图的流程，最后的dom是挂载在$.fn上。<code>dom._proto = $.fn</code></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2850,7 +2849,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
