@@ -1284,19 +1284,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>如何学习js?</title>
-    <url>/%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0js/</url>
-    <content><![CDATA[<p>js是前端的核心。</p>
-<p>书也看了，视频也看了，可是一到用的时候就不知道怎么用了。js初级，想深入学习js该看什么该练什么？</p>
-<ul>
-<li>可以编写各个组件。比如轮播，下拉框，滑动条，表单验证，用原生，jquery，和mvvm框架各自写一遍，组件涉及到事件响应，基础逻辑，以及异步请求，设计模式，我觉得可以锻炼综合能力，最后还能实现一套自己的组件库，便于维护和管理</li>
-<li>搭建类似于博客或者文档共享平台系统。可以锻炼服务端基础逻辑，登录，注册，数据库存储，接口设计等等。<br>还有就是结合可视化来写一些图表，做一些好看的动画都是可以的</li>
-<li>看一些小而美的js库，看看其他人是怎么写的。</li>
-<li>构建自己的知识体系，养成做笔记的习惯。</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>webpack工程化</title>
     <url>/webpack%E5%B7%A5%E7%A8%8B%E5%8C%96/</url>
     <content><![CDATA[<h3 id="webpack是什么"><a href="#webpack是什么" class="headerlink" title="webpack是什么"></a>webpack是什么</h3><p>webpack可以看作是一个模块打包机，功能就是通过一个入口将所有的依赖关系(像.jade,.less,.png等)通过webpack打包器打包成我们所谓的前端静态资源(像js,css,png等)。(module模块 =&gt; webpack =&gt; 静态资源)</p>
