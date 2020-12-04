@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Vue项目搭建及配置</title>
+    <url>/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h3 id="配置全局可引用的颜色值"><a href="#配置全局可引用的颜色值" class="headerlink" title="配置全局可引用的颜色值"></a>配置全局可引用的颜色值</h3><p>安装：node-sass 和 sass-loader(版本为7.几的话下图43行就用”data”,版本不为7.几的话43行就用”prependData”)</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/WechatIMG7.png" alt="cmd-markdown-logo"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>初识Gulp</title>
+    <url>/%E5%88%9D%E8%AF%86Gulp/</url>
+    <content><![CDATA[<p>gulp也是一种自动化构建工具，适合小型项目，</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.gulpjs.com.cn/docs/getting-started/quick-start/" target="_blank" rel="noopener">《Gulp官方文档》</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>小程序笔记</title>
     <url>/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="二进制流如何转化为图片并展示"><a href="#二进制流如何转化为图片并展示" class="headerlink" title="二进制流如何转化为图片并展示"></a>二进制流如何转化为图片并展示</h2><p>二进制流、Base64、图片(文件)之间是可以相互转换的：</p>
@@ -59,6 +73,7 @@
     <content><![CDATA[<h2 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h2><p>概念： 指将前端开发的流程规范化，标准化，包括流程开发，技术选型，代码规范，构建发布等，用于提升前端的开发效率和代码质量</p>
 <p>包括 webpack4.0/gulp 项目设置，yeoman脚手架<br>自动化测试（工具，框架和使用）</p>
 <p>webpack主要作用：资源压缩(eg:css,image…),代码混淆，代码检查，转义，预处理，热更新，核心概念(entry,output,loaders,plugins)<br>gulp核心概念(tasks,pipeline),及对应插件</p>
+<p>第三周 =&gt; 2-9一半<br>loader运行报错</p>
 ]]></content>
   </entry>
   <entry>
@@ -1295,20 +1310,90 @@
 <li>代码校验：校验代码是否符合规范</li>
 <li>自动发布</li>
 </ul>
-<h3 id="使用webpack有什么优势"><a href="#使用webpack有什么优势" class="headerlink" title="使用webpack有什么优势"></a>使用webpack有什么优势</h3><p><strong>1.万物皆模块：</strong> 在 webpack 的世界中，除了 Javascript，其他任何资源都可以当做模块的方式引用。<br><strong>2.按需加载：</strong> webapp 的优化关键在于代码体积，当应用体积增大，实现代码的按需加载是毕需，这也是 webpack 出现的根本原因。<br><strong>3.可定制化：</strong> 任何一个工具都不可能解决所有问题，提供解决方案才是最可行的，webpack 基于可定制化的理念构建，通过插件系统，配置文件，可以实现大型项目的定制需求。</p>
+<h3 id="使用webpack有什么优势"><a href="#使用webpack有什么优势" class="headerlink" title="使用webpack有什么优势"></a>使用webpack有什么优势</h3><p><strong>1.万物皆模块：</strong> 在 webpack 的世界中，除了 Javascript，其他任何资源都可以当做模块的方式引用。<br><strong>2.按需加载：</strong> webapp 的优化关键在于代码体积，当应用体积增大，实现代码的按需加载是必需，这也是 webpack 出现的根本原因。<br><strong>3.可定制化：</strong> 任何一个工具都不可能解决所有问题，提供解决方案才是最可行的，webpack 基于可定制化的理念构建，通过插件系统，配置文件，可以实现大型项目的定制需求。</p>
+<h3 id="当没有使用webpack，而是使用node时"><a href="#当没有使用webpack，而是使用node时" class="headerlink" title="当没有使用webpack，而是使用node时"></a>当没有使用webpack，而是使用node时</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">src</span><br><span class="line">│    </span><br><span class="line">└───name.js</span><br><span class="line"></span><br><span class="line">module.exports = &apos;my name is lzzhy&apos;</span><br><span class="line"></span><br><span class="line">src</span><br><span class="line">│    </span><br><span class="line">└───index.js</span><br><span class="line"></span><br><span class="line">let str = require(&apos;./name.js&apos;)</span><br><span class="line">clg(str)</span><br></pre></td></tr></table></figure>
+
+<p>这样肯定是可以在node中运行的，如下图：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/webpack%E5%B7%A5%E7%A8%8B%E5%8C%96/WechatIMG4.png" alt="cmd-markdown-logo"><br>node只能在终端中运行，但是我们需要产出的结果运行在浏览器上，也就是在dist产出中得到结果，因此需要去使用webpack并配置对应的文件。</p>
+<p>因此就有了webpack。。。。。。</p>
+<h3 id="webpack-核心概念及其配置："><a href="#webpack-核心概念及其配置：" class="headerlink" title="webpack 核心概念及其配置："></a>webpack 核心概念及其配置：</h3><p>以下都是单页面配置webpack</p>
+<h4 id="入口"><a href="#入口" class="headerlink" title="入口"></a>入口</h4><p>目录结构</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">├── src // 根目录</span><br><span class="line">│   ├── index.js  // 手动添加入口文件</span><br><span class="line">│</span><br><span class="line">│──├── webpack.config.js  // webpack配置文件，手动添加</span><br></pre></td></tr></table></figure>
+
+<p>webpack.config.js</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const config = &#123;</span><br><span class="line">  entry: &apos;./src/index.js&apos;  // 入口文件的相对路径</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">module.exports = config;</span><br></pre></td></tr></table></figure>
+
+<p>index.js</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">console.log(&apos;hello webpack，i am coming&apos;);</span><br></pre></td></tr></table></figure>
+
+<p>生成dist文件夹： </p>
+<ul>
+<li><p>全局安装webpack和webpack-cli：npm i webpack webpack-cli -D</p>
+</li>
+<li><p>在package.json(npm init生成)脚本中设置：”build”: “webpack”</p>
+</li>
+<li><p>执行npm run build</p>
+</li>
+</ul>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>webpack.config.js</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const path = require(&apos;path&apos;)  // node 内置的模块</span><br><span class="line"></span><br><span class="line">const config = &#123;</span><br><span class="line">  entry: &apos;./src/index.js&apos;,  // 入口文件的相对路径</span><br><span class="line">  output: &#123;</span><br><span class="line">      filename: &apos;bundle.js&apos;,</span><br><span class="line">      path: path.join(__dirname,&apos;./dist1&apos;)  // 绝对路径</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在运行npm run build，就会生成如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">├── dist1 // 打包生成的dist1文件夹，自己在path中定义的</span><br><span class="line">    ├── bundle.js  // 自定义的出口文件</span><br></pre></td></tr></table></figure>
+
+<p>注意：由于输出路径需要绝对路径，因此使用了 path(<a href="https://www.runoob.com/nodejs/nodejs-path-module.html" target="_blank" rel="noopener">Node.js Path 模块
+</a>)，__dirname 会输出绝对路径</p>
+<h4 id="Loader：处理的是webpack不能处理的文件（除了js以外的文件：因为webpack本身就是js写的），将其转化为webpack可以处理的文件"><a href="#Loader：处理的是webpack不能处理的文件（除了js以外的文件：因为webpack本身就是js写的），将其转化为webpack可以处理的文件" class="headerlink" title="Loader：处理的是webpack不能处理的文件（除了js以外的文件：因为webpack本身就是js写的），将其转化为webpack可以处理的文件"></a>Loader：处理的是webpack不能处理的文件（除了js以外的文件：因为webpack本身就是js写的），将其转化为webpack可以处理的文件</h4><p>安装需要的loader：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yarn add css-loader style-loader -D</span><br></pre></td></tr></table></figure>
+
+<p>修改webpack.config.js：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const config = &#123;</span><br><span class="line">    entry: ...</span><br><span class="line">    output: ...</span><br><span class="line">    module: &#123;  // 配置loader</span><br><span class="line">       rules: [&#123;</span><br><span class="line">           test: /\.css$/,</span><br><span class="line">           use: [&apos;style-loader&apos;,&apos;css-loader&apos;]</span><br><span class="line">       &#125; ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在src下添加index.css文件，如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在src/index.js中引入index.css文件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">require(&apos;./index.css&apos;)</span><br></pre></td></tr></table></figure>
+
+<p>然后，在npm run build打包该项目，会发现在dist/bundle.js中可以搜索到index.css文件中的background-color: red样式。</p>
+<p>这样样式打包就成功了。。。</p>
+<p>那如何使用打包出来的dist文件呢？在dist下新增index.html文件，引入想要打包出来的dist文件就可以了：</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/webpack%E5%B7%A5%E7%A8%8B%E5%8C%96/WechatIMG1.png" alt="cmd-markdown-logo"></p>
+<p>当需要处理除css之外的sass,scss之类的样式就需要loader来处理了：</p>
+<p>先安装sass-loader：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yarn add sass-loader -D</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const config = &#123;</span><br><span class="line">    entry: ...</span><br><span class="line">    output: ...</span><br><span class="line">    module: &#123;  // 配置sass-loader,node-sass 来处理scss或者sass</span><br><span class="line">       rules: [&#123;</span><br><span class="line">           test: /\.(scss|sass)$/,</span><br><span class="line">           use: [&apos;style-loader&apos;,&apos;css-loader&apos;,&apos;sass-loader&apos;]</span><br><span class="line">       &#125; ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>具体的图片，字体等其他资源管理详见<a href="https://www.webpackjs.com/guides/asset-management/#%E5%AE%89%E8%A3%85" target="_blank" rel="noopener">webpack管理资源
+</a></p>
+<h4 id="插件：插件使用范围比Loader大，Loader不能做到的就可以使用插件"><a href="#插件：插件使用范围比Loader大，Loader不能做到的就可以使用插件" class="headerlink" title="插件：插件使用范围比Loader大，Loader不能做到的就可以使用插件"></a>插件：插件使用范围比Loader大，Loader不能做到的就可以使用插件</h4><h5 id="模块热替换-webpack自带的热更新（只会监听代码变化，但是并不会刷新页面）"><a href="#模块热替换-webpack自带的热更新（只会监听代码变化，但是并不会刷新页面）" class="headerlink" title="模块热替换 webpack自带的热更新（只会监听代码变化，但是并不会刷新页面）"></a>模块热替换 webpack自带的热更新（只会监听代码变化，但是并不会刷新页面）</h5><p>package.json：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;watch&quot;: &quot;webpack --watch&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h5 id="webpack-dev-server-热更新：会监听代码变化也会自动刷新页面"><a href="#webpack-dev-server-热更新：会监听代码变化也会自动刷新页面" class="headerlink" title="webpack-dev-server(热更新：会监听代码变化也会自动刷新页面)"></a>webpack-dev-server(热更新：会监听代码变化也会自动刷新页面)</h5><p>安装插件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yarn add webpack-dev-server -D</span><br></pre></td></tr></table></figure>
+
+<p>webpack.config.js：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;hot&quot;: &quot;webpack-dev-server&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>webpack.config.js：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const webpack = require(&apos;webpack&apos;)</span><br><span class="line">const config = &#123;</span><br><span class="line">    entry: ...</span><br><span class="line">    output: ...</span><br><span class="line">    module: ...</span><br><span class="line">    plugins: [</span><br><span class="line">        xxx,</span><br><span class="line">        new webpack.HotModuleReplacementPlugin()</span><br><span class="line">    ],</span><br><span class="line">    devServer: &#123;  // 热更新 webpack-dev-server</span><br><span class="line">        hot: true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这样热更新配置就好了，在执行npm run hot(package.json中配置的脚本)，再在浏览器打开默认的8080端口号就ok了。。。</p>
+<h4 id="模式-兼容性"><a href="#模式-兼容性" class="headerlink" title="模式/兼容性"></a>模式/兼容性</h4><p>有mode: ‘development’/‘production’两种，分别代表不同的环境，为production时dist文件会压缩的体积比较小。</p>
+<h5 id="NODE-ENV使用场景"><a href="#NODE-ENV使用场景" class="headerlink" title="NODE_ENV使用场景"></a>NODE_ENV使用场景</h5><p>NODE_ENV在项目中的使用场景一般是作为环境变量来匹配当时的环境的。以下来介绍下最基础的process.env.NODE_ENV</p>
+<p>webpack.config.js：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const config = &#123;</span><br><span class="line">    mode: &apos;production&apos;,  // 模式, 还有 development</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>src/index.js：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(process.env.NODE_ENV === &apos;production&apos;) &#123;   // NODE_ENV的使用场景</span><br><span class="line">    console.log(&apos;我不是localhost&apos;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    console.log(&apos;我是localhost&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在去npm run build打包，在用浏览器打开dist/index.html文件。此时src/index.js：配置的process.env.NODE_ENV就会去跟mode中的值相匹配</p>
 <p>了解了webpack的一个大致情况后，那我们要怎么去用它呢？</p>
-<h3 id="webpack基础配置（怎么写）"><a href="#webpack基础配置（怎么写）" class="headerlink" title="webpack基础配置（怎么写）"></a>webpack基础配置（怎么写）</h3><p>在此之前你应该已经安装过node   </p>
-<p>1.安装本地webpack</p>
+<h3 id="webpack基础配置（怎么写）"><a href="#webpack基础配置（怎么写）" class="headerlink" title="webpack基础配置（怎么写）"></a>webpack基础配置（怎么写）</h3><h4 id="安装本地webpack"><a href="#安装本地webpack" class="headerlink" title="安装本地webpack"></a>安装本地webpack</h4><p>在此之前你应该已经安装过node，安装相关webpack所需要的如： </p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install webpack webpack-cli -g</span><br><span class="line">npm install webpack-dev-server -g</span><br></pre></td></tr></table></figure>
 
-<p>会生成node_modules,package-lock.json文件</p>
-<p>2.webpack的使用</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// src =&gt; name.js</span><br><span class="line">module.exports = &apos;my name is lzzhy&apos;</span><br><span class="line"></span><br><span class="line">// src =&gt; index.js</span><br><span class="line">let str = require(&apos;./name.js&apos;)</span><br><span class="line">clg(str)</span><br></pre></td></tr></table></figure>
-
-<p>这样肯定是可以在node中运行的，如下图：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/webpack%E5%B7%A5%E7%A8%8B%E5%8C%96/WechatIMG4.png" alt="cmd-markdown-logo"><br>但是我们需要产出的结果运行在浏览器上，也就是在dist产出中得到结果，因此需要去配置文件。</p>
-<p>3.配置文件的使用</p>
-<p>在项目目录下创建 webpack.config.js如下,运行npx webpack会按照配置文件生成对应dist:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// webpack 是node写出来的 node的写法</span><br><span class="line">var webpack = require(&apos;webpack&apos;)</span><br><span class="line">let path = require(&apos;path&apos;)</span><br><span class="line">module.export = &#123;</span><br><span class="line">    mode: &apos;development&apos;, // 模式 默认两种proction development</span><br><span class="line">    entry: &apos;./src/ndex.js&apos;, //入口</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: &apos;bundle.js&apos;, //打包后的文件名</span><br><span class="line">        path: path.resolve(__dirname,&apos;dist&apos;) //路径必须是一个绝对路径, _dirname指相对该路径下</span><br><span class="line">    &#125;,</span><br><span class="line">    module: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.js[x]?$/,</span><br><span class="line">                exclude: /node_modules/,</span><br><span class="line">                loader: &apos;babel-loader&apos;,  //处理.js或.jsx文件loader</span><br><span class="line">                query: &#123;</span><br><span class="line">                    presets: [&apos;env&apos;]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.css$/,</span><br><span class="line">                loader: &quot;style-loader!css-loader&quot;   //处理.css文件loader</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.(png|jpg)$/,</span><br><span class="line">                loader: &apos;url-loader?limit=8192&apos;    //处理图片loader</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="配置文件的使用"><a href="#配置文件的使用" class="headerlink" title="配置文件的使用"></a>配置文件的使用</h4><p>在package.json中配置脚本”build”: “webpack”，执行npm run build就会生成dist文件夹了。在项目目录下创建 webpack.config.js如下，</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- webpack 是node写出来的 node的写法 --&gt;</span><br><span class="line"></span><br><span class="line">var webpack = require(&apos;webpack&apos;)</span><br><span class="line">let path = require(&apos;path&apos;)</span><br><span class="line">module.export = &#123;</span><br><span class="line">    mode: &apos;development&apos;, // 模式 默认两种proction development</span><br><span class="line">    entry: &apos;./src/index.js&apos;, //入口</span><br><span class="line">    output: &#123;  // 输出 出口</span><br><span class="line">        filename: &apos;bundle.js&apos;, //打包后的文件名</span><br><span class="line">        path: path.resolve(__dirname,&apos;dist&apos;) //路径必须是一个绝对路径, _dirname指相对该路径下</span><br><span class="line">    &#125;,</span><br><span class="line">    module: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.js[x]?$/,</span><br><span class="line">                exclude: /node_modules/,</span><br><span class="line">                loader: &apos;babel-loader&apos;,  //处理.js或.jsx文件loader</span><br><span class="line">                query: &#123;</span><br><span class="line">                    presets: [&apos;env&apos;]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.css$/,</span><br><span class="line">                loader: &quot;style-loader!css-loader&quot;   //处理.css文件loader</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.(png|jpg)$/,</span><br><span class="line">                loader: &apos;url-loader?limit=8192&apos;    //处理图片loader</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>webpack只能处理js模块，如果要处理其他类型的文件(如css)就需要使用loader进行转化，指用一段代码来替换另一端代码的webpack加载器。</p>
 <p>通过这样一个简单的配置（当然webpack的配置不止这一点），就用webpack打包机将模块转化成了静态资源。</p>
