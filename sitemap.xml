@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lzzhy.github.io/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://lzzhy.github.io/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/</loc>
     
-    <lastmod>2020-12-04T08:55:24.967Z</lastmod>
+    <lastmod>2020-12-15T06:30:11.368Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://lzzhy.github.io/webpack%E5%B7%A5%E7%A8%8B%E5%8C%96/</loc>
     
-    <lastmod>2020-12-02T06:20:10.924Z</lastmod>
+    <lastmod>2020-12-05T11:02:32.999Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lzzhy.github.io/%E5%88%9D%E6%8E%A2babel/</loc>
+    
+    <lastmod>2020-12-05T11:02:30.934Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lzzhy.github.io/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/</loc>
+    
+    <lastmod>2020-12-04T08:55:24.967Z</lastmod>
     
   </url>
   
@@ -26,13 +40,6 @@
     <loc>https://lzzhy.github.io/%E5%A4%A7%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2020-12-01T10:08:50.502Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lzzhy.github.io/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2020-11-25T09:34:36.724Z</lastmod>
     
   </url>
   
@@ -68,13 +75,6 @@
     <loc>https://lzzhy.github.io/Vue%20%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/</loc>
     
     <lastmod>2020-10-16T10:00:23.560Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lzzhy.github.io/%E5%88%9D%E6%8E%A2babel/</loc>
-    
-    <lastmod>2020-10-15T06:36:05.362Z</lastmod>
     
   </url>
   

@@ -640,7 +640,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.6k
+                  1.8k
                 </span>
               
 
@@ -695,6 +695,12 @@
 
 <p>页面使用请求时：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123; showQrCode &#125; from &apos;@/api/user&apos;</span><br><span class="line">showQrCode(&#123;shortQrCodeUrl: lastStr&#125;, lastStr).then((data = &#123;&#125;) =&gt; &#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="接口请求的不同方式（web）"><a href="#接口请求的不同方式（web）" class="headerlink" title="接口请求的不同方式（web）"></a>接口请求的不同方式（web）</h2><p>注意观察swagger:</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG2.png" alt="cmd-markdown-logo"></p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG3.png" alt="cmd-markdown-logo"><br>这个Request URL就是举例给我们后端需要我们怎么样的形式传过去，根据这个知道后端需要将参数直接加个?跟在路径后面，并且参数是string类型。</p>
+<p>所以结合以上2点，query的api请求如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 生成调解协议书</span><br><span class="line">export const exportDisputeBook = data =&gt; axios.post(`$&#123;url&#125;/dispute/exportDisputeBook?text=$&#123;data&#125;`)</span><br><span class="line"></span><br><span class="line">this.content = `&lt;html&gt;&lt;body&gt;&lt;h2 style=&quot;text-align: center;&quot;&gt;调解协议书&lt;/h2&gt;&lt;br /&gt;&lt;div&gt; &lt;h3&gt;$&#123;bodyApplicant&#125;&lt;/h3&gt; &lt;/div&gt;&lt;div&gt;&lt;h3&gt;$&#123;bodyRelative&#125;&lt;/h3&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;`</span><br><span class="line"></span><br><span class="line">Api.list.exportDisputeBook(this.content).then((res) =&gt; &#123;&#125;) // 这个this.content就是$&#123;data&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="小程序的-this-apply"><a href="#小程序的-this-apply" class="headerlink" title="小程序的 this.$apply()"></a>小程序的 this.$apply()</h2><p>this.$apply()使用场景：</p>
 <ul>
@@ -1804,8 +1810,7 @@
       
         
           
-            <p>情况呢是这样一个情况，在自己写的一个 <a href="https://github.com/lzzhy/photoAlbum/tree/master/photoalbum-web" target="_blank" rel="noopener">相册</a> 的项目中 <a href="https://element.eleme.cn/2.13/#/zh-CN/component/quickstart" target="_blank" rel="noopener">局部引入 Element-UI</a> 时碰到报错</p>
-<h2 id="报错过程"><a href="#报错过程" class="headerlink" title="报错过程"></a>报错过程</h2><p>在项目中局部安装 elem 时：</p>
+            <h2 id="报错过程"><a href="#报错过程" class="headerlink" title="报错过程"></a>报错过程</h2><p>在项目中局部安装 elem 时：</p>
 <ul>
 <li>npm install babel-plugin-component -D</li>
 <li>创建 .babelrc，并添加：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [[&quot;es2015&quot;, &#123; &quot;modules&quot;: false &#125;]],</span><br><span class="line">  &quot;plugins&quot;: [</span><br><span class="line">    [</span><br><span class="line">      &quot;component&quot;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;libraryName&quot;: &quot;element-ui&quot;,</span><br><span class="line">        &quot;styleLibraryName&quot;: &quot;theme-chalk&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1897,7 +1902,10 @@
 
 </li>
 </ul>
+<h2 id="babel-结合-webpack-的使用"><a href="#babel-结合-webpack-的使用" class="headerlink" title="babel 结合 webpack 的使用"></a>babel 结合 webpack 的使用</h2><p>安装依赖： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add  babel-loader @babel/core @babel/preset-env @babel/plugin-transform-runtime -D</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add @babel/runtime -S  // -S 是提供生产环境</span><br></pre></td></tr></table></figure>
           
         
       

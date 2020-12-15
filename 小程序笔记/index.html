@@ -91,7 +91,9 @@
 <meta property="og:image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG6.png">
 <meta property="og:image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG7.png">
 <meta property="og:image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG8.png">
-<meta property="og:updated_time" content="2020-11-25T09:34:36.724Z">
+<meta property="og:image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG2.png">
+<meta property="og:image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG3.png">
+<meta property="og:updated_time" content="2020-12-15T06:30:11.368Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序笔记">
 <meta name="twitter:description" content="二进制流如何转化为图片并展示二进制流、Base64、图片(文件)之间是可以相互转换的：  file是文件，如图像文件.jpg等，Base64str 是文件转成的base64字符串  需求：需要将二维码展示在页面上 接口返回直接是一张图片：将接口返回的这张图片打印出来是这样的： 问题分析：  由于只返回一张图片，跟项目封装的接口请求不同（项目中封装的是返回code,data,message），因此得">
@@ -350,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.6k
+                  1.8k
                 </span>
               
 
@@ -403,6 +405,12 @@
 
 <p>页面使用请求时：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123; showQrCode &#125; from &apos;@/api/user&apos;</span><br><span class="line">showQrCode(&#123;shortQrCodeUrl: lastStr&#125;, lastStr).then((data = &#123;&#125;) =&gt; &#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="接口请求的不同方式（web）"><a href="#接口请求的不同方式（web）" class="headerlink" title="接口请求的不同方式（web）"></a>接口请求的不同方式（web）</h2><p>注意观察swagger:</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG2.png" alt="cmd-markdown-logo"></p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG3.png" alt="cmd-markdown-logo"><br>这个Request URL就是举例给我们后端需要我们怎么样的形式传过去，根据这个知道后端需要将参数直接加个?跟在路径后面，并且参数是string类型。</p>
+<p>所以结合以上2点，query的api请求如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 生成调解协议书</span><br><span class="line">export const exportDisputeBook = data =&gt; axios.post(`$&#123;url&#125;/dispute/exportDisputeBook?text=$&#123;data&#125;`)</span><br><span class="line"></span><br><span class="line">this.content = `&lt;html&gt;&lt;body&gt;&lt;h2 style=&quot;text-align: center;&quot;&gt;调解协议书&lt;/h2&gt;&lt;br /&gt;&lt;div&gt; &lt;h3&gt;$&#123;bodyApplicant&#125;&lt;/h3&gt; &lt;/div&gt;&lt;div&gt;&lt;h3&gt;$&#123;bodyRelative&#125;&lt;/h3&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;`</span><br><span class="line"></span><br><span class="line">Api.list.exportDisputeBook(this.content).then((res) =&gt; &#123;&#125;) // 这个this.content就是$&#123;data&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="小程序的-this-apply"><a href="#小程序的-this-apply" class="headerlink" title="小程序的 this.$apply()"></a>小程序的 this.$apply()</h2><p>this.$apply()使用场景：</p>
 <ul>
@@ -588,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制流如何转化为图片并展示"><span class="nav-number">1.</span> <span class="nav-text">二进制流如何转化为图片并展示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序端"><span class="nav-number">1.1.</span> <span class="nav-text">小程序端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web端"><span class="nav-number">1.2.</span> <span class="nav-text">web端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带参数的接口请求"><span class="nav-number">2.</span> <span class="nav-text">带参数的接口请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小程序的-this-apply"><span class="nav-number">3.</span> <span class="nav-text">小程序的 this.$apply()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表页展示数据并下拉刷新"><span class="nav-number">4.</span> <span class="nav-text">列表页展示数据并下拉刷新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳转"><span class="nav-number">5.</span> <span class="nav-text">跳转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单提交"><span class="nav-number">6.</span> <span class="nav-text">表单提交</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制流如何转化为图片并展示"><span class="nav-number">1.</span> <span class="nav-text">二进制流如何转化为图片并展示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序端"><span class="nav-number">1.1.</span> <span class="nav-text">小程序端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web端"><span class="nav-number">1.2.</span> <span class="nav-text">web端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带参数的接口请求"><span class="nav-number">2.</span> <span class="nav-text">带参数的接口请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口请求的不同方式（web）"><span class="nav-number">3.</span> <span class="nav-text">接口请求的不同方式（web）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小程序的-this-apply"><span class="nav-number">4.</span> <span class="nav-text">小程序的 this.$apply()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表页展示数据并下拉刷新"><span class="nav-number">5.</span> <span class="nav-text">列表页展示数据并下拉刷新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳转"><span class="nav-number">6.</span> <span class="nav-text">跳转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单提交"><span class="nav-number">7.</span> <span class="nav-text">表单提交</span></a></li></ol></div>
             
 
           </div>
