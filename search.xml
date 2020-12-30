@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Axios接口请求</title>
+    <url>/Axios%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82/</url>
+    <content><![CDATA[<p>在前后端联调的过程中，会碰到不同方式的传参。</p>
+<h2 id="路径-‘-‘-后面带参数的接口请求"><a href="#路径-‘-‘-后面带参数的接口请求" class="headerlink" title="路径 ‘/‘ 后面带参数的接口请求"></a>路径 ‘/‘ 后面带参数的接口请求</h2><h3 id="带一个参数"><a href="#带一个参数" class="headerlink" title="带一个参数"></a>带一个参数</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG8.png" alt="cmd-markdown-logo"></p>
+<p>api.js：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export const showQrCode = (data, shortQrCodeUrl) =&gt; &#123;  // 有两个参数，并且入参shortQrCodeUrl和字符串模板里的一样</span><br><span class="line">    return request(`/sjzmt-backend-web/qrcode/showQrCode/$&#123;shortQrCodeUrl&#125;`, data)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>页面中使用：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &#123; showQrCode &#125; from &apos;@/api&apos;</span><br><span class="line">showQrCode(&#123;shortQrCodeUrl: lastStr&#125;, lastStr).then((data = &#123;&#125;) =&gt; &#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="带多个参数"><a href="#带多个参数" class="headerlink" title="带多个参数"></a>带多个参数</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/Axios%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82/WechatIMG6.png" alt="cmd-markdown-logo"></p>
+<p>api.js：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export const searchDictionaryInfo = (type,level,data) =&gt; axios.post(`$&#123;url&#125;/dictionary/dictionaryList/$&#123;type&#125;/$&#123;level&#125;`, data)</span><br></pre></td></tr></table></figure>
+
+<p>页面中使用：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &#123; searchDictionaryInfo &#125; from &apos;@/api&apos;</span><br><span class="line"></span><br><span class="line">searchDictionaryInfo(&apos;dispute_type&apos;,2).then(res=&gt;   </span><br><span class="line">   if(res.code == 0)&#123;</span><br><span class="line"></span><br><span class="line">   &#125; else &#123;</span><br><span class="line">       this.$message.error(res.msg)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;, (err) =&gt; &#123;</span><br><span class="line">    this.$message.error(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="路径-‘-‘-后面不带参数的接口请求"><a href="#路径-‘-‘-后面不带参数的接口请求" class="headerlink" title="路径 ‘/‘ 后面不带参数的接口请求"></a>路径 ‘/‘ 后面不带参数的接口请求</h2><p>类似这种干净的不带参数的路径：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/Axios%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82/WechatIMG7.png" alt="cmd-markdown-logo"></p>
+<p>但是这种路径要注意观察swagger看标注的是query,body,header,path中的哪一个;几者的传参时的区别如下：</p>
+<h3 id="body"><a href="#body" class="headerlink" title="body"></a>body</h3><p>body是最常见的：</p>
+<p>api.js：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export const getDisputeProcessList = (data) =&gt; &#123;  // 只有一个参数data</span><br><span class="line">    return request(&apos;/disputeProcess/getDisputeProcessList&apos;, data)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>页面调用时：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &#123; getDisputeProcessList &#125; from &apos;@/api&apos;</span><br><span class="line"></span><br><span class="line">const params = &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">getDisputeProcessList(params).then((data = &#123;&#125;) =&gt; &#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="query"><a href="#query" class="headerlink" title="query"></a>query</h3><h4 id="一个参数"><a href="#一个参数" class="headerlink" title="一个参数"></a>一个参数</h4><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/Axios%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82/WechatIMG8.png" alt="cmd-markdown-logo"></p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/Axios%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82/WechatIMG9.png" alt="cmd-markdown-logo"></p>
+<p>这个Request URL就是举例给我们后端需要我们怎么样的形式传过去，根据这个知道后端需要将参数直接加个?跟在路径后面，并且参数是string类型。</p>
+<p>所以，api.js：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export const exportDisputeBook = data =&gt; axios.post(`$&#123;url&#125;/dispute/exportDisputeBook?text=$&#123;data&#125;`)</span><br></pre></td></tr></table></figure>
+
+<p>调用的页面：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">this.content = `&lt;html&gt;&lt;body&gt;&lt;h2 style=&quot;text-align: center;&quot;&gt;调解协议书&lt;/h2&gt;&lt;br /&gt;&lt;div&gt; &lt;h3&gt;$&#123;bodyApplicant&#125;&lt;/h3&gt; &lt;/div&gt;&lt;div&gt;&lt;h3&gt;$&#123;bodyRelative&#125;&lt;/h3&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;`</span><br><span class="line"></span><br><span class="line">Api.list.exportDisputeBook(this.content).then((res) =&gt; &#123;&#125;) // 这个this.content就是$&#123;data&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="多个参数"><a href="#多个参数" class="headerlink" title="多个参数"></a>多个参数</h4><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/Axios%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82/WechatIMG10.png" alt="cmd-markdown-logo"></p>
+<p>api.js:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export const saveDisputeBook = (disputeNo,data) =&gt; axios.post(`$&#123;url&#125;/dispute/saveDisputeBook?disputeNo=$&#123;disputeNo&#125;&amp;text=$&#123;data&#125;`)</span><br></pre></td></tr></table></figure>
+
+<p>调用的页面：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Api.list.saveDisputeBook(this.disputeNo,`&lt;html&gt;&lt;body&gt;$&#123;this.content&#125;&lt;/body&gt;&lt;/html&gt;`).then((res) =&gt; &#123;&#125;)  // 因为swagger写的是string,所以这两个参数直接这样传</span><br></pre></td></tr></table></figure>
+
+<h3 id="header"><a href="#header" class="headerlink" title="header"></a>header</h3><p>参数跟头参一起传过去，就是请求接口时的Request Headers那里，一般在httpServer封装配置文件里面会设置。</p>
+<h3 id="path"><a href="#path" class="headerlink" title="path"></a>path</h3><p><a href="http://www.axios-js.com/zh-cn/docs/#%E4%BB%80%E4%B9%88%E6%98%AF-axios%EF%BC%9F" target="_blank" rel="noopener">axios官方文档</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Vue项目搭建及配置</title>
     <url>/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h3 id="配置全局可引用的颜色值"><a href="#配置全局可引用的颜色值" class="headerlink" title="配置全局可引用的颜色值"></a>配置全局可引用的颜色值</h3><p>安装：node-sass 和 sass-loader(版本为7.几的话下图43行就用”data”,版本不为7.几的话43行就用”prependData”)</p>
@@ -36,22 +83,6 @@
 <h3 id="web端"><a href="#web端" class="headerlink" title="web端"></a>web端</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- html部分 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;image src=&apos;&#123;&#123;imgurl&#125;&#125;&apos;&gt;&lt;/image&gt;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- js部分 --&gt;</span><br><span class="line">import axios from &apos;axios&apos;</span><br><span class="line">import &#123; baseURL &#125; from &apos;@/config/index&apos;</span><br><span class="line"></span><br><span class="line">const splitQRcode = res.data.split(&apos;/&apos;)</span><br><span class="line">let instance, imgurl = `$&#123;baseURL&#125;sjzmt-backend-web/qrcode/showQrCode/$&#123;splitQRcode[splitQRcode.length - 1]&#125;`  // imgurl请求的接口：http://123.206.197.169:18050/sjzmt-backend-web/qrcode/showQrCode/aaaacF</span><br><span class="line">instance = axios.create(&#123;  // 这些头参一般也是在storage里的</span><br><span class="line">    headers: &#123;&apos;token&apos;: localStorage.getItem(&apos;JWTToken&apos;),</span><br><span class="line">    &apos;UserId&apos;:localStorage.getItem(&apos;UserId&apos;), </span><br><span class="line">    &apos;USER_ID&apos;:localStorage.getItem(&apos;UserId&apos;)&#125;</span><br><span class="line">&#125;)</span><br><span class="line">instance(&#123;</span><br><span class="line">    method: &apos;post&apos;,</span><br><span class="line">    url: imgurl,</span><br><span class="line">    responseType: &apos;arraybuffer&apos;  // 这一行非常重要，重中之重</span><br><span class="line">&#125;).then(res =&gt; &#123;</span><br><span class="line">    this.showQrCodeIMG = window.URL.createObjectURL(new Blob([res.data],&#123;type:&apos;image/png;charset=UTF-8&apos; &#125;));  // 二进制流转化</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="带参数的接口请求"><a href="#带参数的接口请求" class="headerlink" title="带参数的接口请求"></a>带参数的接口请求</h2><p>需求：</p>
-<p>当碰到这种带参数的接口时：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG8.png" alt="cmd-markdown-logo"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- 不带参数的接口 --&gt;</span><br><span class="line"></span><br><span class="line">export const disputeInfoAdd = (data) =&gt; &#123;  // 只有一个参数data</span><br><span class="line">    return request(&apos;/sjzmt-backend-web/dispute/disputeInfoAdd&apos;, data)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- 带参数接口 --&gt;</span><br><span class="line"></span><br><span class="line">export const showQrCode = (data, shortQrCodeUrl) =&gt; &#123;  // 有两个参数，并且入参shortQrCodeUrl和字符串模板里的一样</span><br><span class="line">    return request(`/sjzmt-backend-web/qrcode/showQrCode/$&#123;shortQrCodeUrl&#125;`, data)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>页面使用请求时：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import &#123; showQrCode &#125; from &apos;@/api/user&apos;</span><br><span class="line">showQrCode(&#123;shortQrCodeUrl: lastStr&#125;, lastStr).then((data = &#123;&#125;) =&gt; &#123;&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="接口请求的不同方式（web）"><a href="#接口请求的不同方式（web）" class="headerlink" title="接口请求的不同方式（web）"></a>接口请求的不同方式（web）</h2><p>注意观察swagger，下面这张图可能是query,body,header;三者的传参时的区别如下：</p>
-<p>当为header时，参数跟头参一起传过去，就是请求接口时的Request Headers那里，一般在httpseaver里面。</p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG2.png" alt="cmd-markdown-logo"></p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG3.png" alt="cmd-markdown-logo"><br>这个Request URL就是举例给我们后端需要我们怎么样的形式传过去，根据这个知道后端需要将参数直接加个?跟在路径后面，并且参数是string类型。</p>
-<p>所以结合以上2点，query的api请求如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 生成调解协议书</span><br><span class="line">export const exportDisputeBook = data =&gt; axios.post(`$&#123;url&#125;/dispute/exportDisputeBook?text=$&#123;data&#125;`)</span><br><span class="line"></span><br><span class="line">this.content = `&lt;html&gt;&lt;body&gt;&lt;h2 style=&quot;text-align: center;&quot;&gt;调解协议书&lt;/h2&gt;&lt;br /&gt;&lt;div&gt; &lt;h3&gt;$&#123;bodyApplicant&#125;&lt;/h3&gt; &lt;/div&gt;&lt;div&gt;&lt;h3&gt;$&#123;bodyRelative&#125;&lt;/h3&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;`</span><br><span class="line"></span><br><span class="line">Api.list.exportDisputeBook(this.content).then((res) =&gt; &#123;&#125;) // 这个this.content就是$&#123;data&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="小程序的-this-apply"><a href="#小程序的-this-apply" class="headerlink" title="小程序的 this.$apply()"></a>小程序的 this.$apply()</h2><p>this.$apply()使用场景：</p>
 <ul>

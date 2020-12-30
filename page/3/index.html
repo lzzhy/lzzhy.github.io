@@ -267,6 +267,222 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzzhy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzzhy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/HTTP系列之HTTP/" itemprop="url">HTTP系列之HTTP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-11T17:53:46+08:00">
+                2019-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/HTTP系列之HTTP/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/HTTP系列之HTTP/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.7k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前言：网络方面的知识是前端同学必不可少的了。加强基本功的修炼，才能在日常开发中快速定位到错误，和后端同学更有效率的合作。</p>
+<h3 id="HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1-0、1-1、HTTP2-现在常用版本-、HTTP3-少-，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1-1的一些缺陷-线头阻塞，二进制传输、帧和流-头部压缩，主动推送-，最主要是解决了线头阻塞的问题。"><a href="#HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1-0、1-1、HTTP2-现在常用版本-、HTTP3-少-，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1-1的一些缺陷-线头阻塞，二进制传输、帧和流-头部压缩，主动推送-，最主要是解决了线头阻塞的问题。" class="headerlink" title="HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.0、1.1、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题。"></a>HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.0、1.1、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题。</h3><h3 id="不止一种握手"><a href="#不止一种握手" class="headerlink" title="不止一种握手"></a>不止一种握手</h3><ul>
+<li>TCP 三次握手，归 HTTP</li>
+<li>TLS 握手，归 HTTPS</li>
+<li>WebSocket 握手，基于 TCP 协议，都能用</li>
+</ul>
+<h3 id="定义：-超文本传输协议，是一个应用层协议。"><a href="#定义：-超文本传输协议，是一个应用层协议。" class="headerlink" title="定义：   超文本传输协议，是一个应用层协议。"></a>定义：   超文本传输协议，是一个应用层协议。</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E6%B5%85%E8%AF%BBHTTP%E5%92%8CHTTPS/WechatIMG2.png" alt="cmd-markdown-logo"></p>
+<h3 id="HTTP的作用："><a href="#HTTP的作用：" class="headerlink" title="HTTP的作用："></a>HTTP的作用：</h3><p>认证控制，同源控制，缓存控制，传输控制，会话控制</p>
+<h3 id="HTTP的特点："><a href="#HTTP的特点：" class="headerlink" title="HTTP的特点："></a>HTTP的特点：</h3><ul>
+<li>无状态的协议。无状态就是客户端的每次请求都没有关系，它们是独立的。</li>
+<li>只能是客户端发起请求，服务器响应。服务器不能主动向客户端传递消息。</li>
+<li>底层是基于TCP实现的。</li>
+</ul>
+<h3 id="HTTP传输过程详解："><a href="#HTTP传输过程详解：" class="headerlink" title="HTTP传输过程详解："></a>HTTP传输过程详解：</h3><ul>
+<li>HTTP协议就是基于TCP/IP协议模型来传输信息的   </li>
+<li>TCP三次握手(目的是同步连接双方的序列号和确认号并交换 TCP窗口大小信息)<br>客户端发送一个SYN段，并指明客户端的初始序列号，即ISN(c) <font face="微软雅黑" size="3" color="Green">=&gt;</font> 务端发送自己的SYN段作为应答，同样指明自己的ISN(s) <font face="微软雅黑" size="3" color="Green">=&gt;</font> 为了确认服务器端的SYN，客户端将ISN(s)+1作为返回的ACK数值</li>
+<li>TCP四次挥手(当客户端和服务器通过三次握手建立了TCP连接以后，当数据传送完毕，肯定是要断开TCP连接的啊)<br><font face="微软雅黑" size="3" color="Green">第一次分手</font>：主机1（可以使客户端，也可以是服务器端），设置Sequence Number，向主机2发送一个FIN报文段；此时，主机1进入FIN_WAIT_1状态；这表示主机1没有数据要发送给主机2了；<br><font face="微软雅黑" size="3" color="Green">第二次分手</font>：主机2收到了主机1发送的FIN报文段，向主机1回一个ACK报文段，Acknowledgment Number为Sequence Number加1；主机1进入FIN_WAIT_2状态；主机2告诉主机1，我“同意”你的关闭请求；<br><font face="微软雅黑" size="3" color="Green">第三次分手</font>：主机2向主机1发送FIN报文段，请求关闭连接，同时主机2进入LAST_ACK状态；<br><font face="微软雅黑" size="3" color="Green">第四次分手</font>：主机1收到主机2发送的FIN报文段，向主机2发送ACK报文段，然后主机1进入TIME_WAIT状态；主机2收到主机1的ACK报文段以后，就关闭连接；此时，主机1等待2MSL后依然没有收到回复，则证明Server端已正常关闭，那好，主机1也可以关闭连接了。 </li>
+</ul>
+<h3 id="URL详解："><a href="#URL详解：" class="headerlink" title="URL详解："></a>URL详解：</h3><blockquote>
+<p>url大体结构如下:<a href="http://www.temas.com/myBlog/file/date.php?name=yuchao&amp;age=26#modfiled" target="_blank" rel="noopener">http://www.temas.com/myBlog/file/date.php?name=yuchao&amp;age=26#modfiled</a><br><font face="微软雅黑" size="3" color="Green">这个url分为几个部分：</font><br>http：表示底层使用的协议（如http、https、ftp）<br><a href="http://www.temas.com：表示服务器域名（或者是ip地址）" target="_blank" rel="noopener">www.temas.com：表示服务器域名（或者是ip地址）</a><br>/myBlog/file/date.php：表示资源路径<br>?name=yuchao&amp;age=26：发送给服务器数据<br>#modfiled：锚点</p>
+</blockquote>
+<h3 id="HTTP消息结构："><a href="#HTTP消息结构：" class="headerlink" title="HTTP消息结构："></a>HTTP消息结构：</h3><p>整个http消息结构分为request以及response两部分：</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E6%B5%85%E8%AF%BBHTTP%E5%92%8CHTTPS/WechatIMG4.png" alt="cmd-markdown-logo"></p>
+<p>上面第一部分是请求资源地址以及请求方式属于request部分.<br>第二部分是返回状态码，属于response部分.<br>第三部分是request部分，第四部分是response部分.<br>总体来说整个请求分为两个部分我们来分析里面主要的结构如下.   </p>
+<p><font face="微软雅黑" size="3" color="Green">request部分分析：</font>  </p>
+<ul>
+<li><font face="微软雅黑" size="3" color="Green">请求的url</font>即我们地址栏输入的url或者ajax请求的那个参数url。</li>
+<li><font face="微软雅黑" size="3" color="Green">请求方式</font>：常用的有get、post以及head请求：   </li>
+<li><font face="微软雅黑" size="3" color="Green">Accept</font>：表示浏览器可以接受的类型，一般浏览器都会发给服务器*表示通配所有类型。text/html类型就表示我们常说的html文档。</li>
+<li><font face="微软雅黑" size="3" color="Green">Accept-Encoding</font>：浏览器自身声明接受的编码方式，通常是压缩方法；</li>
+<li><font face="微软雅黑" size="3" color="Green">Accept-Language</font>：浏览器自身声明可以接受的语言例如中文：zh-CN；</li>
+<li><font face="微软雅黑" size="3" color="Green">Cache-Control</font>：浏览器缓存机制，一般会有max-age值，或者no-cache或者public、private；</li>
+<li><font face="微软雅黑" size="3" color="Green">Connection</font>：可选keep-alive、close</li>
+<li><font face="微软雅黑" size="3" color="Green">cookie</font><br>:将cookie数据发送给服务器   </li>
+<li><font face="微软雅黑" size="3" color="Green">User-Agent</font>：客户端使用的浏览器以及操作系统</li>
+<li><font face="微软雅黑" size="3" color="Green">If-Modified-Since</font>：和 last-modified 一起工作浏览器缓存内容最后修改时间;</li>
+<li><font face="微软雅黑" size="3" color="Green">if-None-Match</font><br>:和ETag一起工作，比较两者值 获取内容是否改变。</li>
+</ul>
+<p><font face="微软雅黑" size="3" color="Green">response部分分析：</font> </p>
+<ul>
+<li><font face="微软雅黑" size="3" color="Green">Keep-Alive:</font> 长连接设置的值，有timeout以及max两个值，只有当connection为keep-alive并且服务端支持时候才会生效</li>
+<li><font face="微软雅黑" size="3" color="Green">Content-Length</font> 表示返回实体内容长度大小，一般应用在返回静态页面或者一张图片并且数据量不大时候被设置；大小为bite字节</li>
+<li><font face="微软雅黑" size="3" color="Green">Transfer-Encoding</font>即服务器端不是一个已知的固定的返回实体时候，服务器会一边产生数据，一边发送给客户端，这时候服务器就需要用Transfer-Encoding。</li>
+<li><font face="微软雅黑" size="3" color="Green">Date</font>：服务器返回数据时间，我经常就用这个值来取得服务器时间</li>
+<li><font face="微软雅黑" size="3" color="Green">Etag</font>与if-none-match配合使用；</li>
+<li><font face="微软雅黑" size="3" color="Green">Last-Modified:</font>用于指示资源的最后修改日期和时间。一般都用来处理缓存，</li>
+<li><font face="微软雅黑" size="3" color="Green">Content-Type</font>WEB服务器告诉浏览器自己响应的对象的类型和字符集,例如:Content-Type: text/html; charset=UTF-8，Content-Type: image/jpeg</li>
+<li><font face="微软雅黑" size="3" color="Green">server</font>：指明服务器软件版本；</li>
+<li><font face="微软雅黑" size="3" color="Green">Referer</font>：告诉服务器该请求是在哪个链接发过来的，据此可以统计从某个页面跳转过来次数；</li>
+<li><font face="微软雅黑" size="3" color="Green">X-powered0by</font>：表示该网站开发技术<br><font face="微软雅黑" size="3" color="Green">常见状态码：</font> </li>
+<li>200：客户端请求成功。 </li>
+<li>304：使用的缓存文件  </li>
+<li>400：客户端请求有语法错误，不能被服务器所理解。   </li>
+<li>401：请求未经授权，这个状态码必须和WWW-Authntiate报头域一起使用。   </li>
+<li>403：服务器收到请求，但拒绝提供服务。   </li>
+<li>404：请求资源不存在，如：输入了错误的URL。   </li>
+<li>500：服务器报错。   </li>
+<li>503：服务器当前不能处理客户端的请求，一段时间后可恢复正常。</li>
+</ul>
+<h3 id="HTTP和HTTPS的区别："><a href="#HTTP和HTTPS的区别：" class="headerlink" title="HTTP和HTTPS的区别："></a>HTTP和HTTPS的区别：</h3><blockquote>
+<ul>
+<li><font face="微软雅黑" size="3" color="Green">开头：</font>HTTP:以http:// 开头；HTTPS: 以https:// 开头。</li>
+<li><font face="微软雅黑" size="3" color="Green">传输信息安全性不同：</font>HTTP:无法加密,信息是明文传输,不安全；HTTPS:具有SSL加密传输协议，更加安全。</li>
+<li><font face="微软雅黑" size="3" color="Green">证书申请方式不同：</font>HTTP:无需证书或者可以免费申请，HTTPS:需要CA机构wosign的颁发的SSL证书。</li>
+<li><font face="微软雅黑" size="3" color="Green">端口不同：</font>HTTP:标准端口8080，HTTPS:标准端口443。</li>
+<li><font face="微软雅黑" size="3" color="Green">连接方式不同：</font>HTTP:连接很简单，是无状态的；HTTPS:是由SSL＋HTTP协议构建的可进行加密传输、身份认证的网络协议。<br><font face="微软雅黑" size="3" color="Green">总结：</font>HTTPS=HTTP+SSL(SSL协议是在客户端与服务器端建立SSL安全通道)如下图：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E6%B5%85%E8%AF%BBHTTP%E5%92%8CHTTPS/WechatIMG1%201.png" alt="cmd-markdown-logo"></li>
+</ul>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/Node-js刷博客访问量/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1516,7 +1732,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
