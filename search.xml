@@ -1,6 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>koa + MongoDB</title>
+    <url>/koa%20+%20MongoDB/</url>
+    <content><![CDATA[<p>新年第一趴来咯！！！！</p>
+<h2 id="为什么要学这个呢"><a href="#为什么要学这个呢" class="headerlink" title="为什么要学这个呢"></a>为什么要学这个呢</h2><p>现在越来越讲究 大前端，但是大前端究竟是什么呢？</p>
+<p>我对大前端的理解：它至少有一个点是在现在前后端分离的趋势中可以脱离后端独立开发一个项目。由于 前端代码 + 数据库 + 后端代码 = 完整的一个项目，那么就有了我们本节所讲的Node.js(扮演后端)和 MongoDB(数据库)</p>
+<p>对于为什么会选中 Node.js 和 MongoDB 呢？ </p>
+<p>Node.js 是能够在服务器端运行 JavaScript 的开放源代码、跨平台 JavaScript 运行环境。</p>
+<p>而 MongoDB 相较于其他关系型数据库相比来说具有以下的有点：</p>
+<ul>
+<li>弱一致性（最终一致），更能保证用户的访问速度</li>
+<li>文档结构的存储方式，能够更便捷的获取数据</li>
+<li>内置GridFS，支持大容量的存储</li>
+<li>第三方支持丰富 (这是与其他的NoSQL相比，MongoDB也具有的优势)</li>
+<li>性能优越</li>
+</ul>
+<h2 id="koa-和-MongoDB-是什么"><a href="#koa-和-MongoDB-是什么" class="headerlink" title="koa 和 MongoDB 是什么"></a>koa 和 MongoDB 是什么</h2><p>koa：官方的解释是基于Node.js平台的下一代web开发框架</p>
+<p>MongoDB 是数据库本身，而 Mongoose 是 MongoDB 的对象建模工具（说白了就是基于前者之上进行功能封装的一个库，它们两者之间的关系类似Node.js和express或koa之间的关系）</p>
+<p>二者之间的关系：使用 node.js 的框架 ( 比如koa ) 与数据库（  MongoDB ）建立连接并且操作数据库，node.js 框架给提供接口，提供的接口就是关联数据库里面的，最后渲染在前端页面上。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>环境要求：node.js &gt; 7.6.0（可以使用 <a href="https://github.com/nvm-sh/nvm/blob/master/README.md" target="_blank" rel="noopener">nvm</a>：node.js版本控制工具）</p>
+<h2 id="项目准备工作"><a href="#项目准备工作" class="headerlink" title="项目准备工作"></a>项目准备工作</h2><ul>
+<li><p>新建项目文件夹：koa + MongoDB (根据自己爱好取o)</p>
+</li>
+<li><p>生成 package.json：npm init -y</p>
+</li>
+<li><p>安装相应的依赖：cnpm install koa koa-router –save (–save: 生成的在 dependencies 里)</p>
+</li>
+<li><p>在 package.json 里将 “main”: “index.js” 改成 “main”: “app.js”，入口文件就变成 app.js 了，在新建一个 app.js 文件作为入口文件(或者直接新增 index.js 并以这个文件作为入口)</p>
+</li>
+<li><p>在刚新增的 app.js 文件中引入和写逻辑(往下看，在下面的本地搭建里面哦)</p>
+</li>
+<li><p>启动项目：需要在 package.json 中配置，将 </p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  修改为：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;start&quot;: &quot;node app.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  本来执行的命令是 node app.js,但是这里配置了的话执行命令写成 npm run start 就行了。(如对脚本配置有问题的可以参考 <a href="https://lzzhy.github.io/package.json%20%E4%B8%AD%E7%9A%84%20npm%20%E8%84%9A%E6%9C%AC(npm%20scripts)%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">npm scripts</a> )</p>
+</li>
+<li><p>安装 nodemon 启动时可以自动监听：需要在 package.json 中配置：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;nodemon&quot;: &quot;nodemon app.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  并且全局安装：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cnpm install -g nodemon</span><br></pre></td></tr></table></figure>
+
+<p>  这样子启动项目的话就可以不用 npm run start (不会监听文件修改)，可以直接 nodemon (可以监听文件修改) 了，在浏览器打开localhost:4000(设置的端口号)就可以了。</p>
+</li>
+</ul>
+<h2 id="搭建本地服务"><a href="#搭建本地服务" class="headerlink" title="搭建本地服务"></a>搭建本地服务</h2><p>app.js：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const koa = require(&quot;koa&quot;);  // 引入koa</span><br><span class="line">const Router = require(&quot;koa-router&quot;);  // 引入路由</span><br><span class="line"></span><br><span class="line">const app = new koa();  // 实例化koa</span><br><span class="line">const router = new Router();  // 实例化路由</span><br><span class="line"></span><br><span class="line">app.use(router.routes()).use(router.allowedMethods());  // 配置路由</span><br><span class="line"></span><br><span class="line">const port = process.env.PORT || 4000;  // 设置端口号 4000这个可以随便改成啥</span><br><span class="line">app.listen(port, () =&gt; &#123;  // 监听当前端口号</span><br><span class="line">    console.log(`serve started on $&#123;port&#125;`);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.get(&quot;/&quot;, async ctx =&gt; &#123;  // 路由 不同路由展示不同页面</span><br><span class="line">    ctx.body = &#123; msg: &quot;hello koa！I am coming!!&quot; &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><p>上文提到过了 mongoose 是 MongoDB 的一个对象建模工具，因此我们要通过 mongoose 来实现koa连接 MongoDB 数据库。</p>
+<p>安装 mongoose：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cnpm install mongoose --save</span><br></pre></td></tr></table></figure>
+
+<p>连接数据库：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mongoose.connect(&apos;mongodb://localhost:27017/phoneAlbumData&apos;, &#123; useUnifiedTopology: true, useNewUrlParser: true &#125;).then(() =&gt; &#123;  // &apos;mongodb://localhost:27017/&apos;是固定的，phoneAlbumData 是你创建的数据库的名称</span><br><span class="line">    console.log(&quot;数据库连接成功...&quot;);</span><br><span class="line">&#125;).catch(err =&gt; &#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>操作 npm run start,可以看到端口输出数据库连接成功。</p>
+<p>连接数据库成功后，可以下载一个 Robo 3T（数据库可视化工具）并在里面查看或者操作数据：<a href="https://www.bbsmax.com/A/obzb7V2BJE/" target="_blank" rel="noopener">Robo 3T 使用教程</a></p>
+<h2 id="RESTful接口创建"><a href="#RESTful接口创建" class="headerlink" title="RESTful接口创建"></a>RESTful接口创建</h2><p>mongoose通过 services（方法）,controlller（接口）,model（模型）这三层来实现接口的创建。</p>
+<p>下面介绍接口创建的流程以及分别举例介绍一个 GET/POST 方法！</p>
+<ul>
+<li><p>首先在app.js中引入 controlller（接口） 层的接口</p>
+<p>  controlller =&gt; api =&gt; users.js 目录： </p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const Router = require(&quot;koa-router&quot;);  // 引入 koa-router</span><br><span class="line">const router = new Router();  // 实例化 router</span><br><span class="line">const bacUserService = require(&quot;../../services/users&quot;)  // 引入 services 层方法</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* @route GET请求方式 api/users/test</span><br><span class="line">*/</span><br><span class="line">router.get(&quot;/test&quot;, async ctx =&gt; &#123;</span><br><span class="line">    ctx.status = 200;</span><br><span class="line">    ctx.body = &#123; msg: &apos;users works...&apos; &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* @route POST方法 api/users/save</span><br><span class="line">*/</span><br><span class="line">router.post(&quot;/save&quot;, async ctx =&gt; &#123;</span><br><span class="line">    const user = &#123;</span><br><span class="line">        &quot;phone&quot;:  &quot;15770535880&quot;,</span><br><span class="line">        &quot;password&quot;:  &quot;88888888&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    const data = await bacUserService.save(user);</span><br><span class="line">    ctx.body = &#123;</span><br><span class="line">        data: data,</span><br><span class="line">        err_code: 0</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>来到了 services（方法层）：services =&gt; users.js</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const userModel = require(&quot;../models/users&quot;)  // 引入 services 层</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line"></span><br><span class="line">    &lt;!-- ...封装的方法... --&gt;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>现在是model（模型）层，model =&gt; users.js 目录：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const mongoose = require(&quot;mongoose&quot;)</span><br><span class="line">const Schema = mongoose.Schema  // Schema是模板</span><br><span class="line">const userSchema = new Schema(&#123;  // 实例化数据模板</span><br><span class="line">    phone: &#123;</span><br><span class="line">        type: Number</span><br><span class="line">    &#125;,</span><br><span class="line">    password: &#123;</span><br><span class="line">        type: Number</span><br><span class="line">    &#125;,</span><br><span class="line">    id: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        default: Date.now</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">module.exports = user = mongoose.model(&quot;users&quot;,userSchema)  // 导出</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后将model（模型）层导出的在app.js中引用：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">router.use(&apos;/api/users&apos;, users)  // 接口地址 localhost:4000/api/users</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>好了，这样一个完整的本地服务操作数据库的就完成了（这里只举例了一个get和一个post接口，更多复杂的接口可以自己去探讨一下哦），撒花撒花！！！</p>
+<h2 id="测试接口"><a href="#测试接口" class="headerlink" title="测试接口"></a>测试接口</h2><p>既然接口以及实现了，那可以借助 postman 这个测试工具来测试接口是否成功。</p>
+<p>比如想要调用 save 接口的话：就在 postman 里面输入 localhost:4000/api/users/save，再选择 post 方法并且输入入参就可以啦。</p>
+<p>同理 get 方法也一样：localhost:4000/api/users/get，选择get方法不需要传参</p>
+<h2 id="数据库可视化工具"><a href="#数据库可视化工具" class="headerlink" title="数据库可视化工具"></a>数据库可视化工具</h2><p>当我们在 postman 里面测试了 POST接口的话，那么数据库里肯定存入了对应的数据，那么我们要怎么查看我们的数据库具体有哪些数据呢</p>
+<p>这个时候就可以借助 Robo 3T 这个工具了，打开这个工具时候需要先创建一个对应的数据库名（这个数据库名就是链接数据库时创建的名字，如我们这里就是phoneAlbumData，因为之前连接数据库时设置了：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mongoose.connect(&apos;mongodb://localhost:27017/phoneAlbumData&apos;,...</span><br></pre></td></tr></table></figure>
+
+<p>以上只是截取了部分重要的代码，具体的代码放在github上了</p>
+<p>完美完美。</p>
+<p>参考：<br><a href="https://koa.bootcss.com/" target="_blank" rel="noopener">koa官方文档</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>接口请求</title>
     <url>/Axios%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82/</url>
     <content><![CDATA[<p>在前后端联调的过程中，会碰到不同方式的传参。</p>

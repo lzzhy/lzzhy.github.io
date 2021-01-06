@@ -267,6 +267,240 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/koa + MongoDB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzzhy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzzhy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/koa + MongoDB/" itemprop="url">koa + MongoDB</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-04T17:27:20+08:00">
+                2021-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/koa + MongoDB/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/koa + MongoDB/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.7k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>新年第一趴来咯！！！！</p>
+<h2 id="为什么要学这个呢"><a href="#为什么要学这个呢" class="headerlink" title="为什么要学这个呢"></a>为什么要学这个呢</h2><p>现在越来越讲究 大前端，但是大前端究竟是什么呢？</p>
+<p>我对大前端的理解：它至少有一个点是在现在前后端分离的趋势中可以脱离后端独立开发一个项目。由于 前端代码 + 数据库 + 后端代码 = 完整的一个项目，那么就有了我们本节所讲的Node.js(扮演后端)和 MongoDB(数据库)</p>
+<p>对于为什么会选中 Node.js 和 MongoDB 呢？ </p>
+<p>Node.js 是能够在服务器端运行 JavaScript 的开放源代码、跨平台 JavaScript 运行环境。</p>
+<p>而 MongoDB 相较于其他关系型数据库相比来说具有以下的有点：</p>
+<ul>
+<li>弱一致性（最终一致），更能保证用户的访问速度</li>
+<li>文档结构的存储方式，能够更便捷的获取数据</li>
+<li>内置GridFS，支持大容量的存储</li>
+<li>第三方支持丰富 (这是与其他的NoSQL相比，MongoDB也具有的优势)</li>
+<li>性能优越</li>
+</ul>
+<h2 id="koa-和-MongoDB-是什么"><a href="#koa-和-MongoDB-是什么" class="headerlink" title="koa 和 MongoDB 是什么"></a>koa 和 MongoDB 是什么</h2><p>koa：官方的解释是基于Node.js平台的下一代web开发框架</p>
+<p>MongoDB 是数据库本身，而 Mongoose 是 MongoDB 的对象建模工具（说白了就是基于前者之上进行功能封装的一个库，它们两者之间的关系类似Node.js和express或koa之间的关系）</p>
+<p>二者之间的关系：使用 node.js 的框架 ( 比如koa ) 与数据库（  MongoDB ）建立连接并且操作数据库，node.js 框架给提供接口，提供的接口就是关联数据库里面的，最后渲染在前端页面上。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>环境要求：node.js &gt; 7.6.0（可以使用 <a href="https://github.com/nvm-sh/nvm/blob/master/README.md" target="_blank" rel="noopener">nvm</a>：node.js版本控制工具）</p>
+<h2 id="项目准备工作"><a href="#项目准备工作" class="headerlink" title="项目准备工作"></a>项目准备工作</h2><ul>
+<li><p>新建项目文件夹：koa + MongoDB (根据自己爱好取o)</p>
+</li>
+<li><p>生成 package.json：npm init -y</p>
+</li>
+<li><p>安装相应的依赖：cnpm install koa koa-router –save (–save: 生成的在 dependencies 里)</p>
+</li>
+<li><p>在 package.json 里将 “main”: “index.js” 改成 “main”: “app.js”，入口文件就变成 app.js 了，在新建一个 app.js 文件作为入口文件(或者直接新增 index.js 并以这个文件作为入口)</p>
+</li>
+<li><p>在刚新增的 app.js 文件中引入和写逻辑(往下看，在下面的本地搭建里面哦)</p>
+</li>
+<li><p>启动项目：需要在 package.json 中配置，将 </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  修改为：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;start&quot;: &quot;node app.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  本来执行的命令是 node app.js,但是这里配置了的话执行命令写成 npm run start 就行了。(如对脚本配置有问题的可以参考 <a href="https://lzzhy.github.io/package.json%20%E4%B8%AD%E7%9A%84%20npm%20%E8%84%9A%E6%9C%AC(npm%20scripts)%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">npm scripts</a> )</p>
+</li>
+<li><p>安装 nodemon 启动时可以自动监听：需要在 package.json 中配置：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;nodemon&quot;: &quot;nodemon app.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  并且全局安装：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g nodemon</span><br></pre></td></tr></table></figure>
+
+<p>  这样子启动项目的话就可以不用 npm run start (不会监听文件修改)，可以直接 nodemon (可以监听文件修改) 了，在浏览器打开localhost:4000(设置的端口号)就可以了。</p>
+</li>
+</ul>
+<h2 id="搭建本地服务"><a href="#搭建本地服务" class="headerlink" title="搭建本地服务"></a>搭建本地服务</h2><p>app.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const koa = require(&quot;koa&quot;);  // 引入koa</span><br><span class="line">const Router = require(&quot;koa-router&quot;);  // 引入路由</span><br><span class="line"></span><br><span class="line">const app = new koa();  // 实例化koa</span><br><span class="line">const router = new Router();  // 实例化路由</span><br><span class="line"></span><br><span class="line">app.use(router.routes()).use(router.allowedMethods());  // 配置路由</span><br><span class="line"></span><br><span class="line">const port = process.env.PORT || 4000;  // 设置端口号 4000这个可以随便改成啥</span><br><span class="line">app.listen(port, () =&gt; &#123;  // 监听当前端口号</span><br><span class="line">    console.log(`serve started on $&#123;port&#125;`);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.get(&quot;/&quot;, async ctx =&gt; &#123;  // 路由 不同路由展示不同页面</span><br><span class="line">    ctx.body = &#123; msg: &quot;hello koa！I am coming!!&quot; &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><p>上文提到过了 mongoose 是 MongoDB 的一个对象建模工具，因此我们要通过 mongoose 来实现koa连接 MongoDB 数据库。</p>
+<p>安装 mongoose：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install mongoose --save</span><br></pre></td></tr></table></figure>
+
+<p>连接数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mongoose.connect(&apos;mongodb://localhost:27017/phoneAlbumData&apos;, &#123; useUnifiedTopology: true, useNewUrlParser: true &#125;).then(() =&gt; &#123;  // &apos;mongodb://localhost:27017/&apos;是固定的，phoneAlbumData 是你创建的数据库的名称</span><br><span class="line">    console.log(&quot;数据库连接成功...&quot;);</span><br><span class="line">&#125;).catch(err =&gt; &#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>操作 npm run start,可以看到端口输出数据库连接成功。</p>
+<p>连接数据库成功后，可以下载一个 Robo 3T（数据库可视化工具）并在里面查看或者操作数据：<a href="https://www.bbsmax.com/A/obzb7V2BJE/" target="_blank" rel="noopener">Robo 3T 使用教程</a></p>
+<h2 id="RESTful接口创建"><a href="#RESTful接口创建" class="headerlink" title="RESTful接口创建"></a>RESTful接口创建</h2><p>mongoose通过 services（方法）,controlller（接口）,model（模型）这三层来实现接口的创建。</p>
+<p>下面介绍接口创建的流程以及分别举例介绍一个 GET/POST 方法！</p>
+<ul>
+<li><p>首先在app.js中引入 controlller（接口） 层的接口</p>
+<p>  controlller =&gt; api =&gt; users.js 目录： </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">const Router = require(&quot;koa-router&quot;);  // 引入 koa-router</span><br><span class="line">const router = new Router();  // 实例化 router</span><br><span class="line">const bacUserService = require(&quot;../../services/users&quot;)  // 引入 services 层方法</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* @route GET请求方式 api/users/test</span><br><span class="line">*/</span><br><span class="line">router.get(&quot;/test&quot;, async ctx =&gt; &#123;</span><br><span class="line">    ctx.status = 200;</span><br><span class="line">    ctx.body = &#123; msg: &apos;users works...&apos; &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* @route POST方法 api/users/save</span><br><span class="line">*/</span><br><span class="line">router.post(&quot;/save&quot;, async ctx =&gt; &#123;</span><br><span class="line">    const user = &#123;</span><br><span class="line">        &quot;phone&quot;:  &quot;15770535880&quot;,</span><br><span class="line">        &quot;password&quot;:  &quot;88888888&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    const data = await bacUserService.save(user);</span><br><span class="line">    ctx.body = &#123;</span><br><span class="line">        data: data,</span><br><span class="line">        err_code: 0</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>来到了 services（方法层）：services =&gt; users.js</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const userModel = require(&quot;../models/users&quot;)  // 引入 services 层</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line"></span><br><span class="line">    &lt;!-- ...封装的方法... --&gt;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>现在是model（模型）层，model =&gt; users.js 目录：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const mongoose = require(&quot;mongoose&quot;)</span><br><span class="line">const Schema = mongoose.Schema  // Schema是模板</span><br><span class="line">const userSchema = new Schema(&#123;  // 实例化数据模板</span><br><span class="line">    phone: &#123;</span><br><span class="line">        type: Number</span><br><span class="line">    &#125;,</span><br><span class="line">    password: &#123;</span><br><span class="line">        type: Number</span><br><span class="line">    &#125;,</span><br><span class="line">    id: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        default: Date.now</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">module.exports = user = mongoose.model(&quot;users&quot;,userSchema)  // 导出</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后将model（模型）层导出的在app.js中引用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">router.use(&apos;/api/users&apos;, users)  // 接口地址 localhost:4000/api/users</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>好了，这样一个完整的本地服务操作数据库的就完成了（这里只举例了一个get和一个post接口，更多复杂的接口可以自己去探讨一下哦），撒花撒花！！！</p>
+<h2 id="测试接口"><a href="#测试接口" class="headerlink" title="测试接口"></a>测试接口</h2><p>既然接口以及实现了，那可以借助 postman 这个测试工具来测试接口是否成功。</p>
+<p>比如想要调用 save 接口的话：就在 postman 里面输入 localhost:4000/api/users/save，再选择 post 方法并且输入入参就可以啦。</p>
+<p>同理 get 方法也一样：localhost:4000/api/users/get，选择get方法不需要传参</p>
+<h2 id="数据库可视化工具"><a href="#数据库可视化工具" class="headerlink" title="数据库可视化工具"></a>数据库可视化工具</h2><p>当我们在 postman 里面测试了 POST接口的话，那么数据库里肯定存入了对应的数据，那么我们要怎么查看我们的数据库具体有哪些数据呢</p>
+<p>这个时候就可以借助 Robo 3T 这个工具了，打开这个工具时候需要先创建一个对应的数据库名（这个数据库名就是链接数据库时创建的名字，如我们这里就是phoneAlbumData，因为之前连接数据库时设置了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongoose.connect(&apos;mongodb://localhost:27017/phoneAlbumData&apos;,...</span><br></pre></td></tr></table></figure>
+
+<p>以上只是截取了部分重要的代码，具体的代码放在github上了</p>
+<p>完美完美。</p>
+<p>参考：<br><a href="https://koa.bootcss.com/" target="_blank" rel="noopener">koa官方文档</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/Axios接口请求/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1872,249 +2106,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/初探babel/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lzzhy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lzzhy Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/初探babel/" itemprop="url">初探 babel</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-14T11:28:07+08:00">
-                2020-10-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/初探babel/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/初探babel/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.4k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="报错过程"><a href="#报错过程" class="headerlink" title="报错过程"></a>报错过程</h2><p>在项目中局部安装 elem 时：</p>
-<ul>
-<li>npm install babel-plugin-component -D</li>
-<li>创建 .babelrc，并添加：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [[&quot;es2015&quot;, &#123; &quot;modules&quot;: false &#125;]],</span><br><span class="line">  &quot;plugins&quot;: [</span><br><span class="line">    [</span><br><span class="line">      &quot;component&quot;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;libraryName&quot;: &quot;element-ui&quot;,</span><br><span class="line">        &quot;styleLibraryName&quot;: &quot;theme-chalk&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>走到这一步时报错：</p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E6%8E%A2%20babel/WechatIMG1.png" alt="cmd-markdown-logo"></p>
-<p>经过排查，发现报错是因为 .babelrc 文件里的 presets 配置报错：</p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E6%8E%A2%20babel/WechatIMG2%201.png" alt="cmd-markdown-logo"></p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>安装 @babel/preset-env，并将 .babelrc 文件改成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [&quot;@babel/preset-env&quot;],</span><br><span class="line">    &quot;plugins&quot;: [</span><br><span class="line">      [</span><br><span class="line">        &quot;component&quot;,</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;libraryName&quot;: &quot;element-ui&quot;,</span><br><span class="line">          &quot;styleLibraryName&quot;: &quot;theme-chalk&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>原因： 应该是因为版本问题。当前使用的 .babel 版本是7.8.0，而 elem 的 .babelrc 配置 中还是之前版本的”presets”: [[“es2015”, { “modules”: false }]]</p>
-<h2 id="初探-babel-（babel-常用知识点整合）"><a href="#初探-babel-（babel-常用知识点整合）" class="headerlink" title="初探 babel （babel 常用知识点整合）"></a>初探 babel （babel 常用知识点整合）</h2><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E6%8E%A2%20babel/WechatIMG8.png" alt="cmd-markdown-logo"><br><a href="https://www.babeljs.cn/docs/usage" target="_blank" rel="noopener">Babel</a> 是一个广泛使用的转码器，主要功能：</p>
-<ul>
-<li>语法转换（将 ES5 转换成 ES6，从而可以在现有环境执行）</li>
-<li>通过 Polyfill 方式在目标环境中添加缺失的特性 (通过 @babel/polyfill 模块)</li>
-<li>源码转换 (codemods)</li>
-</ul>
-<h3 id="babel【配置】详解"><a href="#babel【配置】详解" class="headerlink" title="babel【配置】详解"></a>babel【配置】详解</h3><p>对于前端来说 babel 主要使用的就是如何配置了。<a href="https://www.babeljs.cn/docs/configuration" target="_blank" rel="noopener">Babel</a> 左菜单中【指南】=&gt; 【使用指南】/【配置babel】，这两个菜单中是babel的基础配置，主要就是围绕 babel.config.js 和 .babelrc 这两个文件</p>
-<h4 id="配置文件-babelrc"><a href="#配置文件-babelrc" class="headerlink" title="配置文件 .babelrc"></a>配置文件 .babelrc</h4><p>Babel 的配置文件是 .babelrc 和 babel.config.js。使用Babel 的第一步就是配置这个文件（二选一）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- .babelrc 该文件用来设置转码规则和插件，基本格式如下 --&gt;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [],</span><br><span class="line">  &quot;plugins&quot;: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>presets字段设定转码规则，官方提供的规则集(如：ES2015转码规则：npm install –save-dev babel-preset-es2015)，具体的可以在<a href="https://www.babeljs.cn/docs/plugins" target="_blank" rel="noopener">Babel插件</a> 中查询根据需要安装。</p>
-<p>然后，将这些规则加入 .babelrc:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [</span><br><span class="line">      &quot;es2015&quot;,</span><br><span class="line">      &quot;react&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;plugins&quot;: []</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<p>注：babel.config.js 和 .babelrc 的区别： Babel 的两种并行的配置文件格式；babel.config.js 是针对项目范围的配置，针对第三方和自己的代码；而 .babelrc 是针对文件的配置；一般有了 babel.config.js 就不会去执行 .babelrc，并且要保留 .babelrc 的话就要把 babel.config.js 删除</p>
-<h4 id="命令行转码-babel-cli"><a href="#命令行转码-babel-cli" class="headerlink" title="命令行转码 babel-cli"></a>命令行转码 babel-cli</h4><p>Babel 提供 babel-cli 工具，用于命令行转码。如果项目要运行，全局环境必须要有Babel,也就是说项目产生了对环境的依赖。因此要用Babel的话先得安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev babel-cli</span><br></pre></td></tr></table></figure>
-
-<p>然后，改写 package.json: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;babel-cli&quot;: &quot;^6.0.0&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;build&quot;: &quot;babel src -d lib&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>转码的时候，就执行 npm run build</p>
-<h4 id="babel-register"><a href="#babel-register" class="headerlink" title="babel-register"></a>babel-register</h4><p>babel-register模块改写require命令，为它加上一个钩子。此后，每当使用require加载.js、.jsx、.es和.es6后缀名的文件，就会先用Babel进行转码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save-dev babel-register</span><br></pre></td></tr></table></figure>
-
-<p>使用时，必须首先加载babel-register:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">require(&quot;babel-register&quot;);</span><br><span class="line">require(&quot;./index.js&quot;);</span><br></pre></td></tr></table></figure>
-
-<p>然后，就不需要手动对index.js转码了。</p>
-<p>需要注意的是，babel-register只会对require命令加载的文件转码，而不会对当前文件转码。另外，由于它是实时转码，所以只适合在开发环境使用。</p>
-<h4 id="babel-core"><a href="#babel-core" class="headerlink" title="babel-core"></a>babel-core</h4><p>babel-core 和 babel-cli 一样，也是使用 Babel 时必须要装的一个东西：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install babel-core --save</span><br></pre></td></tr></table></figure>
-
-<p>使用示栗：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var es6Code = &apos;let x = n =&gt; n + 1&apos;;</span><br><span class="line">var es5Code = require(&apos;babel-core&apos;)</span><br><span class="line">  .transform(es6Code, &#123;</span><br><span class="line">    presets: [&apos;es2015&apos;]</span><br><span class="line">  &#125;)</span><br><span class="line">  .code;</span><br><span class="line">// &apos;&quot;use strict&quot;;\n\nvar x = function x(n) &#123;\n  return n + 1;\n&#125;;&apos;</span><br></pre></td></tr></table></figure>
-
-<h4 id="babel-polyfill"><a href="#babel-polyfill" class="headerlink" title="babel-polyfill"></a>babel-polyfill</h4><p>babel-polyfill 是 Babel 的一个垫片。Babel 默认只转化新的 js 语法，而不转换新的API(如：Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法比如Object.assign）)</p>
-<p>举例来说，比如ES6在Array对象上新增了Array.from方法。Babel就不会转码这个方法。如果想让这个方法运行，必须使用babel-polyfill，为当前环境提供一个垫片。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save babel-polyfill</span><br></pre></td></tr></table></figure>
-
-<p>然后，在脚本头部，加入如下一行代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &apos;babel-polyfill&apos;;</span><br><span class="line">// 或者</span><br><span class="line">require(&apos;babel-polyfill&apos;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="插件-Plugins-的使用"><a href="#插件-Plugins-的使用" class="headerlink" title="插件 Plugins 的使用"></a>插件 Plugins 的使用</h3><p>在官方文档中：babel 插件的使用流程都是差不多的。下面用插件 @babel/plugin-transform-arrow-functions(这个插件是转化函数的) 来举个栗子：</p>
-<ul>
-<li><p>安装 babel 环境：yarn add -D @babel/core @babel/cli</p>
-</li>
-<li><p>安装插件：yarn add -D @babel/plugin-transform-arrow-functions</p>
-</li>
-<li><p>新建 src/index.js，输入<a href="https://www.babeljs.cn/docs/babel-plugin-transform-arrow-functions" target="_blank" rel="noopener">文档中@babel/plugin-transform-arrow-functions这段测试代码</a>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var a = () =&gt; &#123;&#125;;</span><br><span class="line">var a = (b) =&gt; b;</span><br><span class="line"></span><br><span class="line">const double = [1,2,3].map((num) =&gt; num * 2);</span><br><span class="line">console.log(double); // [2,4,6]</span><br><span class="line"></span><br><span class="line">var bob = &#123;</span><br><span class="line">  _name: &quot;Bob&quot;,</span><br><span class="line">  _friends: [&quot;Sally&quot;, &quot;Tom&quot;],</span><br><span class="line">  printFriends() &#123;</span><br><span class="line">    this._friends.forEach(f =&gt;</span><br><span class="line">      console.log(this._name + &quot; knows &quot; + f));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">console.log(bob.printFriends());</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置脚本（可以使用 .babelrc 或者直接在 package.json 中配置）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在 package.json 中配置 --&gt;</span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;build:test-arrow-function&quot;: &quot;babel --plugins @babel/plugin-transform-arrow-functions src -d dist&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在 .babelrc 中配置 --&gt;</span><br><span class="line">&quot;plugins&quot;: [</span><br><span class="line">    &quot;@babel/plugin-transform-arrow-functions&quot;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>直接执行 npm run build:test-arrow-function 就可以了，dist 下文件就是插件的效果</li>
-</ul>
-<h3 id="环境构建-举例使用-demo"><a href="#环境构建-举例使用-demo" class="headerlink" title="环境构建 举例使用 demo:"></a>环境构建 举例使用 demo:</h3><ul>
-<li><p>安装 <a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">Node.js 环境</a>  </p>
-</li>
-<li><p>进入项目，初始化 package.json：npm init -y</p>
-</li>
-<li><p>安装：npm install –save-dev babel-preset-env babel-cli</p>
-</li>
-<li><p>创建文件并配置：.babelrc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [&quot;env&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>文件转化命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 将 src/index.js 文件转化成 dist/index.js --&gt;</span><br><span class="line">babel src/index.js -o dist/index.js</span><br><span class="line"></span><br><span class="line">&lt;!-- 文件夹转化 --&gt;</span><br><span class="line">babel src -d dist</span><br><span class="line"></span><br><span class="line">&lt;!-- 实时监控 --&gt;</span><br><span class="line">babel src -w -d dist</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="babel-结合-webpack-的使用"><a href="#babel-结合-webpack-的使用" class="headerlink" title="babel 结合 webpack 的使用"></a>babel 结合 webpack 的使用</h2><p>安装依赖： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add  babel-loader @babel/core @babel/preset-env @babel/plugin-transform-runtime -D</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add @babel/runtime -S  // -S 是提供生产环境</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2167,7 +2158,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2218,7 +2209,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

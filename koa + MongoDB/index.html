@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。 定义HTTPS （全称：Hyper Tex">
+<meta name="description" content="新年第一趴来咯！！！！ 为什么要学这个呢现在越来越讲究 大前端，但是大前端究竟是什么呢？ 我对大前端的理解：它至少有一个点是在现在前后端分离的趋势中可以脱离后端独立开发一个项目。由于 前端代码 + 数据库 + 后端代码 = 完整的一个项目，那么就有了我们本节所讲的Node.js(扮演后端)和 MongoDB(数据库) 对于为什么会选中 Node.js 和 MongoDB 呢？  Node.js 是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP系列之HTTPS">
-<meta property="og:url" content="https://lzzhy.github.io/HTTP系列之HTTPS/index.html">
+<meta property="og:title" content="koa + MongoDB">
+<meta property="og:url" content="https://lzzhy.github.io/koa + MongoDB/index.html">
 <meta property="og:site_name" content="lzzhy Blog">
-<meta property="og:description" content="HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。 定义HTTPS （全称：Hyper Tex">
+<meta property="og:description" content="新年第一趴来咯！！！！ 为什么要学这个呢现在越来越讲究 大前端，但是大前端究竟是什么呢？ 我对大前端的理解：它至少有一个点是在现在前后端分离的趋势中可以脱离后端独立开发一个项目。由于 前端代码 + 数据库 + 后端代码 = 完整的一个项目，那么就有了我们本节所讲的Node.js(扮演后端)和 MongoDB(数据库) 对于为什么会选中 Node.js 和 MongoDB 呢？  Node.js 是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-15T06:20:27.425Z">
+<meta property="og:updated_time" content="2021-01-06T08:24:36.426Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP系列之HTTPS">
-<meta name="twitter:description" content="HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。 定义HTTPS （全称：Hyper Tex">
+<meta name="twitter:title" content="koa + MongoDB">
+<meta name="twitter:description" content="新年第一趴来咯！！！！ 为什么要学这个呢现在越来越讲究 大前端，但是大前端究竟是什么呢？ 我对大前端的理解：它至少有一个点是在现在前后端分离的趋势中可以脱离后端独立开发一个项目。由于 前端代码 + 数据库 + 后端代码 = 完整的一个项目，那么就有了我们本节所讲的Node.js(扮演后端)和 MongoDB(数据库) 对于为什么会选中 Node.js 和 MongoDB 呢？  Node.js 是">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://lzzhy.github.io/HTTP系列之HTTPS/">
+  <link rel="canonical" href="https://lzzhy.github.io/koa + MongoDB/">
 
 
 
 
 
-  <title>HTTP系列之HTTPS | lzzhy Blog</title>
+  <title>koa + MongoDB | lzzhy Blog</title>
   
 
 
@@ -270,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTPS/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/koa + MongoDB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -287,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTTP系列之HTTPS</h1>
+          <h1 class="post-title" itemprop="name headline">koa + MongoDB</h1>
         
 
         <div class="post-meta">
@@ -299,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-14T15:16:45+08:00">
-                2019-11-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-04T17:27:20+08:00">
+                2021-01-04
               </time>
             
 
@@ -318,8 +318,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/HTTP系列之HTTPS/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/HTTP系列之HTTPS/" itemprop="commentCount"></span>
+                <a href="/koa + MongoDB/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/koa + MongoDB/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -346,7 +346,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  1.7k
                 </span>
               
 
@@ -371,19 +371,92 @@
       
 
       
-        <p>HTTP、HTTP2、HTTPS三者之间的关系：HTTP包括1.x、HTTP2(现在常用版本)、HTTP3(少)，HTTP2是HTTP的一个版本；HTTP和HTTPS区别在于HTTPS加密而HTTP不加密是明文传送；HTTP2解决了HTTP1.1的一些缺陷(线头阻塞，二进制传输、帧和流,头部压缩，主动推送)，最主要是解决了线头阻塞的问题（多路复用的流）。</p>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>HTTPS （全称：Hyper Text Transfer Protocol over SecureSocket Layer），是以安全为目标的HTTP通道，在HTTP的基础上通过传输加密和身份认证保证了传输过程的安全性。HTTPS在HTTP的基础下加入SSL层，HTTPS的安全基础是 SSL，因此加密的详细内容就需要SSL。</p>
-<h3 id="密码学基础"><a href="#密码学基础" class="headerlink" title="密码学基础"></a>密码学基础</h3><p><font face="微软雅黑" size="3" color="Green">明文</font>：未被加密过的原始数据。<br><font face="微软雅黑" size="3" color="Green">密文</font>：明文被某种加密算法加密之后，会变成密文，从而确保原始数据的安全。密文也可以被解密，得到原始的明文。<br><font face="微软雅黑" size="3" color="Green">密钥</font>：一种参数，是在明文转换为密文或将密文转换为明文的算法中输入的。分为对称密钥与非对称密钥，分别应用在对称加密和非对称加密上。 </p>
-<h3 id="HTTPS加密原理"><a href="#HTTPS加密原理" class="headerlink" title="HTTPS加密原理"></a>HTTPS加密原理</h3><p>HTTPS为了兼顾安全与效率，同时使用了对称加密和非对称加密</p>
-<h4 id="对称加密算法"><a href="#对称加密算法" class="headerlink" title="对称加密算法"></a>对称加密算法</h4><p>又叫做私钥加密，即信息的发送方和接收方使用同一个密钥去加密和解密数据。特点是算法公开、加密和解密速度快，适合于对大数据量进行加密，常见的对称加密算法有DES、3DES、TDEA、Blowfish、RC5和IDEA。<br>加密过程：明文 + 加密算法 + 私钥 =&gt; 密文<br>解密过程：密文 + 解密算法 + 私钥 =&gt; 明文<br>称之为“对称”的原因：<br>其中使用到的密钥叫做私钥，即个人所有不能被泄露。加密过程中的私钥与解密过程中用到的私钥是同一个密钥。<br>缺点：密钥安全管理困难。由于对称加密的算法是公开的，所以一旦私钥被泄露，那么密文就很容易被破解。</p>
-<h4 id="非对称加密算法："><a href="#非对称加密算法：" class="headerlink" title="非对称加密算法："></a>非对称加密算法：</h4><p>又叫公钥加密。使用一对密钥，即公钥和私钥，且二者成对出现。私钥自己保存，不能对外泄露。公钥则任何人都可以获得该密钥。用公钥或私钥中的任何一个进行加密，用另一个进行解密。<br>被公钥加密过的密文只能被私钥解密，过程如下：<br>明文 + 加密算法 + 公钥 =&gt; 密文， 密文 + 解密算法 + 私钥 =&gt; 明文<br>被私钥加密过的密文只能被公钥解密，过程如下：<br>明文 + 加密算法 + 私钥 =&gt; 密文， 密文 + 解密算法 + 公钥 =&gt; 明文<br>缺点：加密和解密花费时间长、速度慢，只适合对少量数据进行加密。 </p>
-<h4 id="确认身份-——-数字证书"><a href="#确认身份-——-数字证书" class="headerlink" title="确认身份 —— 数字证书"></a>确认身份 —— 数字证书</h4><p>在<em>非对称加密时</em>，首先需要将 A 的公钥给 B ，那么在这个过程中，安全是没有保障的，中间人可以拦截到 A 的公钥，就可以对拦截到的公钥进行篡改（如，本来 A 应该给 B 传：110，但是被中间人拦截了，所以 B 最后收到的可能不是110）。</p>
-<p>那怎么确认 A 给 B 的公钥确实是正确的没有被修改的呢？</p>
-<p>这个时候就需要数字签名了（数字签名也就是相当于公证处在公证书上盖章），数字签名和原始信息合在一起称为<em>数字证书</em>。</p>
-<p>在拿到数字证书之后，就用 Hash 算法，再次生成消息摘要。然后用 CA 的公钥对数字签名解密，得到CA创建的消息摘要。两者一比，就知道有没有人篡改了！</p>
-<h3 id="HTTPS访问过程"><a href="#HTTPS访问过程" class="headerlink" title="HTTPS访问过程"></a>HTTPS访问过程</h3><p>客户端生成的随机密钥，用来进行对称加密</p>
-<p>服务器端的公钥和私钥，用来进行非对称加密</p>
-<p>1.浏览器将支持的加密信息发送给网站服务器；<br>2.服务器会选择出一套加密算法和哈希算法，将验证身份的信息以证书（证书发布CA机构、证书有效期、公钥、证书所有者、签名等）的形式发送给浏览器；<br>3.浏览器收到证书之后需要验证证书的合法性，当证书受信之后，浏览器会随机生成一串密码，并使用证书中的公钥加密。之后就是使用约定好的哈希算法握手消息，并生成随机数对消息进行加密，再将生成的信息发送给服务器；<br>4.当服务器接收到浏览器发送过来的数据后，会使用服务器本身的私钥将信息解密确定密码，然后通过密码解密浏览器发送过来的握手信息，并验证哈希是否与浏览器一致。然后服务器会使用密码加密新的握手信息，发送给浏览器；<br>5.最后浏览器解密并计算经过哈希算法加密的握手消息，如果与服务发送过来的哈希一致，则此握手过程结束后，服务器与浏览器会使用之前浏览器生成的随机密码和对称加密算法进行加密交换数据。</p>
+        <p>新年第一趴来咯！！！！</p>
+<h2 id="为什么要学这个呢"><a href="#为什么要学这个呢" class="headerlink" title="为什么要学这个呢"></a>为什么要学这个呢</h2><p>现在越来越讲究 大前端，但是大前端究竟是什么呢？</p>
+<p>我对大前端的理解：它至少有一个点是在现在前后端分离的趋势中可以脱离后端独立开发一个项目。由于 前端代码 + 数据库 + 后端代码 = 完整的一个项目，那么就有了我们本节所讲的Node.js(扮演后端)和 MongoDB(数据库)</p>
+<p>对于为什么会选中 Node.js 和 MongoDB 呢？ </p>
+<p>Node.js 是能够在服务器端运行 JavaScript 的开放源代码、跨平台 JavaScript 运行环境。</p>
+<p>而 MongoDB 相较于其他关系型数据库相比来说具有以下的有点：</p>
+<ul>
+<li>弱一致性（最终一致），更能保证用户的访问速度</li>
+<li>文档结构的存储方式，能够更便捷的获取数据</li>
+<li>内置GridFS，支持大容量的存储</li>
+<li>第三方支持丰富 (这是与其他的NoSQL相比，MongoDB也具有的优势)</li>
+<li>性能优越</li>
+</ul>
+<h2 id="koa-和-MongoDB-是什么"><a href="#koa-和-MongoDB-是什么" class="headerlink" title="koa 和 MongoDB 是什么"></a>koa 和 MongoDB 是什么</h2><p>koa：官方的解释是基于Node.js平台的下一代web开发框架</p>
+<p>MongoDB 是数据库本身，而 Mongoose 是 MongoDB 的对象建模工具（说白了就是基于前者之上进行功能封装的一个库，它们两者之间的关系类似Node.js和express或koa之间的关系）</p>
+<p>二者之间的关系：使用 node.js 的框架 ( 比如koa ) 与数据库（  MongoDB ）建立连接并且操作数据库，node.js 框架给提供接口，提供的接口就是关联数据库里面的，最后渲染在前端页面上。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>环境要求：node.js &gt; 7.6.0（可以使用 <a href="https://github.com/nvm-sh/nvm/blob/master/README.md" target="_blank" rel="noopener">nvm</a>：node.js版本控制工具）</p>
+<h2 id="项目准备工作"><a href="#项目准备工作" class="headerlink" title="项目准备工作"></a>项目准备工作</h2><ul>
+<li><p>新建项目文件夹：koa + MongoDB (根据自己爱好取o)</p>
+</li>
+<li><p>生成 package.json：npm init -y</p>
+</li>
+<li><p>安装相应的依赖：cnpm install koa koa-router –save (–save: 生成的在 dependencies 里)</p>
+</li>
+<li><p>在 package.json 里将 “main”: “index.js” 改成 “main”: “app.js”，入口文件就变成 app.js 了，在新建一个 app.js 文件作为入口文件(或者直接新增 index.js 并以这个文件作为入口)</p>
+</li>
+<li><p>在刚新增的 app.js 文件中引入和写逻辑(往下看，在下面的本地搭建里面哦)</p>
+</li>
+<li><p>启动项目：需要在 package.json 中配置，将 </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  修改为：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;start&quot;: &quot;node app.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  本来执行的命令是 node app.js,但是这里配置了的话执行命令写成 npm run start 就行了。(如对脚本配置有问题的可以参考 <a href="https://lzzhy.github.io/package.json%20%E4%B8%AD%E7%9A%84%20npm%20%E8%84%9A%E6%9C%AC(npm%20scripts)%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">npm scripts</a> )</p>
+</li>
+<li><p>安装 nodemon 启动时可以自动监听：需要在 package.json 中配置：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;nodemon&quot;: &quot;nodemon app.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  并且全局安装：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g nodemon</span><br></pre></td></tr></table></figure>
+
+<p>  这样子启动项目的话就可以不用 npm run start (不会监听文件修改)，可以直接 nodemon (可以监听文件修改) 了，在浏览器打开localhost:4000(设置的端口号)就可以了。</p>
+</li>
+</ul>
+<h2 id="搭建本地服务"><a href="#搭建本地服务" class="headerlink" title="搭建本地服务"></a>搭建本地服务</h2><p>app.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const koa = require(&quot;koa&quot;);  // 引入koa</span><br><span class="line">const Router = require(&quot;koa-router&quot;);  // 引入路由</span><br><span class="line"></span><br><span class="line">const app = new koa();  // 实例化koa</span><br><span class="line">const router = new Router();  // 实例化路由</span><br><span class="line"></span><br><span class="line">app.use(router.routes()).use(router.allowedMethods());  // 配置路由</span><br><span class="line"></span><br><span class="line">const port = process.env.PORT || 4000;  // 设置端口号 4000这个可以随便改成啥</span><br><span class="line">app.listen(port, () =&gt; &#123;  // 监听当前端口号</span><br><span class="line">    console.log(`serve started on $&#123;port&#125;`);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.get(&quot;/&quot;, async ctx =&gt; &#123;  // 路由 不同路由展示不同页面</span><br><span class="line">    ctx.body = &#123; msg: &quot;hello koa！I am coming!!&quot; &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><p>上文提到过了 mongoose 是 MongoDB 的一个对象建模工具，因此我们要通过 mongoose 来实现koa连接 MongoDB 数据库。</p>
+<p>安装 mongoose：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install mongoose --save</span><br></pre></td></tr></table></figure>
+
+<p>连接数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mongoose.connect(&apos;mongodb://localhost:27017/phoneAlbumData&apos;, &#123; useUnifiedTopology: true, useNewUrlParser: true &#125;).then(() =&gt; &#123;  // &apos;mongodb://localhost:27017/&apos;是固定的，phoneAlbumData 是你创建的数据库的名称</span><br><span class="line">    console.log(&quot;数据库连接成功...&quot;);</span><br><span class="line">&#125;).catch(err =&gt; &#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>操作 npm run start,可以看到端口输出数据库连接成功。</p>
+<p>连接数据库成功后，可以下载一个 Robo 3T（数据库可视化工具）并在里面查看或者操作数据：<a href="https://www.bbsmax.com/A/obzb7V2BJE/" target="_blank" rel="noopener">Robo 3T 使用教程</a></p>
+<h2 id="RESTful接口创建"><a href="#RESTful接口创建" class="headerlink" title="RESTful接口创建"></a>RESTful接口创建</h2><p>mongoose通过 services（方法）,controlller（接口）,model（模型）这三层来实现接口的创建。</p>
+<p>下面介绍接口创建的流程以及分别举例介绍一个 GET/POST 方法！</p>
+<ul>
+<li><p>首先在app.js中引入 controlller（接口） 层的接口</p>
+<p>  controlller =&gt; api =&gt; users.js 目录： </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">const Router = require(&quot;koa-router&quot;);  // 引入 koa-router</span><br><span class="line">const router = new Router();  // 实例化 router</span><br><span class="line">const bacUserService = require(&quot;../../services/users&quot;)  // 引入 services 层方法</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* @route GET请求方式 api/users/test</span><br><span class="line">*/</span><br><span class="line">router.get(&quot;/test&quot;, async ctx =&gt; &#123;</span><br><span class="line">    ctx.status = 200;</span><br><span class="line">    ctx.body = &#123; msg: &apos;users works...&apos; &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* @route POST方法 api/users/save</span><br><span class="line">*/</span><br><span class="line">router.post(&quot;/save&quot;, async ctx =&gt; &#123;</span><br><span class="line">    const user = &#123;</span><br><span class="line">        &quot;phone&quot;:  &quot;15770535880&quot;,</span><br><span class="line">        &quot;password&quot;:  &quot;88888888&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    const data = await bacUserService.save(user);</span><br><span class="line">    ctx.body = &#123;</span><br><span class="line">        data: data,</span><br><span class="line">        err_code: 0</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>来到了 services（方法层）：services =&gt; users.js</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const userModel = require(&quot;../models/users&quot;)  // 引入 services 层</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line"></span><br><span class="line">    &lt;!-- ...封装的方法... --&gt;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>现在是model（模型）层，model =&gt; users.js 目录：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const mongoose = require(&quot;mongoose&quot;)</span><br><span class="line">const Schema = mongoose.Schema  // Schema是模板</span><br><span class="line">const userSchema = new Schema(&#123;  // 实例化数据模板</span><br><span class="line">    phone: &#123;</span><br><span class="line">        type: Number</span><br><span class="line">    &#125;,</span><br><span class="line">    password: &#123;</span><br><span class="line">        type: Number</span><br><span class="line">    &#125;,</span><br><span class="line">    id: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        default: Date.now</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">module.exports = user = mongoose.model(&quot;users&quot;,userSchema)  // 导出</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后将model（模型）层导出的在app.js中引用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">router.use(&apos;/api/users&apos;, users)  // 接口地址 localhost:4000/api/users</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>好了，这样一个完整的本地服务操作数据库的就完成了（这里只举例了一个get和一个post接口，更多复杂的接口可以自己去探讨一下哦），撒花撒花！！！</p>
+<h2 id="测试接口"><a href="#测试接口" class="headerlink" title="测试接口"></a>测试接口</h2><p>既然接口以及实现了，那可以借助 postman 这个测试工具来测试接口是否成功。</p>
+<p>比如想要调用 save 接口的话：就在 postman 里面输入 localhost:4000/api/users/save，再选择 post 方法并且输入入参就可以啦。</p>
+<p>同理 get 方法也一样：localhost:4000/api/users/get，选择get方法不需要传参</p>
+<h2 id="数据库可视化工具"><a href="#数据库可视化工具" class="headerlink" title="数据库可视化工具"></a>数据库可视化工具</h2><p>当我们在 postman 里面测试了 POST接口的话，那么数据库里肯定存入了对应的数据，那么我们要怎么查看我们的数据库具体有哪些数据呢</p>
+<p>这个时候就可以借助 Robo 3T 这个工具了，打开这个工具时候需要先创建一个对应的数据库名（这个数据库名就是链接数据库时创建的名字，如我们这里就是phoneAlbumData，因为之前连接数据库时设置了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongoose.connect(&apos;mongodb://localhost:27017/phoneAlbumData&apos;,...</span><br></pre></td></tr></table></figure>
+
+<p>以上只是截取了部分重要的代码，具体的代码放在github上了</p>
+<p>完美完美。</p>
+<p>参考：<br><a href="https://koa.bootcss.com/" target="_blank" rel="noopener">koa官方文档</a></p>
 
       
     </div>
@@ -408,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/HTTP系列之HTTP2/" rel="next" title="HTTP系列之HTTP2">
-                <i class="fa fa-chevron-left"></i> HTTP系列之HTTP2
+              <a href="/Axios接口请求/" rel="next" title="接口请求">
+                <i class="fa fa-chevron-left"></i> 接口请求
               </a>
             
           </div>
@@ -417,10 +490,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/webpack工程化/" rel="prev" title="webpack工程化">
-                webpack工程化 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -549,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#密码学基础"><span class="nav-number">2.</span> <span class="nav-text">密码学基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS加密原理"><span class="nav-number">3.</span> <span class="nav-text">HTTPS加密原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对称加密算法"><span class="nav-number">3.1.</span> <span class="nav-text">对称加密算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非对称加密算法："><span class="nav-number">3.2.</span> <span class="nav-text">非对称加密算法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确认身份-——-数字证书"><span class="nav-number">3.3.</span> <span class="nav-text">确认身份 —— 数字证书</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS访问过程"><span class="nav-number">4.</span> <span class="nav-text">HTTPS访问过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要学这个呢"><span class="nav-number">1.</span> <span class="nav-text">为什么要学这个呢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#koa-和-MongoDB-是什么"><span class="nav-number">2.</span> <span class="nav-text">koa 和 MongoDB 是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">3.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目准备工作"><span class="nav-number">4.</span> <span class="nav-text">项目准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建本地服务"><span class="nav-number">5.</span> <span class="nav-text">搭建本地服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接数据库"><span class="nav-number">6.</span> <span class="nav-text">连接数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful接口创建"><span class="nav-number">7.</span> <span class="nav-text">RESTful接口创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试接口"><span class="nav-number">8.</span> <span class="nav-text">测试接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库可视化工具"><span class="nav-number">9.</span> <span class="nav-text">数据库可视化工具</span></a></li></ol></div>
             
 
           </div>
