@@ -267,6 +267,211 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/Vue-项目搭建及配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzzhy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzzhy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Vue-项目搭建及配置/" itemprop="url">Vue 项目搭建及配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-14T11:02:39+08:00">
+                2021-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Vue-项目搭建及配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Vue-项目搭建及配置/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  0
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <!-- ## 其他
+### tree自动生成目录结构
+安装：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install tree</span><br></pre></td></tr></table></figure>
+
+<p>生成目录结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">tree -L 3 -I &quot;node_modules&quot;  // &apos;3&apos;是指要几层，&quot;node_modules&quot;指过滤掉的</span><br><span class="line">``` --&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!-- ### 配置全局可引用的颜色值</span><br><span class="line"></span><br><span class="line">安装：node-sass 和 sass-loader(版本为7.几的话下图43行就用&quot;data&quot;,版本不为7.几的话43行就用&quot;prependData&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">![cmd-markdown-logo](https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/WechatIMG7.png) --&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">在利用vue-cli生成项目的基础上，在进一步的搭建一个企业级别的项目结构，其中包括：</span><br><span class="line">* 通过vue-cli创建并初始化项目</span><br><span class="line">* 封装[axios](https://github.com/axios/axios)接口（包括不同环境域名配置，请求头配置之类...）</span><br><span class="line"></span><br><span class="line">## 通过vue-cli创建并初始化项目</span><br><span class="line"></span><br><span class="line">利用脚手架创建项目，并初始化项目删除多余的一些页面：</span><br></pre></td></tr></table></figure>
+
+<p>vue create 项目名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">注：若创建项目后本地自动有关联仓库的话（没有手动关联仓库，可是本地会显示待提交的文件）就执行：</span><br></pre></td></tr></table></figure>
+
+<pre><code>rm -rf .git
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 封装[axios](https://github.com/axios/axios)接口</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 封装完axios后最终的目录结构</span><br><span class="line">封装完成axios后最终的目录结构是这样的：</span><br></pre></td></tr></table></figure></code></pre><p>.<br>├── README.md<br>├── babel.config.js<br>├── package-lock.json<br>├── package.json<br>├── public<br>│   ├── favicon.ico<br>│   └── index.html<br>└── src<br>    ├── App.vue<br>    ├── api<br>    │   └── login.js<br>    ├── assets<br>    ├── components<br>    ├── config<br>    │   └── index.js<br>    ├── main.js<br>    ├── router<br>    │   └── index.js<br>    ├── utils<br>    │   ├── axios.js<br>    │   ├── errorHandle.js<br>    │   └── request.js<br>    └── views<br>        └── login.vue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 封装axios的流程</span><br><span class="line">1.首先安装axios：</span><br></pre></td></tr></table></figure>
+
+<pre><code>npm install axios
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">2.新建 utils 文件夹和里面的 axios.js 并在 main.js 中引入这个utils/axios.js。</span><br><span class="line"></span><br><span class="line">utils =&gt; axios.js：（将[axios](https://github.com/axios/axios) 上的这段复制下来 ）</span><br></pre></td></tr></table></figure></code></pre><p>// 封装axios的请求，返回重新封装的数据格式<br>// 需要对返回的错误code码进行统一处理<br>import axios from ‘axios’<br>import errorHandle from ‘./errorHandle’  // 也是在utils中自己封装的一个方法</p>
+<p>const instance = axios.create()</p>
+<p>// 并用instance替换axios</p>
+<p>// 请求拦截器<br>instance.interceptors.request.use((config) =&gt; {<br>    console.log(‘发送请求’);<br>    return config;<br>}, (err) =&gt; {<br>    errorHandle(err)<br>    return Promise.reject(err);<br>});</p>
+<p>// 响应请求的拦截器<br>instance.interceptors.response.use((res) =&gt; {<br>    // 处理响应成功的<br>    console.log(‘请求回来的’);<br>    if(res.status === 200) {<br>        return Promise.resolve(res.data)<br>    } else {<br>        return Promise.reject(res.data)<br>    }<br>}, (err) =&gt; {<br>    // 对返回的错误code码进行统一处理<br>    errorHandle(err)<br>    return Promise.reject(err);<br>});</p>
+<p>export default instance  // 导出instance</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">现在已经把最基础的 axios 封装了，并且导出了 instance</span><br><span class="line"></span><br><span class="line">errorHandle 方法封装出去了，在utils =&gt; errorHandle.js：</span><br></pre></td></tr></table></figure>
+
+<p>// 封装 errorHandle 方法</p>
+<p>const errorHandle = (err) =&gt; {<br>    console.log(err);<br>}<br>export default errorHandle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3.instance 导出后，就可以在api/login.js中测试这个封装的接口了：</span><br><span class="line">api =&gt; login.js：</span><br></pre></td></tr></table></figure>
+
+<p>import axios from ‘./utils/axios’  // 引入封装好的axios</p>
+<p>const gets =() =&gt; {<br>    return axios.get(‘/get’)<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">好了，到目前为止简单的axios封装已经完成了（细节部分后面会详细补充），那么域名也需要配置一下吧，不然到时候改的话还需要全局来查找修改。</span><br><span class="line"></span><br><span class="line">4.配置不同环境域名，头参</span><br><span class="line"></span><br><span class="line">src下新建config =&gt; index.js：</span><br></pre></td></tr></table></figure>
+
+<p>// baseURL 域名配置文件<br>export default {<br>    baseURL: {<br>        dev: “<a href="http://localhost:5000&quot;">http://localhost:5000&quot;</a>,  // 开发 域名或ip写自己的<br>        pro: “<a href="http://localhost:5000&quot;">http://localhost:5000&quot;</a>  // 生产<br>    }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">那么这样的话就可以直接把 baseURL 引入到 axios.js中了。</span><br><span class="line"></span><br><span class="line">utils =&gt; axios.js：</span><br></pre></td></tr></table></figure>
+
+<p>import config from ‘../config/index’  // 不同环境域名配置引入进来<br>const instance = axios.create({<br>    baseUrl: process.env.NODE_ENV === ‘development’ ? config.baseURL.dev : config.baseURL.pro,  // 设置初始 baseUrl 的配置，判断环境不同域名也不同<br>    headers: {  // 公共的请求头<br>        ‘Content-Type’: ‘application/json;chartset=utf-8’,<br>    },<br>    timeout: 10000  // 请求超过10s默认失败，请求超时<br>})</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">到这里基本上一个axios接口请求就已经可以了（但是get/post方法和errorHandle还需要补充），但由于这些方法都是对 instance 进行操作的，为了提高代码的可读性（根据es6中可以通过定义一个类来放置这些方法），因此将这些方法都放到了 HttpRequest 类中。详细见代码。</span><br><span class="line"></span><br><span class="line">5.刚说get/post方法还没有，因此在HttpRequest类中加入：</span><br><span class="line"></span><br><span class="line">get方法：</span><br></pre></td></tr></table></figure>
+
+<p>get (url,config) {<br>    const options = Object.assign({<br>        method: ‘get’,<br>        url: url<br>    }, config)<br>    return this.request(options)<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">post方法：</span><br></pre></td></tr></table></figure>
+
+<p>post (url,data) {  // data是post请求时带的json数据<br>    return this.request({<br>        method: ‘post’,<br>        url: url,<br>        data: data<br>    })<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">6.当HttpRequest封装完成之后，我们需要创建一个 utils =&gt; request.js 来实例化HttpRequest</span><br><span class="line"></span><br><span class="line">utils =&gt; request.js：</span><br></pre></td></tr></table></figure>
+
+<p>import HttpRequest from ‘./axios’<br>import config from ‘@/config’  // 引入配置文件 取到里面的baseUrl<br>const baseURL = process.env.NODE_ENV === ‘development’ ? config.baseURL.dev : config.baseURL.process   // 把@config中的baseUrl传递过去</p>
+<p>const axios = new HttpRequest(baseURL)  // 实例化axios,并将baseUrl传进去</p>
+<p>export default axios  // 导出axios</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">导出axios后，这样就完成了axios的整个的一个封装</span><br><span class="line"></span><br><span class="line">7.那要怎么使用这个封装好的axios呢？</span><br><span class="line"></span><br><span class="line">直接在api =&gt; login.js 中引入：</span><br></pre></td></tr></table></figure>
+
+<p>import axios from ‘@/utils/request’  // 引入封装好的axios</p>
+<p>```</p>
+<p>问题：</p>
+<ul>
+<li>为什么需要封装HttpRequest类：为了提高代码可读性，也可以不封装</li>
+<li>为什么还需要实例化HttpRequest这个类：es6中对于类的规定，除非这个类中的方法是static那么就可以不用实例化。</li>
+<li>get/post方法的接口怎么用：</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>-->
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/koa + MongoDB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -403,7 +608,7 @@
 
 <p>  本来执行的命令是 node app.js,但是这里配置了的话执行命令写成 npm run start 就行了。(如对脚本配置有问题的可以参考 <a href="https://lzzhy.github.io/package.json%20%E4%B8%AD%E7%9A%84%20npm%20%E8%84%9A%E6%9C%AC(npm%20scripts)%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">npm scripts</a> )</p>
 </li>
-<li><p>安装 nodemon 启动时可以自动监听：需要在 package.json 中配置：</p>
+<li><p>安装 nodemon 热更新启动时可以自动监听：需要在 package.json 中配置：</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;nodemon&quot;: &quot;nodemon app.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>  并且全局安装：</p>
@@ -451,6 +656,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongoose.connect(&apos;mongodb://localhost:27017/phoneAlbumData&apos;,...</span><br></pre></td></tr></table></figure>
 
 <p>以上只是截取了部分重要的代码，具体的代码放在github上了</p>
+<h2 id="在koa应用中支持es6的语法"><a href="#在koa应用中支持es6的语法" class="headerlink" title="在koa应用中支持es6的语法"></a>在koa应用中支持es6的语法</h2><p>使用webpack+babel解决</p>
 <p>完美完美。</p>
 <p>参考：<br><a href="https://koa.bootcss.com/" target="_blank" rel="noopener">koa官方文档</a></p>
 
@@ -643,156 +849,6 @@
 
 <h3 id="header"><a href="#header" class="headerlink" title="header"></a>header</h3><p>参数跟头参一起传过去，就是请求接口时的Request Headers那里，一般在httpServer封装配置文件里面会设置。</p>
 <p><a href="http://www.axios-js.com/zh-cn/docs/#%E4%BB%80%E4%B9%88%E6%98%AF-axios%EF%BC%9F" target="_blank" rel="noopener">axios官方文档</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/Vue项目搭建及配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lzzhy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lzzhy Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Vue项目搭建及配置/" itemprop="url">Vue项目搭建及配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-04T16:49:19+08:00">
-                2020-12-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/Vue项目搭建及配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/Vue项目搭建及配置/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  45
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="配置全局可引用的颜色值"><a href="#配置全局可引用的颜色值" class="headerlink" title="配置全局可引用的颜色值"></a>配置全局可引用的颜色值</h3><p>安装：node-sass 和 sass-loader(版本为7.几的话下图43行就用”data”,版本不为7.几的话43行就用”prependData”)</p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/WechatIMG7.png" alt="cmd-markdown-logo"></p>
 
           
         
