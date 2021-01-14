@@ -89,8 +89,7 @@
 <meta property="og:description" content="在利用vue-cli生成项目的基础上，在进一步的搭建一个企业级别的项目结构，其中包括：  通过vue-cli创建并初始化项目 封装axios接口（包括不同环境域名配置，请求头配置之类…） 引入组件库（我这里用的是element-ui）   通过vue-cli创建并初始化项目利用脚手架创建项目，并初始化项目删除多余的一些页面： 1vue create 项目名  注：若创建项目后本地自动有关联仓库的话">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/WechatIMG7.png">
-<meta property="og:image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/lzzhy-cli/WechatIMG6.png">
-<meta property="og:updated_time" content="2021-01-14T08:08:02.403Z">
+<meta property="og:updated_time" content="2021-01-14T08:41:16.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 项目搭建及配置及踩坑过程">
 <meta name="twitter:description" content="在利用vue-cli生成项目的基础上，在进一步的搭建一个企业级别的项目结构，其中包括：  通过vue-cli创建并初始化项目 封装axios接口（包括不同环境域名配置，请求头配置之类…） 引入组件库（我这里用的是element-ui）   通过vue-cli创建并初始化项目利用脚手架创建项目，并初始化项目删除多余的一些页面： 1vue create 项目名  注：若创建项目后本地自动有关联仓库的话">
@@ -439,9 +438,17 @@
 
 <h3 id="配置全局可引用的颜色值"><a href="#配置全局可引用的颜色值" class="headerlink" title="配置全局可引用的颜色值"></a>配置全局可引用的颜色值</h3><p>安装：node-sass 和 sass-loader(版本为7.几的话下图43行就用”data”,版本不为7.几的话43行就用”prependData”)</p>
 <p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/WechatIMG7.png" alt="cmd-markdown-logo"></p>
-<h2 id="搭建项目过程中的踩坑记录"><a href="#搭建项目过程中的踩坑记录" class="headerlink" title="搭建项目过程中的踩坑记录"></a>搭建项目过程中的踩坑记录</h2><h3 id="Failed-to-resolve-loader-sass-loader"><a href="#Failed-to-resolve-loader-sass-loader" class="headerlink" title="Failed to resolve loader: sass-loader"></a>Failed to resolve loader: sass-loader</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/lzzhy-cli/WechatIMG6.png" alt="cmd-markdown-logo"></p>
-<p>因为在项目中使用的是<code>&lt;style lang=&quot;scss&quot;&gt;</code>，发现会报上图这个错：不能解析saa-loader。解决方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install sass-loader node-sass -D  // 安装 sass-loader node-sass 依赖</span><br></pre></td></tr></table></figure>
+<h2 id="搭建项目过程中的问题"><a href="#搭建项目过程中的问题" class="headerlink" title="搭建项目过程中的问题"></a>搭建项目过程中的问题</h2><h3 id="vue-cli生成项目后可以直接用-引入文件"><a href="#vue-cli生成项目后可以直接用-引入文件" class="headerlink" title="vue-cli生成项目后可以直接用@引入文件"></a>vue-cli生成项目后可以直接用@引入文件</h3><p>之所以用‘@’，是因为偷了个懒利用3.x中/node_modules/@vue/cli-service/lib/config/base.js中已经配好的@路径,有兴趣的可以进入文件里面看一看</p>
+<!-- ### Failed to resolve loader: sass-loader
+![cmd-markdown-logo](https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/lzzhy-cli/WechatIMG6.png)
+
+因为在项目中使用的是`<style lang="scss">`，发现会报上图这个错：不能解析saa-loader。解决方法：
+```
+cnpm install sass-loader node-sass -D  // 安装 sass-loader node-sass 依赖
+``` -->
+
+
+
 
 
       
@@ -604,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过vue-cli创建并初始化项目"><span class="nav-number">1.</span> <span class="nav-text">通过vue-cli创建并初始化项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装axios接口"><span class="nav-number">2.</span> <span class="nav-text">封装axios接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装完axios后最终的目录结构"><span class="nav-number">2.1.</span> <span class="nav-text">封装完axios后最终的目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装axios的流程"><span class="nav-number">2.2.</span> <span class="nav-text">封装axios的流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tree自动生成目录结构"><span class="nav-number">3.1.</span> <span class="nav-text">tree自动生成目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置全局可引用的颜色值"><span class="nav-number">3.2.</span> <span class="nav-text">配置全局可引用的颜色值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建项目过程中的踩坑记录"><span class="nav-number">4.</span> <span class="nav-text">搭建项目过程中的踩坑记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Failed-to-resolve-loader-sass-loader"><span class="nav-number">4.1.</span> <span class="nav-text">Failed to resolve loader: sass-loader</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过vue-cli创建并初始化项目"><span class="nav-number">1.</span> <span class="nav-text">通过vue-cli创建并初始化项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装axios接口"><span class="nav-number">2.</span> <span class="nav-text">封装axios接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装完axios后最终的目录结构"><span class="nav-number">2.1.</span> <span class="nav-text">封装完axios后最终的目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装axios的流程"><span class="nav-number">2.2.</span> <span class="nav-text">封装axios的流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tree自动生成目录结构"><span class="nav-number">3.1.</span> <span class="nav-text">tree自动生成目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置全局可引用的颜色值"><span class="nav-number">3.2.</span> <span class="nav-text">配置全局可引用的颜色值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建项目过程中的问题"><span class="nav-number">4.</span> <span class="nav-text">搭建项目过程中的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-cli生成项目后可以直接用-引入文件"><span class="nav-number">4.1.</span> <span class="nav-text">vue-cli生成项目后可以直接用@引入文件</span></a></li></ol></li></ol></div>
             
 
           </div>

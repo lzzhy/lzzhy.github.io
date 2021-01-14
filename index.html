@@ -432,9 +432,17 @@
 
 <h3 id="配置全局可引用的颜色值"><a href="#配置全局可引用的颜色值" class="headerlink" title="配置全局可引用的颜色值"></a>配置全局可引用的颜色值</h3><p>安装：node-sass 和 sass-loader(版本为7.几的话下图43行就用”data”,版本不为7.几的话43行就用”prependData”)</p>
 <p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/WechatIMG7.png" alt="cmd-markdown-logo"></p>
-<h2 id="搭建项目过程中的踩坑记录"><a href="#搭建项目过程中的踩坑记录" class="headerlink" title="搭建项目过程中的踩坑记录"></a>搭建项目过程中的踩坑记录</h2><h3 id="Failed-to-resolve-loader-sass-loader"><a href="#Failed-to-resolve-loader-sass-loader" class="headerlink" title="Failed to resolve loader: sass-loader"></a>Failed to resolve loader: sass-loader</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/lzzhy-cli/WechatIMG6.png" alt="cmd-markdown-logo"></p>
-<p>因为在项目中使用的是<code>&lt;style lang=&quot;scss&quot;&gt;</code>，发现会报上图这个错：不能解析saa-loader。解决方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install sass-loader node-sass -D  // 安装 sass-loader node-sass 依赖</span><br></pre></td></tr></table></figure>
+<h2 id="搭建项目过程中的问题"><a href="#搭建项目过程中的问题" class="headerlink" title="搭建项目过程中的问题"></a>搭建项目过程中的问题</h2><h3 id="vue-cli生成项目后可以直接用-引入文件"><a href="#vue-cli生成项目后可以直接用-引入文件" class="headerlink" title="vue-cli生成项目后可以直接用@引入文件"></a>vue-cli生成项目后可以直接用@引入文件</h3><p>之所以用‘@’，是因为偷了个懒利用3.x中/node_modules/@vue/cli-service/lib/config/base.js中已经配好的@路径,有兴趣的可以进入文件里面看一看</p>
+<!-- ### Failed to resolve loader: sass-loader
+![cmd-markdown-logo](https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/lzzhy-cli/WechatIMG6.png)
+
+因为在项目中使用的是`<style lang="scss">`，发现会报上图这个错：不能解析saa-loader。解决方法：
+```
+cnpm install sass-loader node-sass -D  // 安装 sass-loader node-sass 依赖
+``` -->
+
+
+
 
 
           
