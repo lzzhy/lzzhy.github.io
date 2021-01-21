@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lzzhy.github.io/Vue-%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://lzzhy.github.io/Vue-%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/</loc>
     
-    <lastmod>2021-01-14T08:42:34.167Z</lastmod>
+    <lastmod>2021-01-21T07:35:58.609Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lzzhy.github.io/websocket%EF%BC%8C%E4%BD%A0%E5%A5%BD/</loc>
+    
+    <lastmod>2021-01-19T09:20:55.168Z</lastmod>
     
   </url>
   

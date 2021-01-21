@@ -267,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/Vue-项目搭建及配置/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/websocket，你好/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -286,7 +286,176 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/Vue-项目搭建及配置/" itemprop="url">Vue 项目搭建及配置及踩坑过程</a></h1>
+                <a class="post-title-link" href="/websocket，你好/" itemprop="url">websocket，你好</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-19T17:06:18+08:00">
+                2021-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/websocket，你好/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/websocket，你好/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  182
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>初次接触 WebSocket 的人，都会问同样的问题：我们已经有了 HTTP 协议，为什么还需要另一个协议？它能带来什么好处？</p>
+<p>首先对于<br>HTTP:</p>
+<ul>
+<li>无法监听连续性的变化</li>
+<li>效率低下</li>
+<li>浪费资源</li>
+</ul>
+<p>WebSocket：是一种网络传输协议，可在单个 TCP 连接上进行全双工通信，位于 OSI 模型的应用层。</p>
+<ul>
+<li>TCP连接，与 HTTP 协议兼容</li>
+<li>双向通信，主动推送（服务端向客户端）</li>
+<li>节省服务器资源和带宽</li>
+<li>实时通信</li>
+<li>无同源限制，协议标识符是ws（加密wss）</li>
+</ul>
+<p>应用场景：</p>
+<ul>
+<li>聊天，消息，点赞</li>
+<li>直播评论（弹幕）</li>
+<li>游戏，协同编辑，基于位置的应用</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/Vue-项目搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzzhy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzzhy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Vue-项目搭建/" itemprop="url">Vue 项目搭建</a></h1>
         
 
         <div class="post-meta">
@@ -317,8 +486,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Vue-项目搭建及配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/Vue-项目搭建及配置/" itemprop="commentCount"></span>
+                <a href="/Vue-项目搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Vue-项目搭建/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -340,7 +509,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  2.5k
                 </span>
               
 
@@ -367,82 +536,101 @@
       
         
           
-            <p>在利用vue-cli生成项目的基础上，在进一步的搭建一个企业级别的项目结构，其中包括：</p>
+            <p>在拿到一个新项目时，一般来说我们可以直接通过vue-cli脚手架生成一个项目结构就可以开始写业务代码了。但是往往出于对团队的协作能力以及后期的维护等等这些原因考虑我们会选择对一些常用的进行封装或者说全局配置，比如会对axios进行统一的接口封装（当然其中又会涉及很多其他的点，如：不同环境域名配置，请求头配置，接口状态封装，页面import引入封装。。。）</p>
+<p>项目搭建中，一般还会对以下几个部分进行处理：</p>
 <ul>
-<li>通过vue-cli创建并初始化项目</li>
-<li>封装<a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios</a>接口（包括不同环境域名配置，请求头配置之类…）</li>
-<li>引入组件库（我这里用的是<a href="https://element.eleme.cn/#/zh-CN/component/installation" target="_blank" rel="noopener">element-ui</a>） </li>
+<li>通过<a href="https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create" target="_blank" rel="noopener">vue-cli</a>创建并初始化项目</li>
+<li>封装<a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios</a>接口（包括不同环境域名配置，请求头配置，接口状态封装，页面import引入封装）</li>
+<li>引入组件库（我这里用的是<a href="https://element.eleme.cn/#/zh-CN/component/installation" target="_blank" rel="noopener">element-ui</a>，包括设置全局色值） </li>
+<li><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html" target="_blank" rel="noopener">vue-router</a>（包括路由管理、导航守卫）</li>
+<li>数据存储/清空问题（登录后或者其他情况时）</li>
+<li>npm 脚本设置</li>
 </ul>
-<h2 id="通过vue-cli创建并初始化项目"><a href="#通过vue-cli创建并初始化项目" class="headerlink" title="通过vue-cli创建并初始化项目"></a>通过vue-cli创建并初始化项目</h2><p>利用脚手架创建项目，并初始化项目删除多余的一些页面：</p>
+<h2 id="项目最终目录结构"><a href="#项目最终目录结构" class="headerlink" title="项目最终目录结构"></a>项目最终目录结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── README.md</span><br><span class="line">├── babel.config.js</span><br><span class="line">├── package-lock.json</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">│   ├── favicon.ico</span><br><span class="line">│   └── index.html</span><br><span class="line">└── src</span><br><span class="line">    ├── App.vue</span><br><span class="line">    ├── api</span><br><span class="line">    │   └── login.js</span><br><span class="line">    ├── assets</span><br><span class="line">    │   └── images</span><br><span class="line">    ├── components</span><br><span class="line">    ├── config</span><br><span class="line">    │   ├── index.js</span><br><span class="line">    │   └── router.js</span><br><span class="line">    ├── layout</span><br><span class="line">    │   └── home.vue</span><br><span class="line">    ├── main.js</span><br><span class="line">    ├── router</span><br><span class="line">    │   ├── index.js</span><br><span class="line">    │   └── modules</span><br><span class="line">    ├── utils</span><br><span class="line">    │   ├── axios.js</span><br><span class="line">    │   ├── errorHandle.js</span><br><span class="line">    │   ├── request.js</span><br><span class="line">    │   ├── router.js</span><br><span class="line">    │   └── utils.js</span><br><span class="line">    └── views</span><br><span class="line">        ├── home.vue</span><br><span class="line">        └── login.vue</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注：<br>tree 可以自动生成目录结构，安装依赖：<code>brew install tree</code><br>执行命令生成树状目录结构：<code>tree -L 3 -I &quot;node_modules&quot;  // &#39;3&#39;是指要几层，&quot;node_modules&quot;指过滤掉的</code></p>
+</blockquote>
+<h2 id="通过vue-cli创建并初始化项目"><a href="#通过vue-cli创建并初始化项目" class="headerlink" title="通过vue-cli创建并初始化项目"></a>通过vue-cli创建并初始化项目</h2><p>利用脚手架创建项目：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create 项目名</span><br></pre></td></tr></table></figure>
 
+<p>脚手架生成项目结构后，手动删除初始化生成的一些多余页面。</p>
 <p>注：若创建项目后本地自动有关联仓库的话（没有手动关联仓库，可是本地会显示待提交的文件）就执行：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf .git</span><br></pre></td></tr></table></figure></p>
-<h2 id="封装axios接口"><a href="#封装axios接口" class="headerlink" title="封装axios接口"></a>封装<a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios</a>接口</h2><h3 id="封装完axios后最终的目录结构"><a href="#封装完axios后最终的目录结构" class="headerlink" title="封装完axios后最终的目录结构"></a>封装完axios后最终的目录结构</h3><p>封装完成axios后最终的目录结构是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── README.md</span><br><span class="line">├── babel.config.js</span><br><span class="line">├── package-lock.json</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">│   ├── favicon.ico</span><br><span class="line">│   └── index.html</span><br><span class="line">└── src</span><br><span class="line">    ├── App.vue</span><br><span class="line">    ├── api</span><br><span class="line">    │   └── login.js</span><br><span class="line">    ├── assets</span><br><span class="line">    ├── components</span><br><span class="line">    ├── config</span><br><span class="line">    │   └── index.js</span><br><span class="line">    ├── main.js</span><br><span class="line">    ├── router</span><br><span class="line">    │   └── index.js</span><br><span class="line">    ├── utils</span><br><span class="line">    │   ├── axios.js</span><br><span class="line">    │   ├── errorHandle.js</span><br><span class="line">    │   └── request.js</span><br><span class="line">    └── views</span><br><span class="line">        └── login.vue</span><br></pre></td></tr></table></figure>
-
-<h3 id="封装axios的流程"><a href="#封装axios的流程" class="headerlink" title="封装axios的流程"></a>封装axios的流程</h3><p>1.首先安装axios：<br>        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install axios</span><br></pre></td></tr></table></figure></p>
+<h2 id="封装axios接口"><a href="#封装axios接口" class="headerlink" title="封装axios接口"></a>封装<a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios</a>接口</h2><h3 id="封装axios的流程"><a href="#封装axios的流程" class="headerlink" title="封装axios的流程"></a>封装axios的流程</h3><p>1.首先安装axios：<br>        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install axios</span><br></pre></td></tr></table></figure></p>
 <p>2.新建 utils 文件夹和里面的 axios.js 并在 main.js 中引入这个utils/axios.js。</p>
-<p>utils =&gt; axios.js：（将<a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios</a> 上的这段复制下来 ）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">// 封装axios的请求，返回重新封装的数据格式</span><br><span class="line">// 需要对返回的错误code码进行统一处理</span><br><span class="line">import axios from &apos;axios&apos;</span><br><span class="line">import errorHandle from &apos;./errorHandle&apos;  // 也是在utils中自己封装的一个方法</span><br><span class="line"></span><br><span class="line">const instance = axios.create()</span><br><span class="line"></span><br><span class="line">// 并用instance替换axios</span><br><span class="line"></span><br><span class="line">// 请求拦截器</span><br><span class="line">instance.interceptors.request.use((config) =&gt; &#123;</span><br><span class="line">    console.log(&apos;发送请求&apos;);</span><br><span class="line">    return config;</span><br><span class="line">&#125;, (err) =&gt; &#123;</span><br><span class="line">    errorHandle(err)</span><br><span class="line">    return Promise.reject(err);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 响应请求的拦截器</span><br><span class="line">instance.interceptors.response.use((res) =&gt; &#123;</span><br><span class="line">    // 处理响应成功的</span><br><span class="line">    console.log(&apos;请求回来的&apos;);</span><br><span class="line">    if(res.status === 200) &#123;</span><br><span class="line">        return Promise.resolve(res.data)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return Promise.reject(res.data)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, (err) =&gt; &#123;</span><br><span class="line">    // 对返回的错误code码进行统一处理</span><br><span class="line">    errorHandle(err)</span><br><span class="line">    return Promise.reject(err);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export default instance  // 导出instance</span><br></pre></td></tr></table></figure>
+<p>utils =&gt; axios.js：（将<a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios</a> 上的这段复制下来，并封装在了HttpRequest中 ）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">// 封装axios的请求，返回重新封装的数据格式</span><br><span class="line">// 需要对返回的错误code码进行统一处理</span><br><span class="line">import axios from &apos;axios&apos;</span><br><span class="line">import errorHandle from &apos;./errorHandle&apos;  // 也是在utils中自己封装的一个方法</span><br><span class="line"></span><br><span class="line">class HttpRequest &#123;</span><br><span class="line">    constructor(baseURL) &#123;</span><br><span class="line">        this.baseURL = baseURL</span><br><span class="line">    &#125;</span><br><span class="line">    // 获取axios的配置</span><br><span class="line">    getInsideConfig() &#123;</span><br><span class="line">        const config = &#123;</span><br><span class="line">            baseURL: this.baseURL,</span><br><span class="line">            headers: &#123;</span><br><span class="line">                &apos;Content-Type&apos;: &apos;application/json;chartset=utf-8&apos;,</span><br><span class="line">            &#125;,</span><br><span class="line">            timeout: 10000  // 请求超过10s默认失败，请求超时</span><br><span class="line">        &#125;</span><br><span class="line">        return config;</span><br><span class="line">    &#125;</span><br><span class="line">    // 设定拦截器</span><br><span class="line">    interceptors(instance) &#123;</span><br><span class="line">        // 将axios github上的这段复制下来 </span><br><span class="line">        // 并用instance替换axios</span><br><span class="line"></span><br><span class="line">        // 请求拦截器</span><br><span class="line">        instance.interceptors.request.use((config) =&gt; &#123;</span><br><span class="line">            console.log(&apos;发送请求&apos;);</span><br><span class="line">            return config;</span><br><span class="line">        &#125;, (err) =&gt; &#123;</span><br><span class="line">            errorHandle(err)</span><br><span class="line">            return Promise.reject(err);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        // 响应请求的拦截器</span><br><span class="line">        instance.interceptors.response.use((res) =&gt; &#123;</span><br><span class="line">            // 处理响应成功的</span><br><span class="line">            console.log(&apos;请求回来的&apos;);</span><br><span class="line">            if (res.status === 200) &#123;</span><br><span class="line">                return Promise.resolve(res.data)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                return Promise.reject(res.data)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, (err) =&gt; &#123;</span><br><span class="line">            // 对返回的错误code码进行统一处理</span><br><span class="line">            errorHandle(err)</span><br><span class="line">            return Promise.reject(err);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    // 创建实例</span><br><span class="line">    request(options) &#123;</span><br><span class="line">        const instance = axios.create()</span><br><span class="line">        const newOptions = Object.assign(this.getInsideConfig(), options)</span><br><span class="line">        this.interceptors(instance)</span><br><span class="line">        return instance.request(newOptions)</span><br><span class="line">    &#125;</span><br><span class="line">    // get方法封装</span><br><span class="line">    get (url,config) &#123;</span><br><span class="line">        const options = Object.assign(&#123;</span><br><span class="line">            method: &apos;get&apos;,</span><br><span class="line">            url: url</span><br><span class="line">        &#125;, config)</span><br><span class="line">        return this.request(options)</span><br><span class="line">    &#125;</span><br><span class="line">    // post方法封装</span><br><span class="line">    post (url,data, ...config) &#123;  // data是post请求时带的json数据</span><br><span class="line">        return this.request(&#123;</span><br><span class="line">            method: &apos;post&apos;,</span><br><span class="line">            url: url,</span><br><span class="line">            data: data,</span><br><span class="line">            ...config</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">export default HttpRequest  // 导出HttpRequest</span><br></pre></td></tr></table></figure>
 
-<p>现在已经把最基础的 axios 封装了，并且导出了 instance</p>
-<p>errorHandle 方法封装出去了，在utils =&gt; errorHandle.js：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 封装 errorHandle 方法</span><br><span class="line"></span><br><span class="line">const errorHandle = (err) =&gt; &#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;</span><br><span class="line">export default errorHandle</span><br></pre></td></tr></table></figure>
-
-<p>3.instance 导出后，就可以在api/login.js中测试这个封装的接口了：<br>api =&gt; login.js： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import axios from &apos;./utils/axios&apos;  // 引入封装好的axios</span><br><span class="line"></span><br><span class="line">const gets =() =&gt; &#123;</span><br><span class="line">    return axios.get(&apos;/get&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>好了，到目前为止简单的axios封装已经完成了（细节部分后面会详细补充），那么域名也需要配置一下吧，不然到时候改的话还需要全局来查找修改。</p>
-<p>4.配置不同环境域名，头参</p>
-<p>src下新建config =&gt; index.js：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// baseURL 域名配置文件</span><br><span class="line">export default &#123;</span><br><span class="line">    baseURL: &#123;</span><br><span class="line">        dev: &quot;http://localhost:5000&quot;,  // 开发 域名或ip写自己的</span><br><span class="line">        pro: &quot;http://localhost:5000&quot;  // 生产</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>那么这样的话就可以直接把 baseURL 引入到 axios.js中了。</p>
-<p>utils =&gt; axios.js：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import config from &apos;../config/index&apos;  // 不同环境域名配置引入进来</span><br><span class="line">const instance = axios.create(&#123;  </span><br><span class="line">    baseUrl: process.env.NODE_ENV === &apos;development&apos; ? config.baseURL.dev : config.baseURL.pro,  // 设置初始 baseUrl 的配置，判断环境不同域名也不同</span><br><span class="line">    headers: &#123;  // 公共的请求头</span><br><span class="line">        &apos;Content-Type&apos;: &apos;application/json;chartset=utf-8&apos;,</span><br><span class="line">    &#125;,</span><br><span class="line">    timeout: 10000  // 请求超过10s默认失败，请求超时</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>到这里基本上一个axios接口请求就已经可以了（但是get/post方法和errorHandle还需要补充），但由于这些方法都是对 instance 进行操作的，为了提高代码的可读性（根据es6中可以通过定义一个类来放置这些方法），因此将这些方法都放到了 HttpRequest 类中。详细见代码。</p>
-<p>5.刚说get/post方法还没有，因此在HttpRequest类中加入：</p>
-<p>get方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">get (url,config) &#123;</span><br><span class="line">    const options = Object.assign(&#123;</span><br><span class="line">        method: &apos;get&apos;,</span><br><span class="line">        url: url</span><br><span class="line">    &#125;, config)</span><br><span class="line">    return this.request(options)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>post方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">post (url,data) &#123;  // data是post请求时带的json数据</span><br><span class="line">    return this.request(&#123;</span><br><span class="line">        method: &apos;post&apos;,</span><br><span class="line">        url: url,</span><br><span class="line">        data: data</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>6.当HttpRequest封装完成之后，我们需要创建一个 utils =&gt; request.js 来实例化HttpRequest</p>
-<p>utils =&gt; request.js：</p>
+<p>现在已经把最基础的前置守卫封装在类里了，并且导出了HttpRequest</p>
+<p>3.HttpRequest 导出后，就可以在utils/request.js中实例化axios并导出axios：<br>utils =&gt; request.js： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import HttpRequest from &apos;./axios&apos;</span><br><span class="line">import config from &apos;@/config&apos;  // 引入配置文件 取到里面的baseUrl</span><br><span class="line">const baseURL = process.env.NODE_ENV === &apos;development&apos; ? config.baseURL.dev : config.baseURL.process   // 把@config中的baseUrl传递过去</span><br><span class="line"></span><br><span class="line">const axios = new HttpRequest(baseURL)  // 实例化axios,并将baseUrl传进去</span><br><span class="line"></span><br><span class="line">export default axios  // 导出axios</span><br></pre></td></tr></table></figure>
 
-<p>导出axios后，这样就完成了axios的整个的一个封装</p>
-<p>7.那要怎么使用这个封装好的axios呢？</p>
-<p>直接在api =&gt; login.js 中引入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import axios from &apos;@/utils/request&apos;  // 引入封装好的axios</span><br></pre></td></tr></table></figure>
+<p>4.那么现在就可以使用封装好的axios在进行接口的封装了：<br>api =&gt; login.js： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import axios from &apos;@/utils/request&apos;  // 引入封装好的axios</span><br><span class="line"></span><br><span class="line">const test = () =&gt; &#123;  // 接口</span><br><span class="line">    return axios.get(&apos;/test&apos;)  </span><br><span class="line">&#125;</span><br><span class="line">const login = () =&gt; &#123;</span><br><span class="line">    return axios.post(&apos;/save&apos;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export &#123; test, login &#125;</span><br></pre></td></tr></table></figure>
 
-<p>问题：</p>
-<ul>
-<li>为什么需要封装HttpRequest类：为了提高代码可读性，也可以不封装</li>
-<li>为什么还需要实例化HttpRequest这个类：es6中对于类的规定，除非这个类中的方法是static那么就可以不用实例化。</li>
-<li>get/post方法的接口怎么用：</li>
-</ul>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="tree自动生成目录结构"><a href="#tree自动生成目录结构" class="headerlink" title="tree自动生成目录结构"></a>tree自动生成目录结构</h3><p>安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install tree</span><br></pre></td></tr></table></figure>
+<p>5.那么现在我们可以在页面中来测试使用接口是否能调通了：</p>
+<p>get方法，在.vue文件中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123; test &#125; from &apos;@/api/login&apos;</span><br><span class="line">test().then(res =&gt; &#123;</span><br><span class="line">    console.log(res);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>生成目录结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tree -L 3 -I &quot;node_modules&quot;  // &apos;3&apos;是指要几层，&quot;node_modules&quot;指过滤掉的</span><br></pre></td></tr></table></figure>
+<p>post 方法，在.vue文件中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123; login &#125; from &apos;@/api/login&apos;</span><br><span class="line">const params = &#123;</span><br><span class="line">    phone: this.loginForm.phone,</span><br><span class="line">    password: this.loginForm.password</span><br><span class="line">&#125;</span><br><span class="line">login(params).then(res =&gt; &#123;</span><br><span class="line">    console.log(res);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="配置全局可引用的颜色值"><a href="#配置全局可引用的颜色值" class="headerlink" title="配置全局可引用的颜色值"></a>配置全局可引用的颜色值</h3><p>安装：node-sass 和 sass-loader(版本为7.几的话下图43行就用”data”,版本不为7.几的话43行就用”prependData”)</p>
+<h3 id="接口状态封装"><a href="#接口状态封装" class="headerlink" title="接口状态封装"></a>接口状态封装</h3><p>待开发</p>
+<h3 id="页面import引入接口封装"><a href="#页面import引入接口封装" class="headerlink" title="页面import引入接口封装"></a>页面import引入接口封装</h3><p>待开发</p>
+<h2 id="引入组件库element-ui"><a href="#引入组件库element-ui" class="headerlink" title="引入组件库element-ui"></a>引入组件库<a href="https://element.eleme.cn/#/zh-CN/component/installation" target="_blank" rel="noopener">element-ui</a></h2><p>1.npm 安装：<code>npm i element-ui -S</code></p>
+<p>2.引入 Element：</p>
 <p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/WechatIMG7.png" alt="cmd-markdown-logo"></p>
+<p>上面这个截图是<a href="https://element.eleme.cn/#/zh-CN/component/quickstart" target="_blank" rel="noopener">element-ui快速上手</a>中的完整引入，文档中也有部分引入的说明，具体的看文档。</p>
+<p>好了，这样就完成了组件库的引入。</p>
+<h3 id="设置全局样式"><a href="#设置全局样式" class="headerlink" title="设置全局样式"></a>设置全局样式</h3><p>app.vue： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">    /* 获取整个屏幕大小 */</span><br><span class="line">    height: 100vh;  </span><br><span class="line">&#125;</span><br><span class="line">body, #app &#123;</span><br><span class="line">    height: 100%;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置全局统一的色值"><a href="#配置全局统一的色值" class="headerlink" title="配置全局统一的色值"></a>配置全局统一的色值</h3><!-- 安装：node-sass 和 sass-loader(版本为7.几的话下图43行就用"data",版本不为7.几的话43行就用"prependData") -->
+<p>待开发</p>
+<h2 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h2><h3 id="路由管理（一般页面少的情况下可以直接这样，路由都放在router-gt-index-js一个文件中）"><a href="#路由管理（一般页面少的情况下可以直接这样，路由都放在router-gt-index-js一个文件中）" class="headerlink" title="路由管理（一般页面少的情况下可以直接这样，路由都放在router =&gt; index.js一个文件中）"></a>路由管理（一般页面少的情况下可以直接这样，路由都放在router =&gt; index.js一个文件中）</h3><p>入口文件 App.vue：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;router-view /&gt;  // router中的配置会印射进来</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>路由配置 router =&gt; index.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import Login from &apos;../views/login.vue&apos;</span><br><span class="line">import Home from &apos;../views/home.vue&apos;</span><br><span class="line">const routes = [</span><br><span class="line">    &#123;</span><br><span class="line">        path: &apos;/&apos;,  // 根路由会印射在App.vue里面，默认该页面是进网站的第一个页面</span><br><span class="line">        name: &apos;Login&apos;,</span><br><span class="line">        component: Login</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        path: &apos;/Home&apos;,</span><br><span class="line">        name: &apos;Home&apos;,</span><br><span class="line">        component: Home</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="路由拦截-又叫导航守卫-（路由分了模块放在不同的js文件中，这边对router-gt-modules中的所有路由js页面做了配置，可以拿到router-gt-modules中所有的路由）"><a href="#路由拦截-又叫导航守卫-（路由分了模块放在不同的js文件中，这边对router-gt-modules中的所有路由js页面做了配置，可以拿到router-gt-modules中所有的路由）" class="headerlink" title="路由拦截(又叫导航守卫)（路由分了模块放在不同的js文件中，这边对router =&gt; modules中的所有路由js页面做了配置，可以拿到router =&gt; modules中所有的路由）"></a>路由拦截(又叫导航守卫)（路由分了模块放在不同的js文件中，这边对router =&gt; modules中的所有路由js页面做了配置，可以拿到router =&gt; modules中所有的路由）</h3><p>utils =&gt; router.js（ 这个里面就是<a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E5%85%A8%E5%B1%80%E5%89%8D%E7%BD%AE%E5%AE%88%E5%8D%AB" target="_blank" rel="noopener">vue-router路由拦截</a>）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import Router from &apos;vue-router&apos;</span><br><span class="line">import ROUTES from &apos;@/router/index&apos;  // 见下面封装</span><br><span class="line">import &#123; ROUTER_DEFAULT_CONFIG &#125; from &apos;@/config/index&apos;  // 见下面封装</span><br><span class="line">import &#123; routerBeforeEachFunc &#125; from &apos;@/config/router&apos;  // 见下面封装</span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line">// 注入默认配置和路由表</span><br><span class="line">let routerInstance = new Router(&#123;</span><br><span class="line">    ...ROUTER_DEFAULT_CONFIG,  // 默认配置</span><br><span class="line">    routes: ROUTES  // 路由表</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">routerInstance.beforeEach(routerBeforeEachFunc)  // routerBeforeEachFunc 是beforeEach的参数</span><br><span class="line"></span><br><span class="line">export default routerInstance  // 导出前置守卫</span><br></pre></td></tr></table></figure>
+
+<p>以上这是一个总的路由拦截的写法，那几个引入的文件都是把它单个的封装出去了，具体封装的见下面：</p>
+<p>router =&gt; index.js： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123; importAll &#125; from &apos;@/utils/utils&apos;</span><br><span class="line"></span><br><span class="line">const routeModules = importAll(  // importAll这样可以匹配到@/router/modules下的路由，就可以把路由按照模块来写不用堆在一个文件中</span><br><span class="line">    require.context(&apos;@/router/modules&apos;, false, /\.js$/)</span><br><span class="line">)</span><br><span class="line">const routes = routeModules.reduce(</span><br><span class="line">    (finallRoutes, routerModule) =&gt;</span><br><span class="line">        finallRoutes.concat(routerModule.module),</span><br><span class="line">    []</span><br><span class="line">)</span><br><span class="line">export default routes  // 导出的router按模块划分写在不同的js页面里</span><br></pre></td></tr></table></figure>
+
+<p>utils =&gt; utils.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const fileNameRE = /^\.\/([^\s]+)\.js$/</span><br><span class="line">export function importAll(modulesContext) &#123;  // importAll router/index.js中引入的 </span><br><span class="line">    return modulesContext.keys().map((modulesPath) =&gt; &#123;</span><br><span class="line">        const moduleName = modulesPath.match(</span><br><span class="line">            fileNameRE</span><br><span class="line">        )</span><br><span class="line">        return &#123;</span><br><span class="line">            moduleName,</span><br><span class="line">            camelModuleName: moduleName[1].replace(</span><br><span class="line">                /-(\w)/g,</span><br><span class="line">                (_, c) =&gt; (c ? c.toUpperCase() : &apos;&apos;)</span><br><span class="line">            ),</span><br><span class="line">            module: modulesContext(modulesPath).default</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>config =&gt; index.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 路由默认配置，路由表并不从此注入</span><br><span class="line">export const ROUTER_DEFAULT_CONFIG = &#123;  // history 模式</span><br><span class="line">    mode: &apos;history&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>config =&gt; router.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 在这里面处理一些页面拦截，权限处理之类的</span><br><span class="line">export function routerBeforeEachFunc(to, from, next) &#123;</span><br><span class="line">    if(to.matched.some(record =&gt; record.meta.requireAuth)) &#123;  // 判断该路由是否需要登录权限</span><br><span class="line">        // let loginInfo = window.localStorage.getItem(&quot;loginUserInfo&quot;)</span><br><span class="line">        // if(loginInfo) &#123;  // 判断该路由是否需要登录权限</span><br><span class="line">        //     next()</span><br><span class="line">        // &#125; else &#123;</span><br><span class="line">        //     next(&#123;</span><br><span class="line">        //         path: &apos;/home&apos;,</span><br><span class="line">        //         query: &#123; redirect: to.fullPath &#125;  // 将跳转的路由path作为参数，登录成功后跳转到该路由</span><br><span class="line">        //     &#125;)</span><br><span class="line">        // &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        next()</span><br><span class="line">    &#125;</span><br><span class="line">    next()</span><br></pre></td></tr></table></figure>
+
+<p>最后在main.js中注入这个经过处理的拦截router：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import router from &apos;@/utils/router.js&apos;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  router  // 注入router</span><br><span class="line">&#125;).$mount(&apos;#app&apos;)</span><br></pre></td></tr></table></figure>
+
+<p>好了，那么需要写入路由的话。router =&gt; modules =&gt; index.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">const App = () =&gt;</span><br><span class="line">    import (&apos;@/layout/home.vue&apos;)  // 需要一个壳子</span><br><span class="line">const Login = () =&gt; import(&apos;@/views/login.vue&apos;)  // 可以写成这种写法，原本是 import Login from &apos;../../views/login.vue&apos; </span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    path: &quot;/&quot;,</span><br><span class="line">    component: App,  // App 需要在上面引入,是一个嵌套页面的壳子</span><br><span class="line">    redirect: &quot;/Login&quot;,</span><br><span class="line">    meta: &#123;</span><br><span class="line">        title: &quot;&quot;,</span><br><span class="line">        requireAuth: false, // 添加该字段，表示进入这个路由是需要登录的</span><br><span class="line">        isback: true</span><br><span class="line">    &#125;,</span><br><span class="line">    children: [</span><br><span class="line">        &#123;</span><br><span class="line">            path: &quot;/Login&quot;,</span><br><span class="line">            meta: &#123;</span><br><span class="line">                title: &apos;登录页&apos;</span><br><span class="line">            &#125;,</span><br><span class="line">            component: Login</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好了，这样路由拦截就完成了</p>
+<h2 id="数据存储-数据清除等"><a href="#数据存储-数据清除等" class="headerlink" title="数据存储/数据清除等"></a>数据存储/数据清除等</h2><p>数据存储时可以保存在 localStorage 或者 sessionstorage，以下将方法封装在 utils/utils.js 中：</p>
+<p>localStorage：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 存储localStorage</span><br><span class="line">export const setStore = (name, content) =&gt; &#123;</span><br><span class="line">    if(!name) return;</span><br><span class="line">    if(typeof content !== &apos;string&apos;) &#123;</span><br><span class="line">        content = JSON.stringify(content);</span><br><span class="line">    &#125;</span><br><span class="line">    window.localStorage.setItem(name,content);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 获取localStorage</span><br><span class="line">export const getStore = name =&gt; &#123;</span><br><span class="line">    if(!name) return;</span><br><span class="line">    return window.localStorage.getItem(name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 清除localStorage</span><br><span class="line">export const removeStore = name =&gt; &#123;</span><br><span class="line">    if(!name) return;</span><br><span class="line">    window.localStorage.removeItem(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>sessionstorage：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//  存储sessionstorage</span><br><span class="line">export const setStoreSession = (name,content) =&gt; &#123;</span><br><span class="line">    if(!name) return;</span><br><span class="line">    if(typeof content !== &apos;string&apos;) &#123;</span><br><span class="line">        content = JSON.stringify(content)</span><br><span class="line">    &#125;</span><br><span class="line">    window.sessionStorage.setItem(name,content)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 获取sessionStorage</span><br><span class="line">export const getStoreSession = name =&gt; &#123;</span><br><span class="line">    if (!name) return;</span><br><span class="line">    return window.sessionStorage.getItem(name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 清除sessionStorage</span><br><span class="line">export const removeStoreSession = name =&gt; &#123;</span><br><span class="line">    if(!name) return;</span><br><span class="line">    window.sessionStorage.removeItem(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用方法：以localStorage为例，在.vue页面中如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- setStore --&gt;</span><br><span class="line">import &#123; setStore &#125; from &apos;@/utils/utils&apos;</span><br><span class="line">setStore(&apos;lzzhy&apos;, res);</span><br><span class="line"></span><br><span class="line">&lt;!-- getStore --&gt;</span><br><span class="line">import &#123; getStore &#125; from &apos;@/utils/utils&apos;</span><br><span class="line">JSON.parse(getStore(&apos;lzzhy&apos;))</span><br></pre></td></tr></table></figure>
+
+<h2 id="npm-脚本设置"><a href="#npm-脚本设置" class="headerlink" title="npm 脚本设置"></a>npm 脚本设置</h2><p>待开发</p>
 <h2 id="搭建项目过程中的问题"><a href="#搭建项目过程中的问题" class="headerlink" title="搭建项目过程中的问题"></a>搭建项目过程中的问题</h2><h3 id="vue-cli生成项目后可以直接用-引入文件"><a href="#vue-cli生成项目后可以直接用-引入文件" class="headerlink" title="vue-cli生成项目后可以直接用@引入文件"></a>vue-cli生成项目后可以直接用@引入文件</h3><p>之所以用‘@’，是因为偷了个懒利用3.x中/node_modules/@vue/cli-service/lib/config/base.js中已经配好的@路径,有兴趣的可以进入文件里面看一看</p>
-<!-- ### Failed to resolve loader: sass-loader
-![cmd-markdown-logo](https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/lzzhy-cli/WechatIMG6.png)
-
-因为在项目中使用的是`<style lang="scss">`，发现会报上图这个错：不能解析saa-loader。解决方法：
-```
-cnpm install sass-loader node-sass -D  // 安装 sass-loader node-sass 依赖
-``` -->
-
-
-
+<h3 id="Failed-to-resolve-loader-sass-loader"><a href="#Failed-to-resolve-loader-sass-loader" class="headerlink" title="Failed to resolve loader: sass-loader"></a>Failed to resolve loader: sass-loader</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/WechatIMG6.png" alt="cmd-markdown-logo"></p>
+<p>因为在项目中使用的是<code>&lt;style lang=&quot;scss&quot;&gt;</code>，发现会报上图这个错：不能解析saa-loader。解决方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install sass-loader node-sass -D  // 安装 sass-loader node-sass 依赖</span><br></pre></td></tr></table></figure>
 
 
           
@@ -1996,192 +2184,6 @@ cnpm install sass-loader node-sass -D  // 安装 sass-loader node-sass 依赖
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/package.json 中的 npm 脚本(npm scripts)使用指南/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lzzhy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lzzhy Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/package.json 中的 npm 脚本(npm scripts)使用指南/" itemprop="url">package.json 中的 npm 脚本(npm scripts)使用指南</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-14T15:05:35+08:00">
-                2020-10-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/package.json 中的 npm 脚本(npm scripts)使用指南/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/package.json 中的 npm 脚本(npm scripts)使用指南/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  837
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>本文主要介绍 npm 脚本(npm scripts)</p>
-<h3 id="什么是-npm-脚本"><a href="#什么是-npm-脚本" class="headerlink" title="什么是 npm 脚本"></a>什么是 npm 脚本</h3><p>定义在 package.json（npm init -y） 里面的脚本，就称之为 npm 脚本。使用 scripts 字段定义脚本命令。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;serve&quot;: &quot;node build.js&quot;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">//  : 前面的是自己定义的，: 后面的是一些框架，库的语法，因此执行 npm run serve === node build.js</span><br></pre></td></tr></table></figure>
-
-<p>npm 脚本的优点有很多：</p>
-<ul>
-<li>项目相关脚本，可以集中在一起</li>
-<li>不同项目的脚本命令，只要功能相同，就可以有同样的对外接口。用户不需要知道怎么测试你的项目，只要运行npm run test即可</li>
-<li>可以利用 npm 提供的很多辅助功能</li>
-</ul>
-<p>查看当前项目的所有 npm 脚本命令，可以使用不带任何参数的 npm run 命令</p>
-<h3 id="npm-脚本原理"><a href="#npm-脚本原理" class="headerlink" title="npm 脚本原理"></a>npm 脚本原理</h3><p>每当执行 npm run，就会自动新建一个 Shell，在这个 Shell 里面执行脚本命令。因此，只要是 Shell(或者 Bash)可以执行的命令，都可以写在脚本中</p>
-<p>比较特别的是，npm run 新建的 Shell，会将当前目录 node_modules/.bin 的子目录加入 PATH 变量，执行结束后，再把 PATH 恢复原样。<br>这就意味着，当前目录的node_modules/.bin子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径。比如，当前项目的依赖里面有 Babel，只要直接写 Babel test就可以了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;test&quot;: &quot;Babel test&quot;</span><br></pre></td></tr></table></figure>
-
-<p>而不用写成下面这样:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;test&quot;: &quot;./node_modules/.bin/Babel test&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="npm-脚本使用通配符"><a href="#npm-脚本使用通配符" class="headerlink" title="npm 脚本使用通配符"></a>npm 脚本使用通配符</h3><p>由于 npm 脚本就是 Shell 脚本，因此可以使用 Shell 通配符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- * 表示任意文件名，** 表示任意一层子目录 --&gt;</span><br><span class="line"></span><br><span class="line">&quot;lint&quot;: &quot;jshint *.js&quot;</span><br><span class="line">&quot;lint&quot;: &quot;jshint **/*.js&quot;</span><br></pre></td></tr></table></figure>
-
-<p>如果要将通配符传入原始命令，防止被 Shell 转义，要将星号转义：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;test&quot;: &quot;tap test/\*.js&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="npm-脚本传参"><a href="#npm-脚本传参" class="headerlink" title="npm 脚本传参"></a>npm 脚本传参</h3><p>向 npm 脚本传参，要使用 – 标明，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;lint&quot;: &quot;jshint **.js&quot;</span><br><span class="line"></span><br><span class="line">&lt;!-- 向上面这句传参 --&gt;</span><br><span class="line"></span><br><span class="line">npm run lint --  --reporter checkstyle &gt; checkstyle.xml</span><br></pre></td></tr></table></figure>
-
-<p>也可以在 package.json 中封装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;lint&quot;: &quot;jshint **.js&quot;,</span><br><span class="line">&quot;lint:checkstyle&quot;: &quot;npm run lint -- --reporter checkstyle &gt; checkstyle.xml&quot;</span><br></pre></td></tr></table></figure>
-
-<p>这两个是同一个意思</p>
-<h3 id="npm-脚本执行顺序"><a href="#npm-脚本执行顺序" class="headerlink" title="npm 脚本执行顺序"></a>npm 脚本执行顺序</h3><p>如果在 npm 脚本中执行多个任务，那么需要明确他们的执行任务</p>
-<p>如果是同时执行，可以用 &amp;：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run script1.js &amp; npm run script2.js</span><br></pre></td></tr></table></figure>
-
-<p>如果是一个执行完才能执行下一个任务的话，就用 &amp;&amp;：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run script1.js &amp;&amp; npm run script2.js</span><br></pre></td></tr></table></figure>
-
-<h3 id="常用脚本示栗："><a href="#常用脚本示栗：" class="headerlink" title="常用脚本示栗："></a>常用脚本示栗：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 删除目录</span><br><span class="line">&quot;clean&quot;: &quot;rimraf dist/*&quot;,</span><br><span class="line"></span><br><span class="line">// 本地搭建一个 HTTP 服务</span><br><span class="line">&quot;serve&quot;: &quot;http-server -p 9090 dist/&quot;,</span><br><span class="line"></span><br><span class="line">// 打开浏览器</span><br><span class="line">&quot;open:dev&quot;: &quot;opener http://localhost:9090&quot;,</span><br><span class="line"></span><br><span class="line">// 实时刷新</span><br><span class="line"> &quot;livereload&quot;: &quot;live-reload --port 9091 dist/&quot;,</span><br><span class="line"></span><br><span class="line">// 构建 HTML 文件</span><br><span class="line">&quot;build:html&quot;: &quot;jade index.jade &gt; dist/index.html&quot;,</span><br><span class="line"></span><br><span class="line">// 只要 CSS 文件有变动，就重新执行构建</span><br><span class="line">&quot;watch:css&quot;: &quot;watch &apos;npm run build:css&apos; assets/styles/&quot;,</span><br><span class="line"></span><br><span class="line">// 只要 HTML 文件有变动，就重新执行构建</span><br><span class="line">&quot;watch:html&quot;: &quot;watch &apos;npm run build:html&apos; assets/html&quot;,</span><br><span class="line"></span><br><span class="line">// 部署到 Amazon S3</span><br><span class="line">&quot;deploy:prod&quot;: &quot;s3-cli sync ./dist/ s3://example-com/prod-site/&quot;,</span><br><span class="line"></span><br><span class="line">// 构建 favicon</span><br><span class="line">&quot;build:favicon&quot;: &quot;node scripts/favicon.js&quot;,</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2234,7 +2236,7 @@ cnpm install sass-loader node-sass -D  // 安装 sass-loader node-sass 依赖
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

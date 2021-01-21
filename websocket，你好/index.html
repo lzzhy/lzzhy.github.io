@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="理解 ES5、ES6、JavaScript、TypeScript 的概念和关系ES 是客户端脚本语言的规范，ES5、ES6 是这个规范下的不同版本，TypeScript 和 JavaScript 是两种客户端脚本语言，JavaScript 实现了 ES5 规范，TypeScript实现了 ES6 规范。 TypeScript 是 JavaScript 的超集(：包含了js的东西同时又拥有js没有的">
+<meta name="description" content="初次接触 WebSocket 的人，都会问同样的问题：我们已经有了 HTTP 协议，为什么还需要另一个协议？它能带来什么好处？ 首先对于HTTP:  无法监听连续性的变化 效率低下 浪费资源  WebSocket：是一种网络传输协议，可在单个 TCP 连接上进行全双工通信，位于 OSI 模型的应用层。  TCP连接，与 HTTP 协议兼容 双向通信，主动推送（服务端向客户端） 节省服务器资源和带宽">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TypeScript 学习笔记">
-<meta property="og:url" content="https://lzzhy.github.io/TypeScript 学习笔记/index.html">
+<meta property="og:title" content="websocket，你好">
+<meta property="og:url" content="https://lzzhy.github.io/websocket，你好/index.html">
 <meta property="og:site_name" content="lzzhy Blog">
-<meta property="og:description" content="理解 ES5、ES6、JavaScript、TypeScript 的概念和关系ES 是客户端脚本语言的规范，ES5、ES6 是这个规范下的不同版本，TypeScript 和 JavaScript 是两种客户端脚本语言，JavaScript 实现了 ES5 规范，TypeScript实现了 ES6 规范。 TypeScript 是 JavaScript 的超集(：包含了js的东西同时又拥有js没有的">
+<meta property="og:description" content="初次接触 WebSocket 的人，都会问同样的问题：我们已经有了 HTTP 协议，为什么还需要另一个协议？它能带来什么好处？ 首先对于HTTP:  无法监听连续性的变化 效率低下 浪费资源  WebSocket：是一种网络传输协议，可在单个 TCP 连接上进行全双工通信，位于 OSI 模型的应用层。  TCP连接，与 HTTP 协议兼容 双向通信，主动推送（服务端向客户端） 节省服务器资源和带宽">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-05T09:45:57.516Z">
+<meta property="og:updated_time" content="2021-01-19T09:20:55.168Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TypeScript 学习笔记">
-<meta name="twitter:description" content="理解 ES5、ES6、JavaScript、TypeScript 的概念和关系ES 是客户端脚本语言的规范，ES5、ES6 是这个规范下的不同版本，TypeScript 和 JavaScript 是两种客户端脚本语言，JavaScript 实现了 ES5 规范，TypeScript实现了 ES6 规范。 TypeScript 是 JavaScript 的超集(：包含了js的东西同时又拥有js没有的">
+<meta name="twitter:title" content="websocket，你好">
+<meta name="twitter:description" content="初次接触 WebSocket 的人，都会问同样的问题：我们已经有了 HTTP 协议，为什么还需要另一个协议？它能带来什么好处？ 首先对于HTTP:  无法监听连续性的变化 效率低下 浪费资源  WebSocket：是一种网络传输协议，可在单个 TCP 连接上进行全双工通信，位于 OSI 模型的应用层。  TCP连接，与 HTTP 协议兼容 双向通信，主动推送（服务端向客户端） 节省服务器资源和带宽">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://lzzhy.github.io/TypeScript 学习笔记/">
+  <link rel="canonical" href="https://lzzhy.github.io/websocket，你好/">
 
 
 
 
 
-  <title>TypeScript 学习笔记 | lzzhy Blog</title>
+  <title>websocket，你好 | lzzhy Blog</title>
   
 
 
@@ -270,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/TypeScript 学习笔记/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/websocket，你好/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -287,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">TypeScript 学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">websocket，你好</h1>
         
 
         <div class="post-meta">
@@ -299,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-19T10:44:55+08:00">
-                2020-10-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-19T17:06:18+08:00">
+                2021-01-19
               </time>
             
 
@@ -318,8 +318,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/TypeScript 学习笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/TypeScript 学习笔记/" itemprop="commentCount"></span>
+                <a href="/websocket，你好/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/websocket，你好/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -346,7 +346,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  297
+                  182
                 </span>
               
 
@@ -371,18 +371,26 @@
       
 
       
-        <h2 id="理解-ES5、ES6、JavaScript、TypeScript-的概念和关系"><a href="#理解-ES5、ES6、JavaScript、TypeScript-的概念和关系" class="headerlink" title="理解 ES5、ES6、JavaScript、TypeScript 的概念和关系"></a>理解 ES5、ES6、JavaScript、TypeScript 的概念和关系</h2><p>ES 是客户端脚本语言的规范，ES5、ES6 是这个规范下的不同版本，TypeScript 和 JavaScript 是两种客户端脚本语言，JavaScript 实现了 ES5 规范，TypeScript实现了 ES6 规范。</p>
-<p>TypeScript 是 JavaScript 的超集(：包含了js的东西同时又拥有js没有的东西)，遵循最新的 ES6 的语法规范，TypeScript 扩展了 JavaScript 的语法。任何已经存在的JavaScript 的程序可以不加改动的在  TypeScript 环境下运行，TypeScript 只是在JavaScript 里加了一些遵循 ES6 的语法以及基于类的面向对象的一些特性。（Angular框架就是基于 TypeScript 上开发的），如今的TypeScript 是由微软和谷歌两大公司支持，基于此有理由认为在未来一段时间内 TypeScript 会成为前端主流开发。</p>
-<h2 id="TypeScript-的优势"><a href="#TypeScript-的优势" class="headerlink" title="TypeScript 的优势"></a>TypeScript 的优势</h2><ul>
-<li>是一门支持 ES6 规范的语言</li>
-<li>有强大的 IDE 支持：体现在三个特性上：类型检查(静态类型)、语法提示、重构</li>
-<li>是 Angular2 的开发语言</li>
-</ul>
-<h2 id="搭建-TypeScript-开发环境"><a href="#搭建-TypeScript-开发环境" class="headerlink" title="搭建 TypeScript 开发环境"></a>搭建 TypeScript 开发环境</h2><p>在线： <a href="https://www.typescriptlang.org/play?ts=4.0.2#code/G4QwTgBAtgngdiKBTAXBAzgFzASzgcwgF4IAiAGxwkz31IG4AoWBZCYiARgGYg" target="_blank" rel="noopener">TypeScript</a></p>
-<p>本地：</p>
+        <p>初次接触 WebSocket 的人，都会问同样的问题：我们已经有了 HTTP 协议，为什么还需要另一个协议？它能带来什么好处？</p>
+<p>首先对于<br>HTTP:</p>
 <ul>
-<li>安装 TypeScript：cnpm install -g typescript</li>
-<li>验证是否安装成功：tsc –version</li>
+<li>无法监听连续性的变化</li>
+<li>效率低下</li>
+<li>浪费资源</li>
+</ul>
+<p>WebSocket：是一种网络传输协议，可在单个 TCP 连接上进行全双工通信，位于 OSI 模型的应用层。</p>
+<ul>
+<li>TCP连接，与 HTTP 协议兼容</li>
+<li>双向通信，主动推送（服务端向客户端）</li>
+<li>节省服务器资源和带宽</li>
+<li>实时通信</li>
+<li>无同源限制，协议标识符是ws（加密wss）</li>
+</ul>
+<p>应用场景：</p>
+<ul>
+<li>聊天，消息，点赞</li>
+<li>直播评论（弹幕）</li>
+<li>游戏，协同编辑，基于位置的应用</li>
 </ul>
 
       
@@ -408,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/全方位入门git/" rel="next" title="全方位入门git">
-                <i class="fa fa-chevron-left"></i> 全方位入门git
+              <a href="/Vue-项目搭建/" rel="next" title="Vue 项目搭建">
+                <i class="fa fa-chevron-left"></i> Vue 项目搭建
               </a>
             
           </div>
@@ -417,10 +425,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/二次封装DatePicker组件/" rel="prev" title="反思二次封装DatePicker组件">
-                反思二次封装DatePicker组件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -475,17 +479,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -539,22 +534,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解-ES5、ES6、JavaScript、TypeScript-的概念和关系"><span class="nav-number">1.</span> <span class="nav-text">理解 ES5、ES6、JavaScript、TypeScript 的概念和关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeScript-的优势"><span class="nav-number">2.</span> <span class="nav-text">TypeScript 的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建-TypeScript-开发环境"><span class="nav-number">3.</span> <span class="nav-text">搭建 TypeScript 开发环境</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
