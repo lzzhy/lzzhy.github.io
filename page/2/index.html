@@ -1410,7 +1410,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6.6k
+                  6.7k
                 </span>
               
 
@@ -1580,6 +1580,15 @@
 <li>Object</li>
 </ul>
 <p>(ES6之前)其中5种为基本类型:string,number,boolean,null,undefined,ES6出来的Symbol也是原始数据类型 ，表示独一无二的值。Object 为引用类型(范围挺大),也包括数组、函数</p>
+<h3 id="数据类型判断"><a href="#数据类型判断" class="headerlink" title="数据类型判断"></a>数据类型判断</h3><p>判断 undefined:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let lzzhy = undefined;</span><br><span class="line">console.log(typeof(lzzhy) === &apos;undefined&apos;)  // true</span><br></pre></td></tr></table></figure>
+
+<p>判断 null:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let lzzhy = null;</span><br><span class="line">console.log(!lzzhy &amp;&amp; typeof(lzzhy) != &apos;undefined&apos; &amp;&amp; lzzhy != 0)  // true</span><br></pre></td></tr></table></figure>
+
+<p>判断 NaN:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let lzzhy = 0/0;</span><br><span class="line">console.log(isNaN(lzzhy))  // true</span><br><span class="line"></span><br><span class="line">// 因为 NaN 是 JavaScript 之中唯一不等于自身的值，所以也可以如下判断</span><br><span class="line"></span><br><span class="line">var aaa = 0/0;</span><br><span class="line">console.log(aaa !== aaa);  // true</span><br></pre></td></tr></table></figure>
+
 <h3 id="typeof-可以判断哪些类型"><a href="#typeof-可以判断哪些类型" class="headerlink" title="typeof 可以判断哪些类型"></a>typeof 可以判断哪些类型</h3><ul>
 <li><p>可以判断是哪种基本数据类型</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typeof(null) //object 这是浏览器的Bug</span><br></pre></td></tr></table></figure>
