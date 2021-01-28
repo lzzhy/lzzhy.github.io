@@ -90,7 +90,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93-css%E7%AF%87/WechatIMG3.jpeg">
 <meta property="og:image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93-css%E7%AF%87/WechatIMG4.jpeg">
-<meta property="og:updated_time" content="2021-01-25T03:04:53.762Z">
+<meta property="og:updated_time" content="2021-01-28T06:18:56.129Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试基础技能篇-CSS,HTML,JS">
 <meta name="twitter:description" content="每次会去看红宝书，会去看人家的总结和视频…有时候觉得这些东西很重要，知道要记下来可是没多久就又忘记了。所以还是把它记录在我的博客中吧o(￣︶￣)o CSS超出则隐藏并显示省略号1234一行：overflow: hidden;text-overflow: ellipsis;white-space: nowrap;  123456多行：overflow: hidden;text-overflow: e">
@@ -349,7 +349,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6.7k
+                  7.2k
                 </span>
               
 
@@ -516,22 +516,29 @@
 <li>Symbol (ECMAScript 6 新定义)</li>
 <li>Object</li>
 </ul>
-<p>(ES6之前)其中5种为基本类型:string,number,boolean,null,undefined,ES6出来的Symbol也是原始数据类型 ，表示独一无二的值。Object 为引用类型(范围挺大),也包括数组、函数</p>
-<h3 id="数据类型判断"><a href="#数据类型判断" class="headerlink" title="数据类型判断"></a>数据类型判断</h3><p>判断 undefined:</p>
+<p>(ES6之前)其中5种为基本类型:string,number,boolean,null,undefined，ES6出来的Symbol也是原始数据类型(表示独一无二的值)。Object 为引用类型(范围挺大，也包括数组、函数)</p>
+<h3 id="undefined、null、NaN-特殊基础数据类型判断"><a href="#undefined、null、NaN-特殊基础数据类型判断" class="headerlink" title="undefined、null、NaN 特殊基础数据类型判断"></a>undefined、null、NaN 特殊基础数据类型判断</h3><p>null 和 undefined 的区别：</p>
+<ul>
+<li>null 转为数值时为0；undefined 转为数值时为NaN;</li>
+<li>null 表示‘没有对象’，即该处不应该有值；undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义；</li>
+</ul>
+<p>判断 undefined:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let lzzhy = undefined;</span><br><span class="line">console.log(typeof(lzzhy) === &apos;undefined&apos;)  // true</span><br></pre></td></tr></table></figure>
 
 <p>判断 null:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let lzzhy = null;</span><br><span class="line">console.log(!lzzhy &amp;&amp; typeof(lzzhy) != &apos;undefined&apos; &amp;&amp; lzzhy != 0)  // true</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let lzzhy = null;</span><br><span class="line">console.log(lzzhy === null)  // true</span><br></pre></td></tr></table></figure>
 
 <p>判断 NaN:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let lzzhy = 0/0;</span><br><span class="line">console.log(isNaN(lzzhy))  // true</span><br><span class="line"></span><br><span class="line">// 因为 NaN 是 JavaScript 之中唯一不等于自身的值，所以也可以如下判断</span><br><span class="line"></span><br><span class="line">var aaa = 0/0;</span><br><span class="line">console.log(aaa !== aaa);  // true</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let lzzhy = NaN;</span><br><span class="line">console.log(isNaN(lzzhy))  // true</span><br><span class="line"></span><br><span class="line">// 因为 NaN 是 JavaScript 之中唯一不等于自身的值，所以也可以如下判断</span><br><span class="line"></span><br><span class="line">var aaa = NaN;</span><br><span class="line">console.log(aaa !== aaa);  // true</span><br></pre></td></tr></table></figure>
 
+<h3 id="隐式转换-变量转换成数字或者字符串"><a href="#隐式转换-变量转换成数字或者字符串" class="headerlink" title="隐式转换(变量转换成数字或者字符串)"></a>隐式转换(变量转换成数字或者字符串)</h3><p>变量 num 转换成数字：<code>num - 0</code></p>
+<p>变量 num 转换成字符串：<code>num + &#39;&#39;</code></p>
 <h3 id="typeof-可以判断哪些类型"><a href="#typeof-可以判断哪些类型" class="headerlink" title="typeof 可以判断哪些类型"></a>typeof 可以判断哪些类型</h3><ul>
-<li><p>可以判断是哪种基本数据类型</p>
+<li><p>可以判断是哪种基本数据类型，null除外</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typeof(null) //object 这是浏览器的Bug</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>可以判断是否为函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">typeof console.log // &apos;function&apos;</span><br><span class="line">typeof function()&#123;&#125; // &apos;function&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typeof function()&#123;&#125; // &apos;function&apos;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>可以判断是否为引用类型</p>
 </li>
@@ -540,42 +547,27 @@
 <p>原始数据类型是 传值 ：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let a = 10</span><br><span class="line">let b = a</span><br><span class="line">a = 20</span><br><span class="line">console.log(b) // 20</span><br></pre></td></tr></table></figure>
 
-<p>引用类型是传地址：</p>
+<p>引用类型是 传地址：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123;age: 12&#125;</span><br><span class="line">let b = a</span><br><span class="line">b.age = 20</span><br><span class="line">console.log(a.age) // 20</span><br></pre></td></tr></table></figure>
 
-<h3 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h3><ul>
-<li>判断是基本类型还是引用类型</li>
-<li>判断是数组还是对象</li>
-<li>递归</li>
+<h3 id="对象的拷贝"><a href="#对象的拷贝" class="headerlink" title="对象的拷贝"></a>对象的拷贝</h3><p>浅拷贝：只复制某个对象的指针，而不复制对象本身，新旧对象还是共享同一块内存。因此修改时原对象也会受到影响。</p>
+<ul>
+<li>Object.assign</li>
+<li>展开运算符（…）</li>
 </ul>
-<p>浅拷贝只复制某个对象的指针，而不复制对象本身，新旧对象还是共享同一块内存。深拷贝会创造另一个一模一样的对象，新对象跟原来的对象不共享内存，修改新对象不会改到原对象。</p>
-<h3 id="面向对象的三大要素"><a href="#面向对象的三大要素" class="headerlink" title="面向对象的三大要素"></a>面向对象的三大要素</h3><p>封装、继承、多态</p>
+<p>深拷贝：会创造另一个一模一样的对象，新对象跟原来的对象不共享内存。因此修改时原对象不受到影响。</p>
+<ul>
+<li>JSON.parse(JSON.stringify(obj))(但是如果里面有 function 和 undefined 不可用)</li>
+<li>lodash</li>
+</ul>
+<h3 id="面向对象程序设计及其要素"><a href="#面向对象程序设计及其要素" class="headerlink" title="面向对象程序设计及其要素"></a>面向对象程序设计及其要素</h3><p>面向对象程序设计（Object-oriented programming，简称：OOP），维基百科给出的定义是：是一种程序设计泛型，同时也是一种程序开发的方法。对象指的是类的实例。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的重用性、灵活性和扩展性。</p>
+<p>继承、封装、多态、抽象</p>
 <h3 id="能够简单的说明面向对象和面向过程的区别吗"><a href="#能够简单的说明面向对象和面向过程的区别吗" class="headerlink" title="能够简单的说明面向对象和面向过程的区别吗"></a>能够简单的说明面向对象和面向过程的区别吗</h3><ul>
 <li><strong>面向过程</strong>：就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。（比如：例如蛋炒饭，面向过程的设计思路就是首先分析问题的步骤：1、先放油，2、把鸡蛋搅拌，3、把鸡蛋倒进锅里炒熟，4、把鸡蛋盛起来，5、在倒油在锅里，6、把饭倒进去炒，7、把炒好的鸡蛋倒进去，8、放盐等其他作料，9、盛出来放到碗里。把上面每个步骤用分别的函数来实现，问题就解决了。），每一个步骤就是一个函数。</li>
 <li><strong>面向对象</strong>：是以功能来划分问题，而不是步骤。（如：整个蛋炒饭可以分为 1、先把蛋炒好盛出来，2、把饭炒好，3、把蛋和饭放锅里搅拌。）每一个模块都可以看做是一个对象。如蛋炒饭的 炒蛋 对象，炒饭 对象，搅拌 对象。每一个对象都是为了完成一个功能，而每一个功能就是一个函数。</li>
 </ul>
 <h3 id="一句话概括什么是promise"><a href="#一句话概括什么是promise" class="headerlink" title="一句话概括什么是promise"></a>一句话概括什么是promise</h3><p>Promise对象用于异步操作，它表示一个尚未完成且预计在未来完成的异步操作。</p>
-<h3 id="原型-构造函数-实例"><a href="#原型-构造函数-实例" class="headerlink" title="原型/构造函数/实例"></a>原型/构造函数/实例</h3><ul>
-<li>原型（prototype）：我们创建的每一个函数，都可以有一个prototype属性，该属性指向一个对象。这个对象，就是原型。</li>
-<li>构造函数：可以通过new来 新建一个对象 的函数</li>
-<li>实例： 通过构造函数和new创建出来的对象，便是实例。 实例通过<strong>proto</strong>指向原型，通过constructor指向构造函数。</li>
-</ul>
-<p>以上是一个比较通俗的定义，可能有点懵逼，这里来举个栗子，以Object为例，我们常用的Object便是一个构造函数，因此我们可以通过它构建实例。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 实例</span><br><span class="line">const instance = new Object()</span><br></pre></td></tr></table></figure>
-
-<p>则此时，实例为instance, 构造函数为Object，我们知道，构造函数拥有一个prototype的属性指向原型，因此原型为:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 原型</span><br><span class="line">const prototype = Object.prototype</span><br></pre></td></tr></table></figure>
-
-<p>这里我们可以来看出三者的关系:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">实例.__proto__ === 原型</span><br><span class="line"></span><br><span class="line">原型.constructor === 构造函数</span><br><span class="line"></span><br><span class="line">构造函数.prototype === 原型</span><br><span class="line"></span><br><span class="line">// 这条线其实是是基于原型进行获取的，可以理解成一条基于原型的映射线</span><br><span class="line">// 例如: </span><br><span class="line">// const o = new Object()</span><br><span class="line">// o.constructor === Object   --&gt; true</span><br><span class="line">// o.__proto__ = null;</span><br><span class="line">// o.constructor === Object   --&gt; false</span><br><span class="line">实例.constructor === 构造函</span><br></pre></td></tr></table></figure>
-
-<p>相关关系如下图：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93-css%E7%AF%87/WechatIMG4.jpeg" alt="cmd-markdown-logo"></p>
-<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>原型链的访问跟作用域链有很大的相似之处，他们都是一次单向的查找过程：</p>
-<ul>
-<li>属性查找机制: 当查找对象的属性时，如果实例对象自身不存在该属性，则沿着原型链往上一级查找，找到时则输出，不存在时，则继续沿着原型链往上一级查找，直至最顶级的原型对象Object.prototype，如还是没找到，则输出undefined；</li>
-<li>属性修改机制: 只会修改实例对象本身的属性，如果不存在，则进行添加该属性，如果需要修改原型的属性时，则可以用: b.prototype.x = 2；但是这样会造成所有继承于该对象的实例的属性发生改变。</li>
-</ul>
-<h3 id="执行上下文：可以简单理解为一个对象"><a href="#执行上下文：可以简单理解为一个对象" class="headerlink" title="执行上下文：可以简单理解为一个对象"></a>执行上下文：可以简单理解为一个对象</h3><p>包含三个部分：</p>
+<h3 id="？？？？？-执行上下文：可以简单理解为一个对象"><a href="#？？？？？-执行上下文：可以简单理解为一个对象" class="headerlink" title="？？？？？ 执行上下文：可以简单理解为一个对象"></a>？？？？？ 执行上下文：可以简单理解为一个对象</h3><p>包含三个部分：</p>
 <ul>
 <li>变量对象(VO)</li>
 <li>作用域链(词法作用域)</li>
@@ -594,7 +586,35 @@
 <li>函数执行上下文被激活，成为 active EC, 开始执行函数中的代码，caller 被挂起</li>
 <li>函数执行完后，callee 被pop移除出执行栈，控制权交还全局上下文 (caller)，继续执行</li>
 </ul>
-<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>作用域可以理解为该上下文中声明的变量和声明的作用范围。可分为<em>块级作用域</em>和<em>函数作用域</em>。</p>
+<h3 id="原型-构造函数-实例-三者之间的关系"><a href="#原型-构造函数-实例-三者之间的关系" class="headerlink" title="原型/构造函数/实例 三者之间的关系"></a>原型/构造函数/实例 三者之间的关系</h3><ul>
+<li>原型（prototype）：我们创建的每一个函数，都可以有一个prototype属性，该属性指向一个对象。这个对象，就是原型。<br>  <code>特殊情况：原型并不是每个都有的，如假设通过let zzhy = Object.create(null)创建,并且传入的参数为null 那么该lzzhy上是没有原型的</code></li>
+<li>构造函数：可以通过new来 新建一个对象 的函数</li>
+<li>实例： 通过构造函数和new创建出来的对象，便是实例。 实例通过<strong>proto</strong>指向原型，通过constructor指向构造函数。</li>
+</ul>
+<p>以上是一个比较通俗的定义，可能有点懵逼，这里来举个栗子，以Object为例，我们常用的Object便是一个构造函数，因此我们可以通过它构建实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 实例</span><br><span class="line">const instance = new Object()</span><br></pre></td></tr></table></figure>
+
+<p>则此时，实例为instance, 构造函数为Object，我们知道，构造函数拥有一个prototype的属性指向原型，因此原型为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 原型</span><br><span class="line">const prototype = Object.prototype</span><br></pre></td></tr></table></figure>
+
+<p>这里我们可以来看出三者的关系:</p>
+<ul>
+<li>实例.<strong>proto</strong> === 原型</li>
+<li>原型.constructor === 构造函数</li>
+<li>构造函数.prototype === 原型</li>
+<li>实例.constructor === 构造函数</li>
+</ul>
+<p>这条线其实是是基于原型进行获取的，可以理解成一条基于原型的映射线，例如: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const o = new Object()</span><br><span class="line">o.constructor === Object   --&gt; true</span><br><span class="line">o.__proto__ = null;  // 将原型设置为null</span><br><span class="line">o.constructor === Object   --&gt; false</span><br></pre></td></tr></table></figure>
+
+<p>相关关系如下图：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93-css%E7%AF%87/WechatIMG4.jpeg" alt="cmd-markdown-logo"></p>
+<p>Object.prototype就是原型链上最顶端的,在上去就是null了，而原型链上的那些hasOwnProperty,valueOf,toString。。。这些方法就是在Object.prototype上的</p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>原型链的访问跟作用域链有很大的相似之处，他们都是一次单向的查找过程：</p>
+<ul>
+<li>属性查找机制: 当查找对象的属性时，如果实例对象自身不存在该属性，则沿着原型链往上一级查找，找到时则输出，不存在时，则继续沿着原型链往上一级查找，直至最顶级的原型对象Object.prototype，如还是没找到，则输出undefined；</li>
+<li>属性修改机制: 只会修改实例对象本身的属性，如果不存在，则进行添加该属性，如果需要修改原型的属性时，则可以用: 构造函数b.prototype.属性x = value值（但是这样会造成所有继承于该对象的实例的属性发生改变）；</li>
+</ul>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>作用域可以理解为该上下文中声明的变量和声明的作用范围。可分为<code>块级作用域</code>和<code>函数作用域</code>。</p>
 <p>特性</p>
 <ul>
 <li>声明提前: 一个声明在函数体内都是可见的, 函数优先于变量</li>
@@ -603,20 +623,22 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let foo = function() &#123; console.log(1) &#125;;</span><br><span class="line">(function foo() &#123;</span><br><span class="line">    foo = 10  // 由于foo在函数中只为可读，因此赋值无效</span><br><span class="line">    console.log(foo)</span><br><span class="line">&#125;())</span><br><span class="line"></span><br><span class="line">// 结果打印：ƒ foo() &#123;</span><br><span class="line">    foo = 10  </span><br><span class="line">    console.log(foo)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到window对象即被终止，作用域链向下访问变量是不被允许的。</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>继承有<code>原型链继承</code>和<code>Object create</code>两种继承方式，如有以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Person()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">function Student()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>原型链继承</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student.prototype = new Person();    // 通过new继承</span><br></pre></td></tr></table></figure>
+
+<p>缺点：<br>修改sub1.name后sub2.name也变了，因为来自原型对象的引用属性是所有实例共享的。</p>
+<p><code>Object create</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student.prototype = Object create(Person prototype)</span><br></pre></td></tr></table></figure>
+
 <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。闭包本质还是函数，只不过这个函数绑定了上下文环境（函数内部引用的所有变量）</p>
-<p>产生的问题1：</p>
+<p>产生的问题：</p>
 <ul>
-<li>多个子函数的[[scope]]都是同时指向父级，是完全共享的。因此当父级的变量对象被修改时，所有子函数都受到影响。</li>
-</ul>
-<p>解决1：</p>
-<ul>
-<li>变量可以通过 函数参数的形式 传入，避免使用默认的[[scope]]向上查找</li>
-<li>使用setTimeout包裹，通过第三个参数传入</li>
-<li>使用 块级作用域，让变量成为自己上下文的属性，避免共享</li>
-</ul>
-<p>产生的问题2：</p>
-<ul>
-<li>常驻内存，会增大内存使用量，使用不当很容易造成内存泄露</li>
+<li>空间浪费</li>
+<li>内存泄露</li>
+<li>性能消耗</li>
 </ul>
 <p>三个特性：</p>
 <ul>
@@ -624,16 +646,26 @@
 <li>函数内部可以引用外部的参数和变量</li>
 <li>参数和变量不会被垃圾回收机制回收</li>
 </ul>
-<h3 id="对象的拷贝"><a href="#对象的拷贝" class="headerlink" title="对象的拷贝"></a>对象的拷贝</h3><p>浅拷贝：仍指向同一个地址，修改时原对象也会受到影响。</p>
-<ul>
-<li>Object.assign</li>
-<li>展开运算符（…）</li>
+<h3 id="call、apply、bind的区别"><a href="#call、apply、bind的区别" class="headerlink" title="call、apply、bind的区别"></a>call、apply、bind的区别</h3><ul>
+<li><p>都是用来改变函数的this的指向的</p>
+</li>
+<li><p>实现<code>函数柯里化</code></p>
+</li>
+<li><p>第一个参数都是this要指向的对象，也就是想指定的上下文。如：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function foo(x,y) &#123;</span><br><span class="line">    console.log(x,y,this)</span><br><span class="line">&#125;</span><br><span class="line">foo.call(100,1,2)  // 1 2 Number &#123;100&#125;。 因为bind,call,apply的第一个参数都是指向this的对象，所以100是指向this的指向，1,2才是传入foo的x=1,y=2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>call 传入的参数数量不固定，第二部分参数要一个一个传，用‘，’隔开</p>
+</li>
+<li><p>apply 接受两个参数，第二个参数为一个带下标的集合，可以是数组、类数组</p>
+</li>
+<li><p>bind 是返回了一个改变上下文的函数副本，便于稍后调用；apply,call则是立即调用</p>
+</li>
 </ul>
-<p>深拷贝：完全拷贝一个新对象，修改时原对象不受到影响。</p>
-<ul>
-<li>JSON.parse(JSON.stringify(obj))(但是如果里面有 function 和 undefined 不可用)</li>
-<li>lodash</li>
-</ul>
+<h3 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h3><p>定义：是一种将使用多个参数的一个函数转换为一系列使用一个参数的函数的技术。通常可以在不入侵函数的前提下，为函数预置通用参数，供多次重复调用。</p>
+<p>目的：减少代码冗余，以及提高代码可读性。</p>
+<p>应用，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function sum(a,b,c)&#123;</span><br><span class="line">    return a+b+c;</span><br><span class="line">&#125;</span><br><span class="line">let func = add.bind(undefined,100)  // 使用bind的话第一个参数是改变this指向的对象，所以100才真正的参数所以a固定=100。</span><br><span class="line"></span><br><span class="line">func(1,2)  // 所以b=1,c=2  100+1+2=103</span><br><span class="line"></span><br><span class="line">let func2 = func.bind(undefined,200)  // 同理，但因为上面以及把100赋值给a了，所以这个200赋值给b,b固定=200</span><br><span class="line"></span><br><span class="line">func2(10) // 所以这个10是参数c  100+200+10=310</span><br></pre></td></tr></table></figure>
+
 <h3 id="new运算符具体执行过程"><a href="#new运算符具体执行过程" class="headerlink" title="new运算符具体执行过程"></a>new运算符具体执行过程</h3><ul>
 <li>创建一个新对象</li>
 <li>链接到原型：obj.<em>proto</em>= Con.prototype</li>
@@ -648,24 +680,8 @@
 <li>混入 mixin</li>
 <li>借用 apply/call</li>
 </ul>
-<h3 id="继承-？？？？？？"><a href="#继承-？？？？？？" class="headerlink" title="继承 ？？？？？？"></a>继承 ？？？？？？</h3><p>1.简单的原型链继承：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Super()&#123;</span><br><span class="line">	this.name = &apos;hzzly&apos;;</span><br><span class="line">&#125;</span><br><span class="line">function Sub()&#123;</span><br><span class="line">	// ...</span><br><span class="line">&#125;</span><br><span class="line">Sub.prototype = new Super();    // 核心</span><br></pre></td></tr></table></figure>
-
-<p>缺点：<br>修改sub1.name后sub2.name也变了，因为来自原型对象的引用属性是所有实例共享的。</p>
-<p>2.构造函数式继承</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Super(val)&#123;</span><br><span class="line">	this.val = val;</span><br><span class="line">	this.fun = function()&#123;  // 实例函数</span><br><span class="line">		// ...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">function Sub(val)&#123;</span><br><span class="line">	Super.call(this, val);   // 核心</span><br><span class="line">	// ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>缺点：<br>无法实现函数复用，每个子类实例都持有一个新的fun函数，太多了就会影响性能，内存爆炸。。</p>
-<h3 id="null-和-undefined-的区别"><a href="#null-和-undefined-的区别" class="headerlink" title="null 和 undefined 的区别"></a>null 和 undefined 的区别</h3><ul>
-<li>null 转为数值时为0；undefined 转为数值时为NaN;</li>
-<li>null 表示‘没有对象’，即该处不应该有值；undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义；</li>
-</ul>
-<h3 id="call、apply、bind的区别"><a href="#call、apply、bind的区别" class="headerlink" title="call、apply、bind的区别"></a>call、apply、bind的区别</h3><ul>
-<li>都是用来改变函数的this的指向的</li>
-<li>第一个参数都是this要指向的对象，也就是想指定的上下文</li>
-<li>call 传入的参数数量不固定，第二部分参数要一个一个传，用‘，’隔开</li>
-<li>apply 接受两个参数，第二个参数为一个带下标的集合，可以是数组、类数组</li>
-<li>bind 是返回了一个改变上下文的函数副本，便于稍后调用；apply,call则是立即调用</li>
+<h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><ul>
+<li>new构造函数中：若函数中没有返回的话就指向里面的这个值，若有返回并且不是基础类型那么this指向这个基础值</li>
 </ul>
 <h3 id="防抖与节流"><a href="#防抖与节流" class="headerlink" title="防抖与节流"></a>防抖与节流</h3><p>防抖与节流函数是一种最常用的 <strong>高频触发优化方式，对性能</strong>有较大的帮助。</p>
 <ul>
@@ -680,30 +696,38 @@
 <p>实现方式：每次触发事件时，如果当前有等待执行的延时函数，则直接return</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function throttle(fn, wait, immediate) &#123;</span><br><span class="line">    let timer = null</span><br><span class="line">    let callNow = immediate</span><br><span class="line">    </span><br><span class="line">    return function() &#123;</span><br><span class="line">        let context = this,</span><br><span class="line">            args = arguments</span><br><span class="line"></span><br><span class="line">        if (callNow) &#123;</span><br><span class="line">            fn.apply(context, args)</span><br><span class="line">            callNow = false</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (!timer) &#123;</span><br><span class="line">            timer = setTimeout(() =&gt; &#123;</span><br><span class="line">                fn.apply(context, args)</span><br><span class="line">                timer = null</span><br><span class="line">            &#125;, wait)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h3><p>在一个函数中，首先填充几个参数，然后再返回一个新的函数的技术，称为函数的柯里化。通常可用于在不侵入函数的前提下，为函数 预置通用参数，供多次重复调用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const add = function add(x) &#123;</span><br><span class="line">	return function (y) &#123;</span><br><span class="line">		return x + y</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const add1 = add(1)</span><br><span class="line"></span><br><span class="line">add1(2) === 3</span><br><span class="line">add1(20) === 21</span><br></pre></td></tr></table></figure>
+<h3 id="数组-array"><a href="#数组-array" class="headerlink" title="数组(array)"></a>数组(array)</h3><p>数组是值的有序集合，JS 中的数组是<code>弱类型</code>（其实javascript就是一门弱类型语言：弱类型指的是数据类型可以被忽略的语言。它与强类型语言相反，一个变量可以赋不同数据类型的值）的。</p>
+<p>判断是否为数组 <code>Array.isArray</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let lzz = []</span><br><span class="line">Array.isArray(lzz)  // true</span><br></pre></td></tr></table></figure>
 
-<h3 id="数组-array"><a href="#数组-array" class="headerlink" title="数组(array)???????"></a>数组(array)???????</h3><ul>
-<li>map: 遍历数组，返回回调返回值组成的新数组</li>
-<li>forEach: 无法break，可以用try/catch中throw new Error来停止</li>
-<li>filter: 过滤</li>
-<li>some: 有一项返回true，则整体为true</li>
-<li>every: 有一项返回false，则整体为false</li>
-<li>join: 通过指定连接符生成字符串</li>
-<li>push / pop: 末尾推入和弹出，改变原数组， 返回推入/弹出项</li>
-<li>unshift / shift: 头部推入和弹出，改变原数组，返回操作项</li>
-<li>sort(fn) / reverse: 排序与反转，改变原数组</li>
-<li>concat: 连接数组，不影响原数组， 浅拷贝</li>
-<li>slice(start, end): 返回截断后的新数组，不改变原数组</li>
-<li>splice(start, number, value…): 返回删除元素组成的数组，value 为插入项，改变原数组</li>
-<li>indexOf / lastIndexOf(value, fromIndex): 查找数组项，返回对应的下标</li>
-<li>reduce / reduceRight(fn(prev, cur)， defaultPrev): 两两执行，prev 为上次化简函数的return值，cur 为当前值(从第二项开始)</li>
-</ul>
-<p>数组乱序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];</span><br><span class="line">arr.sort(function () &#123;</span><br><span class="line">    return Math.random() - 0.5;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>filter：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const roleCode = this.roleListData.filter(item =&gt; item.rolename === this.addRoleForm.rolename)[0]  // this.roleListData：下拉列表的数据。this.addRoleForm.rolename：需要匹配的值。</span><br></pre></td></tr></table></figure>
 
-<p>数组拆解: flat: [1,[2,3]] –&gt; [1, 2, 3]:</p>
+<h4 id="操作数据"><a href="#操作数据" class="headerlink" title="操作数据"></a>操作数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 初始数据 --&gt;</span><br><span class="line"></span><br><span class="line">let arrs = []</span><br><span class="line">arrs[0] = 1</span><br><span class="line">arrs[1] = 9   // arrs：1，9</span><br></pre></td></tr></table></figure>
+
+<p>在数组最前面插入 <code>unshift</code>(改变原数组)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arrs.unshift(8)  // arrs：8，1，9</span><br></pre></td></tr></table></figure>
+
+<p>数组转化为字符串 <code>join</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arrs.join(&apos;,&apos;) // 输出结果为&quot;8,1,9&quot;，若括号中没写的话默认用 &apos;,&apos; 隔开</span><br></pre></td></tr></table></figure>
+
+<p>将数组逆序倒过来 <code>reverse</code> (改变原数组)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arrs.reverse()  // 9,1</span><br></pre></td></tr></table></figure>
+
+<p>排序<code>sort</code> (改变原数组)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arrs.sort()  // 1,9  sort是会先转成字符串在来排序</span><br></pre></td></tr></table></figure>
+
+<p>数组合并<code>concat</code> (不修改原数组)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arrs.concat(7,8)  // [1,9,7,8]</span><br><span class="line"></span><br><span class="line">arrs.concat([19,21],16)  // [1, 9, 19, 21, 16] 会将数组铺平，但是只会铺平一次</span><br><span class="line"></span><br><span class="line">arrs.concat([2,3,[62,32]])  // [1, 9, 2, 3, [62,43]] 因为只会铺平一次所以这样</span><br></pre></td></tr></table></figure>
+
+<p>数组拆解 <code>flat</code>: [1,[2,3]] <a href="和concat一样只会铺平一层">1, 2, 3</a>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Array.prototype.flat = function() &#123;</span><br><span class="line">    return this.toString().split(&apos;,&apos;).map(item =&gt; +item )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>返回部分数组 <code>slice</code>（不会修改原数组） ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">slice 的第一个参数表示下标（可以取这个值），第二个参数为正数的话就从左开始数为负数就从右边开始数（但是不包括这个下标值）</span><br><span class="line">var lzzhy = [1,2,3,4,5]</span><br><span class="line">lzzhy.alice(1,3) // [2,3]   </span><br><span class="line">lzzhy.slice(1)  // [2,3,4,5]</span><br><span class="line">lzzhy.slice(1,-1)  // [2,3,4]</span><br><span class="line">lzzhy.slice(-4,-3)  // [2]</span><br></pre></td></tr></table></figure>
+
+<p>拼接数组 <code>splice</code>(修改原数组) ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var aaa = [1,2,3,4,5]</span><br><span class="line"></span><br><span class="line">&lt;!-- 一个参数：指从这个下标开始的值都删除 --&gt;</span><br><span class="line">aaa.splice(2)  // [3,4,5]</span><br><span class="line">aaa  // [1,2]</span><br><span class="line"></span><br><span class="line">&lt;!-- 两个参数：第一个参数表示下标，第二个参数表示从第一个参数开始数要删除的个数 --&gt;</span><br><span class="line">aaa.splice(2,2)  // [3,4]</span><br><span class="line">aaa  // 1,2,5</span><br><span class="line"></span><br><span class="line">&lt;!-- 替换 --&gt;</span><br><span class="line">aaa.splice(1,1,&apos;a&apos;,&apos;b&apos;)  // aaa: [1,&apos;a&apos;,&apos;b&apos;,3,4,5]</span><br></pre></td></tr></table></figure>
 
 <h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><h3 id="比较-HTML-XML-XHTML-和-JSON"><a href="#比较-HTML-XML-XHTML-和-JSON" class="headerlink" title="比较 HTML XML XHTML 和 JSON"></a>比较 HTML XML XHTML 和 JSON</h3><ul>
 <li>HTML（HyperText Markup Language / 超文本标记语言）：用来描述和定义 网络内容的标记语言，超文本的意思是说，除了能标记本文还能标记 图片，视频，链接 等其他内容</li>
@@ -1126,7 +1150,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#超出则隐藏并显示省略号"><span class="nav-number">1.1.</span> <span class="nav-text">超出则隐藏并显示省略号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盒模型"><span class="nav-number">1.2.</span> <span class="nav-text">盒模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC"><span class="nav-number">1.3.</span> <span class="nav-text">BFC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层叠上下文"><span class="nav-number">1.4.</span> <span class="nav-text">层叠上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局"><span class="nav-number">1.5.</span> <span class="nav-text">布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#水平居中"><span class="nav-number">1.5.1.</span> <span class="nav-text">水平居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垂直居中"><span class="nav-number">1.5.2.</span> <span class="nav-text">垂直居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平垂直居中"><span class="nav-number">1.5.3.</span> <span class="nav-text">水平垂直居中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两列布局：右边自适应左边固定（左边自适应右边固定float和position都不太适用了。所以还是使用BFC和Flex吧。）"><span class="nav-number">1.6.</span> <span class="nav-text">两列布局：右边自适应左边固定（左边自适应右边固定float和position都不太适用了。所以还是使用BFC和Flex吧。）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#float"><span class="nav-number">1.6.1.</span> <span class="nav-text">float:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#position-margin"><span class="nav-number">1.6.2.</span> <span class="nav-text">position+margin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex"><span class="nav-number">1.6.3.</span> <span class="nav-text">flex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#float-BFC"><span class="nav-number">1.6.4.</span> <span class="nav-text">float+BFC</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左右两边固定中间自适应"><span class="nav-number">1.7.</span> <span class="nav-text">左右两边固定中间自适应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#position-margin实现"><span class="nav-number">1.7.1.</span> <span class="nav-text">position + margin实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#float-margin实现"><span class="nav-number">1.7.2.</span> <span class="nav-text">float + margin实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#圣杯布局"><span class="nav-number">1.7.3.</span> <span class="nav-text">圣杯布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-1"><span class="nav-number">1.7.4.</span> <span class="nav-text">flex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双飞翼布局"><span class="nav-number">1.7.5.</span> <span class="nav-text">双飞翼布局</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设为-flex-属性之后，子元素的哪些属性会失效"><span class="nav-number">1.8.</span> <span class="nav-text">设为 flex 属性之后，子元素的哪些属性会失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器优先级"><span class="nav-number">1.9.</span> <span class="nav-text">选择器优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去除浮动影响，防止父级高度塌陷"><span class="nav-number">1.10.</span> <span class="nav-text">去除浮动影响，防止父级高度塌陷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#link-和-import-的区别"><span class="nav-number">1.11.</span> <span class="nav-text">link 和 @import 的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">2.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型"><span class="nav-number">2.1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型判断"><span class="nav-number">2.2.</span> <span class="nav-text">数据类型判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#typeof-可以判断哪些类型"><span class="nav-number">2.3.</span> <span class="nav-text">typeof 可以判断哪些类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型和引用类型的区别"><span class="nav-number">2.4.</span> <span class="nav-text">基本数据类型和引用类型的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深浅拷贝"><span class="nav-number">2.5.</span> <span class="nav-text">深浅拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象的三大要素"><span class="nav-number">2.6.</span> <span class="nav-text">面向对象的三大要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#能够简单的说明面向对象和面向过程的区别吗"><span class="nav-number">2.7.</span> <span class="nav-text">能够简单的说明面向对象和面向过程的区别吗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一句话概括什么是promise"><span class="nav-number">2.8.</span> <span class="nav-text">一句话概括什么是promise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型-构造函数-实例"><span class="nav-number">2.9.</span> <span class="nav-text">原型/构造函数/实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链"><span class="nav-number">2.10.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行上下文：可以简单理解为一个对象"><span class="nav-number">2.11.</span> <span class="nav-text">执行上下文：可以简单理解为一个对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">2.12.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域链"><span class="nav-number">2.13.</span> <span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">2.14.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的拷贝"><span class="nav-number">2.15.</span> <span class="nav-text">对象的拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new运算符具体执行过程"><span class="nav-number">2.16.</span> <span class="nav-text">new运算符具体执行过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码复用"><span class="nav-number">2.17.</span> <span class="nav-text">代码复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承-？？？？？？"><span class="nav-number">2.18.</span> <span class="nav-text">继承 ？？？？？？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null-和-undefined-的区别"><span class="nav-number">2.19.</span> <span class="nav-text">null 和 undefined 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#call、apply、bind的区别"><span class="nav-number">2.20.</span> <span class="nav-text">call、apply、bind的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防抖与节流"><span class="nav-number">2.21.</span> <span class="nav-text">防抖与节流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数柯里化"><span class="nav-number">2.22.</span> <span class="nav-text">函数柯里化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组-array"><span class="nav-number">2.23.</span> <span class="nav-text">数组(array)???????</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器"><span class="nav-number">3.</span> <span class="nav-text">浏览器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#比较-HTML-XML-XHTML-和-JSON"><span class="nav-number">3.1.</span> <span class="nav-text">比较 HTML XML XHTML 和 JSON</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨标签页通讯"><span class="nav-number">3.2.</span> <span class="nav-text">跨标签页通讯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器架构"><span class="nav-number">3.3.</span> <span class="nav-text">浏览器架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器下事件循环-Event-Loop"><span class="nav-number">3.4.</span> <span class="nav-text">浏览器下事件循环(Event Loop)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS-解析过程"><span class="nav-number">3.5.</span> <span class="nav-text">DNS 解析过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三次握手，四次挥手"><span class="nav-number">3.6.</span> <span class="nav-text">三次握手，四次挥手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从输入-url-到展示的过程"><span class="nav-number">3.7.</span> <span class="nav-text">从输入 url 到展示的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重绘与回流"><span class="nav-number">3.8.</span> <span class="nav-text">重绘与回流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储（sessionStorage，localStorage，cookie）"><span class="nav-number">3.9.</span> <span class="nav-text">存储（sessionStorage，localStorage，cookie）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端与网络"><span class="nav-number">4.</span> <span class="nav-text">服务端与网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#http-https协议"><span class="nav-number">4.1.</span> <span class="nav-text">http/https协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见状态码"><span class="nav-number">4.2.</span> <span class="nav-text">常见状态码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#你所接触的前端领域的通讯有哪些"><span class="nav-number">4.3.</span> <span class="nav-text">你所接触的前端领域的通讯有哪些</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通信的要点和目的"><span class="nav-number">4.4.</span> <span class="nav-text">通信的要点和目的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包"><span class="nav-number">5.</span> <span class="nav-text">打包</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#超出则隐藏并显示省略号"><span class="nav-number">1.1.</span> <span class="nav-text">超出则隐藏并显示省略号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盒模型"><span class="nav-number">1.2.</span> <span class="nav-text">盒模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC"><span class="nav-number">1.3.</span> <span class="nav-text">BFC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层叠上下文"><span class="nav-number">1.4.</span> <span class="nav-text">层叠上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局"><span class="nav-number">1.5.</span> <span class="nav-text">布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#水平居中"><span class="nav-number">1.5.1.</span> <span class="nav-text">水平居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垂直居中"><span class="nav-number">1.5.2.</span> <span class="nav-text">垂直居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平垂直居中"><span class="nav-number">1.5.3.</span> <span class="nav-text">水平垂直居中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两列布局：右边自适应左边固定（左边自适应右边固定float和position都不太适用了。所以还是使用BFC和Flex吧。）"><span class="nav-number">1.6.</span> <span class="nav-text">两列布局：右边自适应左边固定（左边自适应右边固定float和position都不太适用了。所以还是使用BFC和Flex吧。）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#float"><span class="nav-number">1.6.1.</span> <span class="nav-text">float:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#position-margin"><span class="nav-number">1.6.2.</span> <span class="nav-text">position+margin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex"><span class="nav-number">1.6.3.</span> <span class="nav-text">flex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#float-BFC"><span class="nav-number">1.6.4.</span> <span class="nav-text">float+BFC</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左右两边固定中间自适应"><span class="nav-number">1.7.</span> <span class="nav-text">左右两边固定中间自适应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#position-margin实现"><span class="nav-number">1.7.1.</span> <span class="nav-text">position + margin实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#float-margin实现"><span class="nav-number">1.7.2.</span> <span class="nav-text">float + margin实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#圣杯布局"><span class="nav-number">1.7.3.</span> <span class="nav-text">圣杯布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-1"><span class="nav-number">1.7.4.</span> <span class="nav-text">flex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双飞翼布局"><span class="nav-number">1.7.5.</span> <span class="nav-text">双飞翼布局</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设为-flex-属性之后，子元素的哪些属性会失效"><span class="nav-number">1.8.</span> <span class="nav-text">设为 flex 属性之后，子元素的哪些属性会失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器优先级"><span class="nav-number">1.9.</span> <span class="nav-text">选择器优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去除浮动影响，防止父级高度塌陷"><span class="nav-number">1.10.</span> <span class="nav-text">去除浮动影响，防止父级高度塌陷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#link-和-import-的区别"><span class="nav-number">1.11.</span> <span class="nav-text">link 和 @import 的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">2.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型"><span class="nav-number">2.1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined、null、NaN-特殊基础数据类型判断"><span class="nav-number">2.2.</span> <span class="nav-text">undefined、null、NaN 特殊基础数据类型判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐式转换-变量转换成数字或者字符串"><span class="nav-number">2.3.</span> <span class="nav-text">隐式转换(变量转换成数字或者字符串)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#typeof-可以判断哪些类型"><span class="nav-number">2.4.</span> <span class="nav-text">typeof 可以判断哪些类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型和引用类型的区别"><span class="nav-number">2.5.</span> <span class="nav-text">基本数据类型和引用类型的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的拷贝"><span class="nav-number">2.6.</span> <span class="nav-text">对象的拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象程序设计及其要素"><span class="nav-number">2.7.</span> <span class="nav-text">面向对象程序设计及其要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#能够简单的说明面向对象和面向过程的区别吗"><span class="nav-number">2.8.</span> <span class="nav-text">能够简单的说明面向对象和面向过程的区别吗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一句话概括什么是promise"><span class="nav-number">2.9.</span> <span class="nav-text">一句话概括什么是promise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#？？？？？-执行上下文：可以简单理解为一个对象"><span class="nav-number">2.10.</span> <span class="nav-text">？？？？？ 执行上下文：可以简单理解为一个对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型-构造函数-实例-三者之间的关系"><span class="nav-number">2.11.</span> <span class="nav-text">原型/构造函数/实例 三者之间的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链"><span class="nav-number">2.12.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">2.13.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域链"><span class="nav-number">2.14.</span> <span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">2.15.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">2.16.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#call、apply、bind的区别"><span class="nav-number">2.17.</span> <span class="nav-text">call、apply、bind的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数柯里化"><span class="nav-number">2.18.</span> <span class="nav-text">函数柯里化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new运算符具体执行过程"><span class="nav-number">2.19.</span> <span class="nav-text">new运算符具体执行过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码复用"><span class="nav-number">2.20.</span> <span class="nav-text">代码复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this"><span class="nav-number">2.21.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防抖与节流"><span class="nav-number">2.22.</span> <span class="nav-text">防抖与节流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组-array"><span class="nav-number">2.23.</span> <span class="nav-text">数组(array)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-number">2.23.1.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作数据"><span class="nav-number">2.23.2.</span> <span class="nav-text">操作数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器"><span class="nav-number">3.</span> <span class="nav-text">浏览器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#比较-HTML-XML-XHTML-和-JSON"><span class="nav-number">3.1.</span> <span class="nav-text">比较 HTML XML XHTML 和 JSON</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨标签页通讯"><span class="nav-number">3.2.</span> <span class="nav-text">跨标签页通讯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器架构"><span class="nav-number">3.3.</span> <span class="nav-text">浏览器架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器下事件循环-Event-Loop"><span class="nav-number">3.4.</span> <span class="nav-text">浏览器下事件循环(Event Loop)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS-解析过程"><span class="nav-number">3.5.</span> <span class="nav-text">DNS 解析过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三次握手，四次挥手"><span class="nav-number">3.6.</span> <span class="nav-text">三次握手，四次挥手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从输入-url-到展示的过程"><span class="nav-number">3.7.</span> <span class="nav-text">从输入 url 到展示的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重绘与回流"><span class="nav-number">3.8.</span> <span class="nav-text">重绘与回流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储（sessionStorage，localStorage，cookie）"><span class="nav-number">3.9.</span> <span class="nav-text">存储（sessionStorage，localStorage，cookie）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端与网络"><span class="nav-number">4.</span> <span class="nav-text">服务端与网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#http-https协议"><span class="nav-number">4.1.</span> <span class="nav-text">http/https协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见状态码"><span class="nav-number">4.2.</span> <span class="nav-text">常见状态码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#你所接触的前端领域的通讯有哪些"><span class="nav-number">4.3.</span> <span class="nav-text">你所接触的前端领域的通讯有哪些</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通信的要点和目的"><span class="nav-number">4.4.</span> <span class="nav-text">通信的要点和目的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包"><span class="nav-number">5.</span> <span class="nav-text">打包</span></a></li></ol></div>
             
 
           </div>
