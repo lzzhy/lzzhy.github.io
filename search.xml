@@ -1,6 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ES6 重读</title>
+    <url>/ES6-%E9%87%8D%E8%AF%BB/</url>
+    <content><![CDATA[<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><p>let 是 ES6 中新增的，它和 ES5 中的 var 的区别如下：</p>
+<ul>
+<li><p>不属于顶层对象window</p>
+</li>
+<li><p>不允许重复声明</p>
+</li>
+<li><p>不存在<code>变量提升</code>(先声明再使用)</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let a = 0</span><br><span class="line">console.log(a)  // 这样就是先声明再使用</span><br><span class="line"></span><br><span class="line">console.log(a)  // a is not defined，这样先使用再声明就是变量提升了会报错</span><br><span class="line">let a = 0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>暂时性死区（在封闭的作用域中，先使用再声明）</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function foo(a=b,b=2) &#123;</span><br><span class="line">    console.log(a)</span><br><span class="line">&#125;</span><br><span class="line">foo()  // 这样也会造成暂时性死区，因为a=b时，b还没有赋值，相当于先使用再声明</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>块级作用域</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for( let i = 0; i &lt; 3; i++ ) &#123;</span><br><span class="line">    console.log(i)  // 0,1,2  i只能在这个作用域中访问</span><br><span class="line">&#125;</span><br><span class="line">console.log(i)  // 会报错。 因为使用了let 在循环作用域结束后i就被销毁了</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>es5中没有块级作用域，只有<code>全局作用域</code>和<code>函数作用域</code></p>
+</blockquote>
+</li>
+</ul>
+<p>面试题：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for(var i = 0; i &lt; 3; i ++) &#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(i)  // 3,3,3</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为setTimeout是一个异步操作，而for是同步操作。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for(var i = 0; i &lt; 3; i ++) &#123;</span><br><span class="line">    (function(j)&#123;</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">            console.log(i)  // 0,1,2</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为立即执行函数（闭包）接收i的参数，并且又是立即执行函数。</p>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><p>const 是 ES6 中新增的一个常量。</p>
+<p>在ES5中的实现方式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Object.defineProperty(window,&apos;PI&apos;,&#123;</span><br><span class="line">    value: 3.14,</span><br><span class="line">    writable: false</span><br><span class="line">&#125;)</span><br><span class="line">PI = 6</span><br><span class="line">console.log(PI) // 不能被改变  还是3.14</span><br></pre></td></tr></table></figure>
+
+<p>const 不能改变指的是：内存地址不改动。对于栈内存来说基本类型下保存的是值，引用类型保存的是引用地址(不变的是这个)，但实际引用地址中的值在堆内存中这个是可以变的。如下图：</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/ES6%E9%87%8D%E8%AF%BB/WechatIMG1.png" alt="cmd-markdown-logo"></p>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const obj = &#123;</span><br><span class="line">    name: &apos;lzzhy&apos;,</span><br><span class="line">    age: 18</span><br><span class="line">&#125;</span><br><span class="line">obj.sex = &apos;male&apos;</span><br><span class="line">console.log(obj)  // &#123;name: &apos;lzzhy&apos;,age: 18,sex: &apos;male&apos;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>特性（跟let一样）：</p>
+<ul>
+<li>不属于顶层对象window</li>
+<li>不允许重复声明</li>
+<li>不存在<code>变量提升</code>(先声明再使用)</li>
+<li>暂时性死区（在封闭的作用域中，先使用再声明）</li>
+<li>块级作用域</li>
+</ul>
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><ul>
+<li><p>按照<code>一定模式</code>(解构赋值：简单来说就是‘=’两边的<code>模式结构匹配</code>)，从数组和变量之类的之中提取值，对变量进行赋值</p>
+</li>
+<li><p>数组解构</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let [a,b,[c,d]] = [1,2,[3,4]]  //  &apos;=&apos;两边结构是一样的</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象解构</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let girl = &#123;</span><br><span class="line">    name: &apos;lzzhy&apos;,</span><br><span class="line">    age: 18</span><br><span class="line">&#125;</span><br><span class="line">let &#123;name: uname, age: uage&#125; = girl  // 别名在‘:’后面那个</span><br><span class="line">const (uname, uage)  // 这样获取的意思&apos;lzzhy&apos;,18</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串解构</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let arr = &apos;lzzhy&apos;</span><br><span class="line">let [a,b,c,d,e] = arr</span><br><span class="line">console.log(a,b,c,d,e)  // l z z h y</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>应用</p>
+<p>传参时：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function foo(&#123;name,age,sex: &apos;male&apos;&#125;) &#123;</span><br><span class="line">    console.log(name,age,sex)  </span><br><span class="line">&#125;</span><br><span class="line">let obj = &#123;</span><br><span class="line">    name: &apos;lzzhy&apos;,</span><br><span class="line">    age: 18</span><br><span class="line">&#125;</span><br><span class="line">foo(obj)  //lzzhy,18,male</span><br></pre></td></tr></table></figure>
+
+<p>取值时：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function foo()&#123;</span><br><span class="line">let obj = &#123;</span><br><span class="line">        name: &apos;lzzhy&apos;,</span><br><span class="line">        age: 18</span><br><span class="line">    &#125; </span><br><span class="line">    return obj</span><br><span class="line">&#125;</span><br><span class="line">let &#123;name, age: uage&#125; = obj  // lzzhy,18</span><br></pre></td></tr></table></figure>
+
+<p>获取json串时：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let ujson = &apos;&#123;&quot;a&quot;: &quot;lzzhy&quot;,&quot;b&quot;: &quot;dance&quot;&#125;&apos;</span><br><span class="line">let &#123;a,b&#125; = JSON.parse(ujson)</span><br><span class="line">console.log(a,b)  // lzzhy,dance</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组遍历"><a href="#数组遍历" class="headerlink" title="数组遍历"></a>数组遍历</h2><p>reduce实现数组去重：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let arr = [1,2,3,4,3]</span><br><span class="line">let res = arr.reduce(function(prev,cur) &#123;</span><br><span class="line">    prev.indexOf(cur) == -1 &amp;&amp; prev.push(cur)</span><br><span class="line">    return prev</span><br><span class="line">&#125;,[])</span><br><span class="line">console.log(res)</span><br></pre></td></tr></table></figure>
+
+<p>类数组/伪数组：不是真正意义上的数组。具有length,但是不具有数组的方法</p>
+<p>类数组/伪数组转化为真正的数组：</p>
+<p>ES5：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Array.prototype.slice.call(伪数组)  // 转换成真正的数组</span><br></pre></td></tr></table></figure>
+
+<p>ES6：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Array.from(伪数组)</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><ul>
+<li><p>参数的默认值</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function foo(x,y=&apos;world&apos;) &#123;</span><br><span class="line">    console.log(x,y)</span><br><span class="line">&#125;</span><br><span class="line">foo(&apos;hello&apos;, 0)  // hello,0</span><br><span class="line">foo(&apos;hello&apos;)  // hello,world</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>与解构赋值结合</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function ajax(url,&#123;</span><br><span class="line">    body= &apos;&apos;,</span><br><span class="line">    method=&apos;GET&apos;,</span><br><span class="line">    headers=&#123;&#125;</span><br><span class="line">&#125; = &#123;&#125;) &#123;</span><br><span class="line">    console.log(method)</span><br><span class="line">&#125;</span><br><span class="line">ajax(&apos;baidu.com&apos;)  //  GET</span><br><span class="line">ajax(&apos;baidu.com&apos;,&#123;method=&apos;POST&apos;&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>length属性(可以获取没有默认值的参数的个数)</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function foo(x,y,z=1) &#123;</span><br><span class="line">    console.log(x,y)</span><br><span class="line">&#125;</span><br><span class="line">console.log(foo.length)  // z没有默认值length值为3，有就为2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>作用域</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let x =1</span><br><span class="line">function foo(y = x)&#123;</span><br><span class="line">    let x =2;  // 重复定义不报错，因为不在同一个作用域</span><br><span class="line">    console.log(y)</span><br><span class="line">&#125;</span><br><span class="line">foo()  // 1</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="扩展运算符和res参数"><a href="#扩展运算符和res参数" class="headerlink" title="扩展运算符和res参数"></a>扩展运算符和res参数</h2><p>扩展运算符 …：把数组或者类数组之类的展开成用逗号隔开的值（在等号的右边或者实参上）。</p>
+<pre><code>let arr1 = [1,2,3]
+let arr2 = [8,9,7]
+let a = [...arr1, ...arr2]  // [1, 2, 3, 8, 9, 7] 数组合并</code></pre><p>res参数：把逗号隔开的值组合成一个数组（在等号的左边或者形参上）。</p>
+<pre><code>function foo(x, ...args) {
+    console.log(x)  // 1
+    console.log(args)  // [2, 3, 4, 5]
+}
+foo(1,2,3,4,5)</code></pre><p>实参和形参怎么区别？？？？？？</p>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><ul>
+<li><p>this指向定义时所在的对象，而不是调用时所在的对象(箭头函数本身其实并不存在this，只是用了在外一层的this)</p>
+</li>
+<li><p>不可以当做构造函数(因为受eval影响)</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let People = (name, age) =&gt; &#123;</span><br><span class="line">    this.name = name </span><br><span class="line">    this.age = age</span><br><span class="line">&#125;</span><br><span class="line">let p1 = new People(&apos;lzzhy&apos;,18)  // People is not a constructor</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不可以使用arguments对象(因为受eval影响)</p>
+</li>
+</ul>
+<h2 id="对象的扩展"><a href="#对象的扩展" class="headerlink" title="对象的扩展"></a>对象的扩展</h2><ul>
+<li><p>Object.is()：类似===</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Object.is(NaN,NaN)  // true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>扩展运算符与Object.assign()（合并对象）</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let x =&#123;</span><br><span class="line">    a: 3,</span><br><span class="line">    b:5</span><br><span class="line">&#125;</span><br><span class="line">let y = &#123;b:6&#125;</span><br><span class="line">Object.assign(x,y)  // &#123;a: 3, b: 6&#125;  有相同的值的话会被后面的对象覆盖</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象的遍历方式</p>
+<p>  初始代码：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let obj = &#123;</span><br><span class="line">    name: &apos;lzzhy&apos;,</span><br><span class="line">    age: 18,</span><br><span class="line">    sex: &apos;male&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  Object.keys：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Object.keys(obj).forEach(key =&gt; &#123;</span><br><span class="line">    console.log(key,obj[key])</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>  Object.getOwnPropertyNames：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Object.getOwnPropertyNames(obj).forEach(key =&gt; &#123;</span><br><span class="line">    console.log(key,obj[key])</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>  Reflect.ownKeys：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Reflect.ownKeys(obj).forEach(key =&gt; &#123;</span><br><span class="line">    console.log(key,obj[key])</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h2 id="类与继承"><a href="#类与继承" class="headerlink" title="类与继承"></a>类与继承</h2><p>实例属性，静态属性以及静态方法的区别：</p>
+<p>es5中：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function People(name, age) &#123;</span><br><span class="line">    &lt;!--names和ages是实例属性：和实例化对象有关的 --&gt;</span><br><span class="line">    this.names = name</span><br><span class="line">    this.ages = age</span><br><span class="line">&#125;</span><br><span class="line">&lt;!-- 静态属性：跟实例化对象无关的属性 --&gt;</span><br><span class="line">People.count = 0</span><br><span class="line">console.log(People.count)</span><br><span class="line"></span><br><span class="line">&lt;!-- 静态方法：跟实例化方法无关 --&gt;</span><br><span class="line">Math.max()</span><br><span class="line"></span><br><span class="line">&lt;!-- 实例方法：和实例原型上的方法 --&gt;</span><br><span class="line">People.prototype.shouName = function() &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>es6是通过static在类中实现静态方法的。</p>
+<h2 id="Set-一种新的数据结构"><a href="#Set-一种新的数据结构" class="headerlink" title="Set 一种新的数据结构"></a>Set 一种新的数据结构</h2><p>Set：一种新的数据结构，类似于数组，也可用于遍历。</p>
+<ul>
+<li><p>常用方法<br>类似数组，但是<code>会自动去重</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>遍历</p>
+</li>
+<li><p>应用场景<br>  数组去重：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let s = new Set([1,2,3,4,1,3])  // Set(4) &#123;1, 2, 3, 4&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  数组合并去重：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let arr1 = [1,2,3,4,5]</span><br><span class="line">let arr2 = [1,3,6,5,8] </span><br><span class="line">let arr3 = new Set([...arr1, ...arr2]</span><br><span class="line">console.log(Array.from(arr3))  // [1, 2, 3, 4, 5, 6, 8]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>WeakSet</p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>websocket，你好吖</title>
     <url>/websocket%EF%BC%8C%E4%BD%A0%E5%A5%BD%E5%90%96/</url>
     <content><![CDATA[<p>初次接触 WebSocket 的人，都会问同样的问题：我们已经有了 HTTP 协议，为什么还需要另一个协议？它能带来什么好处？</p>
@@ -644,19 +805,6 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yarn add @babel/runtime -S  // -S 是提供生产环境</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
-    <title>websocket初体验</title>
-    <url>/websocket%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
-    <content><![CDATA[<h2 id="WebSocket-解决了什么问题"><a href="#WebSocket-解决了什么问题" class="headerlink" title="WebSocket 解决了什么问题"></a>WebSocket 解决了什么问题</h2><p>WebSocket: 能够更 实时 地进行双向通信，可以由服务端发起。改变以往 HTTP 只能由客户端发起的弊端。</p>
-<h2 id="对于大部分前端来说需要学习哪些"><a href="#对于大部分前端来说需要学习哪些" class="headerlink" title="对于大部分前端来说需要学习哪些"></a>对于大部分前端来说需要学习哪些</h2><ul>
-<li>如何建立连接</li>
-<li>如何交换数据</li>
-<li>数据帧格式</li>
-<li>如何维持连接（心跳）</li>
-</ul>
-<p>优点，解决什么问题，如何实现</p>
-]]></content>
-  </entry>
-  <entry>
     <title>前端命名规范</title>
     <url>/%E5%89%8D%E7%AB%AF%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/</url>
     <content><![CDATA[<p>在一个团队开发中代码规范是很有必要的，有时候一个好的代码规范可以省略很多的备注，可以让自己或其他小伙伴很快地了解你是怎么样写的。。。</p>
@@ -1001,6 +1149,14 @@
 <li>Object</li>
 </ul>
 <p>(ES6之前)其中5种为基本类型:string,number,boolean,null,undefined，ES6出来的Symbol也是原始数据类型(表示独一无二的值)。Object 为引用类型(范围挺大，也包括数组、函数)</p>
+<h3 id="引用类型相等判断"><a href="#引用类型相等判断" class="headerlink" title="引用类型相等判断"></a>引用类型相等判断</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let obj1 = &#123;</span><br><span class="line">    name: &apos;lzzhy&apos;,</span><br><span class="line">    age: 18</span><br><span class="line">&#125;</span><br><span class="line">let obj2 = &#123;</span><br><span class="line">    name: &apos;lzzhy&apos;,</span><br><span class="line">    age: 18</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">console.log(obj1 == obj2)  // false</span><br></pre></td></tr></table></figure>
+
+<p>敲黑板：因为引用类型的比较实际上是判断他们的引用地址是否相等</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let obj2 = obj1</span><br><span class="line">console.log(Object.is(obj1,obj2))  // true</span><br></pre></td></tr></table></figure>
+
+<p>因为将obj1赋给了obj2，就相当于两个的地址相同了。</p>
 <h3 id="undefined、null、NaN-特殊基础数据类型判断"><a href="#undefined、null、NaN-特殊基础数据类型判断" class="headerlink" title="undefined、null、NaN 特殊基础数据类型判断"></a>undefined、null、NaN 特殊基础数据类型判断</h3><p>null 和 undefined 的区别：</p>
 <ul>
 <li>null 转为数值时为0；undefined 转为数值时为NaN;</li>
@@ -1013,7 +1169,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let lzzhy = null;</span><br><span class="line">console.log(lzzhy === null)  // true</span><br></pre></td></tr></table></figure>
 
 <p>判断 NaN:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let lzzhy = NaN;</span><br><span class="line">console.log(isNaN(lzzhy))  // true</span><br><span class="line"></span><br><span class="line">// 因为 NaN 是 JavaScript 之中唯一不等于自身的值，所以也可以如下判断</span><br><span class="line"></span><br><span class="line">var aaa = NaN;</span><br><span class="line">console.log(aaa !== aaa);  // true</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let lzzhy = NaN;</span><br><span class="line">console.log(isNaN(lzzhy))  // true</span><br><span class="line"></span><br><span class="line">&lt;!-- 因为 NaN 是 JavaScript 之中唯一不等于自身的值，所以也可以如下判断 --&gt;</span><br><span class="line"></span><br><span class="line">var aaa = NaN;</span><br><span class="line">console.log(aaa !== aaa);  // true</span><br><span class="line"></span><br><span class="line">&lt;!-- Object.is相当于==== --&gt;</span><br><span class="line"></span><br><span class="line">Object.is(NaN,NaN)  // true</span><br></pre></td></tr></table></figure>
 
 <h3 id="隐式转换-变量转换成数字或者字符串"><a href="#隐式转换-变量转换成数字或者字符串" class="headerlink" title="隐式转换(变量转换成数字或者字符串)"></a>隐式转换(变量转换成数字或者字符串)</h3><p>变量 num 转换成数字：<code>num - 0</code></p>
 <p>变量 num 转换成字符串：<code>num + &#39;&#39;</code></p>
@@ -1034,22 +1190,24 @@
 <p>引用类型是 传地址：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let a = &#123;age: 12&#125;</span><br><span class="line">let b = a</span><br><span class="line">b.age = 20</span><br><span class="line">console.log(a.age) // 20</span><br></pre></td></tr></table></figure>
 
-<h3 id="对象的拷贝"><a href="#对象的拷贝" class="headerlink" title="对象的拷贝"></a>对象的拷贝</h3><p>浅拷贝：只复制某个对象的指针，而不复制对象本身，新旧对象还是共享同一块内存。因此修改时原对象也会受到影响。</p>
+<h3 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h3><p>JSON：本质是一个字符串，形式<code>&#39;{&quot;a&quot;: &quot;hello&quot;,&quot;b&quot;:&quot;world&quot;}&#39;</code>。和对象的区别是：对象的key值不用引号。</p>
+<p>浅拷贝：只复制某个对象的指针，而不复制对象本身，新旧对象还是共享同一块内存。因此修改时原对象也会受到影响。</p>
 <ul>
-<li>Object.assign</li>
+<li>Object.assign(当复制复杂的对象是会造成一些数据丢失，因为复制的只是地址，而不是内容)</li>
 <li>展开运算符（…）</li>
 </ul>
 <p>深拷贝：会创造另一个一模一样的对象，新对象跟原来的对象不共享内存。因此修改时原对象不受到影响。</p>
 <ul>
 <li>JSON.parse(JSON.stringify(obj))(但是如果里面有 function 和 undefined 不可用)</li>
-<li>lodash</li>
+<li>lodash.cloneDeep（是个库，要使用的话得先引入）  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var objects = [&#123; &apos;a&apos;: 1 &#125;, &#123; &apos;b&apos;: 2 &#125;];</span><br><span class="line">var deep = lodash.cloneDeep(objects);</span><br><span class="line">console.log(deep[0] === objects[0]);  // =&gt; false</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
 <h3 id="面向对象程序设计及其要素"><a href="#面向对象程序设计及其要素" class="headerlink" title="面向对象程序设计及其要素"></a>面向对象程序设计及其要素</h3><p>面向对象程序设计（Object-oriented programming，简称：OOP），维基百科给出的定义是：是一种程序设计泛型，同时也是一种程序开发的方法。对象指的是类的实例。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的重用性、灵活性和扩展性。</p>
 <p>继承、封装、多态、抽象</p>
-<h3 id="能够简单的说明面向对象和面向过程的区别吗"><a href="#能够简单的说明面向对象和面向过程的区别吗" class="headerlink" title="能够简单的说明面向对象和面向过程的区别吗"></a>能够简单的说明面向对象和面向过程的区别吗</h3><ul>
-<li><strong>面向过程</strong>：就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。（比如：例如蛋炒饭，面向过程的设计思路就是首先分析问题的步骤：1、先放油，2、把鸡蛋搅拌，3、把鸡蛋倒进锅里炒熟，4、把鸡蛋盛起来，5、在倒油在锅里，6、把饭倒进去炒，7、把炒好的鸡蛋倒进去，8、放盐等其他作料，9、盛出来放到碗里。把上面每个步骤用分别的函数来实现，问题就解决了。），每一个步骤就是一个函数。</li>
-<li><strong>面向对象</strong>：是以功能来划分问题，而不是步骤。（如：整个蛋炒饭可以分为 1、先把蛋炒好盛出来，2、把饭炒好，3、把蛋和饭放锅里搅拌。）每一个模块都可以看做是一个对象。如蛋炒饭的 炒蛋 对象，炒饭 对象，搅拌 对象。每一个对象都是为了完成一个功能，而每一个功能就是一个函数。</li>
-</ul>
+<h3 id="能够简单的说明面向对象和面向过程的区别吗"><a href="#能够简单的说明面向对象和面向过程的区别吗" class="headerlink" title="能够简单的说明面向对象和面向过程的区别吗"></a>能够简单的说明面向对象和面向过程的区别吗</h3><p><code>面向过程</code>：就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。（比如：例如蛋炒饭，面向过程的设计思路就是首先分析问题的步骤：1、先放油，2、把鸡蛋搅拌，3、把鸡蛋倒进锅里炒熟，4、把鸡蛋盛起来，5、在倒油在锅里，6、把饭倒进去炒，7、把炒好的鸡蛋倒进去，8、放盐等其他作料，9、盛出来放到碗里。把上面每个步骤用分别的函数来实现，问题就解决了。），每一个步骤就是一个函数。</p>
+<p><code>面向对象</code>：是以功能来划分问题，而不是步骤。（如：整个蛋炒饭可以分为 1、先把蛋炒好盛出来，2、把饭炒好，3、把蛋和饭放锅里搅拌。）每一个模块都可以看做是一个对象。如蛋炒饭的 炒蛋 对象，炒饭 对象，搅拌 对象。每一个对象都是为了完成一个功能，而每一个功能就是一个函数。</p>
+<h3 id="类和对象的关系"><a href="#类和对象的关系" class="headerlink" title="类和对象的关系"></a>类和对象的关系</h3><p>根据维基百科给出的对于面向对象程序设计（Object-oriented programming，简称：OOP）的定义，其中指明：对象指的是类的实例，也就是：类（如：人）是对象（如：具体的某个人）的模板，定义了同一组对象共有的属性和方法</p>
 <h3 id="一句话概括什么是promise"><a href="#一句话概括什么是promise" class="headerlink" title="一句话概括什么是promise"></a>一句话概括什么是promise</h3><p>Promise对象用于异步操作，它表示一个尚未完成且预计在未来完成的异步操作。</p>
 <h3 id="？？？？？-执行上下文：可以简单理解为一个对象"><a href="#？？？？？-执行上下文：可以简单理解为一个对象" class="headerlink" title="？？？？？ 执行上下文：可以简单理解为一个对象"></a>？？？？？ 执行上下文：可以简单理解为一个对象</h3><p>包含三个部分：</p>
 <ul>
@@ -1107,7 +1265,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let foo = function() &#123; console.log(1) &#125;;</span><br><span class="line">(function foo() &#123;</span><br><span class="line">    foo = 10  // 由于foo在函数中只为可读，因此赋值无效</span><br><span class="line">    console.log(foo)</span><br><span class="line">&#125;())</span><br><span class="line"></span><br><span class="line">// 结果打印：ƒ foo() &#123;</span><br><span class="line">    foo = 10  </span><br><span class="line">    console.log(foo)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到window对象即被终止，作用域链向下访问变量是不被允许的。</p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>继承有<code>原型链继承</code>和<code>Object create</code>两种继承方式，如有以下代码：</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>在ES5中继承有<code>原型链继承</code>和<code>Object create</code>两种继承方式，如有以下代码：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">function Student()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><code>原型链继承</code>：</p>
@@ -1116,6 +1274,9 @@
 <p>缺点：<br>修改sub1.name后sub2.name也变了，因为来自原型对象的引用属性是所有实例共享的。</p>
 <p><code>Object create</code>：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Student.prototype = Object create(Person prototype)</span><br></pre></td></tr></table></figure>
+
+<p>在ES6中实现类，并与通过类来实现继承：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- 实现 People 父类 --&gt;</span><br><span class="line"></span><br><span class="line">class People &#123;  // class关键字定义类（只是个语法糖）</span><br><span class="line">    constructor(name, age) &#123;  // 构造函数 中写属性</span><br><span class="line">        this.name = name</span><br><span class="line">        this.age = age</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;!-- 对象的方法定义在下面 --&gt;</span><br><span class="line">    showName() &#123;</span><br><span class="line">        console.log(this.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 子类Coder 通过 extends 来继承父类 --&gt;</span><br><span class="line"></span><br><span class="line">class Coder extends People &#123;  // coder继承父类</span><br><span class="line">    constructor(name,age,company) &#123;</span><br><span class="line">        super(name,age)  // 通过super来继承属性</span><br><span class="line">        this.company = company</span><br><span class="line">    &#125;</span><br><span class="line">    showCompany() &#123;</span><br><span class="line">        console.log(&apos;1&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 使用类中的属性和方法 --&gt;</span><br><span class="line"></span><br><span class="line">let c1 = new Coder(&apos;lzzhy&apos;,18,&apos;bat&apos;)  // Coder &#123;name: &quot;lzzhy&quot;, age: 18, company: &quot;bat&quot;&#125;</span><br><span class="line">c1.showName()  // lzzhy 父类已经继承了</span><br><span class="line">c1.showCompany()  // 1 子类自己的方法也有</span><br></pre></td></tr></table></figure>
 
 <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。闭包本质还是函数，只不过这个函数绑定了上下文环境（函数内部引用的所有变量）</p>
 <p>产生的问题：</p>
@@ -1142,7 +1303,7 @@
 </li>
 <li><p>apply 接受两个参数，第二个参数为一个带下标的集合，可以是数组、类数组</p>
 </li>
-<li><p>bind 是返回了一个改变上下文的函数副本，便于稍后调用；apply,call则是立即调用</p>
+<li><p>bind 是返回了一个改变上下文的函数副本，便于稍后调用（可以在后面加个括号变成立即执行函数）；apply,call则是立即调用</p>
 </li>
 </ul>
 <h3 id="函数柯里化"><a href="#函数柯里化" class="headerlink" title="函数柯里化"></a>函数柯里化</h3><p>定义：是一种将使用多个参数的一个函数转换为一系列使用一个参数的函数的技术。通常可以在不入侵函数的前提下，为函数预置通用参数，供多次重复调用。</p>
@@ -1165,7 +1326,7 @@
 <li>借用 apply/call</li>
 </ul>
 <h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><ul>
-<li>new构造函数中：若函数中没有返回的话就指向里面的这个值，若有返回并且不是基础类型那么this指向这个基础值</li>
+<li>new构造函数中：若函数中没有返回的话就指向里面的这个值，若有返回并且不是基础类型那么this指向这个基础值。（指向实例化对象）</li>
 </ul>
 <h3 id="防抖与节流"><a href="#防抖与节流" class="headerlink" title="防抖与节流"></a>防抖与节流</h3><p>防抖与节流函数是一种最常用的 <strong>高频触发优化方式，对性能</strong>有较大的帮助。</p>
 <ul>
@@ -1531,41 +1692,6 @@
 
 <p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG11.png" alt="cmd-markdown-logo"></p>
 <p>大致就是这张图的流程，最后的dom是挂载在$.fn上。<code>dom._proto = $.fn</code></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>面向对象和面向过程的区别</title>
-    <url>/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<h3 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别"></a>面向对象和面向过程的区别</h3><p><strong>面向过程</strong>：就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。</p>
-<p>比如：例如五子棋，面向过程的设计思路就是首先分析问题的步骤：</p>
-<ul>
-<li>1、开始游戏</li>
-<li>2、黑子先走</li>
-<li>3、绘制画面</li>
-<li>4、判断输赢</li>
-<li>5、轮到白子</li>
-<li>6、绘制画面</li>
-<li>7、判断输赢</li>
-<li>8、返回步骤2</li>
-<li>9、输出最后结果</li>
-</ul>
-<p>把上面每个步骤用分别的函数来实现，问题就解决了。</p>
-<p><strong>面向对象</strong>：是以功能来划分问题，而不是步骤。</p>
-<p>如：整个五子棋可以分为 </p>
-<ul>
-<li>1、黑白双方，这两方的行为是一模一样的</li>
-<li>2、棋盘系统，负责绘制画面</li>
-<li>3、规则系统，负责判定诸如犯规、输赢等</li>
-</ul>
-<p>第一类对象（玩家对象）负责接受用户输入，并告知第二类对象（棋盘对象）棋子布局的变化，棋盘对象接收到了棋子的变化就要负责在屏幕上面显示出这种变化，同时利用第三类对象（规则系统）来对棋局进行判定。</p>
-<p>每一个模块都可以看做是一个对象。如五子棋中的黑白双方对象，规则对象，棋盘系统对象。每一个对象都是为了完成一个功能。</p>
-<p>再比如我要把这个五子棋游戏改为围棋游戏，如果你是面向过程设计，那么五子棋的规则就分布在了你的程序的每一个角落，要改动还不如重写。但是如果你当初就是面向对象的设计，那么你只用改动规则对象就可以了，五子棋和围棋的区别不就是规则吗？下棋的大致步骤从面向对象的角度来看没有任何变化。</p>
-<p>初学者或者很蹩脚的程序员很可能以面向对象之虚而行面向过程之实，这样设计出来的所谓面向对象的程序很难有良好的可移植性和可扩展性。</p>
-<p>总结</p>
-<p>面向过程：</p>
-<p>优点：性能比面向对象高，因为类调用时需要实例化，开销比较大，比较消耗资源;比如单片机、嵌入式开发、Linux/Unix等一般采用面向过程开发，性能是最重要的因素。<br>缺点：没有面向对象易维护、易复用、易扩展</p>
-<p>面向对象：</p>
-<p>优点：易维护、易复用、易扩展，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统更加灵活、更加易于维护。<br>缺点：性能比面向过程低</p>
 ]]></content>
   </entry>
   <entry>
