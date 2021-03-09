@@ -571,7 +571,7 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
   <entry>
     <title>初识Gulp</title>
     <url>/%E5%88%9D%E8%AF%86Gulp/</url>
-    <content><![CDATA[<p>gulp也是一种自动化构建工具，适合小型项目，</p>
+    <content><![CDATA[<p>gulp也是一种自动化构建工具，适合小型项目，hhh </p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.gulpjs.com.cn/docs/getting-started/quick-start/" target="_blank" rel="noopener">《Gulp官方文档》</a></p>
 ]]></content>
   </entry>
