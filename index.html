@@ -267,6 +267,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/前端方面性能优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzzhy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzzhy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/前端方面性能优化/" itemprop="url">前端方面性能优化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-02-24T16:47:57+08:00">
+                2021-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/前端方面性能优化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/前端方面性能优化/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  263
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="首屏懒加载：在鼠标滑动时加载相应内容"><a href="#首屏懒加载：在鼠标滑动时加载相应内容" class="headerlink" title="首屏懒加载：在鼠标滑动时加载相应内容"></a>首屏懒加载：在鼠标滑动时加载相应内容</h2><h2 id="vue-router路由懒加载：在进入相应的页面时才加载相应的页面模块"><a href="#vue-router路由懒加载：在进入相应的页面时才加载相应的页面模块" class="headerlink" title="vue-router路由懒加载：在进入相应的页面时才加载相应的页面模块"></a>vue-router路由懒加载：在进入相应的页面时才加载相应的页面模块</h2><p>当访问到当前页面才会加载相关的资源。当点击对应路由时才加载对应的页面，而不是一开始就将路由文件中的所以页面都加载出来。通过import方法实现路由懒加载或者vue异步组件实现。</p>
+<p>在router.js中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const routes = [</span><br><span class="line">    &#123;</span><br><span class="line">        path: &apos;/upload&apos;,</span><br><span class="line">        name: upload,</span><br><span class="line"></span><br><span class="line">        // 方法一：import方式实现</span><br><span class="line">        component: () =&gt; import(&apos;upload页面路径&apos;)  // 通过import方法实现路由懒加载</span><br><span class="line"></span><br><span class="line">        // 方法二：vue异步组件实现</span><br><span class="line">        component: resolve =&gt; (require([&apos;@/upload页面路径&apos;], resolve))</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h2 id="组件懒加载"><a href="#组件懒加载" class="headerlink" title="组件懒加载"></a>组件懒加载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">    &lt;hello-world&gt;&lt;/hello-world&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default &#123;</span><br><span class="line">        components: &#123;</span><br><span class="line"></span><br><span class="line">            // 方法一：import方式实现</span><br><span class="line">            &apos;HelloWorld&apos;: () =&gt; import(&apos;./HelloWorld&apos;),</span><br><span class="line"></span><br><span class="line">            // 方法二：vue异步组件实现</span><br><span class="line">            &apos;HelloWorld&apos;: resolve =&gt; ([&apos;./HelloWorld&apos;], resolve)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/ES6-重读/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -340,7 +492,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4.2k
+                  4.8k
                 </span>
               
 
@@ -604,10 +756,17 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
 <p>执行结果是1，2，3。当new Promise是会立即执行。.then相当于是成功时的一个回调函数具有异步性</p>
 <h3 id="Promise-all：-实现所有接口都完成后再去执行某个事情（如上传完三张图片后在做某事）"><a href="#Promise-all：-实现所有接口都完成后再去执行某个事情（如上传完三张图片后在做某事）" class="headerlink" title="Promise.all： 实现所有接口都完成后再去执行某个事情（如上传完三张图片后在做某事）"></a>Promise.all： 实现所有接口都完成后再去执行某个事情（如上传完三张图片后在做某事）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const imgArr = [&apos;1.png&apos;,&apos;2.png&apos;,&apos;3.png&apos;]</span><br><span class="line">let promiseArr = []</span><br><span class="line">imgArr.forEach(item =&gt; &#123;</span><br><span class="line">    promiseArr.push(new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        // 图片上传的操作</span><br><span class="line">        resolve(url)  // url是上传3张图片后端返回的地址</span><br><span class="line">    &#125;))</span><br><span class="line">&#125;)</span><br><span class="line">Promise.all(promiseArr).then(res =&gt; &#123;</span><br><span class="line">    console.log(&apos;图片全部上传成功&apos;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h2 id="异步编程解决方案二：Generator"><a href="#异步编程解决方案二：Generator" class="headerlink" title="异步编程解决方案二：Generator"></a>异步编程解决方案二：Generator</h2><p>特点:</p>
+<h2 id="异步编程解决方案二：Async-Await"><a href="#异步编程解决方案二：Async-Await" class="headerlink" title="异步编程解决方案二：Async Await"></a>异步编程解决方案二：Async Await</h2><p>Async Await：相对Promise来说更加的语义化和更加优雅。写法：Async放在function关键字前面，Await放在函数里面，他们需要成对出现。</p>
+<p>当使用 Async Await解决异步时，await是等待的意思后面跟着的是异步操作。加上await后相当于这个需要等待异步操作完成后才能执行下一步。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function timeout() &#123;</span><br><span class="line">    return new Promise(resolve =&gt; &#123;</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">            console.log(&apos;1&apos;)</span><br><span class="line">            resolve()</span><br><span class="line">        &#125;, 1000)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">async function foo() &#123;</span><br><span class="line">    await timeout()  // 1，2   await后面接着的是异步操作，加上await后相当于需要等待这个异步操作结束后才会执行下一步</span><br><span class="line">    console.log(&apos;2&apos;)</span><br><span class="line">&#125;</span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+
+<p>实例，如 省市区 的解决方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import ajax from &apos;./xxx/ajax.js&apos;  // ajax是已经封装好的axios接口组件</span><br><span class="line">function request(url) &#123;</span><br><span class="line">    return new Promise(resolve =&gt; &#123;</span><br><span class="line">        ajax(url, res =&gt; &#123;</span><br><span class="line">            resolve(res)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">async function getData() &#123;</span><br><span class="line">    const res1 = await request(&apos;省url地址&apos;)  // 因为用了async和await所以就会先执行完res1才会执行下一个市接口请求</span><br><span class="line">    console.log(res1)</span><br><span class="line">    const res2 = await request(&apos;市url地址&apos;)</span><br><span class="line">    console.log(res2)</span><br><span class="line">    const res3 = await request(&apos;取url地址&apos;)</span><br><span class="line">    console.log(res3)</span><br><span class="line">&#125;</span><br><span class="line">getData()</span><br></pre></td></tr></table></figure>
+
+<h2 id="异步编程解决方案三：Generator"><a href="#异步编程解决方案三：Generator" class="headerlink" title="异步编程解决方案三：Generator"></a>异步编程解决方案三：Generator</h2><p>特点:</p>
 <ul>
 <li>有一个 *</li>
-<li>有关键字 yield</li>
+<li>里面有关键字 yield</li>
 </ul>
 <h2 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h2><ul>
 <li>是一种接口机制，为各种不同的数据结构提供统一访问机制</li>
@@ -627,7 +786,10 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import sum from &apos;./xx&apos;  // sum这个可以自己改其他的名字</span><br></pre></td></tr></table></figure>
 
 <p>第四章结束</p>
-
+<h2 id="es新特性在vue中的应用"><a href="#es新特性在vue中的应用" class="headerlink" title="es新特性在vue中的应用"></a>es新特性在vue中的应用</h2><h3 id="依赖包安装及使用"><a href="#依赖包安装及使用" class="headerlink" title="依赖包安装及使用"></a>依赖包安装及使用</h3><p>在vue-cli脚手架创建的项目中。在package.json里，dependencies里的是生产环境的，安装时要加<code>--save</code>。devDependencies里的是开发环境需要的，安装时要加<code>--save -dev</code>。</p>
+<p>当要使用这些包时，需要导出，如：<code>import axios from &#39;axios&#39;</code></p>
+<h3 id="es新特性实现组件按需加载"><a href="#es新特性实现组件按需加载" class="headerlink" title="es新特性实现组件按需加载"></a>es新特性实现组件按需加载</h3><h4 id="点击对应路由时加载这个路由的对应页面："><a href="#点击对应路由时加载这个路由的对应页面：" class="headerlink" title="点击对应路由时加载这个路由的对应页面："></a>点击对应路由时加载这个路由的对应页面：</h4><p>在vue项目中，当点击一个按钮进入另一个页面时，这个事件也可以实现按需加载（当点击对应路由时才加载对应的页面，而不是一开始就将路由文件中的所以页面都加载出来）。<br>在router.js中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const routes = [</span><br><span class="line">    &#123;</span><br><span class="line">        path: &apos;/upload&apos;,</span><br><span class="line">        name: upload,</span><br><span class="line">        component: () =&gt; import(&apos;upload页面路径&apos;)  // 这样写就是实现整个页面的按需加载，只有当点击/upload路由时才会去加载对应的这个页面。</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
           
         
       
@@ -748,7 +910,7 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  182
+                  512
                 </span>
               
 
@@ -796,6 +958,14 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
 <li>直播评论（弹幕）</li>
 <li>游戏，协同编辑，基于位置的应用</li>
 </ul>
+<p>websocket 在前端来说主要有 open、close、error、message几个事件</p>
+<h2 id="创建聊天室"><a href="#创建聊天室" class="headerlink" title="创建聊天室"></a>创建聊天室</h2><p>创建连接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;websocket-page&quot;&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; placeholder=&quot;请输入消息&quot; v-model=&quot;msg&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    data () &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            msg: &apos;&apos;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted() &#123;</span><br><span class="line">        const socket = new WebSocket(&apos;ws://localhost:8080&apos;);  // ws可以改成wss意思为加密（跟http和https一个意思）</span><br><span class="line"></span><br><span class="line">        &lt;!-- 通过 addEventListener 监听绑定事件： --&gt;</span><br><span class="line">        ws.addEventListener(&apos;open&apos;, this.handleOpen.bind(this), false)  // 通过bind改变this的指向</span><br><span class="line">        ws.addEventListener(&apos;close&apos;, this.handleClose.bind(this), false)</span><br><span class="line">        ws.addEventListener(&apos;error&apos;, this.handleError.bind(this), false)</span><br><span class="line">        ws.addEventListener(&apos;message&apos;, this.handleMessage.bind(this), false)</span><br><span class="line">    &#125;</span><br><span class="line">    methods() &#123;</span><br><span class="line">        handleOpen() &#123;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        handleClose() &#123;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        handleError() &#123;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        handleMessage() &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>项目中：（Normandy-web: menuDetail父组件，chatRoom聊天室组件）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">enterRoom(wssurl) &#123;</span><br><span class="line">    if(!wssurl) return</span><br><span class="line">    let self = this;</span><br><span class="line">    this.wsLink = new WebSocket(wssurl);</span><br><span class="line">    this.wsLink.onopen = function(evt) &#123;</span><br><span class="line">        self.socketStatus = true;				</span><br><span class="line">		self.getChatMsgList();</span><br><span class="line">		self.heartbeatFun = setInterval(self.heartbeat, 10000)</span><br><span class="line">	&#125;;</span><br><span class="line">	this.wsLink.onmessage = function(evt) &#123;</span><br><span class="line">        let res = JSON.parse(evt.data);</span><br><span class="line">        if (res.event === &quot;BROADCAST_MESSAGE&quot;) &#123;</span><br><span class="line">            self.uploadMsgList(res.data);</span><br><span class="line">            if(res.data.messageResource === &apos;CASE_CIRCULATION_AUTO_INPUT&apos; &amp;&amp; res.data.sender &amp;&amp; res.data.sender.memberName !== &apos;&apos;)&#123;</span><br><span class="line">				self.reserveVideo = res.data</span><br><span class="line">				self.reserveVideo.messageContent = JSON.parse(self.reserveVideo.messageContent)</span><br><span class="line">                self.joinVideoFlag = true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else if (res.event === &quot;LIST_MESSAGE&quot;) &#123;</span><br><span class="line">            self.getListMessage(res.data)</span><br><span class="line">        &#125; else if (res.event === &quot;ROOM&quot;) &#123;</span><br><span class="line">            self.initRoomConfig(res.data)</span><br><span class="line">            self.chatRoomMember = res.data.members</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket" target="_blank" rel="noopener">《webSocket官方文档》</a></p>
 
           
         
@@ -917,7 +1087,7 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.5k
+                  2.7k
                 </span>
               
 
@@ -1024,6 +1194,16 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">const App = () =&gt;</span><br><span class="line">    import (&apos;@/layout/home.vue&apos;)  // 需要一个壳子</span><br><span class="line">const Login = () =&gt; import(&apos;@/views/login.vue&apos;)  // 可以写成这种写法，原本是 import Login from &apos;../../views/login.vue&apos; </span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    path: &quot;/&quot;,</span><br><span class="line">    component: App,  // App 需要在上面引入,是一个嵌套页面的壳子</span><br><span class="line">    redirect: &quot;/Login&quot;,</span><br><span class="line">    meta: &#123;</span><br><span class="line">        title: &quot;&quot;,</span><br><span class="line">        requireAuth: false, // 添加该字段，表示进入这个路由是需要登录的</span><br><span class="line">        isback: true</span><br><span class="line">    &#125;,</span><br><span class="line">    children: [</span><br><span class="line">        &#123;</span><br><span class="line">            path: &quot;/Login&quot;,</span><br><span class="line">            meta: &#123;</span><br><span class="line">                title: &apos;登录页&apos;</span><br><span class="line">            &#125;,</span><br><span class="line">            component: Login</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>好了，这样路由拦截就完成了</p>
+<h2 id="ESLint-配置"><a href="#ESLint-配置" class="headerlink" title="ESLint 配置"></a>ESLint 配置</h2><p>可以在创建项目的时候就选择使用eslint。但是那是默认的eslint，要是想在默认的基础上修改或者添加一些自己的配置呢：<br>package.json中(创建项目时选择了把eslint放在package.json中)</p>
+<p>新增缩进4格配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;eslintConfig&quot;: &#123;</span><br><span class="line">    &quot;rules&quot;: &#123;</span><br><span class="line">        &quot;indent&quot;: [1, 4]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改<code>定义了但是未使用</code>(这个是eslint默认的)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;eslintConfig&quot;: &#123;</span><br><span class="line">    &quot;rules&quot;: &#123;</span><br><span class="line">        &quot;no-unused-vars&quot;: 0</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当想要不校验某一行的eslit是否符合规范时，可以在这句的上一行添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// eslint-disable-next-line</span><br></pre></td></tr></table></figure>
+
 <h2 id="数据存储-数据清除等"><a href="#数据存储-数据清除等" class="headerlink" title="数据存储/数据清除等"></a>数据存储/数据清除等</h2><p>数据存储时可以保存在 localStorage 或者 sessionstorage，以下将方法封装在 utils/utils.js 中：</p>
 <p>localStorage：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 存储localStorage</span><br><span class="line">export const setStore = (name, content) =&gt; &#123;</span><br><span class="line">    if(!name) return;</span><br><span class="line">    if(typeof content !== &apos;string&apos;) &#123;</span><br><span class="line">        content = JSON.stringify(content);</span><br><span class="line">    &#125;</span><br><span class="line">    window.localStorage.setItem(name,content);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 获取localStorage</span><br><span class="line">export const getStore = name =&gt; &#123;</span><br><span class="line">    if(!name) return;</span><br><span class="line">    return window.localStorage.getItem(name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 清除localStorage</span><br><span class="line">export const removeStore = name =&gt; &#123;</span><br><span class="line">    if(!name) return;</span><br><span class="line">    window.localStorage.removeItem(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -2172,167 +2352,6 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/TypeScript 学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lzzhy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lzzhy Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/TypeScript 学习笔记/" itemprop="url">TypeScript 学习笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-19T10:44:55+08:00">
-                2020-10-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/TypeScript 学习笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/TypeScript 学习笔记/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  297
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="理解-ES5、ES6、JavaScript、TypeScript-的概念和关系"><a href="#理解-ES5、ES6、JavaScript、TypeScript-的概念和关系" class="headerlink" title="理解 ES5、ES6、JavaScript、TypeScript 的概念和关系"></a>理解 ES5、ES6、JavaScript、TypeScript 的概念和关系</h2><p>ES 是客户端脚本语言的规范，ES5、ES6 是这个规范下的不同版本，TypeScript 和 JavaScript 是两种客户端脚本语言，JavaScript 实现了 ES5 规范，TypeScript实现了 ES6 规范。</p>
-<p>TypeScript 是 JavaScript 的超集(：包含了js的东西同时又拥有js没有的东西)，遵循最新的 ES6 的语法规范，TypeScript 扩展了 JavaScript 的语法。任何已经存在的JavaScript 的程序可以不加改动的在  TypeScript 环境下运行，TypeScript 只是在JavaScript 里加了一些遵循 ES6 的语法以及基于类的面向对象的一些特性。（Angular框架就是基于 TypeScript 上开发的），如今的TypeScript 是由微软和谷歌两大公司支持，基于此有理由认为在未来一段时间内 TypeScript 会成为前端主流开发。</p>
-<h2 id="TypeScript-的优势"><a href="#TypeScript-的优势" class="headerlink" title="TypeScript 的优势"></a>TypeScript 的优势</h2><ul>
-<li>是一门支持 ES6 规范的语言</li>
-<li>有强大的 IDE 支持：体现在三个特性上：类型检查(静态类型)、语法提示、重构</li>
-<li>是 Angular2 的开发语言</li>
-</ul>
-<h2 id="搭建-TypeScript-开发环境"><a href="#搭建-TypeScript-开发环境" class="headerlink" title="搭建 TypeScript 开发环境"></a>搭建 TypeScript 开发环境</h2><p>在线： <a href="https://www.typescriptlang.org/play?ts=4.0.2#code/G4QwTgBAtgngdiKBTAXBAzgFzASzgcwgF4IAiAGxwkz31IG4AoWBZCYiARgGYg" target="_blank" rel="noopener">TypeScript</a></p>
-<p>本地：</p>
-<ul>
-<li>安装 TypeScript：cnpm install -g typescript</li>
-<li>验证是否安装成功：tsc –version</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2385,7 +2404,7 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
