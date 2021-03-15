@@ -1362,7 +1362,7 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
 <p><code>面向对象</code>：是以功能来划分问题，而不是步骤。（如：整个蛋炒饭可以分为 1、先把蛋炒好盛出来，2、把饭炒好，3、把蛋和饭放锅里搅拌。）每一个模块都可以看做是一个对象。如蛋炒饭的 炒蛋 对象，炒饭 对象，搅拌 对象。每一个对象都是为了完成一个功能，而每一个功能就是一个函数。</p>
 <h3 id="类和对象的关系"><a href="#类和对象的关系" class="headerlink" title="类和对象的关系"></a>类和对象的关系</h3><p>根据维基百科给出的对于面向对象程序设计（Object-oriented programming，简称：OOP）的定义，其中指明：对象指的是类的实例，也就是：类（如：人）是对象（如：具体的某个人）的模板，定义了同一组对象共有的属性和方法</p>
 <h3 id="一句话概括什么是promise"><a href="#一句话概括什么是promise" class="headerlink" title="一句话概括什么是promise"></a>一句话概括什么是promise</h3><p>Promise对象用于异步操作，它表示一个尚未完成且预计在未来完成的异步操作。</p>
-<h3 id="？？？？？-执行上下文：可以简单理解为一个对象"><a href="#？？？？？-执行上下文：可以简单理解为一个对象" class="headerlink" title="？？？？？ 执行上下文：可以简单理解为一个对象"></a>？？？？？ 执行上下文：可以简单理解为一个对象</h3><p>包含三个部分：</p>
+<h3 id="执行上下文：可以简单理解为一个对象"><a href="#执行上下文：可以简单理解为一个对象" class="headerlink" title="执行上下文：可以简单理解为一个对象"></a>执行上下文：可以简单理解为一个对象</h3><p>包含三个部分：</p>
 <ul>
 <li>变量对象(VO)</li>
 <li>作用域链(词法作用域)</li>
@@ -1518,7 +1518,7 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
 <p>数组合并<code>concat</code> (不修改原数组)：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">arrs.concat(7,8)  // [1,9,7,8]</span><br><span class="line"></span><br><span class="line">arrs.concat([19,21],16)  // [1, 9, 19, 21, 16] 会将数组铺平，但是只会铺平一次</span><br><span class="line"></span><br><span class="line">arrs.concat([2,3,[62,32]])  // [1, 9, 2, 3, [62,43]] 因为只会铺平一次所以这样</span><br></pre></td></tr></table></figure>
 
-<p>数组拆解 <code>flat</code>: [1,[2,3]] <a href="和concat一样只会铺平一层">1, 2, 3</a>：</p>
+<p>数组拆解 <code>flat</code>: 如let arrs = [2,3,[62,32],[[1,2],66]]  // [2, 3, 62, 32, [1, 2], 66]  (和concat一样只会铺平一层)：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Array.prototype.flat = function() &#123;</span><br><span class="line">    return this.toString().split(&apos;,&apos;).map(item =&gt; +item )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>返回部分数组 <code>slice</code>（不会修改原数组） ：</p>
@@ -2235,9 +2235,9 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
   <entry>
     <title>学习笔记-数据处理</title>
     <url>/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<h3 id="Object-kays-Object-values"><a href="#Object-kays-Object-values" class="headerlink" title="Object.kays || Object.values"></a>Object.kays || Object.values</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fileMap: &#123;</span><br><span class="line">    335: [</span><br><span class="line">        &#123;</span><br><span class="line">            fileId: &quot;=.jpeg&quot;</span><br><span class="line">            fileName: &quot;5.26-2.jpeg&quot;</span><br><span class="line">            previewUrl: &quot;.jpeg&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            fileId: &quot;=.jpeg&quot;</span><br><span class="line">            fileName: &quot;5.26-2.jpeg&quot;</span><br><span class="line">            previewUrl: &quot;.jpeg&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    337: [</span><br><span class="line">        &#123;</span><br><span class="line">            fileId: &quot;=.jpeg&quot;</span><br><span class="line">            fileName: &quot;5.26-2.jpeg&quot;</span><br><span class="line">            previewUrl: &quot;.jpeg&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h3 id="Object-keys-Object-values"><a href="#Object-keys-Object-values" class="headerlink" title="Object.keys || Object.values"></a>Object.keys || Object.values</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fileMap: &#123;</span><br><span class="line">    335: [</span><br><span class="line">        &#123;</span><br><span class="line">            fileId: &quot;=.jpeg&quot;</span><br><span class="line">            fileName: &quot;5.26-2.jpeg&quot;</span><br><span class="line">            previewUrl: &quot;.jpeg&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            fileId: &quot;=.jpeg&quot;</span><br><span class="line">            fileName: &quot;5.26-2.jpeg&quot;</span><br><span class="line">            previewUrl: &quot;.jpeg&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    337: [</span><br><span class="line">        &#123;</span><br><span class="line">            fileId: &quot;=.jpeg&quot;</span><br><span class="line">            fileName: &quot;5.26-2.jpeg&quot;</span><br><span class="line">            previewUrl: &quot;.jpeg&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>Object.kays(fileMap)  // fileMap:[“335”,”337”]<br>Object.values(fileMap)  // fileMap:[{335的数据}],[{337的数据}]</p>
+<p>Object.keys(fileMap)  // fileMap:[“335”,”337”]<br>Object.values(fileMap)  // fileMap:[{335的数据}],[{337的数据}]</p>
 <h3 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h3><blockquote>
 <p>[…new Set([2,”12”,2,12,1,2,1,6,12,13,6])]<br>//  [2, “12”, 12, 1, 6, 13]</p>
 </blockquote>
