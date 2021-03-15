@@ -607,6 +607,9 @@
 <p>删除远程仓库的分支：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete 分支名：  // git push origin --delet lzzhy</span><br></pre></td></tr></table></figure>
 
+<p>在自己仓库（lzzhy）下的dev-demand分支合并到自己仓库下的dev分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge dev-demand  // 自己本地项目所在的分支为dev</span><br></pre></td></tr></table></figure>
+
 <p>合并分支：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 先切换到master分支上 --&gt;</span><br><span class="line"></span><br><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line">&lt;!-- dev合并到master分支上 --&gt;</span><br><span class="line"></span><br><span class="line">git merge 需要合并的分支  // git merge dev</span><br></pre></td></tr></table></figure>
 
@@ -1674,7 +1677,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  7.7k
+                  7.8k
                 </span>
               
 
@@ -1834,7 +1837,7 @@
 <li>@import需要 IE5 以上才能使用</li>
 <li>link可以使用 js 动态引入，@import不行</li>
 </ul>
-<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><ul>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
 <li>Boolean</li>
 <li>Number</li>
 <li>String</li>
@@ -1844,6 +1847,25 @@
 <li>Object</li>
 </ul>
 <p>(ES6之前)其中5种为基本类型:string,number,boolean,null,undefined，ES6出来的Symbol也是原始数据类型(表示独一无二的值)。Object 为引用类型(范围挺大，也包括数组、函数)</p>
+<h3 id="typeof-判断基本类型，-instanceof-判断引用类型"><a href="#typeof-判断基本类型，-instanceof-判断引用类型" class="headerlink" title="typeof 判断基本类型， instanceof 判断引用类型"></a>typeof 判断基本类型， instanceof 判断引用类型</h3><p>基本类型的判断 <code>typeof</code>：</p>
+<ul>
+<li><p>可以判断是哪种基本数据类型，null除外</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typeof(null) //object 这是浏览器的Bug</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以判断是否为函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typeof function()&#123;&#125; // &apos;function&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以判断是否为引用类型</p>
+</li>
+</ul>
+<p>引用类型的判断 <code>instanceof</code>(xxx instanceof Object),如：</p>
+<p>数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1,2] instanceof Object // true</span><br></pre></td></tr></table></figure>
+
+<p>null：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">null instanceof Object  // false</span><br></pre></td></tr></table></figure>
+
+<p>使用typeof可以可以区别基本类型和引用类型，但是不太准确(如：typeof null 也为 Object),但是使用 instanceof 就不会了</p>
 <h3 id="引用类型相等判断"><a href="#引用类型相等判断" class="headerlink" title="引用类型相等判断"></a>引用类型相等判断</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let obj1 = &#123;</span><br><span class="line">    name: &apos;lzzhy&apos;,</span><br><span class="line">    age: 18</span><br><span class="line">&#125;</span><br><span class="line">let obj2 = &#123;</span><br><span class="line">    name: &apos;lzzhy&apos;,</span><br><span class="line">    age: 18</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(obj1 == obj2)  // false</span><br></pre></td></tr></table></figure>
@@ -1868,16 +1890,6 @@
 
 <h3 id="隐式转换-变量转换成数字或者字符串"><a href="#隐式转换-变量转换成数字或者字符串" class="headerlink" title="隐式转换(变量转换成数字或者字符串)"></a>隐式转换(变量转换成数字或者字符串)</h3><p>变量 num 转换成数字：<code>num - 0</code></p>
 <p>变量 num 转换成字符串：<code>num + &#39;&#39;</code></p>
-<h3 id="typeof-可以判断哪些类型"><a href="#typeof-可以判断哪些类型" class="headerlink" title="typeof 可以判断哪些类型"></a>typeof 可以判断哪些类型</h3><ul>
-<li><p>可以判断是哪种基本数据类型，null除外</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typeof(null) //object 这是浏览器的Bug</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可以判断是否为函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typeof function()&#123;&#125; // &apos;function&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可以判断是否为引用类型</p>
-</li>
-</ul>
 <h3 id="基本数据类型和引用类型的区别"><a href="#基本数据类型和引用类型的区别" class="headerlink" title="基本数据类型和引用类型的区别"></a>基本数据类型和引用类型的区别</h3><p>在内存中的存储方式不同，原始数据类型在内存中是栈存储(栈（stack）为自动分配的内存空间，它由系统自动释放)，引用类型是堆存储(堆（heap）则是动态分配的内存，大小不定也不会自动释放)</p>
 <p>原始数据类型是 传值 ：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let a = 10</span><br><span class="line">let b = a</span><br><span class="line">a = 20</span><br><span class="line">console.log(b) // 20</span><br></pre></td></tr></table></figure>
@@ -1925,7 +1937,7 @@
 </ul>
 <h3 id="原型-构造函数-实例-三者之间的关系"><a href="#原型-构造函数-实例-三者之间的关系" class="headerlink" title="原型/构造函数/实例 三者之间的关系"></a>原型/构造函数/实例 三者之间的关系</h3><ul>
 <li>原型（prototype）：我们创建的每一个函数，都可以有一个prototype属性，该属性指向一个对象。这个对象，就是原型。<br>  <code>特殊情况：原型并不是每个都有的，如假设通过let zzhy = Object.create(null)创建,并且传入的参数为null 那么该lzzhy上是没有原型的</code></li>
-<li>构造函数：可以通过new来 新建一个对象 的函数</li>
+<li>构造函数：可以通过new来 新建一个对象 的函数,构造函数拥有一个prototype的属性指向原型</li>
 <li>实例： 通过构造函数和new创建出来的对象，便是实例。 实例通过<strong>proto</strong>指向原型，通过constructor指向构造函数。</li>
 </ul>
 <p>以上是一个比较通俗的定义，可能有点懵逼，这里来举个栗子，以Object为例，我们常用的Object便是一个构造函数，因此我们可以通过它构建实例。</p>
@@ -1989,7 +2001,7 @@
 <h3 id="call、apply、bind的区别"><a href="#call、apply、bind的区别" class="headerlink" title="call、apply、bind的区别"></a>call、apply、bind的区别</h3><ul>
 <li><p>都是用来改变函数的this的指向的</p>
 </li>
-<li><p>实现<code>函数柯里化</code></p>
+<li><p>通过bind可以实现<code>函数柯里化</code></p>
 </li>
 <li><p>第一个参数都是this要指向的对象，也就是想指定的上下文。如：</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function foo(x,y) &#123;</span><br><span class="line">    console.log(x,y,this)</span><br><span class="line">&#125;</span><br><span class="line">foo.call(100,1,2)  // 1 2 Number &#123;100&#125;。 因为bind,call,apply的第一个参数都是指向this的对象，所以100是指向this的指向，1,2才是传入foo的x=1,y=2</span><br></pre></td></tr></table></figure>
