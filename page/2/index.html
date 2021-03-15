@@ -2086,24 +2086,6 @@
 <li>XML（Extensible Markup Language / 可扩展标记语言）：表现就是给一堆文档加上标签，说明里面的数据是什么意思，方便存储、传输、分享数据，常用作配置文件。和 HTML 的区别是 HTML 的标签是预定义的，XML 是可扩展的 。XHTML: Extensible Hypertext Markup Language / 可扩展超文本标记语，其实就是 HTML 的严格语法形式，约定了 属性名必需小写，空元素必需关闭，元素名小写，属性名必需加引号，布尔类型必需加属性值。</li>
 <li>JSON（Javascript Object Notation）：比较轻量级的数据交换格式，由键值对组成，数据格式比较简单, 易于读写, 格式都是压缩的, 占用带宽小。用于 AJAX 传输数据</li>
 </ul>
-<h3 id="跨标签页通讯"><a href="#跨标签页通讯" class="headerlink" title="跨标签页通讯"></a>跨标签页通讯</h3><p>不同标签页间的通讯，本质原理就是去运用一些可以 共享的中间介质，因此比较常用的有以下方法:</p>
-<ul>
-<li>通过父页面window.open()和子页面postMessage</li>
-</ul>
-<blockquote>
-<p>异步下，通过 window.open(‘about: blank’) 和 tab.location.href = ‘*’</p>
-</blockquote>
-<ul>
-<li><p>设置同域下共享的localStorage与监听window.onstorage</p>
-<blockquote>
-<p>1.重复写入相同的值无法触发<br>2.会受到浏览器隐身模式等的限制</p>
-</blockquote>
-</li>
-<li><p>设置共享cookie与不断轮询脏检查(setInterval)</p>
-</li>
-<li><p>借助服务端或者中间层实现</p>
-</li>
-</ul>
 <h3 id="浏览器架构"><a href="#浏览器架构" class="headerlink" title="浏览器架构"></a>浏览器架构</h3><ul>
 <li>用户界面</li>
 <li>主进程</li>
@@ -2126,12 +2108,21 @@
 </ul>
 </li>
 </ul>
-<h3 id="浏览器下事件循环-Event-Loop"><a href="#浏览器下事件循环-Event-Loop" class="headerlink" title="浏览器下事件循环(Event Loop)"></a>浏览器下事件循环(Event Loop)</h3><p>事件循环是指: 执行一个宏任务，然后执行清空微任务列表，循环再执行宏任务，再清微任务列表</p>
+<h3 id="浏览器下事件循环-Event-Loop"><a href="#浏览器下事件循环-Event-Loop" class="headerlink" title="浏览器下事件循环(Event Loop)"></a>浏览器下事件循环(Event Loop)</h3><p>正确的一次 Event Loop 是这样的：</p>
 <ul>
-<li><p>微任务 microtask(jobs): promise / process.nextTick</p>
-</li>
-<li><p>宏任务 macrotask(task): setTimout / setInterval / setImmediate</p>
-</li>
+<li>执行同步代码，这属于宏任务</li>
+<li>执行栈为空，查询是否有微任务需要执行</li>
+<li>执行所以微任务</li>
+<li>必要的话渲染UI</li>
+<li>然后开始下一轮的 Event Loop，执行宏任务中的异步代码</li>
+</ul>
+<p>微任务 microtask(jobs): promise，process.nextTick</p>
+<p>宏任务 macrotask(task): script，setTimout， setInterval</p>
+<h3 id="前端路由"><a href="#前端路由" class="headerlink" title="前端路由"></a>前端路由</h3><p>前端路由：指不同路由获取不同的文件资源</p>
+<p>包括两种方式：hash模式，history模式</p>
+<ul>
+<li>hash模式：通过监听 hashchange 来实现</li>
+<li>history模式：通过监听 pushStatus,popStatus,replaceStatus 来实现</li>
 </ul>
 <h3 id="DNS-解析过程"><a href="#DNS-解析过程" class="headerlink" title="DNS 解析过程"></a>DNS 解析过程</h3><p>获取流程：DNS是应用层协议，事实上他是为其他应用层协议工作的，包括不限于HTTP和SMTP以及FTP，用于将用户提供的主机名解析为ip地址。<br>具体过程如下：</p>
 <ul>
@@ -2178,10 +2169,8 @@
 </ul>
 </li>
 </ul>
-<h3 id="重绘与回流"><a href="#重绘与回流" class="headerlink" title="重绘与回流"></a>重绘与回流</h3><ul>
-<li><p>重绘： 当元素样式的改变不影响布局时，浏览器将使用重绘对元素进行更新，此时只需对UI层面进行绘制更新。因此损耗较少。</p>
-</li>
-<li><p>回流： 当元素的尺寸、结构会触发某些属性时，浏览器会重新渲染页面，成为回流。此时浏览器需要进行重新计算，计算后还要重新布局页面，因此是较重的操作，会触发回流的操作：</p>
+<h3 id="重绘与回流"><a href="#重绘与回流" class="headerlink" title="重绘与回流"></a>重绘与回流</h3><p>重绘： 当元素样式的改变不影响布局时，浏览器将使用重绘对元素进行更新，此时只需对UI层面进行绘制更新。因此损耗较少。</p>
+<p>回流： 当元素的尺寸、结构会触发某些属性时，浏览器会重新渲染页面，成为回流。此时浏览器需要进行重新计算，计算后还要重新布局页面，因此是较重的操作，会触发回流的操作如下：</p>
 <ul>
 <li>页面初次渲染</li>
 <li>浏览器窗口大小改变</li>
@@ -2190,8 +2179,6 @@
 <li>添加或者删除可见的 dom 元素</li>
 <li>激活 CSS 伪类（例如：:hover）</li>
 <li>查询某些属性或调用某些方法（egg: clientWidth,offsetWidth,scrollWidth…）</li>
-</ul>
-</li>
 </ul>
 <p>回流必定触发重绘，重绘不一定触发回流，重绘开销少，回流代价高。</p>
 <p>最佳实践：</p>
