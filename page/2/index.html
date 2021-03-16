@@ -1677,7 +1677,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  7.8k
+                  8k
                 </span>
               
 
@@ -2321,6 +2321,16 @@
 <h3 id="通信的要点和目的"><a href="#通信的要点和目的" class="headerlink" title="通信的要点和目的"></a>通信的要点和目的</h3><ul>
 <li>要点：1. 发送者和接收者 2. 传输媒介 3. 传输的数据 4. 传输格式（协议）</li>
 <li>目的：1. 同步数据 2. 传递指令(执行的方法)</li>
+</ul>
+<h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h2><h3 id="vue-的实现原理"><a href="#vue-的实现原理" class="headerlink" title="vue 的实现原理"></a>vue 的实现原理</h3><ul>
+<li>在 vue 中磨板边缘过程中的指令或者数据绑定都会实例化一个 watcher 实例，实例化过程中会触发 get() 将自身指向 Dep.target。</li>
+<li>data 在 Observer 时执行 getter 会触发 dep.depend() 进行依赖收集：1.data 在 Observer 的闭包的 dep 实例的 subs 添加观察他的 watcher 实例；2.watcher 的deps 中添加观察对象 Observer 时的闭包dep。</li>
+<li>当 data 中被 Observer 的某个对象值变化后，触发 subs 中观察他的 watcher 执行 updata() 方法，最后实际上就是调用 watcher 的回调函数 cb,进而进行视图更新。</li>
+</ul>
+<h3 id="Vue-的-template-模板编译是怎么转变成浏览器可以识别的"><a href="#Vue-的-template-模板编译是怎么转变成浏览器可以识别的" class="headerlink" title="Vue 的 template 模板编译是怎么转变成浏览器可以识别的"></a>Vue 的 template 模板编译是怎么转变成浏览器可以识别的</h3><ul>
+<li>template =&gt; AST render(compiler 解析 template)</li>
+<li>AST render =&gt; vNode(render 方法运行)</li>
+<li>vNode =&gt; DOM(vdom.patch)</li>
 </ul>
 <h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><p><a href="https://lzzhy.github.io/webpack%E5%B7%A5%E7%A8%8B%E5%8C%96/">webpack 工程化</a></p>
 <p>关于 webpack ，对于初级前端，基本上只需要可以 cli 将项目起来，知道 loader 和 plugin 的区别以及常用的 loader、plugin 个人觉得就差不多了，但是对于 高级前端及以上，最好还是了解下 webpack 相关的原理</p>
