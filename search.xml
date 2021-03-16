@@ -1527,8 +1527,9 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
 <p>拼接数组 <code>splice</code>(修改原数组) ：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var aaa = [1,2,3,4,5]</span><br><span class="line"></span><br><span class="line">&lt;!-- 一个参数：指从这个下标开始的值都删除 --&gt;</span><br><span class="line">aaa.splice(2)  // [3,4,5]</span><br><span class="line">aaa  // [1,2]</span><br><span class="line"></span><br><span class="line">&lt;!-- 两个参数：第一个参数表示下标，第二个参数表示从第一个参数开始数要删除的个数 --&gt;</span><br><span class="line">aaa.splice(2,2)  // [3,4]</span><br><span class="line">aaa  // 1,2,5</span><br><span class="line"></span><br><span class="line">&lt;!-- 替换 --&gt;</span><br><span class="line">aaa.splice(1,1,&apos;a&apos;,&apos;b&apos;)  // aaa: [1,&apos;a&apos;,&apos;b&apos;,3,4,5]</span><br></pre></td></tr></table></figure>
 
-<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><h3 id="比较-HTML-XML-XHTML-和-JSON"><a href="#比较-HTML-XML-XHTML-和-JSON" class="headerlink" title="比较 HTML XML XHTML 和 JSON"></a>比较 HTML XML XHTML 和 JSON</h3><ul>
-<li>HTML（HyperText Markup Language / 超文本标记语言）：用来描述和定义 网络内容的标记语言，超文本的意思是说，除了能标记本文还能标记 图片，视频，链接 等其他内容</li>
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><h3 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h3><p>BOM：(Brower Object Model)是指浏览器对象模型，是用于描述对象与对象之间层次关系的模型，浏览器模型提供了独立于内容的，可以与浏览器窗口进行互动的对象结构，BOM 由多个对象组成，其中代表浏览器窗口的 window 对象是 BOM 的顶层对象，其他对象都是给对象的子对象。</p>
+<h3 id="比较-HTML-XML-XHTML-和-JSON"><a href="#比较-HTML-XML-XHTML-和-JSON" class="headerlink" title="比较 HTML XML XHTML 和 JSON"></a>比较 HTML XML XHTML 和 JSON</h3><ul>
+<li>HTML（HyperText Markup Language / 超文本标记语言）：用来描述和定义 网络内容的标记语言，超文本的意思是说，除了能标 记本文还能标记 图片，视频，链接 等其他内容</li>
 <li>XML（Extensible Markup Language / 可扩展标记语言）：表现就是给一堆文档加上标签，说明里面的数据是什么意思，方便存储、传输、分享数据，常用作配置文件。和 HTML 的区别是 HTML 的标签是预定义的，XML 是可扩展的 。XHTML: Extensible Hypertext Markup Language / 可扩展超文本标记语，其实就是 HTML 的严格语法形式，约定了 属性名必需小写，空元素必需关闭，元素名小写，属性名必需加引号，布尔类型必需加属性值。</li>
 <li>JSON（Javascript Object Notation）：比较轻量级的数据交换格式，由键值对组成，数据格式比较简单, 易于读写, 格式都是压缩的, 占用带宽小。用于 AJAX 传输数据</li>
 </ul>
@@ -1778,6 +1779,16 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
 <li>AST render =&gt; vNode(render 方法运行)</li>
 <li>vNode =&gt; DOM(vdom.patch)</li>
 </ul>
+<h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h2><p>Vuex 是一个专为 Vue.js 应用程序开发的状<code>态管理模式</code>，它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生改变。</p>
+<p>这个状态自管理应用包含以下几个部分：</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E9%9D%A2%E8%AF%95%E5%9F%BA%E7%A1%80%E6%8A%80%E8%83%BD%E7%AF%87-css%2Chtml%2Cjs/WechatIMG2.jpeg" alt="cmd-markdown-logo"></p>
+<ul>
+<li>state：驱动应用的数据源</li>
+<li>view：以声明的方式将 state 映射到视图</li>
+<li>actions：响应在 view 上的用户输入导致的状态变化</li>
+</ul>
+<p>过程：</p>
+<p>在view上dispatch一个action，在action里面进行一些逻辑处理（比如请求），然后交给mutation去更新state，最后作用到view上，一个循环的结构。</p>
 <h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><p><a href="https://lzzhy.github.io/webpack%E5%B7%A5%E7%A8%8B%E5%8C%96/">webpack 工程化</a></p>
 <p>关于 webpack ，对于初级前端，基本上只需要可以 cli 将项目起来，知道 loader 和 plugin 的区别以及常用的 loader、plugin 个人觉得就差不多了，但是对于 高级前端及以上，最好还是了解下 webpack 相关的原理</p>
 ]]></content>
