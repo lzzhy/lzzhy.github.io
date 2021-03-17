@@ -2323,7 +2323,8 @@
 <li>要点：1. 发送者和接收者 2. 传输媒介 3. 传输的数据 4. 传输格式（协议）</li>
 <li>目的：1. 同步数据 2. 传递指令(执行的方法)</li>
 </ul>
-<h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h2><h3 id="vue-的实现原理"><a href="#vue-的实现原理" class="headerlink" title="vue 的实现原理"></a>vue 的实现原理</h3><ul>
+<h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h2><h3 id="vue-的生命周期"><a href="#vue-的生命周期" class="headerlink" title="vue 的生命周期"></a>vue 的生命周期</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E9%9D%A2%E8%AF%95%E5%9F%BA%E7%A1%80%E6%8A%80%E8%83%BD%E7%AF%87-css%2Chtml%2Cjs/WechatIMG3.png" alt="cmd-markdown-logo"></p>
+<h3 id="vue-的实现原理"><a href="#vue-的实现原理" class="headerlink" title="vue 的实现原理"></a>vue 的实现原理</h3><ul>
 <li>在 vue 中磨板边缘过程中的指令或者数据绑定都会实例化一个 watcher 实例，实例化过程中会触发 get() 将自身指向 Dep.target。</li>
 <li>data 在 Observer 时执行 getter 会触发 dep.depend() 进行依赖收集：1.data 在 Observer 的闭包的 dep 实例的 subs 添加观察他的 watcher 实例；2.watcher 的deps 中添加观察对象 Observer 时的闭包dep。</li>
 <li>当 data 中被 Observer 的某个对象值变化后，触发 subs 中观察他的 watcher 执行 updata() 方法，最后实际上就是调用 watcher 的回调函数 cb,进而进行视图更新。</li>
@@ -2333,7 +2334,7 @@
 <li>AST render =&gt; vNode(render 方法运行)</li>
 <li>vNode =&gt; DOM(vdom.patch)</li>
 </ul>
-<h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h2><p>Vuex 是一个专为 Vue.js 应用程序开发的状<code>态管理模式</code>，它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生改变。</p>
+<h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h2><p>Vuex 是一个专为 Vue.js 应用程序开发的<code>状态管理模式</code>，它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生改变。</p>
 <p>这个状态自管理应用包含以下几个部分：</p>
 <p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E9%9D%A2%E8%AF%95%E5%9F%BA%E7%A1%80%E6%8A%80%E8%83%BD%E7%AF%87-css%2Chtml%2Cjs/WechatIMG2.jpeg" alt="cmd-markdown-logo"></p>
 <ul>
