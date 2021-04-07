@@ -83,7 +83,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="lzzhy Blog">
-<meta property="og:url" content="https://lzzhy.github.io/page/3/index.html">
+<meta property="og:url" content="https://lzzhy.cn/page/3/index.html">
 <meta property="og:site_name" content="lzzhy Blog">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -117,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="https://lzzhy.github.io/page/3/">
+  <link rel="canonical" href="https://lzzhy.cn/page/3/">
 
 
 
@@ -267,7 +267,187 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/webpack工程化/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/zepto源码解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzzhy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzzhy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/zepto源码解析/" itemprop="url">zepto源码解析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-02T16:26:23+08:00">
+                2019-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/zepto源码解析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/zepto源码解析/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.1k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>学习笔记：参考自<a href="http://www.zeptojs.cn/#download" target="_blank" rel="noopener">zepto官方文档</a>，<a href="https://www.kancloud.cn/wangfupeng/zepto-design-srouce/173691" target="_blank" rel="noopener">zepto对象思想与源码解析</a></p>
+<h3 id="为什么要看zepto源码"><a href="#为什么要看zepto源码" class="headerlink" title="为什么要看zepto源码"></a>为什么要看zepto源码</h3><p>js相当于造房子的砖头，而Vue,react…则是人家造好了的轮子。在工作中一直用的是人家造好的轮子，大家都知道的是前端中轮子变化是很快的，但js是‘不会变的’。所以只有自己会造轮子了才能在前端这条道路上走得更远。并且，个人觉得读完源码后：真正留在自己脑子里的，是框架的设计思想。<strong>总之，一直觉得js和设计思想在前端中是最最最最重要的。</strong></p>
+<h3 id="需要先了解一下原型和原型链的相关知识"><a href="#需要先了解一下原型和原型链的相关知识" class="headerlink" title="需要先了解一下原型和原型链的相关知识"></a>需要先了解一下原型和原型链的相关知识</h3><p>1.每个函数都有一个prototype属性，无论是自定义的还是系统内置的<br>2.所以通过函数new出来的东西，这个东西都有一个<strong>proto</strong>指向这个函数的prototype<br>3.当你想要使用一个对象（或一个数组）的某个功能时：如果该对象本身具有这个功能，则直接使用，如果没有就去<strong>proto</strong>中找</p>
+<h3 id="怎么读zepto源码"><a href="#怎么读zepto源码" class="headerlink" title="怎么读zepto源码"></a>怎么读zepto源码</h3><h4 id="解读zepto的设计"><a href="#解读zepto的设计" class="headerlink" title="解读zepto的设计"></a>解读zepto的设计</h4><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG3.png" alt="cmd-markdown-logo"><br>上面这张图解析：arr具有push属性，因此可以直接使用。但是arr不具备lzzhyAddName属性，因此需要通过arr._proto = {lzzhyAddName: function(){console.log(‘my name is lzzhy’)}}来添加这个属性后才能用。</p>
+<p>流程图解析：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG4%201.png" alt="cmd-markdown-logo"></p>
+<p>PS:源码在设计的时候并不像上面代码那样简单只不过原理是一样的，源码具体实现方式还是得边读边理解。</p>
+<h4 id="zepto源码结构"><a href="#zepto源码结构" class="headerlink" title="zepto源码结构"></a>zepto源码结构</h4><p>第一步，先整个悦读源码，从大到小以宏观看微观的想法。因此，先将整个大体的结构弄懂：</p>
+<p>总结来说，整个结构可以简单抽离成这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var zepto = (function()&#123;</span><br><span class="line">    var $, zepto = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // ...省略N行代码</span><br><span class="line"></span><br><span class="line">    $ = function(selector,context) &#123;</span><br><span class="line">        return zepto.init(selector,context)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // ...省略N行代码</span><br><span class="line"></span><br><span class="line">    return $</span><br><span class="line">&#125;)()</span><br><span class="line">window.zepto = zepto</span><br><span class="line">window.$ === undefined &amp;&amp; (window.$ = zepto)</span><br></pre></td></tr></table></figure>
+
+<p>在这里我们可以看到:平常我们$(‘p’)使用zepto的时候，最终会顺藤摸瓜到 $ = function(selector,context) {}这个函数中（其中内容在这一步可不深究），而p选择器也会传递给selector参数。因此经过剥离之后，我们发现下一步需要探究的是$ = function(selector,context) {return zepto.init(selector,context)} 这个函数return出来的zepto.init函数</p>
+<h4 id="zepto-init函数"><a href="#zepto-init函数" class="headerlink" title="zepto.init函数"></a>zepto.init函数</h4><p>在上一步“zepto源码结构”中我们已经剖析到zepto.init函数了。</p>
+<p>函数如下：</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG6%201.png" alt="cmd-markdown-logo"></p>
+<p>我们可以看到zepto.init函数大约有几十行，把中间那if…else…操作去掉(其中大致分为四种情况)，剩下的就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">zepto.init = function(selector, context) &#123;</span><br><span class="line">    var dom</span><br><span class="line"></span><br><span class="line">    // ...此处省略N行...</span><br><span class="line"></span><br><span class="line">    // 分情况对dom赋值：</span><br><span class="line">    // 1.selector为空</span><br><span class="line">    // 2.selector是字符串，其中又分好几种情况</span><br><span class="line">    // 3.selector是函数</span><br><span class="line">    // 4.其他情况，如selector是数组、对象等</span><br><span class="line"></span><br><span class="line">    return zepto.Z(dom,elector)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个函数中，if…else…判断之后，最终 return到zepto.Z函数</p>
+<h4 id="zepto-Z函数"><a href="#zepto-Z函数" class="headerlink" title="zepto.Z函数"></a>zepto.Z函数</h4><p>在上一步“zepto.init函数”中我们已经剖析到zepto.Z函数了。</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG8.png" alt="cmd-markdown-logo"></p>
+<p>其中dom指的是数组,$.fn指的是一个包含很多属性的一个对象{……}<br>371行：把数组或者空数组赋值给 dom<br>372行：把$.fn赋值给dom._proto隐私原型<br>373行：把字符串或者空字符串赋值给 dom.selector</p>
+<p>下图是$.fn函数部分截图：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG9.png" alt="cmd-markdown-logo"></p>
+<ul>
+<li>其中774-779行相对应的’:’后的可以转换(如：emptyArray.forEach相当于[].forEach又相当于Array.prototype.forEach); </li>
+<li>其中map,slice,ready…函数都是重新定义的，也就是官方文档中我们用到的那些对象函数API如：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG10.png" alt="cmd-markdown-logo"></li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上整个分析过程是从大到小将一个个函数分割出来，其中解读了比较重要的几个函数。   </p>
+<p>源码分析到这里了，那么就用一个简单的代码结构对之前的做个总结。并且根据这个结构，将zepto的初始对象的过程在捋一捋。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">var zepto = (function()&#123;</span><br><span class="line">    var $, zepto = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // ...省略N行代码</span><br><span class="line"></span><br><span class="line">    zepto.Z = function(dom,selector)&#123;</span><br><span class="line">        dom = dom || []</span><br><span class="line">        dom._proto = $.fn</span><br><span class="line">        dom.selector = selector || &apos;&apos;</span><br><span class="line">        return dom</span><br><span class="line">    &#125;</span><br><span class="line">    $ = function(selector,context) &#123;</span><br><span class="line">        return zepto.init(selector,context)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // ...省略N行代码</span><br><span class="line"></span><br><span class="line">    zepto.init = function(selector, context) &#123;</span><br><span class="line">        var dom </span><br><span class="line"></span><br><span class="line">        // ...针对不同情况分别赋值</span><br><span class="line"></span><br><span class="line">        return zepto.Z(dom,elector)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $.fn = &#123;</span><br><span class="line">        // 里面N个重新定义的zepto的API</span><br><span class="line">    &#125;</span><br><span class="line">    return $</span><br><span class="line">&#125;)()</span><br><span class="line">window.zepto = zepto</span><br><span class="line">window.$ === undefined &amp;&amp; (window.$ = zepto)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/zepto%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/WechatIMG11.png" alt="cmd-markdown-logo"></p>
+<p>大致就是这张图的流程，最后的dom是挂载在$.fn上。<code>dom._proto = $.fn</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/webpack工程化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -510,7 +690,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTPS/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/HTTP系列之HTTPS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -671,7 +851,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTP2/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/HTTP系列之HTTP2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -844,7 +1024,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTP/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/HTTP系列之HTTP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -1060,7 +1240,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/Node-js刷博客访问量/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/Node-js刷博客访问量/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -1215,7 +1395,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/Vue 组件通信/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/Vue 组件通信/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -1384,7 +1564,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/学习笔记-代码技巧/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/学习笔记-代码技巧/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -1564,7 +1744,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/工作笔记-常用功能/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/工作笔记-常用功能/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -1798,7 +1978,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/工作笔记-数据处理/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/工作笔记-数据处理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -1966,305 +2146,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/Hexo-Github-Markdown搭建博客、装饰博客、踩过的坑/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lzzhy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lzzhy Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Hexo-Github-Markdown搭建博客、装饰博客、踩过的坑/" itemprop="url">Hexo-Github-Markdown搭建博客、装饰博客、踩过的坑.md</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-12T10:45:42+08:00">
-                2019-10-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/Hexo-Github-Markdown搭建博客、装饰博客、踩过的坑/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/Hexo-Github-Markdown搭建博客、装饰博客、踩过的坑/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2.8k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>其实之前就想搞个博客来玩但一直没有去做，今天看到一个博客里面记录了平常工作生活的事迹，突然心血来潮也想试试。说干就干，搞起来。这篇文章是从搭建一个简单的博客到添加评论访问统计等功能、到如何可以在百度谷歌中也可以找到自己的博客…最后总结</p>
-<h2 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h2><h3 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h3><p>1.安装Node(用来生成静态页面)  </p>
-<p>2.安装git(用来把本地的hexo提交到github上)   </p>
-<blockquote>
-<p><font face="微软雅黑" size="3" color="Green">首先检查是否安装了git和node.js，终端输入一下命令</font><br><code>node -v</code> #是否出现安装版本信息，出现说明已经安装了<br><code>git --version</code> #同上述情况<br><font face="微软雅黑" size="3" color="Green">如果没有安装，则进行安装,提供下载网址：</font><br>[git]: <a href="https://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener">https://sourceforge.net/projects/git-osx-installer/</a><br>[node.js]: <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
-</blockquote>
-<p>3.申请github账号(用来做博客的远程创库、域名、服务器之类的) </p>
-<blockquote>
-<p>在github注册一个账号并新建一个仓库(注意：创建仓库的名字必须为 username.github.io，我的用户名为lzzhy，因此我创建的仓库就是 lzzhy.github.io，这是很关键的一点，很重要。输入名字后直接点最下面的绿色按钮不用填其他的，新建仓库完成。)</p>
-</blockquote>
-<p>4.如果已经安装好了以上两个那么可以安装hexo了：</p>
-<blockquote>
-<p><code>npm install -g hexo-cli</code></p>
-</blockquote>
-<p>5.创建blog文件夹，并初始化建立博客框架：</p>
-<blockquote>
-<p>#在你的电脑上建立一个blog目录文件夹<br><code>mkdir blog</code><br>#进入目录<br><code>cd blog</code><br>#初始化目录<br><code>hexo init</code><br>#开启本地服务<br><code>hexo s</code></p>
-</blockquote>
-<p><font face="微软雅黑" size="3" color="#FF0000">好了，到了这在浏览器中输入生成的 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 就可以看到很丑的博客首页了。。。</font></p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/img1.png" alt="cmd-markdown-logo"></p>
-<h3 id="Github仓库与本地博客建立连接"><a href="#Github仓库与本地博客建立连接" class="headerlink" title="Github仓库与本地博客建立连接"></a>Github仓库与本地博客建立连接</h3><p>编辑<strong>根</strong>目录下的_config.yml文件，打开该文件在文件最后输入红色框中的内容，只需将自己的username替换就可以了其他无需更改。</p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/img2.jpg" alt="cmd-markdown-logo"></p>
-<p>然后在目录中执行：</p>
-<blockquote>
-<p>#产生静态网页<br><code>hexo g</code><br>#部署到GitHub page上<br><code>hexo d</code></p>
-</blockquote>
-<p>？在这个过程中发现了一个<font face="微软雅黑" size="3" color="red">bug</font>：</p>
-<blockquote>
-<p>只能在本地运行看到博客首页，在github上只有代码可是不能找到博客主页：因为github的是jekyll,本地的是hexo，所以不能同步。解决：删掉github仓库，重新来一次并关联本地。。。。。。。。mmp,原来是一开始配置_config.yml的时候单词写错了（master少写了一个s），果然粗心</p>
-</blockquote>
-<h3 id="当然，我们还可以去装修一下我们的博客-hexo有很多配套主题-可自行百度并都有配置文档"><a href="#当然，我们还可以去装修一下我们的博客-hexo有很多配套主题-可自行百度并都有配置文档" class="headerlink" title="当然，我们还可以去装修一下我们的博客,hexo有很多配套主题,可自行百度并都有配置文档"></a>当然，我们还可以去装修一下我们的博客,hexo有很多配套主题,可自行百度并都有配置文档</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.主题安装：git clone https://github.com/theme-next/hexo-theme-next themes/next (以next主题为栗，改为其他主题则只需要将对应的next换掉)；</span><br><span class="line">2.在根目录下的_config.yml配置中修改对应的主题名称</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<ul>
-<li>头像图片、作者名字、网站描述等网站基本属性都在根目录的_config.yml文件里配置  </li>
-<li>评论、搜索、统计、等功能配置都在主题文件的_config.yml文件里配置 </li>
-</ul>
-</blockquote>
-<h3 id="博客基本使用"><a href="#博客基本使用" class="headerlink" title="博客基本使用"></a>博客基本使用</h3><p>1.那肯定是写文章了：hexo new “文章名”， 在source/_posts会生成后缀名为.md的文件，支持markdown语法，里面可以设置标签名、分类名、是否开启评论功能等（markdown语法冒号后加空格）</p>
-<blockquote>
-<p>在.md文件中第二个—-下输入要写的文章，参考使用<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">markdown</a>语法</p>
-</blockquote>
-<p>文章写好后可以通过：<code>hexo g,hexo d</code>,在直接通过github链接访问：如<a href="https://lzzhy.github.io/">lzzhy.github.io</a></p>
-<p><font face="微软雅黑" size="3" color="#FF0000">这样，一个完整的搭建博客的过程就已经完成了</font></p>
-<p>(不蒜子统计只会统计相应页面的数据，在首页中并不会统计。若是需要在首页中展示则需要通过三方leanCloud)。</p>
-<h2 id="hexo-给博客添加不蒜子统计访问量，评论功能"><a href="#hexo-给博客添加不蒜子统计访问量，评论功能" class="headerlink" title="hexo 给博客添加不蒜子统计访问量，评论功能"></a>hexo 给博客添加不蒜子统计访问量，评论功能</h2><h3 id="添加统计字数："><a href="#添加统计字数：" class="headerlink" title="添加统计字数："></a>添加统计字数：</h3><p>1.安装 hexo-wordcount：</p>
-<blockquote>
-<p>npm i –save hexo-wordcount</p>
-</blockquote>
-<p>2.文件配置   </p>
-<blockquote>
-<p>将自己所用主题中的 _config.yml 文件中的 wordcount 设置为true wordcount: true</p>
-</blockquote>
-<p>3.重启服务就可以看到了</p>
-<h3 id="添加统计访问量："><a href="#添加统计访问量：" class="headerlink" title="添加统计访问量："></a>添加统计访问量：</h3><p>1.配置<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/bokezhuang-02.png" alt="cmd-markdown-logo">   </p>
-<p>2.问题：   </p>
-<blockquote>
-<p>通过利用不蒜子统计，发现统计数量并不能展现。   </p>
-</blockquote>
-<p>3.原因：<br><a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener">不蒜子统计官网</a>   Soga!原来就是因为不蒜子统计的域名过期了</p>
-<p>4.解决方法：<br>首先需要先找到主题MaterialFlow下引用不蒜子统计的方法。文件路径为/themes/MaterialFlow/layout/_third-party/analytics/busuanzi-counter.swig文件。修改为如下图红框部分就OK了！<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/bokezhuang-01.png" alt="cmd-markdown-logo"></p>
-<hr>
-<p>接着。。。。。。</p>
-<p>在昨天把访问量设置好后今天惊奇的发现居然有8个访问量了，开森。（不是刷的哦）！所以又想把评论和点赞功能设置一下，嘿嘿。。</p>
-<h3 id="评论："><a href="#评论：" class="headerlink" title="评论："></a>评论：</h3><p>1.注册<a href="https://leancloud.cn/" target="_blank" rel="noopener">Leancloud</a></p>
-<blockquote>
-<p>注册完之后需创建一个应用，可叫blog：然后 <strong>进入应用-&gt;设置-&gt;应用key</strong>获取你的appid 和 appkey 如图所示：</p>
-</blockquote>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/busuanzi01.png" alt="cmd-markdown-logo"></p>
-<p>2.博客主题文件找到配置文件 <strong>_config.yml</strong>，找到valine并输入appid 和 appkey：</p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/busuanzi02.png" alt="cmd-markdown-logo"></p>
-<p>3.配置域名：<br>记得在Leancloud -&gt; 设置 -&gt; 安全中心 -&gt; Web 安全域名 把你的<strong>线上域名</strong>加进去</p>
-<p>🎉结束撒花～</p>
-<p>写了个人博客后，就希望在百度搜索引擎中能找到自己的文章，那么就需要进行SEO的优化了。这里主要对google和baidu爬虫的优化。</p>
-<h2 id="如何在百度和谷歌中搜索就能找到你的博客-HEXO-SEO优化"><a href="#如何在百度和谷歌中搜索就能找到你的博客-HEXO-SEO优化" class="headerlink" title="如何在百度和谷歌中搜索就能找到你的博客- HEXO SEO优化"></a>如何在百度和谷歌中搜索就能找到你的博客- HEXO SEO优化</h2><h3 id="什么是SEO"><a href="#什么是SEO" class="headerlink" title="什么是SEO"></a>什么是SEO</h3><p>搜索引擎优化，又称为SEO(Search Engine Optimization)，它是一种通过分析搜索引擎的排名规律，了解各种搜索引擎怎样进行搜索、怎样抓取互联网页面、怎样确定特定关键词的搜索结果排名的技术。<br>搜索引擎采用易于被搜索引用的手段，对网站进行有针对性的优化，提高网站在搜索引擎中的自然排名，吸引更多的用户访问网站，提高网站的访问量，提高网站的销售能力和宣传能力，从而提升网站的品牌效应。<br><a href="https://baike.baidu.com/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/3132?fromtitle=seo&fromid=102990&fr=aladdin" target="_blank" rel="noopener">百度百科</a></p>
-<h3 id="站点地图"><a href="#站点地图" class="headerlink" title="站点地图"></a>站点地图</h3><h4 id="给本地文章生成sitemap文件"><a href="#给本地文章生成sitemap文件" class="headerlink" title="给本地文章生成sitemap文件"></a>给本地文章生成sitemap文件</h4><p> npm install hexo-generator-sitemap –save #sitemap.xml适合提交给谷歌搜素引擎<br> npm install hexo-generator-baidu-sitemap –save #baidusitemap.xml适合提交百度搜索引擎</p>
-<h4 id="在根目录-config-yml中修改如下配置："><a href="#在根目录-config-yml中修改如下配置：" class="headerlink" title="在根目录_config.yml中修改如下配置："></a>在根目录_config.yml中修改如下配置：</h4><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG7.png" alt="cmd-markdown-logo"></p>
-<p>注意格式的缩进，之前试了很多次都报错，才发现是格式的问题。</p>
-<h4 id="在根目录-config-yml中修改如下配置：-1"><a href="#在根目录-config-yml中修改如下配置：-1" class="headerlink" title="在根目录_config.yml中修改如下配置："></a>在根目录_config.yml中修改如下配置：</h4><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG61.png" alt="cmd-markdown-logo"> </p>
-<p>配置好后，hexo g 就能在 根目录\public 中生成sitemap.xml 和 baidusitemap.xml了;其中第一个是一会要提交给google的，后面那个看名字当然就是提交给Baidu的了;</p>
-<h4 id="添加-roborts-txt文件"><a href="#添加-roborts-txt文件" class="headerlink" title="添加 roborts.txt文件"></a>添加 roborts.txt文件</h4><p>在根目录source下添加roborts.txt文件</p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG8.png" alt="cmd-markdown-logo"></p>
-<p>然后hexo d -g提交一下</p>
-<h3 id="百度收录站点"><a href="#百度收录站点" class="headerlink" title="百度收录站点"></a>百度收录站点</h3><p>在<a href="https://ziyuan.baidu.com/" target="_blank" rel="noopener">百度站长平台</a>中的用户中心 =&gt; 站点管理添加你的站点网址：</p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG4.png" alt="cmd-markdown-logo"></p>
-<p>在最后一步验证网站中有三种方式，我选的是<em>文件验证</em>   </p>
-<p>1.HTML标签验证（其中：content注意要换成自己的。）</p>
-<ul>
-<li>在主题的_config.yml文件中设置：baidu_site_verification: true，如果没有该字段就手动添加。</li>
-<li>在themes/MaterialFlow/layout/_partials/head.swig文件中添加下列代码<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG5.png" alt="cmd-markdown-logo"></li>
-</ul>
-<p>2.文件验证，按照百度站长的步骤就好了。（hexo根目录在项目目录resource文件夹下）<br><font face="微软雅黑" size="3" color="red">注意：可能会报如下错误</font> </p>
-<p>baidu_verify_V5nnDAPNHd.html是站点下载的文件</p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG9.png" alt="cmd-markdown-logo"></p>
-<p>这是因为hexo编译文件时，会给下载的HTML文件中添加其他的内容，导致验证失败。比如下载原文件内容是<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG10.png" alt="cmd-markdown-logo"></p>
-<p>但github中baidu_verify_V5nnDAPNHd.html的文件内容却是这样的……一大堆</p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG11.png" alt="cmd-markdown-logo"></p>
-<p>因此，需要在Github里手动修改验证HTML文件，将github上的HTML文件中的内容改为站长给的文件内容。</p>
-<h4 id="sitemap提交百度站长"><a href="#sitemap提交百度站长" class="headerlink" title="sitemap提交百度站长"></a>sitemap提交百度站长</h4><blockquote>
-<p>链接提交工具是网站主动向百度搜索推送数据的工具，本工具可缩短爬虫发现网站链接时间，网站时效性内容建议使用链接提交工具，实时向搜索推送数据。是轻量级链接提交组件，将自动推送的JS代码放置在站点每一个页面源代码中，当页面被访问时，页面链接会自动推送给百度，有利于新页面更快被百度发现。。    </p>
-</blockquote>
-<p>登录<a href="https://ziyuan.baidu.com/" target="_blank" rel="noopener">百度站长平台</a>，在左菜单栏<em>链接提交</em>中。也有三种方式提交方式，我使用的是sitemap验证</p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/HEXO%20SEO%E4%BC%98%E5%8C%96/WechatIMG12.png" alt="cmd-markdown-logo"></p>
-<p>若是选择自动推送，则是以下配置：</p>
-<ul>
-<li>在主题配置文件将baidu_push设置为true</li>
-<li>在路径themes =&gt; MaterialFlow =&gt; layout 下创建baidu_push.swig 文件，文件内容如下：</li>
-</ul>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG5.png" alt="cmd-markdown-logo"></p>
-<h3 id="谷歌收录站点"><a href="#谷歌收录站点" class="headerlink" title="谷歌收录站点"></a>谷歌收录站点</h3><p>由于没有翻墙软件就没有折腾了(<em>^▽^</em>)。。。</p>
-<p><font face="微软雅黑" size="3" color="red">最后：当然是查看有没有被收录了：<br></font>    </p>
-<p>方法：打开百度或谷歌搜索，在搜索框里输入：</p>
-<blockquote>
-<p>site:&lt;域名&gt;  如：site:lzzhy.github.io/</p>
-</blockquote>
-<p>如果提示说：很抱歉，没有找到与“site:<a href="https://maxwellyue.github.io”相关的网页。说明未被收录。" target="_blank" rel="noopener">https://maxwellyue.github.io”相关的网页。说明未被收录。</a></p>
-<p>如果搜索结果中你第一眼就看到了你的博客站点，说明已被收录</p>
-<p>？百度站点提交sitemap，升级https</p>
-<p>遇到坑的时候都心情暴躁啊，血压升高。完全静不下心来解决问题。其实很多时候报错都会提示的，按照提示去解决就可以了</p>
-<h2 id="hexo-博客踩坑大合集"><a href="#hexo-博客踩坑大合集" class="headerlink" title="hexo 博客踩坑大合集"></a>hexo 博客踩坑大合集</h2><h3 id="邮箱验证"><a href="#邮箱验证" class="headerlink" title="邮箱验证"></a>邮箱验证</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG1.png" alt="cmd-markdown-logo"></p>
-<p>解决：登录邮箱进行验证</p>
-<h3 id="commit-报错"><a href="#commit-报错" class="headerlink" title="commit 报错"></a>commit 报错</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG2%201.png" alt="cmd-markdown-logo"></p>
-<p>解决：</p>
-<p>hexo deploy –message “feat: 内容”</p>
-<h3 id="去掉提交校验"><a href="#去掉提交校验" class="headerlink" title="去掉提交校验"></a>去掉提交校验</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG1.png" alt="cmd-markdown-logo"></p>
-<p>原因：由于之前加了全局commit校验，因此自动将这个校验添加到了博客中。因此，删除这个配置即可：</p>
-<ul>
-<li>Command + Shift + .    //来快速（在 Finder 中）显示 和 隐藏 隐藏文件</li>
-<li>在 blog 项目目录下找到 .deploy_git =&gt; .git =&gt; hooks, 删除 hooks 里面的commit-msg文件</li>
-</ul>
-<h2 id="github-上的博客仓库不小心被删"><a href="#github-上的博客仓库不小心被删" class="headerlink" title="github 上的博客仓库不小心被删"></a>github 上的博客仓库不小心被删</h2><h3 id="先还原github上的仓库"><a href="#先还原github上的仓库" class="headerlink" title="先还原github上的仓库"></a>先还原github上的仓库</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG2.png" alt="cmd-markdown-logo"></p>
-<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG3.png" alt="cmd-markdown-logo"></p>
-<p>再去自己仓库确认下是否已找回</p>
-<h3 id="github上的仓库已被还原，可是访问博客地址还是404"><a href="#github上的仓库已被还原，可是访问博客地址还是404" class="headerlink" title="github上的仓库已被还原，可是访问博客地址还是404"></a>github上的仓库已被还原，可是访问博客地址还是404</h3><p>进入 github 上的博客仓库，在 setting =&gt; github pages =&gt; choose themes(类似这种点进去) =&gt; 选择一个主题 就好了</p>
-<p>现在在访问博客地址就可以了</p>
-<h2 id="更换域名"><a href="#更换域名" class="headerlink" title="更换域名"></a>更换域名</h2><p>原本博客是在 github 上搭建的，但由于 gitpage 总是有问题导致我的博客访问不了。因此决定更换域名！更换域名的步骤有以下这几个：</p>
-<ul>
-<li><p>购买域名（我买的是<a href="https://wanwang.aliyun.com/domain/searchresult/?keyword=lzzhy&suffix=.com#/?keyword=lzzhy&suffix=com" target="_blank" rel="noopener">阿里云</a>的），并进行实名认证，备案等…</p>
-</li>
-<li><p>在博客source目录下新增 CNAME 文件，并写入自己已经购买好的域名（我的是 lzzhy.cn），并提交代码</p>
-</li>
-<li><p>找到github上自己博客的仓库 =&gt; settings =&gt; 找到如下图的位置，并加上 lzzhy.cn</p>
-<p>  <img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/hexo%20%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E5%A4%A7%E5%90%88%E9%9B%86/WechatIMG13.png" alt="cmd-markdown-logo"></p>
-</li>
-</ul>
-<p>好了，现在就可以去访问新域名啦啦啦！！！（不过使用新域名之后访客记录就清零咯）</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2312,7 +2198,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
