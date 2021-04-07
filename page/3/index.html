@@ -267,6 +267,249 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/webpack工程化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzzhy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzzhy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/webpack工程化/" itemprop="url">webpack工程化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-15T09:53:18+08:00">
+                2019-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/webpack工程化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/webpack工程化/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.7k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="webpack是什么"><a href="#webpack是什么" class="headerlink" title="webpack是什么"></a>webpack是什么</h3><p>webpack可以看作是一个模块打包机，功能就是通过一个入口将所有的依赖关系(像.jade,.less,.png等)通过webpack打包器打包成我们所谓的前端静态资源(像js,css,png等)。(module模块 =&gt; webpack =&gt; 静态资源)。</p>
+<h3 id="webpack的最终目的"><a href="#webpack的最终目的" class="headerlink" title="webpack的最终目的"></a>webpack的最终目的</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/webpack%E5%B7%A5%E7%A8%8B%E5%8C%96/WechatIMG3.png" alt="cmd-markdown-logo"></p>
+<p>将开发环境的代码（如：.vue文件和.less文件在开发时所使用的的文件，不能被浏览器直接识别的代码）打包编译成生产环境的代码（能直接被浏览器所识别的代码）。</p>
+<h3 id="为什么要用它，它可以做什么"><a href="#为什么要用它，它可以做什么" class="headerlink" title="为什么要用它，它可以做什么"></a>为什么要用它，它可以做什么</h3><p>在webpack之前也有很多打包工具，如grunt,gulp…但是这些打包工具功能单一，只能完成特定任务。但一个web前端工程是复杂的，一个webapp的业务代码可能有很多，如想按需加载，首屏加载时间减少，需集成一些第三方库…<br>webpack 的出现正是为了解决这些问题，在 webpack 中，提供了一下这些功能：</p>
+<ul>
+<li>代码转换：比如将es6转化成es5,将less,sass转化成css</li>
+<li>文件优化：比如压缩代码体积</li>
+<li>代码分割：比如公共模块的分离，路由懒加载</li>
+<li>模块合并：比如按照功能将多个模块合并成一个模块</li>
+<li>自动刷新：热更新</li>
+<li>代码校验：校验代码是否符合规范</li>
+<li>自动发布</li>
+</ul>
+<h3 id="使用webpack有什么优势"><a href="#使用webpack有什么优势" class="headerlink" title="使用webpack有什么优势"></a>使用webpack有什么优势</h3><p><strong>1.万物皆模块：</strong> 在 webpack 的世界中，除了 Javascript，其他任何资源都可以当做模块的方式引用。<br><strong>2.按需加载：</strong> webapp 的优化关键在于代码体积，当应用体积增大，实现代码的按需加载是必需，这也是 webpack 出现的根本原因。<br><strong>3.可定制化：</strong> 任何一个工具都不可能解决所有问题，提供解决方案才是最可行的，webpack 基于可定制化的理念构建，通过插件系统，配置文件，可以实现大型项目的定制需求。</p>
+<h3 id="webpack-核心概念及其配置："><a href="#webpack-核心概念及其配置：" class="headerlink" title="webpack 核心概念及其配置："></a>webpack 核心概念及其配置：</h3><p>以下都是单页面配置webpack</p>
+<p>目录结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">├── src // 根目录</span><br><span class="line">│   ├── index.js  // 手动添加入口文件</span><br><span class="line">│</span><br><span class="line">│──├── webpack.config.js  // webpack配置文件，手动添加</span><br></pre></td></tr></table></figure>
+
+<h4 id="入口"><a href="#入口" class="headerlink" title="入口"></a>入口</h4><p>webpack.config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const config = &#123;</span><br><span class="line">  entry: &apos;./src/index.js&apos;  // 入口文件的相对路径</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">module.exports = config;</span><br></pre></td></tr></table></figure>
+
+<p>index.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;hello webpack，i am coming&apos;);</span><br></pre></td></tr></table></figure>
+
+<p>生成dist文件夹： </p>
+<ul>
+<li><p>全局安装webpack和webpack-cli：npm i webpack webpack-cli -D</p>
+</li>
+<li><p>在package.json(npm init生成)脚本中设置：”build”: “webpack”</p>
+</li>
+<li><p>执行npm run build</p>
+</li>
+</ul>
+<h4 id="出口"><a href="#出口" class="headerlink" title="出口"></a>出口</h4><p>webpack.config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;)  // node 内置的模块</span><br><span class="line"></span><br><span class="line">const config = &#123;</span><br><span class="line">  entry: &apos;./src/index.js&apos;,  // 入口文件的相对路径</span><br><span class="line">  output: &#123;</span><br><span class="line">      filename: &apos;bundle.js&apos;,  // 可以自定义的出口文件名称</span><br><span class="line">      path: path.join(__dirname,&apos;./dist1&apos;)  // 绝对路径</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在运行npm run build，就会生成如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">├── dist1 // 打包生成的dist1文件夹，自己在path中定义的</span><br><span class="line">    ├── bundle.js  // 自定义的出口文件</span><br></pre></td></tr></table></figure>
+
+<p>注意：由于输出路径需要绝对路径，因此使用了 path(<a href="https://www.runoob.com/nodejs/nodejs-path-module.html" target="_blank" rel="noopener">Node.js Path 模块
+</a>)，__dirname 会输出绝对路径</p>
+<h4 id="Loader：处理的是webpack不能处理的文件（除了js以外的文件：因为webpack本身就是js写的），将其转化为webpack可以处理的文件"><a href="#Loader：处理的是webpack不能处理的文件（除了js以外的文件：因为webpack本身就是js写的），将其转化为webpack可以处理的文件" class="headerlink" title="Loader：处理的是webpack不能处理的文件（除了js以外的文件：因为webpack本身就是js写的），将其转化为webpack可以处理的文件"></a>Loader：处理的是webpack不能处理的文件（除了js以外的文件：因为webpack本身就是js写的），将其转化为webpack可以处理的文件</h4><p>安装需要的loader：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add css-loader style-loader -D</span><br></pre></td></tr></table></figure>
+
+<p>修改webpack.config.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const config = &#123;</span><br><span class="line">    entry: ...</span><br><span class="line">    output: ...</span><br><span class="line">    module: &#123;  // 配置loader</span><br><span class="line">       rules: [&#123;</span><br><span class="line">           test: /\.css$/,</span><br><span class="line">           use: [&apos;style-loader&apos;,&apos;css-loader&apos;]</span><br><span class="line">       &#125; ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在src下添加index.css文件，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在src/index.js中引入index.css文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require(&apos;./index.css&apos;)</span><br></pre></td></tr></table></figure>
+
+<p>然后，在npm run build打包该项目，会发现在dist/bundle.js中可以搜索到index.css文件中的background-color: red样式。</p>
+<p>这样样式打包就成功了。。。</p>
+<p>那如何使用打包出来的dist文件呢？在dist下新增index.html文件，引入想要打包出来的dist文件就可以了：</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/webpack%E5%B7%A5%E7%A8%8B%E5%8C%96/WechatIMG1.png" alt="cmd-markdown-logo"></p>
+<p>当需要处理除css之外的sass,scss之类的样式就需要loader来处理了：</p>
+<p>先安装sass-loader：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add sass-loader -D</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const config = &#123;</span><br><span class="line">    entry: ...</span><br><span class="line">    output: ...</span><br><span class="line">    module: &#123;  // 配置sass-loader,node-sass 来处理scss或者sass</span><br><span class="line">       rules: [&#123;</span><br><span class="line">           test: /\.(scss|sass)$/,</span><br><span class="line">           use: [&apos;style-loader&apos;,&apos;css-loader&apos;,&apos;sass-loader&apos;]</span><br><span class="line">       &#125; ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>具体的图片，字体等其他资源管理详见<a href="https://www.webpackjs.com/guides/asset-management/#%E5%AE%89%E8%A3%85" target="_blank" rel="noopener">webpack管理资源
+</a></p>
+<h4 id="插件：插件使用范围比Loader大，Loader不能做到的就可以使用插件"><a href="#插件：插件使用范围比Loader大，Loader不能做到的就可以使用插件" class="headerlink" title="插件：插件使用范围比Loader大，Loader不能做到的就可以使用插件"></a>插件：插件使用范围比Loader大，Loader不能做到的就可以使用插件</h4><h5 id="模块热替换-webpack自带的热更新（只会监听代码变化，但是并不会刷新页面）"><a href="#模块热替换-webpack自带的热更新（只会监听代码变化，但是并不会刷新页面）" class="headerlink" title="模块热替换 webpack自带的热更新（只会监听代码变化，但是并不会刷新页面）"></a>模块热替换 webpack自带的热更新（只会监听代码变化，但是并不会刷新页面）</h5><p>package.json：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;watch&quot;: &quot;webpack --watch&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h5 id="webpack-dev-server-热更新：会监听代码变化也会自动刷新页面"><a href="#webpack-dev-server-热更新：会监听代码变化也会自动刷新页面" class="headerlink" title="webpack-dev-server(热更新：会监听代码变化也会自动刷新页面)"></a>webpack-dev-server(热更新：会监听代码变化也会自动刷新页面)</h5><p>安装插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add webpack-dev-server -D</span><br></pre></td></tr></table></figure>
+
+<p>webpack.config.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;hot&quot;: &quot;webpack-dev-server&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>webpack.config.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const webpack = require(&apos;webpack&apos;)</span><br><span class="line">const config = &#123;</span><br><span class="line">    entry: ...</span><br><span class="line">    output: ...</span><br><span class="line">    module: ...</span><br><span class="line">    plugins: [</span><br><span class="line">        xxx,</span><br><span class="line">        new webpack.HotModuleReplacementPlugin()</span><br><span class="line">    ],</span><br><span class="line">    devServer: &#123;  // 热更新 webpack-dev-server</span><br><span class="line">        hot: true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这样热更新配置就好了，在执行npm run hot(package.json中配置的脚本)，再在浏览器打开默认的8080端口号就ok了。。。</p>
+<h4 id="模式-兼容性"><a href="#模式-兼容性" class="headerlink" title="模式/兼容性"></a>模式/兼容性</h4><p>有mode: ‘development’/‘production’两种，分别代表不同的环境，为production时dist文件会压缩的体积比较小。</p>
+<h5 id="NODE-ENV使用场景"><a href="#NODE-ENV使用场景" class="headerlink" title="NODE_ENV使用场景"></a>NODE_ENV使用场景</h5><p>NODE_ENV在项目中的使用场景一般是作为环境变量来匹配当时的环境的。以下来介绍下最基础的process.env.NODE_ENV</p>
+<p>webpack.config.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const config = &#123;</span><br><span class="line">    mode: &apos;production&apos;,  // 模式, 还有 development</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>src/index.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(process.env.NODE_ENV === &apos;production&apos;) &#123;   // NODE_ENV的使用场景</span><br><span class="line">    console.log(&apos;我不是localhost&apos;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    console.log(&apos;我是localhost&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在去npm run build打包，在用浏览器打开dist/index.html文件。此时src/index.js：配置的process.env.NODE_ENV就会去跟mode中的值相匹配</p>
+<p>了解了webpack的一个大致情况后，那我们要怎么去用它呢？</p>
+<h3 id="webpack基础配置（怎么写）"><a href="#webpack基础配置（怎么写）" class="headerlink" title="webpack基础配置（怎么写）"></a>webpack基础配置（怎么写）</h3><h4 id="安装本地webpack"><a href="#安装本地webpack" class="headerlink" title="安装本地webpack"></a>安装本地webpack</h4><p>在此之前你应该已经安装过node，安装相关webpack所需要的如： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack webpack-cli -g</span><br><span class="line">npm install webpack-dev-server -g</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置文件的使用"><a href="#配置文件的使用" class="headerlink" title="配置文件的使用"></a>配置文件的使用</h4><p>在package.json中配置脚本”build”: “webpack”，执行npm run build就会生成dist文件夹了。在项目目录下创建 webpack.config.js如下，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- webpack 是node写出来的 node的写法 --&gt;</span><br><span class="line"></span><br><span class="line">var webpack = require(&apos;webpack&apos;)</span><br><span class="line">let path = require(&apos;path&apos;)</span><br><span class="line">module.export = &#123;</span><br><span class="line">    mode: &apos;development&apos;, // 模式 默认两种proction development</span><br><span class="line">    entry: &apos;./src/index.js&apos;, //入口</span><br><span class="line">    output: &#123;  // 输出 出口</span><br><span class="line">        filename: &apos;bundle.js&apos;, //打包后的文件名</span><br><span class="line">        path: path.resolve(__dirname,&apos;dist&apos;) //路径必须是一个绝对路径, _dirname指相对该路径下</span><br><span class="line">    &#125;,</span><br><span class="line">    module: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.js[x]?$/,</span><br><span class="line">                exclude: /node_modules/,</span><br><span class="line">                loader: &apos;babel-loader&apos;,  //处理.js或.jsx文件loader</span><br><span class="line">                query: &#123;</span><br><span class="line">                    presets: [&apos;env&apos;]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.css$/,</span><br><span class="line">                loader: &quot;style-loader!css-loader&quot;   //处理.css文件loader</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.(png|jpg)$/,</span><br><span class="line">                loader: &apos;url-loader?limit=8192&apos;    //处理图片loader</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="babel-搭配"><a href="#babel-搭配" class="headerlink" title="babel 搭配"></a>babel 搭配</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.webpackjs.com/concepts/#%E5%87%BA%E5%8F%A3-output-" target="_blank" rel="noopener">《webpack官方文档》</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/HTTP系列之HTTPS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1394,7 +1637,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.8k
+                  3k
                 </span>
               
 
@@ -1504,6 +1747,8 @@
 
 <p>回填</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">this.isReturnAdr=true</span><br><span class="line">const permane3Adr = &#123;</span><br><span class="line">    provCode: currentAddress.provinceCode,</span><br><span class="line">    cityCode: currentAddress.cityCode,</span><br><span class="line">    areaCode: currentAddress.areaCode,</span><br><span class="line">    streetCode: currentAddress.streetCode,</span><br><span class="line">    provName:currentAddress.provinceName,</span><br><span class="line">    cityName:currentAddress.cityName,</span><br><span class="line">    areaName:currentAddress.areaName,</span><br><span class="line">    streetName:currentAddress.streetName,</span><br><span class="line">    communityCode:currentAddress.communityCode,</span><br><span class="line">    communityName:currentAddress.communityName,</span><br><span class="line">&#125;</span><br><span class="line">this.step3Adr.push(permane3Adr)</span><br></pre></td></tr></table></figure>
+
+<h2 id="在页面上点击对应事件定位到对应位置"><a href="#在页面上点击对应事件定位到对应位置" class="headerlink" title="在页面上点击对应事件定位到对应位置"></a>在页面上点击对应事件定位到对应位置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;right-menu&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;right-menu-column&quot; :class=&quot;&#123;&apos;right-menu-active&apos;:  v.ref === scrollRef&#125;&quot; v-for=&quot;v in scrollList&quot; :key=&quot;v.ref&quot; @click=&quot;scrollTo(v.ref)&quot;&gt;&#123;&#123;v.label&#125;&#125;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            scrollRef: &apos;top1&apos;,</span><br><span class="line">            scrollList: [</span><br><span class="line">                &#123; label: &apos;头部&apos;, ref: &apos;top1&apos; &#125;,</span><br><span class="line">                &#123; label: &apos;中间&apos;, ref: &apos;top2&apos; &#125;,</span><br><span class="line">                &#123; label: &apos;底部&apos;, ref: &apos;top3&apos; &#125;</span><br><span class="line">            ],</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods() &#123;</span><br><span class="line">        scrollTo (ref) &#123;</span><br><span class="line">            console.log(ref);  // top1</span><br><span class="line">            this.$refs[ref].$el.scrollIntoView()</span><br><span class="line">            if (this.scrollList.some(v =&gt; v.ref === ref)) this.scrollRef = ref</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt; </span><br><span class="line">    .right-menu &#123;</span><br><span class="line">        position: fixed;</span><br><span class="line">        top: 400px;</span><br><span class="line">        right: 30px;</span><br><span class="line">        .right-menu-column &#123;</span><br><span class="line">            padding: 0 15px;</span><br><span class="line">            height: 44px;</span><br><span class="line">            line-height: 44px;</span><br><span class="line">            color: #666666;</span><br><span class="line">            background-color: #fff;</span><br><span class="line">            text-align: center;</span><br><span class="line">            margin-block-start: 0;</span><br><span class="line">            margin-block-end: 0;</span><br><span class="line">            cursor: pointer;</span><br><span class="line">            box-shadow: 0 0px 18px -8px #333</span><br><span class="line">        &#125;</span><br><span class="line">        .right-menu-active &#123;</span><br><span class="line">            color: #fff;</span><br><span class="line">            background-color: $primary;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
 
           
@@ -2067,7 +2312,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

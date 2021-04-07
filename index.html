@@ -267,6 +267,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/学习篇-语音转识别文字功能的实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzzhy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzzhy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/学习篇-语音转识别文字功能的实现/" itemprop="url">学习篇-语音识别转文字功能的实现</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-26T12:43:07+08:00">
+                2021-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/学习篇-语音转识别文字功能的实现/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/学习篇-语音转识别文字功能的实现/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.6k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>环境： vue-cli 脚手架项目中。</p>
+<p>需求：在视频同时实现语音识别转文字需求，类似微信的语音功能（同一个屏幕中，左边布局实现视频功能，另一边布局进行聊天室，聊天室中带了语音识别转文字功能）。点击<code>开启语音识别</code>到<code>关闭语音识别</code>按钮，在这之间说的话会被识别转换为文字的形式并且在聊天框中发送。</p>
+<p>流程：前端通过引入iat.js这个包使用到了他的IFlyIatSession方法，后端先提供给前端getVoiceRecogKey接口，前端在这上面获取到了秘钥和uid,前端在将这两个东西传给服务端请求ws，前端在将识别出来的文字渲染在聊天室内。</p>
+<p>注： 语音识别转文字功能，在前端上都是自己写的，只是使用了<a href="https://odr-asr.odrcloud.cn/dist/iat.all.final.js" target="_blank" rel="noopener">讯飞的iat包</a>（讯飞的iat包里面只是提供了一个语音转文字的IFlyIatSession方法），其他具体的都是前端自己写的，并且没有文档，前端也不需要去配置啥。</p>
+<h2 id="引入包"><a href="#引入包" class="headerlink" title="引入包"></a>引入包</h2><p>在 .html 入口文件中引入这个包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;https://odr-asr.odrcloud.cn/dist/iat.all.final.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="在父组件room-vue调解室中"><a href="#在父组件room-vue调解室中" class="headerlink" title="在父组件room.vue调解室中"></a>在父组件room.vue调解室中</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;inside</span><br><span class="line">        v-show=&quot;insideshow&quot;</span><br><span class="line">        ref=&quot;inside&quot;</span><br><span class="line">        v-model=&quot;comdata&quot;</span><br><span class="line">        :wselement=&quot;ws&quot;</span><br><span class="line">    &gt;&lt;/inside&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import inside from &apos;./inside.vue&apos;  // 语音识别组件</span><br><span class="line">data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        ws: &apos;&apos;,</span><br><span class="line">        caseStatus: &apos;&apos;,</span><br><span class="line">        currentMessageType: &apos;&apos;, // 当前获取的是公频记录还是私聊记录</span><br><span class="line">    &#125;,</span><br><span class="line">    methods() &#123;</span><br><span class="line">        enterRoom (member) &#123;</span><br><span class="line">            let self = this,</span><br><span class="line">                hostName = config.hostName</span><br><span class="line">            let ws = (this.ws = new WebSocket(  // 在视频内主动连接ws</span><br><span class="line">                &apos;wss://&apos; +</span><br><span class="line">                hostName +</span><br><span class="line">                &apos;/basicGateway/joinRoom/&apos; +</span><br><span class="line">                this.roomID +</span><br><span class="line">                &apos;?JWTToken=&apos; +</span><br><span class="line">                this.userToken +</span><br><span class="line">                &apos;&amp;watcher=&apos; +</span><br><span class="line">                this.iswatcher +</span><br><span class="line">                &apos;&amp;appName=casettle&apos;</span><br><span class="line">            ))</span><br><span class="line">            ws.onopen = function (evt) &#123;</span><br><span class="line">                setInterval(self.heartbeat, 30000)</span><br><span class="line">            &#125;</span><br><span class="line">            ws.onmessage = function (evt) &#123;</span><br><span class="line">                let res = JSON.parse(evt.data)</span><br><span class="line">                self.$refs.inside.uploadMsgList(res.data)  // 获取数据</span><br><span class="line"></span><br><span class="line">                // 媒体开关  监听开关音视频</span><br><span class="line">                this.$refs.inside.speechDiscernControl(res.data, self.isaudioopen) </span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="在-inside-vue-语音识别组件中"><a href="#在-inside-vue-语音识别组件中" class="headerlink" title="在 inside.vue 语音识别组件中"></a>在 <code>inside.vue</code> 语音识别组件中</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;!-- 手动控制语音识别开关 --&gt;</span><br><span class="line">    &lt;div class=&quot;caseStatusBtn&quot;&gt;</span><br><span class="line">        &lt;div :class=&quot;[&#123;on:iflylatStatus&#125;,&apos;voiceBtn&apos;]&quot; @click=&quot;speechSwitch&quot;&gt;&lt;i :class=&quot;[&#123;on:iflylatStatus&#125;,&apos;status&apos;]&quot;&gt;&lt;/i&gt;&#123;&#123;iflylatStatus?&apos;语音识别中&apos;:&apos;开启语音识别&apos;&#125;&#125;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;!-- 将识别出来的文字显示在调解室中 --&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-for=&quot;msg in msgs&quot; :key=&quot;msg.index&quot; :class=&quot;&#123;&apos;meeting-chatroom-self&apos;: msg.id==comdata.userID&#125;&quot;&gt;</span><br><span class="line">            &lt;div&gt;&#123;&#123;msg.content&#125;&#125;&lt;/div&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default &#123;</span><br><span class="line">        import IFlyIatSession from &apos;./iat.js&apos;  // iat.js的代码在下面</span><br><span class="line">        data() &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                msgs: [],  // ws返回的识别出来的文字</span><br><span class="line">                isOnDesicren: false,</span><br><span class="line">                currentMicStatus: true,</span><br><span class="line">                currentMicStatus: true,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        mounted() &#123;</span><br><span class="line">            this.IFlyIatSessionInit()  // 调用IFlyIatSessionInit方法</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            // 初始化语音转写实例</span><br><span class="line">            IFlyIatSessionInit() &#123;</span><br><span class="line">                let _this = this</span><br><span class="line">                let iflysession = &#123;</span><br><span class="line">                    sendMessage: function(result) &#123;</span><br><span class="line">                        _this.sendMessage(result)  // 调用下面的sendMessage方法</span><br><span class="line">                    &#125;,</span><br><span class="line">                    onError: function(code,msg) &#123;</span><br><span class="line">                        _this.iflylatStatus = false</span><br><span class="line">                        _this.$message.error(msg)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                IFlyIatSession.init(iflysession, false)  // 调用到iat.js中的init方法</span><br><span class="line">            &#125;,</span><br><span class="line">            sendMessage (msg) &#123;  // 发送ws请求</span><br><span class="line">                console.log(msg);  // msg 是识别出来的文字</span><br><span class="line">                let self = this,</span><br><span class="line">                    data = &#123;</span><br><span class="line">                        content: msg,</span><br><span class="line">                        messageResource: &apos;VOICE_DISCERN&apos;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    msgdata = &#123;&#125;</span><br><span class="line">                msgdata.event = &apos;SEND_TEXT&apos;</span><br><span class="line">                msgdata.data = data</span><br><span class="line">                self.wselement.send(JSON.stringify(msgdata))</span><br><span class="line">            &#125;,</span><br><span class="line">            // 调解员发出语音识别开关</span><br><span class="line">            speechSwitch () &#123;</span><br><span class="line">                let self = this,</span><br><span class="line">                    msgdata = &#123;&#125;,</span><br><span class="line">                    data = &#123;&#125;,</span><br><span class="line">                data = &#123;</span><br><span class="line">                    mediaType: &apos;VOICE_DISCERN&apos;,</span><br><span class="line">                    memberId: this.comdata.userID,</span><br><span class="line">                    operator: &apos;MEDIATOR&apos;</span><br><span class="line">                &#125;</span><br><span class="line">                msgdata.event = &apos;SWITCH_MEDIA&apos;</span><br><span class="line">                msgdata.data = data</span><br><span class="line">                self.wselement.send(JSON.stringify(msgdata))</span><br><span class="line">            &#125;,</span><br><span class="line">            speechOpen () &#123;  // 打开语音识别</span><br><span class="line">                if(this.currentMicStatus)&#123; // 当前麦克风未被禁用</span><br><span class="line">                    IFlyIatSession.IFlyLatPlay()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            speechColsed () &#123;</span><br><span class="line">                if(this.currentMicStatus)&#123;  // 关闭语音识别</span><br><span class="line">                    IFlyIatSession.IFlyLatStop()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            // 语音识别控制</span><br><span class="line">            speechDiscernControl(data,micStatus) &#123; </span><br><span class="line">                this.currentMicStatus = micStatus</span><br><span class="line">                if(this.iflylatStatus)&#123;</span><br><span class="line">                    this.iflylatStatus = false</span><br><span class="line">                    this.speechColsed()</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    this.iflylatStatus = true</span><br><span class="line">                    this.speechOpen()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            uploadMsgList (message) &#123;  // 是个对象数组，获取所有语音识别的消息，并渲染展示在聊天框中</span><br><span class="line">                this.msgs.push(&#123;content: message.messageContent&#125;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="iat-js文件"><a href="#iat-js文件" class="headerlink" title="iat.js文件"></a>iat.js文件</h2><p>iat.js文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line">import &#123; getVoiceRecogKey &#125; from &apos;./newApi/liu&apos;  //  getVoiceRecogKey是后端给的接口用来获取秘钥和uid</span><br><span class="line">const _IFlyLat = &#123;&#125; // 语音实例</span><br><span class="line">let iflylatSerStatus = false, // 识别服务的状态</span><br><span class="line">    customMethod = null, // 包含回调方法的自定义对象</span><br><span class="line">    isSupport = true, // 浏览器支持的状态</span><br><span class="line">    isTemporary = false, // 兼容通过邀请登录的用户 可调用接口</span><br><span class="line">    IFlyLat = null, // 暂存实例对象</span><br><span class="line">    restart = false, // 重新获取密钥后是否开启识别</span><br><span class="line">    voiceToken = &apos;&apos;,</span><br><span class="line">    voiceUid = &apos;&apos;,</span><br><span class="line">    isSuccess = true, // 获取语音识别密钥接口是否返回数据</span><br><span class="line">    isRestart = false, // 是否重新建立语音识别链接</span><br><span class="line">    iatData = &#123;&#125;;</span><br><span class="line">function getVoiceTonken() &#123;</span><br><span class="line">    isSuccess = false</span><br><span class="line">    getVoiceRecogKey(&#123;&#125;,isTemporary).then(res =&gt; &#123;</span><br><span class="line">        if(res.key) &#123;</span><br><span class="line">            voiceToken = res.key</span><br><span class="line">            voiceUid = res.uid</span><br><span class="line">            if(isRestart) &#123;</span><br><span class="line">                speedService()  // 调用iat.js中speedService方法</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        isSuccess = true</span><br><span class="line">    &#125;).catch((e)=&gt; &#123;</span><br><span class="line">        isSuccess = true</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">function speedService() &#123; // 建立语音转文字初始化</span><br><span class="line">    if(process.env.srconfig === &quot;prod&quot;) &#123;  // 不同环境参数、域名不同</span><br><span class="line">        iatData = &#123;</span><br><span class="line">            &quot;uid&quot;: voiceUid,</span><br><span class="line">            &quot;token&quot;: voiceToken</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        iatData = &#123;</span><br><span class="line">            &quot;serverUrl&quot;: &quot;wss://odr-asr.odrcloud.cn/ws2&quot;,</span><br><span class="line">            &quot;uid&quot;: voiceUid,</span><br><span class="line">            &quot;token&quot;: voiceToken</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // IFlyIatSession方法是iat.js提供的</span><br><span class="line">    IFlyLat = new IFlyIatSession(&#123;  </span><br><span class="line">        &quot;params&quot;: iatData,</span><br><span class="line">        &quot;callback&quot;: &#123;</span><br><span class="line">            &quot;onResult&quot;: function(result) &#123;</span><br><span class="line">                if (result == &apos;&apos; || result == null) &#123;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    // 传入回调方法名为sendMessage</span><br><span class="line">                    console.log(&apos;999999999999999&apos;,result); // result就是识别出来的文字</span><br><span class="line">                    customMethod.sendMessage(result)  // 调用的是IFlyIatSessionInit中的sendMessage方法</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;onVolume&quot;: function(volume) &#123;</span><br><span class="line">                // 音量</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;onError&quot;: function(code,msg) &#123;</span><br><span class="line">                customMethod.onError(code,msg)</span><br><span class="line">                console.log(&quot;错误&quot;,code,msg)</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;onProcess&quot;: function(status) &#123;</span><br><span class="line">                switch (status) &#123;</span><br><span class="line">                    case &apos;onStart&apos;:</span><br><span class="line">                        iflylatSerStatus = true;</span><br><span class="line">                        console.log(&quot;服务初始化。。。&quot;)</span><br><span class="line">                        break;</span><br><span class="line">                    case &apos;normalVolume&apos;:</span><br><span class="line">                    case &apos;started&apos;:</span><br><span class="line">                        console.log(&quot;倾听中。。。&quot;)</span><br><span class="line">                        break;</span><br><span class="line">                    case &apos;onStop&apos;:</span><br><span class="line">                        console.log(&quot;等待结果。。。&quot;)</span><br><span class="line">                        break;</span><br><span class="line">                    case &apos;lowVolume&apos;:</span><br><span class="line">                        console.log(&quot;倾听中。。。（声音过小）&quot;)</span><br><span class="line">                        break;</span><br><span class="line">                    default:</span><br><span class="line">                        console.log(&quot;结束&quot;)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    if (!IFlyLat.isSupport()) &#123;</span><br><span class="line">        Vue.prototype.$alert(&apos;当前浏览器不支持语音转文字&apos;, &apos;温馨提示&apos;, &#123;</span><br><span class="line">            confirmButtonText: &apos;确定&apos;,</span><br><span class="line">            confirmButtonClass: &apos;button_primary&apos;,</span><br><span class="line">            showClose:false,</span><br><span class="line">            customClass: &apos;meetbox&apos;,</span><br><span class="line">            callback: action =&gt; &#123;</span><br><span class="line">                history.back()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        isSupport = false</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    if(restart) &#123;</span><br><span class="line">        IFlyLat.start()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">_IFlyLat.init =  function(custom,temporary) &#123; // 初始实例化</span><br><span class="line">    if(temporary) &#123;</span><br><span class="line">        isTemporary = true</span><br><span class="line">    &#125;</span><br><span class="line">    if (custom) &#123;</span><br><span class="line">        customMethod = custom</span><br><span class="line">    &#125;</span><br><span class="line">    if(voiceToken&amp;&amp;voiceUid) &#123;</span><br><span class="line">        isRestart = false</span><br><span class="line">        speedService()</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        isRestart = true</span><br><span class="line">        if(isSuccess) &#123;</span><br><span class="line">            getVoiceTonken()  // 调用iat.js中getVoiceTonken方法</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">_IFlyLat.IFlyLatPlay =  function() &#123; // 开始识别</span><br><span class="line">    if(isSupport) &#123;</span><br><span class="line">        if(IFlyLat) &#123;</span><br><span class="line">            IFlyLat.start()</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            restart = true</span><br><span class="line">            this.init()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">_IFlyLat.IFlyLatStop = function() &#123; // 停止识别</span><br><span class="line">    IFlyLat.pause()</span><br><span class="line">&#125;</span><br><span class="line">_IFlyLat.IFlyLatKill = function() &#123; // 销毁退出</span><br><span class="line">    if(IFlyLat) &#123;</span><br><span class="line">        // IFlyLat.pause()</span><br><span class="line">        IFlyLat.kill()</span><br><span class="line">        IFlyLat = null</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">export default _IFlyLat</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/前端方面性能优化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2169,189 +2329,6 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.github.io/二次封装DatePicker组件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lzzhy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lzzhy Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/二次封装DatePicker组件/" itemprop="url">反思二次封装DatePicker组件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-11-03T14:43:15+08:00">
-                2020-11-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/二次封装DatePicker组件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/二次封装DatePicker组件/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.3k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>由于河北项目中原本使用的elem DatePicker的一个日期选择范围用户体验不太好，因此改成自己二次封装DatePicker组件(选一个日期 =&gt; 选两个日期)</p>
-<p>一开始自己写的时候就写了个最简单的$emit，以及对两个时间选择的规则的一个判断，没有去想其他的东西。</p>
-<p>后面让老大给CodeReview了一下，妈耶，突然发现自己写的好low，明明已经工作一年多了，封装出来的还跟刚接触vue时候写的一样。真的是服了自己了….</p>
-<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>拿到封装需求之前先多想想这几个方面：</p>
-<ul>
-<li>如何封装可以让其他地方改动最少(修改二次封装时)</li>
-<li>注意组件文件、html结构，函数命名</li>
-<li>想清楚哪些应该要做成动态接收的</li>
-</ul>
-<p>组件无非就是动态传人数据，父子之间函数触发</p>
-<h2 id="全局注册和局部引入"><a href="#全局注册和局部引入" class="headerlink" title="全局注册和局部引入"></a>全局注册和局部引入</h2><p>当项目中很多地方用到同一个组件时可以选择全局注册：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// main.js</span><br><span class="line"></span><br><span class="line">import rangeDatePicker from &apos;./components/rangeDatePicke&apos;</span><br><span class="line">Vue.component(&apos;rangeDatePicker&apos;,rangeDatePicker)  // 逗号前的是自己取的名字，用在需要用的文件中</span><br></pre></td></tr></table></figure>
-
-<p>局部引入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//  需要用到这个组件的文件</span><br><span class="line"></span><br><span class="line">import topbar from &apos;@/publicResource/components/topbar.vue&apos;</span><br><span class="line">components: &#123;</span><br><span class="line">    &apos;v-topbar&apos;: topbar</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Vue-自定义组件通过-v-model-通信"><a href="#Vue-自定义组件通过-v-model-通信" class="headerlink" title="Vue 自定义组件通过 v-model 通信"></a>Vue 自定义组件通过 v-model 通信</h2><p>model:{ prop?: string, event?: string }</p>
-<p>详细：允许一个自定义组件在使用 v-model 时定制 prop 和 event。默认情况下，一个组件上的 v-model 会把 value 用作 prop 且把 input 用作 event，但是一些输入类型比如单选框和复选框按钮可能想使用 value prop 来达到不同的目的。使用 model 选项可以回避这些情况产生的冲突。</p>
-<h3 id="默认情况下，v-model-就是一个语法糖-等价于-value-””-input-””"><a href="#默认情况下，v-model-就是一个语法糖-等价于-value-””-input-””" class="headerlink" title="默认情况下，v-model 就是一个语法糖 等价于 :value=”” @input=””"></a>默认情况下，v-model 就是一个语法糖 等价于 :value=”” @input=””</h3><p>v-model 就是一个语法糖： v-model=”username”等价于 :value=”usernema” @input=”username=$event.target.value”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 父组件 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;input v-model=&quot;username&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line">&lt;input :value=&quot;value&quot; @input=&quot;handleinput&quot;&gt;&lt;/input&gt;</span><br><span class="line">props: &#123;</span><br><span class="line">    value: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        default: &apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">handleinput(e) &#123;</span><br><span class="line">    this.$emit(&apos;input&apos;,e.target.value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="但也可以通过修改prop-event来达到不同的目的。使用-model-选项可以回避这些情况产生的冲突。"><a href="#但也可以通过修改prop-event来达到不同的目的。使用-model-选项可以回避这些情况产生的冲突。" class="headerlink" title="但也可以通过修改prop event来达到不同的目的。使用 model 选项可以回避这些情况产生的冲突。"></a>但也可以通过修改prop event来达到不同的目的。使用 model 选项可以回避这些情况产生的冲突。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 子组件使用model对象,定义它的两个属性,就可以在父组件通过v-model实现父子组件双向数据绑定</span><br><span class="line"></span><br><span class="line">model: &#123;</span><br><span class="line">    model: &#123;</span><br><span class="line">        prop: &apos;rangeDate&apos;,  // prop说:我要将rangeDate作为该组件被使用(被父组件调用)时,v-model能取到的值</span><br><span class="line">        event: &apos;change&apos;  // event说:我emit(触发)change的时候，参数的值就是父组件v-model收到的值</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果在子组件中这样写了，那么在props就必须接收的属性是rangeDate，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line"></span><br><span class="line">prop: &#123;</span><br><span class="line">    rangeDate: &#123;</span><br><span class="line">        default: []</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用这个组件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;range-date-picker</span><br><span class="line">    v-model=&quot;selectForm.rangedate&quot;</span><br><span class="line">    @change=&quot;getQuerySysOplog&quot;&gt;</span><br><span class="line">&lt;/range-date-picker&gt;</span><br></pre></td></tr></table></figure>
-
-<p>上面的代码相当于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;range-date-picker</span><br><span class="line">    :rangeDate=&quot;selectForm.rangedate&quot;</span><br><span class="line">    @change=&quot;val =&gt; (foo = val)&quot;</span><br><span class="line">    @change=&quot;getQuerySysOplog&quot;&gt;</span><br><span class="line">&lt;/range-date-picker&gt;</span><br></pre></td></tr></table></figure>
-
-<p>总结：自定义元素上使用 v-model=”selectForm.rangedate”， 同时，组件里使用 model {prop:xxx, event:xxx}<br>可以把 model 里面定义的 prop 和event 自动绑定在 “selectForm.rangedate” 这个自定义事件上</p>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;range-date-picker&quot;&gt;</span><br><span class="line">        &lt;el-date-picker</span><br><span class="line">            v-model=&quot;startDate&quot;</span><br><span class="line">            type=&quot;date&quot;</span><br><span class="line">            @change=&quot;changeStart&quot;</span><br><span class="line">            :picker-options=&quot;startOptions&quot;</span><br><span class="line">            :value-formate=&quot;valueFormat&quot;</span><br><span class="line">            :placeholder=&quot;startPlaceholder&quot;&gt;  // startPlaceholder是动态获取所以前面要加上&apos;:&apos;</span><br><span class="line">        &lt;/el-date-picker&gt;</span><br><span class="line">        &lt;el-date-picker</span><br><span class="line">            v-model=&quot;endDate&quot;</span><br><span class="line">            type=&quot;date&quot;</span><br><span class="line">            @change=&quot;changeEnd&quot;</span><br><span class="line">            :value-formate=&quot;valueFormat&quot;</span><br><span class="line">            :picker-options=&quot;endOptions&quot;</span><br><span class="line">            :placeholder=&quot;endPlaceholder&quot;&gt;</span><br><span class="line">        &lt;/el-date-picker&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    import &#123;dateformat&#125; from &apos;@/publicResource/utils/utils.js&apos;</span><br><span class="line">    export default &#123;</span><br><span class="line">        model: &#123;</span><br><span class="line">            prop: &apos;rangeDate&apos;,</span><br><span class="line">            event: &apos;change&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        props: &#123;</span><br><span class="line">            rangeDate: &#123;</span><br><span class="line">                default: [],</span><br><span class="line">            &#125;,</span><br><span class="line">            startPlaceholder: &#123;</span><br><span class="line">                default: &apos;开始日期&apos;,</span><br><span class="line">                type: String</span><br><span class="line">            &#125;,</span><br><span class="line">            endPlaceholder: &#123;</span><br><span class="line">                default: &apos;结束日期&apos;,</span><br><span class="line">                type: String</span><br><span class="line">            &#125;,</span><br><span class="line">            valueFormat: &#123;</span><br><span class="line">                default: &apos;yyyy-MM-dd&apos;,</span><br><span class="line">                type: String</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        data() &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                startDate: &apos;&apos;,</span><br><span class="line">                endDate: &apos;&apos;,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        watch: &#123;</span><br><span class="line">            rangeDate(newValue, oldValue) &#123;</span><br><span class="line">                if (newValue.length &gt; 0) &#123;</span><br><span class="line">                    this.startDate = newValue[0]</span><br><span class="line">                    this.endDate = newValue[1]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        computed: &#123;</span><br><span class="line">            startOptions()&#123;   // 校验日期规则：开始日期不能必须小于等于结束日期</span><br><span class="line">                let _this = this</span><br><span class="line">                return &#123;</span><br><span class="line">                    disabledDate(time) &#123;</span><br><span class="line">                        return time.getTime() &gt; Math.min(Date.now(), +new Date(_this.endDate))</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            endOptions() &#123;</span><br><span class="line">                let _this = this</span><br><span class="line">                return &#123;</span><br><span class="line">                    disabledDate(time) &#123;</span><br><span class="line">                        return time.getTime() &gt; Date.now() || time.getTime() &lt; +new Date(_this.startDate)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            changeStart(value) &#123;</span><br><span class="line">                let start;</span><br><span class="line">                if (!value) &#123;</span><br><span class="line">                    start = &apos;&apos;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    start = dateformat(value, &apos;yyyy-MM-dd&apos;)</span><br><span class="line">                &#125;</span><br><span class="line">                this.startDate = start</span><br><span class="line">                this.$emit(&apos;change&apos;, [start, this.endDate])  // 这样写父组件@change函数中就可以把参数写成param,这样子基于之前的代码@change函数中就不用修改代码</span><br><span class="line">            &#125;,</span><br><span class="line">            changeEnd(value) &#123;</span><br><span class="line">                let end;</span><br><span class="line">                if (!value) &#123;</span><br><span class="line">                    end = &apos;&apos;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    end = dateformat(value, &apos;yyyy-MM-dd&apos;)</span><br><span class="line">                &#125;</span><br><span class="line">                this.endDate = end</span><br><span class="line">                this.$emit(&apos;change&apos;, [this.startDate, end])</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        mounted() &#123;</span><br><span class="line">            if (this.rangeDate.length &gt; 0) &#123;</span><br><span class="line">                this.startDate = this.rangeDate[0]</span><br><span class="line">                this.endDate = this.rangeDate[1]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2404,7 +2381,7 @@ foo(1,2,3,4,5)</code></pre><p>形参：是封装好的函数的参数；实参�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
