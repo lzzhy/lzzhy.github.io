@@ -267,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/使用hash解决vue关于浏览器的缓存问题/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/常考面试题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -286,7 +286,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/使用hash解决vue关于浏览器的缓存问题/" itemprop="url">使用hash解决vue关于浏览器的缓存问题</a></h1>
+                <a class="post-title-link" href="/常考面试题/" itemprop="url">常考面试题</a></h1>
         
 
         <div class="post-meta">
@@ -298,7 +298,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-07T10:57:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-07T23:20:35+08:00">
                 2021-04-07
               </time>
             
@@ -317,8 +317,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/使用hash解决vue关于浏览器的缓存问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/使用hash解决vue关于浏览器的缓存问题/" itemprop="commentCount"></span>
+                <a href="/常考面试题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/常考面试题/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -340,7 +340,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  20
+                  1.5k
                 </span>
               
 
@@ -367,7 +367,102 @@
       
         
           
-            <h2 id="缓存问题产生"><a href="#缓存问题产生" class="headerlink" title="缓存问题产生"></a>缓存问题产生</h2><p>第一次打包，生成dist.js，在index.html引入</p>
+            <h2 id="自我介绍一下"><a href="#自我介绍一下" class="headerlink" title="自我介绍一下"></a>自我介绍一下</h2><p>大致可以整理出这样的格式：</p>
+<blockquote>
+<p>面试官你好，我叫 XXX，就读于 XX 学校 XX 专业，拥有 XX 年前端工作经验，曾供职于 XX 公司（介绍先前工作过的一二线企业）。我在上家公司任职 XX 岗位，主要负责 XX 工作，擅长 XX 技术栈。其中在我负责的 XX 项目中，我完成了 XX 工作，实现了性能 XX% 的提升（这里就是按照 Star 法则去介绍一个自己负责的最佳项目）。另外我还坚持写作，在 XX 平台发表了 XX 文章，共计获得了 XX 点赞/阅读（这里就是介绍自身的亮点）。以上就是我的自我介绍，谢谢！</p>
+</blockquote>
+<h2 id="你知道哪些前端方面的性能优化"><a href="#你知道哪些前端方面的性能优化" class="headerlink" title="你知道哪些前端方面的性能优化"></a>你知道哪些前端方面的性能优化</h2><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/WechatIMG39.jpeg" alt="cmd-markdown-logo"></p>
+<h2 id="基本数据类型有哪些"><a href="#基本数据类型有哪些" class="headerlink" title="基本数据类型有哪些"></a>基本数据类型有哪些</h2><p>基本数据类型：</p>
+<ul>
+<li>Boolean</li>
+<li>Number</li>
+<li>String</li>
+<li>Null</li>
+<li>Undefined</li>
+<li>Symbol (ECMAScript 6 新定义)</li>
+</ul>
+<p>引用类型</p>
+<ul>
+<li>Object</li>
+</ul>
+<h2 id="0-1-0-2-不等于-0-3-？为什么-js-会有这种骚操作？"><a href="#0-1-0-2-不等于-0-3-？为什么-js-会有这种骚操作？" class="headerlink" title="0.1 + 0.2 不等于 0.3 ？为什么 js 会有这种骚操作？"></a>0.1 + 0.2 不等于 0.3 ？为什么 js 会有这种骚操作？</h2><p>在控制台输出是这个结果：</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/WechatIMG1.png" alt="cmd-markdown-logo"></p>
+<p>在这个问题中我们要关注的是：<code>为什么会出现这样的结果？哪一步出了问题？还有哪些计算会出现这样的问题？怎么解决？</code></p>
+<p><a href="https://juejin.cn/post/6844903680362151950" target="_blank" rel="noopener">参考链接,点我</a></p>
+<h2 id="深浅拷贝的区别"><a href="#深浅拷贝的区别" class="headerlink" title="深浅拷贝的区别"></a>深浅拷贝的区别</h2><h2 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let p = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    console.log(1)</span><br><span class="line">    resolve()</span><br><span class="line">&#125;) </span><br><span class="line">console.log(2)</span><br><span class="line">p.then(() =&gt; &#123;</span><br><span class="line">    console.log(3)</span><br><span class="line">&#125;)    // 1,2,3</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let p = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    console.log(1)</span><br><span class="line">&#125;) </span><br><span class="line">console.log(2)</span><br><span class="line">p.then(() =&gt; &#123;</span><br><span class="line">    console.log(3)</span><br><span class="line">&#125;)    // 1,2 因为p里面没有resolve不是成功状态，因此p.then是没有执行的</span><br></pre></td></tr></table></figure>
+
+<h2 id="var和let在循环中的区别"><a href="#var和let在循环中的区别" class="headerlink" title="var和let在循环中的区别"></a>var和let在循环中的区别</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var i = 0;i &lt; 3;i ++) &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        console.log(i)  // 3,3,3</span><br><span class="line">    &#125;, 1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(let i = 0;i &lt; 3;i ++) &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        console.log(i)  // 0,1,2</span><br><span class="line">    &#125;, 1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>原因：因为let存在块级作用域</p>
+<h2 id="css-水平垂直居中方案可以说出多少"><a href="#css-水平垂直居中方案可以说出多少" class="headerlink" title="css 水平垂直居中方案可以说出多少"></a>css 水平垂直居中方案可以说出多少</h2><ul>
+<li>flex + justify-content + align-items;</li>
+<li>absolute + transform;</li>
+<li>父：position:relative + 子：position:absolute;top:50%;left:50%;margin-top:-height/2;margin-left:-width/2;</li>
+<li>position:absolute;top:0;left:0;bottom:0;right:0;+margin:auto;</li>
+</ul>
+<p><a href="https://juejin.cn/post/6844903982960214029#heading-2" target="_blank" rel="noopener">参考链接,点我</a></p>
+<h2 id="route和-router的区别，前端路由"><a href="#route和-router的区别，前端路由" class="headerlink" title="$route和$router的区别，前端路由"></a>$route和$router的区别，前端路由</h2><h2 id="说说你对webpack的理解"><a href="#说说你对webpack的理解" class="headerlink" title="说说你对webpack的理解"></a>说说你对webpack的理解</h2><h2 id="了解项目部署的流程吗"><a href="#了解项目部署的流程吗" class="headerlink" title="了解项目部署的流程吗"></a>了解项目部署的流程吗</h2><h2 id="MVVM-是什么"><a href="#MVVM-是什么" class="headerlink" title="MVVM 是什么"></a>MVVM 是什么</h2><h2 id="v-if和v-show的区别"><a href="#v-if和v-show的区别" class="headerlink" title="v-if和v-show的区别"></a>v-if和v-show的区别</h2><h2 id="v-for里的key值"><a href="#v-for里的key值" class="headerlink" title="v-for里的key值"></a>v-for里的key值</h2><h2 id="vue实现原理"><a href="#vue实现原理" class="headerlink" title="vue实现原理"></a>vue实现原理</h2><h2 id="说说对vue生命周期的理解，并说出哪里使用到了他们"><a href="#说说对vue生命周期的理解，并说出哪里使用到了他们" class="headerlink" title="说说对vue生命周期的理解，并说出哪里使用到了他们"></a>说说对vue生命周期的理解，并说出哪里使用到了他们</h2><h2 id="vue-里面的-data-为什么需要-return"><a href="#vue-里面的-data-为什么需要-return" class="headerlink" title="vue 里面的 data 为什么需要 return"></a>vue 里面的 data 为什么需要 return</h2><h2 id="vue中详情页返回列表后在点击进详情，怎么在不重新请求数据的情况下让数据还存在"><a href="#vue中详情页返回列表后在点击进详情，怎么在不重新请求数据的情况下让数据还存在" class="headerlink" title="vue中详情页返回列表后在点击进详情，怎么在不重新请求数据的情况下让数据还存在"></a>vue中详情页返回列表后在点击进详情，怎么在不重新请求数据的情况下让数据还存在</h2><p>通过keep-alive</p>
+<h2 id="组件传值方式"><a href="#组件传值方式" class="headerlink" title="组件传值方式"></a>组件传值方式</h2><h2 id="说说对vuex的理解"><a href="#说说对vuex的理解" class="headerlink" title="说说对vuex的理解"></a>说说对vuex的理解</h2><h2 id="编程题。用原生的方式实现：请获取一串这样的路由-http-baidu-com-a-1-amp-b-2-amp-c-3-amp-d-4-amp-a-b-c是不确定个数的，请获取到-后面的a-b-c-，并写成json的格式如-39-a-39-1-39-b-39-2-39-c-39-3"><a href="#编程题。用原生的方式实现：请获取一串这样的路由-http-baidu-com-a-1-amp-b-2-amp-c-3-amp-d-4-amp-a-b-c是不确定个数的，请获取到-后面的a-b-c-，并写成json的格式如-39-a-39-1-39-b-39-2-39-c-39-3" class="headerlink" title="编程题。用原生的方式实现：请获取一串这样的路由 http://baidu.com?a=1&amp;b=2&amp;c=3&amp;d=4&amp;...,a,b,c是不确定个数的，请获取到?后面的a,b,c...，并写成json的格式如{&#39;a&#39;:1,&#39;b&#39;:2,&#39;c&#39;:3...}"></a>编程题。用原生的方式实现：请获取一串这样的路由 <a href="http://baidu.com?a=1&amp;b=2&amp;c=3&amp;d=4&amp;...,a,b,c是不确定个数的，请获取到?后面的a,b,c...，并写成json的格式如{&#39;a&#39;:1,&#39;b&#39;:2,&#39;c&#39;:3...}" target="_blank" rel="noopener">http://baidu.com?a=1&amp;b=2&amp;c=3&amp;d=4&amp;...,a,b,c是不确定个数的，请获取到?后面的a,b,c...，并写成json的格式如{&#39;a&#39;:1,&#39;b&#39;:2,&#39;c&#39;:3...}</a></h2><p>答案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function GetQueryValue1(queryName) &#123;</span><br><span class="line">    var reg = new RegExp(&quot;(^|&amp;)&quot; + queryName + &quot;=([^&amp;]*)(&amp;|$)&quot;, &quot;i&quot;);</span><br><span class="line">    var r = window.location.search.substr(1).match(reg);</span><br><span class="line">    if ( r != null )&#123;</span><br><span class="line">       return decodeURI(r[2]);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">       return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编程题。请用原生实现。请给id添加事件，并打印出当前li行的索引"><a href="#编程题。请用原生实现。请给id添加事件，并打印出当前li行的索引" class="headerlink" title="编程题。请用原生实现。请给id添加事件，并打印出当前li行的索引"></a>编程题。请用原生实现。请给id添加事件，并打印出当前li行的索引</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=&quot;lzzhy&quot;&gt;</span><br><span class="line">    &lt;li&gt;1&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;2&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;3&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+<p>答案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&apos;id&apos;).addEventListener(&apos;click&apos;, function (e) &#123;</span><br><span class="line">    console.log([...document.getElementById(&apos;id&apos;).childNodes].indexOf(e.target));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="为什么不自己开发-如：webrtc-而要用第三方的"><a href="#为什么不自己开发-如：webrtc-而要用第三方的" class="headerlink" title="为什么不自己开发 如：webrtc,而要用第三方的"></a>为什么不自己开发 如：webrtc,而要用第三方的</h2><p>主要从几个层面考虑</p>
+<ul>
+<li>时间成本</li>
+<li>技术方案的完整性</li>
+<li>实用性</li>
+<li>后期维护</li>
+</ul>
+<h2 id="你在项目主要负责哪些模块"><a href="#你在项目主要负责哪些模块" class="headerlink" title="你在项目主要负责哪些模块"></a>你在项目主要负责哪些模块</h2><p>以odr系列项目为例：</p>
+<ul>
+<li><p>项目概述</p>
+<p>  ODR 在线矛盾纠纷多元化解平台主要是打造集法律咨询、在线评估、投诉、信访、在线调解、司法确认、诉讼服务等功能于一体的纠纷化解平台。有效整合政法委、法院、司法、信访、公安、人社、保险等多个行业的解纷资源。</p>
+</li>
+<li><p>个人职责</p>
+<p>  主要负责案件管理模块、权限管理模块、添加对应eslint自定义配置</p>
+</li>
+<li><p>项目难点</p>
+<p>  语音识别；将后端返回的数据变成树状格式(权限)；</p>
+</li>
+<li><p>工作成果</p>
+<p>  项目上线一周，用户访问量超预期10%以上；</p>
+<p>  性能优化：终端编译速度加快了(通过升级vue-cli)；<a href="https://juejin.cn/post/6874007172578033677#heading-23" target="_blank" rel="noopener">自动化导入对应路由模块</a>；<a href="https://juejin.cn/post/6874007172578033677#heading-24" target="_blank" rel="noopener">模块化注册插件</a>；<a href="https://juejin.cn/post/6874007172578033677#heading-25" target="_blank" rel="noopener">请求接口导出</a>；</p>
+</li>
+</ul>
+<p>深圳八卦岭平安建设中心：   数据大屏 echarts</p>
+<ul>
+<li><p>项目概述<br>  八卦岭基础建设平台主要是以大屏的形式，展示了八卦岭基础建设方面相关数据，可以让用户通过数据的方式，更加直观的了解对应的信息。</p>
+</li>
+<li><p>个人职责</p>
+<p>  数据大屏的技术选型；数据大屏的前端相关工作；</p>
+</li>
+<li><p>技术选型</p>
+<p>  百度地图；echarts；</p>
+</li>
+<li><p>项目难点</p>
+<p>  地图的实现以及地图添加点标记；</p>
+</li>
+</ul>
+<p>关于地图技术选型选择百度地图而不选择echart原因：</p>
+<ul>
+<li>百度地图需要先去百度地图官网申请，完了要新建应用并且和你做的项目要匹配，用的ak也要匹配，使用的时候还要引入bmap.js</li>
+<li>Echarts：需要下载需要的js文件，还要引入对应的echarts文件</li>
+</ul>
+<p>两者相对比：由于该项目之前没有引入过echarts，以及echarts还需要下载所需的js文件，出于性能优化角度考虑为了节省项目代码空间因此选择百度地图。</p>
+<p>地图添加标记是怎么实现的呢？</p>
+<ul>
+<li>先获取百度地图实例：const bmap = chart.getModel().getComponent(‘bmap’).getBMap()</li>
+<li>创建点标记 new BMap.Marker(new BMap.Point(114.09, 22.62))  // 114.09, 22.62 是经纬度</li>
+<li>添加点标记 bmap.addOverlay</li>
+</ul>
 
           
         
