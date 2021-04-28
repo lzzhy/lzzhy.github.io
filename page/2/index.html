@@ -267,6 +267,193 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/小程序笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lzzhy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzzhy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/小程序笔记/" itemprop="url">小程序笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-11-20T16:42:32+08:00">
+                2020-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/小程序笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/小程序笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.5k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="二进制流如何转化为图片并展示"><a href="#二进制流如何转化为图片并展示" class="headerlink" title="二进制流如何转化为图片并展示"></a>二进制流如何转化为图片并展示</h2><p>二进制流、Base64、图片(文件)之间是可以相互转换的：</p>
+<blockquote>
+<p>file是文件，如图像文件.jpg等，Base64str 是文件转成的base64字符串</p>
+</blockquote>
+<p>需求：需要将二维码展示在页面上</p>
+<p>接口返回直接是一张图片：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG6.png" alt="cmd-markdown-logo"><br>将接口返回的这张图片打印出来是这样的：<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/WechatIMG7.png" alt="cmd-markdown-logo"></p>
+<p>问题分析：</p>
+<ul>
+<li>由于只返回一张图片，跟项目封装的接口请求不同（项目中封装的是返回code,data,message），因此得自己重新写过接口请求。</li>
+<li>二进制流的图片已经通过接口请求回来了，但是要怎么转化成图片链接并展示在页面上。</li>
+</ul>
+<h3 id="小程序端"><a href="#小程序端" class="headerlink" title="小程序端"></a>小程序端</h3><p>小程序端选择的是 wepy.request 请求方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- wxml部分 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;image  src=&apos;&#123;&#123;imgurl&#125;&#125;&apos;&gt;&lt;/image&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- js部分 --&gt;</span><br><span class="line"></span><br><span class="line">onShow() &#123;</span><br><span class="line">    launchQrCode(&#123;id: this.id&#125;, this.id).then((data = &#123;&#125;) =&gt; &#123;</span><br><span class="line">        var indexs = data.lastIndexOf(&quot;\/&quot;);</span><br><span class="line">        var lastStr =  data.substring(indexs + 1, data.length);</span><br><span class="line">        wepy.request(&#123;   // 使用wepy.request来请求接口，仿照接口封装的函数写的</span><br><span class="line">            data: &#123;shortQrCodeUrl: lastStr&#125;, // 接口需要的入参</span><br><span class="line">            headers: &#123;&apos;token&apos;: this.userInfo.token,&apos;UserId&apos;:this.userInfo.userId, &apos;USER_ID&apos;:this.userInfo.userId&#125;,  // 接口需要的头参，一般在登录后会保存在storage</span><br><span class="line">            url: `/sjzmt-backend-web/qrcode/showQrCode/$&#123;lastStr&#125;`, // 接口路径（域名货端口要有）</span><br><span class="line">            responseType: &apos;arraybuffer&apos;   // 这一行非常重要，重中之重</span><br><span class="line">        &#125;).then((data = &#123;&#125;) =&gt; &#123;</span><br><span class="line">            this.$apply()</span><br><span class="line">        &#125;).catch((data = &#123;&#125;) =&gt; &#123;</span><br><span class="line">            // 将二进制流转化为image能识别的</span><br><span class="line">            var base64 = wx.arrayBufferToBase64(data);</span><br><span class="line">            this.setData(&#123; imgurl:&quot;data:image/PNG;base64,&quot;+ base64&#125;)</span><br><span class="line">            this.$apply()</span><br><span class="line">        &#125;)</span><br><span class="line">        this.$apply()</span><br><span class="line">    &#125;).catch(e =&gt; &#123;</span><br><span class="line">        this.$apply()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="web端"><a href="#web端" class="headerlink" title="web端"></a>web端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- html部分 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;image src=&apos;&#123;&#123;imgurl&#125;&#125;&apos;&gt;&lt;/image&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- js部分 --&gt;</span><br><span class="line">import axios from &apos;axios&apos;</span><br><span class="line">import &#123; baseURL &#125; from &apos;@/config/index&apos;</span><br><span class="line"></span><br><span class="line">const splitQRcode = res.data.split(&apos;/&apos;)</span><br><span class="line">let instance, imgurl = `$&#123;baseURL&#125;sjzmt-backend-web/qrcode/showQrCode/$&#123;splitQRcode[splitQRcode.length - 1]&#125;`  // imgurl请求的接口：http://123.206.197.169:18050/sjzmt-backend-web/qrcode/showQrCode/aaaacF</span><br><span class="line">instance = axios.create(&#123;  // 这些头参一般也是在storage里的</span><br><span class="line">    headers: &#123;&apos;token&apos;: localStorage.getItem(&apos;JWTToken&apos;),</span><br><span class="line">    &apos;UserId&apos;:localStorage.getItem(&apos;UserId&apos;), </span><br><span class="line">    &apos;USER_ID&apos;:localStorage.getItem(&apos;UserId&apos;)&#125;</span><br><span class="line">&#125;)</span><br><span class="line">instance(&#123;</span><br><span class="line">    method: &apos;post&apos;,</span><br><span class="line">    url: imgurl,</span><br><span class="line">    responseType: &apos;arraybuffer&apos;  // 这一行非常重要，重中之重</span><br><span class="line">&#125;).then(res =&gt; &#123;</span><br><span class="line">    this.showQrCodeIMG = window.URL.createObjectURL(new Blob([res.data],&#123;type:&apos;image/png;charset=UTF-8&apos; &#125;));  // 二进制流转化</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="小程序的-this-apply"><a href="#小程序的-this-apply" class="headerlink" title="小程序的 this.$apply()"></a>小程序的 this.$apply()</h2><p>this.$apply()使用场景：</p>
+<ul>
+<li>异步更新数据</li>
+<li>手动刷新DOM</li>
+</ul>
+<p>注：在小程序中：methods里面的方法是不用这个的，但methods里面只能放bindtap这类方法。所以你自己定义的其他方法，或者写在onshow里面的，就必须得用this.$apply()。</p>
+<h2 id="列表页展示数据并下拉刷新"><a href="#列表页展示数据并下拉刷新" class="headerlink" title="列表页展示数据并下拉刷新"></a>列表页展示数据并下拉刷新</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- wxml部分 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;view wx:for=&quot;&#123;&#123; disputeCaseList &#125;&#125;&quot; wx:key=&quot;index&quot;&gt;需要循环渲染的数据&lt;/view&gt;</span><br><span class="line"></span><br><span class="line">&lt;view wx:if=&quot;&#123;&#123;disputeCaseList.length &gt; 0&#125;&#125;&quot; class=&quot;no-more&quot;&gt; ---- 已经到底了 ---- &lt;/view&gt;</span><br><span class="line">&lt;view wx:if=&quot;&#123;&#123; nodata &amp;&amp; !loading &#125;&#125;&quot; class=&quot;nodata-view&quot;&gt;</span><br><span class="line">    &lt;view class=&quot;nodata-view__icon&quot;&gt;&lt;view class=&quot;icon icon-tijianbaogaochaxun&quot;&gt;&lt;/view&gt;&lt;/view&gt;</span><br><span class="line">    &lt;view class=&quot;nodata-view__label&quot;&gt;当前无调解&lt;/view&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;</span><br><span class="line">    disputeCaseList: [],  // 列表数据</span><br><span class="line">    nodata: false,</span><br><span class="line">    loading: false,</span><br><span class="line">    nomore: false,</span><br><span class="line">    itemCount: Number,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 页面上拉刷新触发底部函数 --&gt;</span><br><span class="line">onReachBottom() &#123;</span><br><span class="line">    this.onPullup()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">onPullup(type, cb) &#123;  // 请求列表</span><br><span class="line">    if (this.nodata || this.nomore || this.loading)  // 若没有数据，或已加载完，或正在加载，则不做处理  return</span><br><span class="line">    const &#123; pageNum &#125; = this</span><br><span class="line">    let params = &#123;</span><br><span class="line">        pageIndex: pageNum + 1,</span><br><span class="line">        pageSize: 5,</span><br><span class="line">        keyword: this.keyWords ? this.keyWords : &apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    // 开启加载状态</span><br><span class="line">    this.loading = true</span><br><span class="line">    getDisputeList(params).then((data = &#123;&#125;) =&gt; &#123;</span><br><span class="line">        this.loading = false</span><br><span class="line">        this.disputeCaseList = this.disputeCaseList.concat(data.records || [])  // 每一页5条数据，每加载一次就把数据往里塞</span><br><span class="line">        this.itemCount = data.total || 0</span><br><span class="line">        // 计算是否有数据</span><br><span class="line">        this.nodata = this.itemCount === 0</span><br><span class="line">        // 计算是否已加载完</span><br><span class="line">        this.nomore = !this.nodata &amp;&amp; this.disputeCaseList.length === this.itemCount</span><br><span class="line">        // 若未加载完，则页码加1</span><br><span class="line">        if (!this.nodata &amp;&amp; !this.nomore) &#123;</span><br><span class="line">            this.pageNum++</span><br><span class="line">        &#125;</span><br><span class="line">        this.$apply()</span><br><span class="line">        cb &amp;&amp; cb()</span><br><span class="line">    &#125;).catch(e =&gt; &#123;</span><br><span class="line">        // 关闭加载状态</span><br><span class="line">        this.loading = false</span><br><span class="line">        this.$apply()</span><br><span class="line">        cb &amp;&amp; cb()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">onShow() &#123;</span><br><span class="line">    this.loading = false</span><br><span class="line">    this.nodata = false</span><br><span class="line">    this.nomore = false</span><br><span class="line">    this.disputeCaseList = []</span><br><span class="line">    this.pageNum = 0</span><br><span class="line">    this.itemCount = 0</span><br><span class="line">    this.onPullup()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 小程序循环数组中要通过 data-xxx=&quot;&#123;&#123;&#125;&#125;&quot;来获取对应数据： --&gt;</span><br><span class="line"></span><br><span class="line">&lt;view wx:for=&quot;&#123;&#123; disputeCaseList &#125;&#125;&quot; data-disputeNo=&quot;&#123;&#123;item.disputeNo&#125;&#125;&quot; wx:key=&quot;index&quot;&gt;</span><br><span class="line">    需要循环渲染的数据</span><br><span class="line">    &lt;button class=&quot;button&quot; @tap=&quot;toCaseDetail(&apos;&#123;&#123;item&#125;&#125;&apos;)&quot;&gt;纠纷详情&lt;/button&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 跳转 --&gt;</span><br><span class="line"></span><br><span class="line">toCaseDetail(item) &#123;</span><br><span class="line">    wx.navigateTo(&#123;</span><br><span class="line">        url: `/pages/home/case-detail?disputeNo=$&#123;item.disputeNo&#125;&amp;id=$&#123;item.id&#125;`</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!-- 被跳转页获取跳转时带来的参数 --&gt;</span><br><span class="line"></span><br><span class="line">onLoad(options) &#123;  // 获取前一个页面传来的参数</span><br><span class="line">    this.disputeNo = options.disputeNo</span><br><span class="line">    this.id = options.id</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>跳转到另一个页面的第二个tab：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 页面内跳转 到另一个页面的tab --&gt;</span><br><span class="line">toProcessDetail(item) &#123;</span><br><span class="line">    wx.navigateTo(&#123;</span><br><span class="line">        url: `/pages/home/case-detail?active=3&amp;disputeNo=$&#123;item.disputeNo&#125;&amp;id=$&#123;item.id&#125;`</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">再到被跳转页设置 tab 的 active = 3</span><br></pre></td></tr></table></figure>
+
+<h2 id="表单提交"><a href="#表单提交" class="headerlink" title="表单提交"></a>表单提交</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;form bindsubmit=&quot;formSubmit&quot;&gt;</span><br><span class="line">    &lt;view class=&quot;flex margin-b36 text-box&quot;&gt; </span><br><span class="line">        &lt;view class=&quot;font-m font-w400 current-view&quot;&gt;纠纷类型&lt;/view&gt;</span><br><span class="line">        &lt;textarea auto-height disabled=&quot;&#123;&#123;isAble&#125;&#125;&quot; value=&quot;&#123;&#123;caseInformationData.disputeTypeName&#125;&#125;&quot; name=&quot;disputeTypeName&quot; placeholder=&quot;请输入纠纷类型&quot; maxlength=&quot;500&quot;/&gt;  // 小程序文本框随着字数增多自动换行增高，每个输入框的nama要唯一</span><br><span class="line">    &lt;/view&gt;</span><br><span class="line">    &lt;button form-type=&quot;submit&quot; @tap=&quot;submiSave&quot;&gt;保存&lt;/button&gt;  // 得使用button才生效，view没用</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">formSubmit(e) &#123; // e.detail.value里面取表单中的value值</span><br><span class="line">    this.disputeTypeName = e.detail.value.disputeTypeName</span><br><span class="line"></span><br><span class="line">    // 接口请求</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">submiSave() &#123;</span><br><span class="line">    this.isAble = true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/大前端学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2013,7 +2200,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  8.2k
+                  8.7k
                 </span>
               
 
@@ -2173,7 +2360,23 @@
 <li>@import需要 IE5 以上才能使用</li>
 <li>link可以使用 js 动态引入，@import不行</li>
 </ul>
-<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="你知道哪些前端方面的性能优化"><a href="#你知道哪些前端方面的性能优化" class="headerlink" title="你知道哪些前端方面的性能优化"></a>你知道哪些前端方面的性能优化</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/WechatIMG39.jpeg" alt="cmd-markdown-logo"></p>
+<h3 id="0-1-0-2-不等于-0-3-？为什么-js-会有这种骚操作？"><a href="#0-1-0-2-不等于-0-3-？为什么-js-会有这种骚操作？" class="headerlink" title="0.1 + 0.2 不等于 0.3 ？为什么 js 会有这种骚操作？"></a>0.1 + 0.2 不等于 0.3 ？为什么 js 会有这种骚操作？</h3><p>在控制台输出是这个结果：</p>
+<p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/WechatIMG1.png" alt="cmd-markdown-logo"></p>
+<p>在这个问题中我们要关注的是：<code>为什么会出现这样的结果？哪一步出了问题？还有哪些计算会出现这样的问题？怎么解决？</code></p>
+<p><a href="https://juejin.cn/post/6844903680362151950" target="_blank" rel="noopener">参考链接,点我</a></p>
+<h3 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let p = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    console.log(1)</span><br><span class="line">    resolve()</span><br><span class="line">&#125;) </span><br><span class="line">console.log(2)</span><br><span class="line">p.then(() =&gt; &#123;</span><br><span class="line">    console.log(3)</span><br><span class="line">&#125;)    // 1,2,3</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let p = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    console.log(1)</span><br><span class="line">&#125;) </span><br><span class="line">console.log(2)</span><br><span class="line">p.then(() =&gt; &#123;</span><br><span class="line">    console.log(3)</span><br><span class="line">&#125;)    // 1,2 因为p里面没有resolve不是成功状态，因此p.then是没有执行的</span><br></pre></td></tr></table></figure>
+
+<h3 id="var和let在循环中的区别"><a href="#var和let在循环中的区别" class="headerlink" title="var和let在循环中的区别"></a>var和let在循环中的区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var i = 0;i &lt; 3;i ++) &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        console.log(i)  // 3,3,3</span><br><span class="line">    &#125;, 1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(let i = 0;i &lt; 3;i ++) &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        console.log(i)  // 0,1,2</span><br><span class="line">    &#125;, 1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>原因：因为let存在块级作用域</p>
+<h3 id="css-水平垂直居中方案可以说出多少"><a href="#css-水平垂直居中方案可以说出多少" class="headerlink" title="css 水平垂直居中方案可以说出多少"></a>css 水平垂直居中方案可以说出多少</h3><p><a href="https://juejin.cn/post/6844903982960214029#heading-2" target="_blank" rel="noopener">参考链接,点我</a></p>
+<h3 id="route和-router的区别，前端路由"><a href="#route和-router的区别，前端路由" class="headerlink" title="$route和$router的区别，前端路由"></a>$route和$router的区别，前端路由</h3><h3 id="说说你对webpack的理解"><a href="#说说你对webpack的理解" class="headerlink" title="说说你对webpack的理解"></a>说说你对webpack的理解</h3><h3 id="了解项目部署的流程吗"><a href="#了解项目部署的流程吗" class="headerlink" title="了解项目部署的流程吗"></a>了解项目部署的流程吗</h3><h3 id="MVVM-是什么"><a href="#MVVM-是什么" class="headerlink" title="MVVM 是什么"></a>MVVM 是什么</h3><h3 id="v-if和v-show的区别"><a href="#v-if和v-show的区别" class="headerlink" title="v-if和v-show的区别"></a>v-if和v-show的区别</h3><h3 id="v-for里的key值"><a href="#v-for里的key值" class="headerlink" title="v-for里的key值"></a>v-for里的key值</h3><h3 id="vue实现原理"><a href="#vue实现原理" class="headerlink" title="vue实现原理"></a>vue实现原理</h3><h3 id="说说对vue生命周期的理解，并说出哪里使用到了他们"><a href="#说说对vue生命周期的理解，并说出哪里使用到了他们" class="headerlink" title="说说对vue生命周期的理解，并说出哪里使用到了他们"></a>说说对vue生命周期的理解，并说出哪里使用到了他们</h3><h3 id="vue-里面的-data-为什么需要-return"><a href="#vue-里面的-data-为什么需要-return" class="headerlink" title="vue 里面的 data 为什么需要 return"></a>vue 里面的 data 为什么需要 return</h3><h3 id="vue中详情页返回列表后在点击进详情，怎么在不重新请求数据的情况下让数据还存在"><a href="#vue中详情页返回列表后在点击进详情，怎么在不重新请求数据的情况下让数据还存在" class="headerlink" title="vue中详情页返回列表后在点击进详情，怎么在不重新请求数据的情况下让数据还存在"></a>vue中详情页返回列表后在点击进详情，怎么在不重新请求数据的情况下让数据还存在</h3><p>通过keep-alive</p>
+<h3 id="组件传值方式"><a href="#组件传值方式" class="headerlink" title="组件传值方式"></a>组件传值方式</h3><h3 id="说说对vuex的理解"><a href="#说说对vuex的理解" class="headerlink" title="说说对vuex的理解"></a>说说对vuex的理解</h3><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
 <li>Boolean</li>
 <li>Number</li>
 <li>String</li>
@@ -2183,7 +2386,8 @@
 <li>Object</li>
 </ul>
 <p>(ES6之前)其中5种为基本类型:string,number,boolean,null,undefined，ES6出来的Symbol也是原始数据类型(表示独一无二的值)。Object 为引用类型(范围挺大，也包括数组、函数)</p>
-<h3 id="typeof-判断基本类型，-instanceof-判断引用类型"><a href="#typeof-判断基本类型，-instanceof-判断引用类型" class="headerlink" title="typeof 判断基本类型， instanceof 判断引用类型"></a>typeof 判断基本类型， instanceof 判断引用类型</h3><p>基本类型的判断 <code>typeof</code>：</p>
+<h3 id="基本类型和应用类型的判断"><a href="#基本类型和应用类型的判断" class="headerlink" title="基本类型和应用类型的判断"></a>基本类型和应用类型的判断</h3><p>typeof可以区别基本类型和引用类型，但是不太准确(如：typeof null 也为 Object)； instanceof 只能判断是否为引用类型，但不能具体判断出是哪种引用类型；Object.prototype.toString 可以判断出具体为哪种引用类型；</p>
+<p>typeof：</p>
 <ul>
 <li><p>可以判断是哪种基本数据类型，null除外</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typeof(null) //object 这是浏览器的Bug</span><br></pre></td></tr></table></figure>
@@ -2191,17 +2395,20 @@
 <li><p>可以判断是否为函数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typeof function()&#123;&#125; // &apos;function&apos;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>可以判断是否为引用类型</p>
+<li><p>可以判断是否为引用类型：结果都为object</p>
 </li>
 </ul>
-<p>引用类型的判断 <code>instanceof</code>(xxx instanceof Object),如：</p>
+<p>instanceof（ 使用方法：xxx instanceof Object ）：</p>
 <p>数组：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1,2] instanceof Object // true</span><br></pre></td></tr></table></figure>
 
 <p>null：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">null instanceof Object  // false</span><br></pre></td></tr></table></figure>
 
-<p>使用typeof可以可以区别基本类型和引用类型，但是不太准确(如：typeof null 也为 Object),但是使用 instanceof 就不会了</p>
+<p>Object.prototype.toString：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function flagType(obj) &#123;  // 封装的方法</span><br><span class="line">    return Object.prototype.toString.call(obj).slice(8,-1).toLowerCase()</span><br><span class="line">&#125;</span><br><span class="line">typeOf([])        // &apos;array&apos;</span><br><span class="line">typeOf(&#123;&#125;)        // &apos;object&apos;</span><br><span class="line">typeOf(new Date)  // &apos;date&apos;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://javascript.ruanyifeng.com/stdlib/object.html#toc8" target="_blank" rel="noopener">具体参考阮一峰对Object.prototype.toString的讲解</a></p>
 <h3 id="引用类型相等判断"><a href="#引用类型相等判断" class="headerlink" title="引用类型相等判断"></a>引用类型相等判断</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let obj1 = &#123;</span><br><span class="line">    name: &apos;lzzhy&apos;,</span><br><span class="line">    age: 18</span><br><span class="line">&#125;</span><br><span class="line">let obj2 = &#123;</span><br><span class="line">    name: &apos;lzzhy&apos;,</span><br><span class="line">    age: 18</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(obj1 == obj2)  // false</span><br></pre></td></tr></table></figure>
@@ -2717,179 +2924,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/工作笔记-权限分配/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lzzhy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lzzhy Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/工作笔记-权限分配/" itemprop="url">工作笔记-权限分配</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-12T15:10:16+08:00">
-                2019-12-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/工作笔记-权限分配/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/工作笔记-权限分配/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.1k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>基于Vue下的权限配置功能！！！fighting</p>
-<p>这是两层结构的。</p>
-<h3 id="需求：添加-编辑-查看权限功能"><a href="#需求：添加-编辑-查看权限功能" class="headerlink" title="需求：添加/编辑/查看权限功能"></a>需求：添加/编辑/查看权限功能</h3><p><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E6%9D%83%E9%99%90%E9%85%8D%E7%BD%AE/WechatIMG3.png" alt="cmd-markdown-logo"></p>
-<h3 id="添加实现步骤"><a href="#添加实现步骤" class="headerlink" title="添加实现步骤"></a>添加实现步骤</h3><h4 id="请求到整个的权限数据，并对数据进行整理-将菜单名单和可选菜单分开"><a href="#请求到整个的权限数据，并对数据进行整理-将菜单名单和可选菜单分开" class="headerlink" title="请求到整个的权限数据，并对数据进行整理(将菜单名单和可选菜单分开)"></a>请求到整个的权限数据，并对数据进行整理(将菜单名单和可选菜单分开)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 获取整个角色菜单</span><br><span class="line">listMenuInfoToRole().then((res) =&gt; &#123;</span><br><span class="line">    if (res.data.code === 1000) &#123;</span><br><span class="line">        let data = res.data.data; //获取到的是整个没有规律的数据</span><br><span class="line">        if(this.$route.query.id) &#123;</span><br><span class="line">            this.fetchSearchBackstageUser();</span><br><span class="line">        &#125; </span><br><span class="line">        //对数据进行处理，根据parent和id将数据区分开</span><br><span class="line">        var menulist = [];</span><br><span class="line">        for (let i = 0, l = data.length; i &lt; l; i++) &#123;</span><br><span class="line">            let obj = &#123;</span><br><span class="line">                parent: &apos;&apos;,</span><br><span class="line">                child: []</span><br><span class="line">            &#125;;</span><br><span class="line">            if (data[i].parentId === 0) &#123;</span><br><span class="line">                obj.parent = data[i];</span><br><span class="line">                menulist.push(obj); //menulist 已经将数据层级区分开了</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (let i = 0, l = data.length; i &lt; l; i++) &#123;</span><br><span class="line">            for (let j = 0, jl = menulist.length; j &lt; jl; j++) &#123;</span><br><span class="line">                if (data[i].parentId === menulist[j].parent.id) &#123;</span><br><span class="line">                    menulist[j].child.push(data[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        this.rolemenu = menulist; // 处理后的数据</span><br><span class="line">        this.menuList = data; //没处理过的原数据</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, (err) =&gt; &#123;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>如下图:<br><img src="https://lzzhy.oss-cn-beijing.aliyuncs.com/blog/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0-%E6%9D%83%E9%99%90%E9%85%8D%E7%BD%AE/WechatIMG4.png" alt="cmd-markdown-logo"></p>
-<h4 id="将数据展示在页面上"><a href="#将数据展示在页面上" class="headerlink" title="将数据展示在页面上"></a>将数据展示在页面上</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 结果</span><br><span class="line">&lt;div class=&quot;rolemenu-box&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;rolemenu&quot; v-for=&quot;(item, index) in rolemenu&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;parent-name&quot;&gt;&#123;&#123;item.parent.menuName&#125;&#125;&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;list-mid&quot;&gt;</span><br><span class="line">                &lt;el-checkbox</span><br><span class="line">                    v-model=&quot;roleAuth[item.parent.id]&quot;</span><br><span class="line">                    @change=&quot;checked =&gt; handleChecked(checked, item.parent.id, &apos;all&apos;)&quot;</span><br><span class="line">                    :disabled=&quot;disableEdit&quot;</span><br><span class="line">                &gt;全选&lt;/el-checkbox&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;roleMenu-right&quot;&gt;</span><br><span class="line">                &lt;el-checkbox</span><br><span class="line">                    v-for=&quot;(role) in item.child&quot;</span><br><span class="line">                    :key=&quot;role.id&quot;</span><br><span class="line">                    :label=&quot;role.id&quot;</span><br><span class="line">                    v-model=&quot;roleAuth[role.id]&quot;</span><br><span class="line">                    @change=&quot;checked =&gt; handleChecked(checked, role.id)&quot;</span><br><span class="line">                    :disabled=&quot;disableEdit&quot;</span><br><span class="line">                &gt;&#123;&#123;role.menuName&#125;&#125;&lt;/el-checkbox&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">// 样式</span><br><span class="line">.rolemenu-box &#123;</span><br><span class="line">    border-bottom: 1px solid rgb(228, 232, 237);</span><br><span class="line">    border-left: 1px solid rgb(228, 232, 237);</span><br><span class="line">    border-right: 1px solid rgb(228, 232, 237);</span><br><span class="line">    .rolemenu &#123;</span><br><span class="line">        display: -webkit-box;</span><br><span class="line">        display: -ms-flexbox;</span><br><span class="line">        display: flex;</span><br><span class="line">        border: 1px solid #e4e8ed;</span><br><span class="line">        font-size: 14px;</span><br><span class="line">        color: #333;</span><br><span class="line">        background: #fafafa;</span><br><span class="line">        .el-checkbox &#123;</span><br><span class="line">            text-align: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .parent-name &#123;</span><br><span class="line">            padding-left: 40px;</span><br><span class="line">            height: 70px;</span><br><span class="line">            line-height: 70px;</span><br><span class="line">            width: 107px;</span><br><span class="line">        &#125;</span><br><span class="line">        .list-mid &#123;</span><br><span class="line">            padding-left: 30px;</span><br><span class="line">            height: 70px;</span><br><span class="line">            line-height: 70px;</span><br><span class="line">            width: 80px;</span><br><span class="line">        &#125;</span><br><span class="line">        .roleMenu-right &#123;</span><br><span class="line">            flex: 1;</span><br><span class="line">            padding-left: 30px;</span><br><span class="line">            text-align: left;</span><br><span class="line">            height: 70px;</span><br><span class="line">            line-height: 70px;</span><br><span class="line">            font-size: 14px;</span><br><span class="line">            color: rgb(153, 153, 153);</span><br><span class="line">            .el-checkbox-group &#123;</span><br><span class="line">                display: inline-block;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="获取选中的id"><a href="#获取选中的id" class="headerlink" title="获取选中的id"></a>获取选中的id</h4><p>1.先对原始数据<strong>this.result</strong>进行处理：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">    permissionData() &#123;</span><br><span class="line">        const result = &#123;&#125;;</span><br><span class="line">        this.menuList.forEach(item =&gt; &#123;</span><br><span class="line">            if (item.parentId === 0) &#123;</span><br><span class="line">                if (!result[item.id]) &#123;</span><br><span class="line">                    result[item.id] = [];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                if (result[item.parentId]) &#123;</span><br><span class="line">                    result[item.parentId] = [...result[item.parentId], item];</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    result[item.parentId] = [item]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<p>2.@change绑定的函数<strong>handleChecked</strong>函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">handleChecked(val, checkId, allFlag) &#123;</span><br><span class="line">    const parentId = this.menuList.filter(item =&gt; item.id == checkId)[0].parentId;</span><br><span class="line">    if (allFlag) &#123;</span><br><span class="line">        if(parentId == 0) &#123;</span><br><span class="line">            this.permissionData[checkId].forEach(item =&gt; &#123;</span><br><span class="line">                this.$set(this.roleAuth, item.id, val)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            const groupArr = this.permissionData[parentId];</span><br><span class="line">            const checkGroup = groupArr.filter(item =&gt; this.roleAuth[item] &amp;&amp; !!this.roleAuth[item]);</span><br><span class="line">            if (checkGroup.length === groupArr.length) &#123;</span><br><span class="line">                this.$set(this.roleAuth, parentId, true)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                this.$set(this.roleAuth, parentId, false)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        if (parentId == 0) &#123;</span><br><span class="line">            this.permissionData[checkId].forEach(item =&gt; &#123;</span><br><span class="line">                this.$set(this.roleAuth, item.id, val)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            const checkGroup = this.permissionData[parentId].filter(item =&gt; this.roleAuth[item.id] &amp;&amp; !!this.roleAuth[item.id]);</span><br><span class="line">            if (checkGroup.length === this.permissionData[parentId].length) &#123;</span><br><span class="line">                this.$set(this.roleAuth, parentId, true)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                this.$set(this.roleAuth, parentId, false)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<h4 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h4><p><strong>menuIds</strong>：选中的id,包括parentId</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">let result = Object.keys(this.roleAuth).filter(item =&gt; !!this.roleAuth[item]);</span><br><span class="line">let resultId, midResultId;</span><br><span class="line">if (result.length &gt; 0) &#123;</span><br><span class="line">    let tempLength = result.length</span><br><span class="line">    for (let i = 0; i &lt; tempLength; i++) &#123;</span><br><span class="line">        resultId = this.menuList.filter((item) =&gt; item.id == result[i])</span><br><span class="line">        for (let j = 0; j &lt; resultId.length; j++) &#123;</span><br><span class="line">            resultId.length &gt; 0 &amp;&amp; result.push(resultId[j].parentId);</span><br><span class="line">        &#125;</span><br><span class="line">        // 带入用户管理层id</span><br><span class="line">        for (let m = 0; m &lt; resultId.length; m++) &#123;</span><br><span class="line">            if (resultId[m].parentId) &#123;</span><br><span class="line">                midResultId = this.menuList.filter((item) =&gt; item.id == resultId[m].parentId);  // 匹配选中的父级</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let resultNumber = [];</span><br><span class="line">for (var i = 0; i &lt; result.length; i++) &#123;</span><br><span class="line">    resultNumber.push(parseInt(result[i]));</span><br><span class="line">&#125;</span><br><span class="line">let roleNum = [];</span><br><span class="line">for (var i = 0; i &lt; resultNumber.length; i++) &#123;</span><br><span class="line">    if (resultNumber[i] !== 0) &#123;</span><br><span class="line">        roleNum.push(resultNumber[i])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let roleAuth = new Set(roleNum);</span><br><span class="line">const menuIds = Array.from(roleAuth); // menuIds就是要传给后端的所有选中的id</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><p>回填时展示页面显示的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">searchBackstageUser(&#123;userId: this.$route.query.id&#125;).then(res =&gt; &#123;</span><br><span class="line">    var ArrayMenuInfos = res.data.data.menuInfos.split(&apos;,&apos;);</span><br><span class="line">    ArrayMenuInfos.forEach(item =&gt; &#123;</span><br><span class="line">        const parentIds = Object.keys(this.permissionData);</span><br><span class="line">        if (parentIds.includes(String(item))) &#123;</span><br><span class="line">            const child = this.permissionData[item];</span><br><span class="line">            const check = child.filter(c =&gt; &#123;</span><br><span class="line">        &#125;);</span><br><span class="line">        this.$set(this.roleAuth, item, true);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        this.$set(this.roleAuth, item, true);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2937,7 +2976,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

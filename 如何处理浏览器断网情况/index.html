@@ -81,17 +81,14 @@
 
 
 
-<meta name="description" content="本文主要介绍 npm 脚本(npm scripts) 什么是 npm 脚本定义在 package.json（npm init -y） 里面的脚本，就称之为 npm 脚本。使用 scripts 字段定义脚本命令。如： 12345&amp;quot;scripts&amp;quot;: &amp;#123;    &amp;quot;serve&amp;quot;: &amp;quot;node build.js&amp;quot;&amp;#125;,//  :">
 <meta property="og:type" content="article">
-<meta property="og:title" content="package.json 中的 npm 脚本(npm scripts)使用指南">
-<meta property="og:url" content="https://lzzhy.cn/package.json 中的 npm 脚本(npm scripts)使用指南/index.html">
+<meta property="og:title" content="如何处理浏览器断网情况">
+<meta property="og:url" content="https://lzzhy.cn/如何处理浏览器断网情况/index.html">
 <meta property="og:site_name" content="lzzhy Blog">
-<meta property="og:description" content="本文主要介绍 npm 脚本(npm scripts) 什么是 npm 脚本定义在 package.json（npm init -y） 里面的脚本，就称之为 npm 脚本。使用 scripts 字段定义脚本命令。如： 12345&amp;quot;scripts&amp;quot;: &amp;#123;    &amp;quot;serve&amp;quot;: &amp;quot;node build.js&amp;quot;&amp;#125;,//  :">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-10-14T07:56:36.597Z">
+<meta property="og:updated_time" content="2021-04-28T02:04:56.193Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="package.json 中的 npm 脚本(npm scripts)使用指南">
-<meta name="twitter:description" content="本文主要介绍 npm 脚本(npm scripts) 什么是 npm 脚本定义在 package.json（npm init -y） 里面的脚本，就称之为 npm 脚本。使用 scripts 字段定义脚本命令。如： 12345&amp;quot;scripts&amp;quot;: &amp;#123;    &amp;quot;serve&amp;quot;: &amp;quot;node build.js&amp;quot;&amp;#125;,//  :">
+<meta name="twitter:title" content="如何处理浏览器断网情况">
 
 
 
@@ -121,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="https://lzzhy.cn/package.json 中的 npm 脚本(npm scripts)使用指南/">
+  <link rel="canonical" href="https://lzzhy.cn/如何处理浏览器断网情况/">
 
 
 
 
 
-  <title>package.json 中的 npm 脚本(npm scripts)使用指南 | lzzhy Blog</title>
+  <title>如何处理浏览器断网情况 | lzzhy Blog</title>
   
 
 
@@ -270,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/package.json 中的 npm 脚本(npm scripts)使用指南/">
+    <link itemprop="mainEntityOfPage" href="https://lzzhy.cn/如何处理浏览器断网情况/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lzzhy">
@@ -287,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">package.json 中的 npm 脚本(npm scripts)使用指南</h1>
+          <h1 class="post-title" itemprop="name headline">如何处理浏览器断网情况</h1>
         
 
         <div class="post-meta">
@@ -299,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-14T15:05:35+08:00">
-                2020-10-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-28T10:04:56+08:00">
+                2021-04-28
               </time>
             
 
@@ -318,8 +315,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/package.json 中的 npm 脚本(npm scripts)使用指南/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/package.json 中的 npm 脚本(npm scripts)使用指南/" itemprop="commentCount"></span>
+                <a href="/如何处理浏览器断网情况/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/如何处理浏览器断网情况/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -346,7 +343,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  837
+                  0
                 </span>
               
 
@@ -371,45 +368,7 @@
       
 
       
-        <p>本文主要介绍 npm 脚本(npm scripts)</p>
-<h3 id="什么是-npm-脚本"><a href="#什么是-npm-脚本" class="headerlink" title="什么是 npm 脚本"></a>什么是 npm 脚本</h3><p>定义在 package.json（npm init -y） 里面的脚本，就称之为 npm 脚本。使用 scripts 字段定义脚本命令。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;serve&quot;: &quot;node build.js&quot;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">//  : 前面的是自己定义的，: 后面的是一些框架，库的语法，因此执行 npm run serve === node build.js</span><br></pre></td></tr></table></figure>
-
-<p>npm 脚本的优点有很多：</p>
-<ul>
-<li>项目相关脚本，可以集中在一起</li>
-<li>不同项目的脚本命令，只要功能相同，就可以有同样的对外接口。用户不需要知道怎么测试你的项目，只要运行npm run test即可</li>
-<li>可以利用 npm 提供的很多辅助功能</li>
-</ul>
-<p>查看当前项目的所有 npm 脚本命令，可以使用不带任何参数的 npm run 命令</p>
-<h3 id="npm-脚本原理"><a href="#npm-脚本原理" class="headerlink" title="npm 脚本原理"></a>npm 脚本原理</h3><p>每当执行 npm run，就会自动新建一个 Shell，在这个 Shell 里面执行脚本命令。因此，只要是 Shell(或者 Bash)可以执行的命令，都可以写在脚本中</p>
-<p>比较特别的是，npm run 新建的 Shell，会将当前目录 node_modules/.bin 的子目录加入 PATH 变量，执行结束后，再把 PATH 恢复原样。<br>这就意味着，当前目录的node_modules/.bin子目录里面的所有脚本，都可以直接用脚本名调用，而不必加上路径。比如，当前项目的依赖里面有 Babel，只要直接写 Babel test就可以了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;test&quot;: &quot;Babel test&quot;</span><br></pre></td></tr></table></figure>
-
-<p>而不用写成下面这样:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;test&quot;: &quot;./node_modules/.bin/Babel test&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="npm-脚本使用通配符"><a href="#npm-脚本使用通配符" class="headerlink" title="npm 脚本使用通配符"></a>npm 脚本使用通配符</h3><p>由于 npm 脚本就是 Shell 脚本，因此可以使用 Shell 通配符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- * 表示任意文件名，** 表示任意一层子目录 --&gt;</span><br><span class="line"></span><br><span class="line">&quot;lint&quot;: &quot;jshint *.js&quot;</span><br><span class="line">&quot;lint&quot;: &quot;jshint **/*.js&quot;</span><br></pre></td></tr></table></figure>
-
-<p>如果要将通配符传入原始命令，防止被 Shell 转义，要将星号转义：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;test&quot;: &quot;tap test/\*.js&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="npm-脚本传参"><a href="#npm-脚本传参" class="headerlink" title="npm 脚本传参"></a>npm 脚本传参</h3><p>向 npm 脚本传参，要使用 – 标明，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;lint&quot;: &quot;jshint **.js&quot;</span><br><span class="line"></span><br><span class="line">&lt;!-- 向上面这句传参 --&gt;</span><br><span class="line"></span><br><span class="line">npm run lint --  --reporter checkstyle &gt; checkstyle.xml</span><br></pre></td></tr></table></figure>
-
-<p>也可以在 package.json 中封装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;lint&quot;: &quot;jshint **.js&quot;,</span><br><span class="line">&quot;lint:checkstyle&quot;: &quot;npm run lint -- --reporter checkstyle &gt; checkstyle.xml&quot;</span><br></pre></td></tr></table></figure>
-
-<p>这两个是同一个意思</p>
-<h3 id="npm-脚本执行顺序"><a href="#npm-脚本执行顺序" class="headerlink" title="npm 脚本执行顺序"></a>npm 脚本执行顺序</h3><p>如果在 npm 脚本中执行多个任务，那么需要明确他们的执行任务</p>
-<p>如果是同时执行，可以用 &amp;：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run script1.js &amp; npm run script2.js</span><br></pre></td></tr></table></figure>
-
-<p>如果是一个执行完才能执行下一个任务的话，就用 &amp;&amp;：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run script1.js &amp;&amp; npm run script2.js</span><br></pre></td></tr></table></figure>
-
-<h3 id="常用脚本示栗："><a href="#常用脚本示栗：" class="headerlink" title="常用脚本示栗："></a>常用脚本示栗：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 删除目录</span><br><span class="line">&quot;clean&quot;: &quot;rimraf dist/*&quot;,</span><br><span class="line"></span><br><span class="line">// 本地搭建一个 HTTP 服务</span><br><span class="line">&quot;serve&quot;: &quot;http-server -p 9090 dist/&quot;,</span><br><span class="line"></span><br><span class="line">// 打开浏览器</span><br><span class="line">&quot;open:dev&quot;: &quot;opener http://localhost:9090&quot;,</span><br><span class="line"></span><br><span class="line">// 实时刷新</span><br><span class="line"> &quot;livereload&quot;: &quot;live-reload --port 9091 dist/&quot;,</span><br><span class="line"></span><br><span class="line">// 构建 HTML 文件</span><br><span class="line">&quot;build:html&quot;: &quot;jade index.jade &gt; dist/index.html&quot;,</span><br><span class="line"></span><br><span class="line">// 只要 CSS 文件有变动，就重新执行构建</span><br><span class="line">&quot;watch:css&quot;: &quot;watch &apos;npm run build:css&apos; assets/styles/&quot;,</span><br><span class="line"></span><br><span class="line">// 只要 HTML 文件有变动，就重新执行构建</span><br><span class="line">&quot;watch:html&quot;: &quot;watch &apos;npm run build:html&apos; assets/html&quot;,</span><br><span class="line"></span><br><span class="line">// 部署到 Amazon S3</span><br><span class="line">&quot;deploy:prod&quot;: &quot;s3-cli sync ./dist/ s3://example-com/prod-site/&quot;,</span><br><span class="line"></span><br><span class="line">// 构建 favicon</span><br><span class="line">&quot;build:favicon&quot;: &quot;node scripts/favicon.js&quot;,</span><br></pre></td></tr></table></figure>
+        
       
     </div>
     
@@ -433,8 +392,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/初探babel/" rel="next" title="初探 babel">
-                <i class="fa fa-chevron-left"></i> 初探 babel
+              <a href="/大屏注意点/" rel="next" title="大屏注意点">
+                <i class="fa fa-chevron-left"></i> 大屏注意点
               </a>
             
           </div>
@@ -442,10 +401,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/全方位入门git/" rel="prev" title="全方位入门git">
-                全方位入门git <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -500,17 +455,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -564,22 +510,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是-npm-脚本"><span class="nav-number">1.</span> <span class="nav-text">什么是 npm 脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm-脚本原理"><span class="nav-number">2.</span> <span class="nav-text">npm 脚本原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm-脚本使用通配符"><span class="nav-number">3.</span> <span class="nav-text">npm 脚本使用通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm-脚本传参"><span class="nav-number">4.</span> <span class="nav-text">npm 脚本传参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm-脚本执行顺序"><span class="nav-number">5.</span> <span class="nav-text">npm 脚本执行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用脚本示栗："><span class="nav-number">6.</span> <span class="nav-text">常用脚本示栗：</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
